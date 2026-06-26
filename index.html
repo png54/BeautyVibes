@@ -9,7 +9,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Poppins:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -44,87 +44,6 @@
       --radius-xl: 48px;
       --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
       --transition-fast: all 0.2s ease;
-      --font-arabic: 'Noto Kufi Arabic', 'Poppins', sans-serif;
-    }
-
-    /* RTL Support */
-    html[dir="rtl"] {
-      direction: rtl;
-    }
-
-    html[dir="rtl"] .hero-text {
-      padding-right: 0;
-      padding-left: 20px;
-    }
-
-    html[dir="rtl"] .hero-eyebrow i {
-      margin-left: 8px;
-      margin-right: 0;
-    }
-
-    html[dir="rtl"] .hero-cta .btn-primary i,
-    html[dir="rtl"] .hero-cta .btn-outline i {
-      margin-left: 8px;
-      margin-right: 0;
-    }
-
-    html[dir="rtl"] .product-stars span {
-      margin-left: 0;
-      margin-right: 4px;
-    }
-
-    html[dir="rtl"] .footer-links a::before {
-      content: '←';
-    }
-
-    html[dir="rtl"] .footer-links a:hover {
-      padding-left: 0;
-      padding-right: 6px;
-    }
-
-    html[dir="rtl"] .faq-icon {
-      transform: rotate(0deg);
-    }
-
-    html[dir="rtl"] .faq-item.open .faq-icon {
-      transform: rotate(45deg);
-    }
-
-    html[dir="rtl"] .cart-item-delete {
-      margin-left: 0;
-      margin-right: auto;
-    }
-
-    html[dir="rtl"] .float-whatsapp-tooltip {
-      left: auto;
-      right: 68px;
-    }
-
-    html[dir="rtl"] .float-whatsapp:hover .float-whatsapp-tooltip {
-      transform: translateX(0);
-    }
-
-    /* Arabic font for body when RTL */
-    html[dir="rtl"] body {
-      font-family: var(--font-arabic);
-    }
-
-    html[dir="rtl"] .nav-brand,
-    html[dir="rtl"] .hero-title,
-    html[dir="rtl"] .section-title,
-    html[dir="rtl"] .footer-title,
-    html[dir="rtl"] .product-name,
-    html[dir="rtl"] .cart-head-title,
-    html[dir="rtl"] .modal-title,
-    html[dir="rtl"] .success-title,
-    html[dir="rtl"] .why-title,
-    html[dir="rtl"] .testimonial-text {
-      font-family: var(--font-arabic);
-    }
-
-    html[dir="rtl"] .loader-brand,
-    html[dir="rtl"] .hero-card-name {
-      font-family: var(--font-arabic);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -331,29 +250,6 @@
       gap: 12px;
     }
 
-    .lang-toggle {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(233, 30, 140, 0.08);
-      border: 1px solid rgba(233, 30, 140, 0.2);
-      border-radius: 50px;
-      padding: 6px 14px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--rose-pink);
-      transition: var(--transition-fast);
-      cursor: pointer;
-    }
-    .lang-toggle:hover {
-      background: var(--rose-pink);
-      color: white;
-      border-color: var(--rose-pink);
-    }
-    .lang-toggle i {
-      font-size: 0.7rem;
-    }
-
     .cart-btn {
       position: relative;
       width: 44px; height: 44px;
@@ -429,10 +325,6 @@
       border-radius: var(--radius-md);
     }
     .mobile-nav a:hover { color: var(--rose-pink); background: rgba(233, 30, 140, 0.07); }
-
-    html[dir="rtl"] .mobile-nav a {
-      font-family: var(--font-arabic);
-    }
 
     /* ============================================
        HERO SECTION
@@ -582,10 +474,6 @@
     }
     .stat-label { font-size: 0.75rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.5px; }
     .stat-divider { width: 1px; background: rgba(200, 169, 110, 0.3); }
-
-    html[dir="rtl"] .stat-label {
-      font-family: var(--font-arabic);
-    }
 
     /* Hero visual */
     .hero-visual {
@@ -1069,22 +957,6 @@
     }
     .cart-checkout-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(233, 30, 140, 0.45); }
 
-    html[dir="rtl"] .cart-drawer {
-      right: auto;
-      left: 0;
-      transform: translateX(-100%);
-    }
-    html[dir="rtl"] .cart-overlay.open .cart-drawer {
-      transform: translateX(0);
-    }
-    html[dir="rtl"] .cart-head-title i {
-      margin-left: 10px;
-      margin-right: 0;
-    }
-    html[dir="rtl"] .cart-item {
-      flex-direction: row-reverse;
-    }
-
     /* ============================================
        WHY US SECTION
     ============================================ */
@@ -1512,14 +1384,6 @@
     .footer-bottom a { color: var(--rose-pink); transition: var(--transition-fast); }
     .footer-bottom a:hover { text-decoration: underline; }
 
-    html[dir="rtl"] .footer-links a::before {
-      content: '←';
-    }
-    html[dir="rtl"] .footer-links a:hover {
-      padding-left: 0;
-      padding-right: 6px;
-    }
-
     /* ============================================
        FLOATING ELEMENTS
     ============================================ */
@@ -1626,10 +1490,6 @@
       .footer-bottom { flex-direction: column; text-align: center; }
       .form-row { grid-template-columns: 1fr; }
       .modal-body, .modal-head { padding-left: 24px; padding-right: 24px; }
-
-      html[dir="rtl"] .hero-text {
-        padding-left: 0;
-      }
     }
 
     @media (max-width: 480px) {
@@ -1676,14 +1536,6 @@
     .toast-icon { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.9rem; }
     .toast-success .toast-icon { background: rgba(76, 175, 80, 0.15); color: #4caf50; }
     .toast-text { font-size: 0.85rem; font-weight: 500; color: var(--text-primary); }
-
-    html[dir="rtl"] .toast-container {
-      right: auto;
-      left: 28px;
-    }
-    html[dir="rtl"] .toast {
-      flex-direction: row-reverse;
-    }
   </style>
 </head>
 <body>
@@ -1711,20 +1563,16 @@
     <div class="container">
       <div class="nav-inner">
         <a href="#" class="nav-brand">Beauty Vibes</a>
-        <div class="nav-links" id="navLinks">
-          <a href="#hero" data-key="nav_home">Accueil</a>
-          <a href="#products" data-key="nav_products">Produits</a>
-          <a href="#why-us" data-key="nav_why">Pourquoi Nous</a>
-          <a href="#testimonials" data-key="nav_testimonials">Avis Clients</a>
-          <a href="#faq" data-key="nav_faq">FAQ</a>
-          <a href="#order" id="navOrderBtn" data-key="nav_order">Commande</a>
-          <a href="#footer" data-key="nav_contact">Contact</a>
+        <div class="nav-links">
+          <a href="#hero">Accueil</a>
+          <a href="#products">Produits</a>
+          <a href="#why-us">Pourquoi Nous</a>
+          <a href="#testimonials">Avis Clients</a>
+          <a href="#faq">FAQ</a>
+          <a href="#order" id="navOrderBtn">Commande</a>
+          <a href="#footer">Contact</a>
         </div>
         <div class="nav-actions">
-          <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
-            <i class="fas fa-globe"></i>
-            <span id="langLabel">FR</span>
-          </button>
           <button class="cart-btn" id="cartToggle" aria-label="Panier">
             <i class="fas fa-bag-shopping"></i>
             <span class="cart-count" id="cartCount" style="display:none;">0</span>
@@ -1739,13 +1587,13 @@
 
   <!-- Mobile Nav -->
   <nav class="mobile-nav" id="mobileNav">
-    <a href="#hero" onclick="closeMobileNav()" data-key="nav_home">Accueil</a>
-    <a href="#products" onclick="closeMobileNav()" data-key="nav_products">Produits</a>
-    <a href="#why-us" onclick="closeMobileNav()" data-key="nav_why">Pourquoi Nous</a>
-    <a href="#testimonials" onclick="closeMobileNav()" data-key="nav_testimonials">Avis Clients</a>
-    <a href="#faq" onclick="closeMobileNav()" data-key="nav_faq">FAQ</a>
-    <a href="#order" onclick="closeMobileNav()" data-key="nav_order">Commande</a>
-    <a href="#footer" onclick="closeMobileNav()" data-key="nav_contact">Contact</a>
+    <a href="#hero" onclick="closeMobileNav()">Accueil</a>
+    <a href="#products" onclick="closeMobileNav()">Produits</a>
+    <a href="#why-us" onclick="closeMobileNav()">Pourquoi Nous</a>
+    <a href="#testimonials" onclick="closeMobileNav()">Avis Clients</a>
+    <a href="#faq" onclick="closeMobileNav()">FAQ</a>
+    <a href="#order" onclick="closeMobileNav()">Commande</a>
+    <a href="#footer" onclick="closeMobileNav()">Contact</a>
   </nav>
 
   <!-- ============ HERO ============ -->
@@ -1753,35 +1601,35 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-text">
-          <div class="hero-eyebrow"><i class="fas fa-star"></i> <span data-key="hero_eyebrow">Beauté Authentique & Premium</span></div>
+          <div class="hero-eyebrow"><i class="fas fa-star"></i> Beauté Authentique & Premium</div>
           <h1 class="hero-title">
-            <span data-key="hero_title_1">Reveal Your</span><br><em><span data-key="hero_title_2">Natural Beauty</span></em>
+            Reveal Your<br><em>Natural Beauty</em>
           </h1>
-          <p class="hero-subtitle" data-key="hero_subtitle">
+          <p class="hero-subtitle">
             Découvrez notre collection exclusive de soins solaires et de beauté, soigneusement sélectionnés pour révéler votre éclat naturel. Qualité premium, livraison rapide en Algérie.
           </p>
           <div class="hero-cta">
-            <a href="#products" class="btn-primary"><i class="fas fa-sparkles"></i> <span data-key="hero_btn_shop">Shop Now</span></a>
-            <a href="#products" class="btn-outline"><i class="fas fa-arrow-right"></i> <span data-key="hero_btn_explore">Explore Products</span></a>
+            <a href="#products" class="btn-primary"><i class="fas fa-sparkles"></i> <span>Shop Now</span></a>
+            <a href="#products" class="btn-outline"><i class="fas fa-arrow-right"></i> <span>Explore Products</span></a>
           </div>
           <div class="hero-stats">
-            <div class="stat-item"><div class="stat-num">5K+</div><div class="stat-label" data-key="hero_stat_1">Clients Satisfaits</div></div>
+            <div class="stat-item"><div class="stat-num">5K+</div><div class="stat-label">Clients Satisfaits</div></div>
             <div class="stat-divider"></div>
-            <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label" data-key="hero_stat_2">Produits Authentiques</div></div>
+            <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Produits Authentiques</div></div>
             <div class="stat-divider"></div>
-            <div class="stat-item"><div class="stat-num">48h</div><div class="stat-label" data-key="hero_stat_3">Livraison Rapide</div></div>
+            <div class="stat-item"><div class="stat-num">48h</div><div class="stat-label">Livraison Rapide</div></div>
           </div>
         </div>
         <div class="hero-visual">
           <div class="hero-glow"></div>
           <div class="hero-card-main">
-            <img src="1.jfif" alt="Eucerin Sun Sensitive" loading="lazy" />
-            <div class="hero-card-label" data-key="hero_card_label">Bestseller</div>
+            <img src="1.jpg" alt="Eucerin Sun Sensitive" loading="lazy" />
+            <div class="hero-card-label">Bestseller</div>
             <div class="hero-card-name">Eucerin Sun Sensitive Protect</div>
             <div class="hero-card-price">1 850 DA</div>
           </div>
-          <div class="hero-badge hero-badge-1"><i class="fas fa-shield-check"></i> <span data-key="hero_badge_1">SPF 50+</span></div>
-          <div class="hero-badge hero-badge-2"><i class="fas fa-truck"></i> <span data-key="hero_badge_2">Livraison 48h</span></div>
+          <div class="hero-badge hero-badge-1"><i class="fas fa-shield-check"></i> SPF 50+</div>
+          <div class="hero-badge hero-badge-2"><i class="fas fa-truck"></i> Livraison 48h</div>
         </div>
       </div>
     </div>
@@ -1791,9 +1639,9 @@
   <section id="products">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-eyebrow"><i class="fas fa-leaf"></i> <span data-key="products_eyebrow">Notre Collection</span></div>
-        <h2 class="section-title"><span data-key="products_title_1">Nos</span> <span data-key="products_title_2">Produits Stars</span></h2>
-        <p class="section-desc" data-key="products_desc">Des soins solaires dermatologiques de haute qualité pour protéger et sublimer votre peau au quotidien.</p>
+        <div class="section-eyebrow"><i class="fas fa-leaf"></i> Notre Collection</div>
+        <h2 class="section-title">Nos <span>Produits Stars</span></h2>
+        <p class="section-desc">Des soins solaires dermatologiques de haute qualité pour protéger et sublimer votre peau au quotidien.</p>
         <div class="section-divider">
           <div class="divider-line"></div>
           <div class="divider-dot"></div>
@@ -1810,17 +1658,46 @@
   <section id="why-us">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-eyebrow"><i class="fas fa-heart"></i> <span data-key="why_eyebrow">Nos Engagements</span></div>
-        <h2 class="section-title"><span data-key="why_title_1">Pourquoi</span> <span data-key="why_title_2">Nous Choisir</span></h2>
-        <p class="section-desc" data-key="why_desc">Beauty Vibes, c'est une promesse de qualité, d'authenticité et d'un service irréprochable.</p>
+        <div class="section-eyebrow"><i class="fas fa-heart"></i> Nos Engagements</div>
+        <h2 class="section-title">Pourquoi <span>Nous Choisir</span></h2>
+        <p class="section-desc">Beauty Vibes, c'est une promesse de qualité, d'authenticité et d'un service irréprochable.</p>
         <div class="section-divider">
           <div class="divider-line"></div>
           <div class="divider-dot"></div>
           <div class="divider-line"></div>
         </div>
       </div>
-      <div class="why-grid" id="whyGrid">
-        <!-- Injected by JS -->
+      <div class="why-grid">
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon"><i class="fas fa-certificate"></i></div>
+          <div class="why-title">Produits Authentiques</div>
+          <div class="why-desc">Tous nos produits sont 100% originaux, importés directement des grandes marques dermatologiques mondiales.</div>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon"><i class="fas fa-sun"></i></div>
+          <div class="why-title">Protection Solaire</div>
+          <div class="why-desc">Des formules avancées SPF 50+ recommandées par les dermatologues pour une protection optimale.</div>
+        </div>
+        <div class="why-card reveal reveal-delay-3">
+          <div class="why-icon"><i class="fas fa-truck-fast"></i></div>
+          <div class="why-title">Livraison Rapide</div>
+          <div class="why-desc">Livraison express partout en Algérie sous 24 à 48 heures. Suivi en temps réel de votre commande.</div>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon"><i class="fas fa-money-bill-wave"></i></div>
+          <div class="why-title">Paiement à la Livraison</div>
+          <div class="why-desc">Payez uniquement à la réception de votre commande. Aucun risque, totale tranquillité d'esprit.</div>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon"><i class="fas fa-headset"></i></div>
+          <div class="why-title">Support Client</div>
+          <div class="why-desc">Notre équipe est disponible 7j/7 pour répondre à toutes vos questions et vous conseiller.</div>
+        </div>
+        <div class="why-card reveal reveal-delay-3">
+          <div class="why-icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="why-title">Qualité Garantie</div>
+          <div class="why-desc">Satisfait ou remboursé. Votre satisfaction est notre priorité absolue à chaque commande.</div>
+        </div>
       </div>
     </div>
   </section>
@@ -1829,17 +1706,40 @@
   <section id="testimonials">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-eyebrow"><i class="fas fa-quote-left"></i> <span data-key="testimonials_eyebrow">Témoignages</span></div>
-        <h2 class="section-title"><span data-key="testimonials_title_1">Ce Que Disent</span> <span data-key="testimonials_title_2">Nos Clients</span></h2>
-        <p class="section-desc" data-key="testimonials_desc">Des milliers de clients satisfaits partagent leur expérience Beauty Vibes.</p>
+        <div class="section-eyebrow"><i class="fas fa-quote-left"></i> Témoignages</div>
+        <h2 class="section-title">Ce Que Disent <span>Nos Clients</span></h2>
+        <p class="section-desc">Des milliers de clients satisfaits partagent leur expérience Beauty Vibes.</p>
         <div class="section-divider">
           <div class="divider-line"></div>
           <div class="divider-dot"></div>
           <div class="divider-line"></div>
         </div>
       </div>
-      <div class="testimonials-grid" id="testimonialsGrid">
-        <!-- Injected by JS -->
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">« L'Eucerin Sensitive Protect est absolument parfait pour ma peau sensible. Aucune irritation, fini la rougeur. Je commande déjà mon deuxième flacon ! »</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">S</div>
+            <div><div class="author-name">Sonia B.</div><div class="author-location">Alger</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">« Livraison en 24h à Oran, c'est impressionnant ! Les produits sont bien emballés et 100% authentiques. Le Vichy Anti-Age est un vrai coup de cœur. »</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">M</div>
+            <div><div class="author-name">Meriem K.</div><div class="author-location">Oran</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">« J'ai enfin trouvé la crème solaire parfaite pour ma peau grasse avec l'Avène Cleanance SPF 50+. Fini l'effet brillant ! Service client très professionnel. »</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">L</div>
+            <div><div class="author-name">Lina M.</div><div class="author-location">Constantine</div></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1848,17 +1748,51 @@
   <section id="faq">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-eyebrow"><i class="fas fa-circle-question"></i> <span data-key="faq_eyebrow">FAQ</span></div>
-        <h2 class="section-title"><span data-key="faq_title_1">Questions</span> <span data-key="faq_title_2">Fréquentes</span></h2>
-        <p class="section-desc" data-key="faq_desc">Tout ce que vous devez savoir sur nos produits et notre service.</p>
+        <div class="section-eyebrow"><i class="fas fa-circle-question"></i> FAQ</div>
+        <h2 class="section-title">Questions <span>Fréquentes</span></h2>
+        <p class="section-desc">Tout ce que vous devez savoir sur nos produits et notre service.</p>
         <div class="section-divider">
           <div class="divider-line"></div>
           <div class="divider-dot"></div>
           <div class="divider-line"></div>
         </div>
       </div>
-      <div class="faq-list" id="faqList">
-        <!-- Injected by JS -->
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <div class="faq-question">
+            <span class="faq-q-text">Comment puis-je passer une commande ?</span>
+            <div class="faq-icon"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">Sélectionnez vos produits, ajoutez-les au panier, puis cliquez sur "Commander". Remplissez le formulaire avec vos coordonnées et confirmez votre commande. Notre équipe vous contactera sous 24h pour confirmer la livraison.</div></div>
+        </div>
+        <div class="faq-item reveal reveal-delay-1">
+          <div class="faq-question">
+            <span class="faq-q-text">Quel est le délai de livraison ?</span>
+            <div class="faq-icon"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">Nous livrons partout en Algérie sous 24 à 48 heures ouvrables. Pour les wilayas éloignées, le délai peut être de 48 à 72 heures. Vous recevrez une notification avec le suivi de votre colis.</div></div>
+        </div>
+        <div class="faq-item reveal reveal-delay-2">
+          <div class="faq-question">
+            <span class="faq-q-text">Les produits sont-ils authentiques et originaux ?</span>
+            <div class="faq-icon"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">Absolument ! Tous nos produits sont 100% originaux et importés directement des distributeurs officiels. Nous offrons une garantie d'authenticité sur chaque article vendu sur Beauty Vibes.</div></div>
+        </div>
+        <div class="faq-item reveal reveal-delay-1">
+          <div class="faq-question">
+            <span class="faq-q-text">Comment fonctionne le paiement à la livraison ?</span>
+            <div class="faq-icon"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">Vous ne payez qu'à la réception de votre commande. Le livreur vous remet vos produits, vous vérifiez le contenu, et payez en espèces directement. Aucun prépaiement n'est requis.</div></div>
+        </div>
+        <div class="faq-item reveal reveal-delay-2">
+          <div class="faq-question">
+            <span class="faq-q-text">Puis-je retourner un produit si je ne suis pas satisfait ?</span>
+            <div class="faq-icon"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">Oui ! Si vous n'êtes pas entièrement satisfait, contactez-nous dans les 7 jours suivant la réception. Nous organisons le retour et le remboursement intégral sans frais supplémentaires.</div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -1869,7 +1803,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="#" class="nav-brand">Beauty Vibes</a>
-          <p class="footer-desc" data-key="footer_desc">Votre destination beauté premium en Algérie. Des soins authentiques, une livraison rapide, et un service qui vous ressemble.</p>
+          <p class="footer-desc">Votre destination beauté premium en Algérie. Des soins authentiques, une livraison rapide, et un service qui vous ressemble.</p>
           <div class="footer-social">
             <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -1878,35 +1812,35 @@
           </div>
         </div>
         <div>
-          <div class="footer-title" data-key="footer_nav_title">Navigation</div>
+          <div class="footer-title">Navigation</div>
           <div class="footer-links">
-            <a href="#hero" data-key="nav_home">Accueil</a>
-            <a href="#products" data-key="nav_products">Produits</a>
-            <a href="#why-us" data-key="nav_why">Pourquoi Nous</a>
-            <a href="#testimonials" data-key="nav_testimonials">Avis Clients</a>
-            <a href="#faq" data-key="nav_faq">FAQ</a>
+            <a href="#hero">Accueil</a>
+            <a href="#products">Produits</a>
+            <a href="#why-us">Pourquoi Nous</a>
+            <a href="#testimonials">Avis Clients</a>
+            <a href="#faq">FAQ</a>
           </div>
         </div>
         <div>
-          <div class="footer-title" data-key="footer_info_title">Informations</div>
+          <div class="footer-title">Informations</div>
           <div class="footer-links">
-            <a href="#" data-key="footer_privacy">Politique de confidentialité</a>
-            <a href="#" data-key="footer_terms">Conditions de vente</a>
-            <a href="#" data-key="footer_return">Politique de retour</a>
-            <a href="#" data-key="footer_about">À propos de nous</a>
+            <a href="#">Politique de confidentialité</a>
+            <a href="#">Conditions de vente</a>
+            <a href="#">Politique de retour</a>
+            <a href="#">À propos de nous</a>
           </div>
         </div>
         <div>
-          <div class="footer-title" data-key="footer_contact_title">Contact</div>
+          <div class="footer-title">Contact</div>
           <div class="footer-contact-item"><i class="fas fa-phone"></i><span>+213 5XX XXX XXX</span></div>
           <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>contact@beautyvibes.dz</span></div>
-          <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><span data-key="footer_whatsapp">WhatsApp disponible</span></div>
-          <div class="footer-contact-item"><i class="fas fa-clock"></i><span data-key="footer_hours">Lun–Sam : 9h – 20h</span></div>
+          <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><span>WhatsApp disponible</span></div>
+          <div class="footer-contact-item"><i class="fas fa-clock"></i><span>Lun–Sam : 9h – 20h</span></div>
         </div>
       </div>
       <div class="footer-bottom">
-        <span data-key="footer_copyright">© 2025 Beauty Vibes. Tous droits réservés.</span>
-        <span data-key="footer_heart">Fait avec <i class="fas fa-heart" style="color:var(--rose-pink)"></i> en Algérie</span>
+        <span>© 2025 Beauty Vibes. Tous droits réservés.</span>
+        <span>Fait avec <i class="fas fa-heart" style="color:var(--rose-pink)"></i> en Algérie</span>
       </div>
     </div>
   </footer>
@@ -1915,16 +1849,16 @@
   <div class="cart-overlay" id="cartOverlay">
     <div class="cart-drawer" id="cartDrawer">
       <div class="cart-head">
-        <div class="cart-head-title"><i class="fas fa-bag-shopping" style="color:var(--rose-pink);margin-right:10px"></i><span data-key="cart_title">Mon Panier</span></div>
+        <div class="cart-head-title"><i class="fas fa-bag-shopping" style="color:var(--rose-pink);margin-right:10px"></i>Mon Panier</div>
         <button class="cart-close" id="cartClose"><i class="fas fa-times"></i></button>
       </div>
       <div class="cart-body" id="cartBody"></div>
       <div class="cart-foot" id="cartFoot" style="display:none;">
         <div class="cart-summary">
-          <div class="cart-total-label" data-key="cart_total">Total</div>
+          <div class="cart-total-label">Total</div>
           <div class="cart-total-value" id="cartTotal">0 DA</div>
         </div>
-        <button class="cart-checkout-btn" id="checkoutBtn"><i class="fas fa-check-circle"></i> <span data-key="cart_checkout">Commander maintenant</span></button>
+        <button class="cart-checkout-btn" id="checkoutBtn"><i class="fas fa-check-circle"></i> Commander maintenant</button>
       </div>
     </div>
   </div>
@@ -1933,51 +1867,51 @@
   <div class="modal-overlay" id="orderModal">
     <div class="modal-box">
       <div class="modal-head">
-        <div class="modal-title"><span data-key="modal_title">Confirmer la Commande</span></div>
+        <div class="modal-title">Confirmer la Commande</div>
         <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
       </div>
       <div class="modal-body">
         <!-- Success screen -->
         <div class="success-screen" id="successScreen">
           <div class="success-icon"><i class="fas fa-check"></i></div>
-          <div class="success-title" data-key="success_title">Commande Confirmée !</div>
-          <p class="success-msg" data-key="success_msg">Merci pour votre confiance. Notre équipe vous contactera très bientôt pour confirmer la livraison de votre commande.</p>
-          <button class="success-close-btn" id="successClose"><i class="fas fa-heart"></i> <span data-key="success_btn">Continuer les achats</span></button>
+          <div class="success-title">Commande Confirmée !</div>
+          <p class="success-msg">Merci pour votre confiance. Notre équipe vous contactera très bientôt pour confirmer la livraison de votre commande.</p>
+          <button class="success-close-btn" id="successClose"><i class="fas fa-heart"></i> Continuer les achats</button>
         </div>
         <!-- Order form -->
         <div id="orderForm">
           <div class="modal-order-summary" id="modalSummary"></div>
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label" for="fPrenom"><span data-key="form_firstname">Prénom</span> <span>*</span></label>
-              <input type="text" id="fPrenom" class="form-input" placeholder="" data-key-placeholder="form_firstname_placeholder" />
-              <div class="field-error" id="errPrenom" data-key="err_firstname">Le prénom est requis.</div>
+              <label class="form-label" for="fPrenom">Prénom <span>*</span></label>
+              <input type="text" id="fPrenom" class="form-input" placeholder="Votre prénom" />
+              <div class="field-error" id="errPrenom">Le prénom est requis.</div>
             </div>
             <div class="form-group">
-              <label class="form-label" for="fNom"><span data-key="form_lastname">Nom</span> <span>*</span></label>
-              <input type="text" id="fNom" class="form-input" placeholder="" data-key-placeholder="form_lastname_placeholder" />
-              <div class="field-error" id="errNom" data-key="err_lastname">Le nom est requis.</div>
+              <label class="form-label" for="fNom">Nom <span>*</span></label>
+              <input type="text" id="fNom" class="form-input" placeholder="Votre nom" />
+              <div class="field-error" id="errNom">Le nom est requis.</div>
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label" for="fPhone"><span data-key="form_phone">Téléphone</span> <span>*</span></label>
-            <input type="tel" id="fPhone" class="form-input" placeholder="" data-key-placeholder="form_phone_placeholder" />
-            <div class="field-error" id="errPhone" data-key="err_phone">Numéro de téléphone invalide (10 chiffres requis).</div>
+            <label class="form-label" for="fPhone">Téléphone <span>*</span></label>
+            <input type="tel" id="fPhone" class="form-input" placeholder="0X XX XX XX XX" />
+            <div class="field-error" id="errPhone">Numéro de téléphone invalide (10 chiffres requis).</div>
           </div>
           <div class="form-group">
-            <label class="form-label" for="fWilaya"><span data-key="form_wilaya">Wilaya</span> <span>*</span></label>
+            <label class="form-label" for="fWilaya">Wilaya <span>*</span></label>
             <select id="fWilaya" class="form-select">
-              <option value="" data-key="form_wilaya_placeholder">-- Sélectionnez votre wilaya --</option>
+              <option value="">-- Sélectionnez votre wilaya --</option>
             </select>
-            <div class="field-error" id="errWilaya" data-key="err_wilaya">Veuillez sélectionner votre wilaya.</div>
+            <div class="field-error" id="errWilaya">Veuillez sélectionner votre wilaya.</div>
           </div>
           <div class="form-group">
-            <label class="form-label" for="fNote"><span data-key="form_note">Note (facultatif)</span></label>
-            <textarea id="fNote" class="form-textarea" placeholder="" data-key-placeholder="form_note_placeholder"></textarea>
+            <label class="form-label" for="fNote">Note (facultatif)</label>
+            <textarea id="fNote" class="form-textarea" placeholder="Adresse précise, indications, remarques..."></textarea>
           </div>
           <button class="btn-submit" id="submitOrder">
             <i class="fas fa-paper-plane"></i>
-            <span data-key="form_submit">Confirmer la commande</span>
+            Confirmer la commande
           </button>
         </div>
       </div>
@@ -1987,7 +1921,7 @@
   <!-- ============ FLOATING BUTTONS ============ -->
   <a href="https://wa.me/213500000000" target="_blank" class="float-whatsapp" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
-    <span class="float-whatsapp-tooltip" data-key="whatsapp_tooltip">Contactez-nous</span>
+    <span class="float-whatsapp-tooltip">Contactez-nous</span>
   </a>
   <button class="float-top" id="scrollTop" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></button>
 
@@ -2002,309 +1936,16 @@
     const GOOGLE_SCRIPT_URL = "PUT_YOUR_SCRIPT_URL_HERE";
 
     // ============================================
-    // TRANSLATIONS
-    // ============================================
-    const translations = {
-      fr: {
-        // Navigation
-        nav_home: "Accueil",
-        nav_products: "Produits",
-        nav_why: "Pourquoi Nous",
-        nav_testimonials: "Avis Clients",
-        nav_faq: "FAQ",
-        nav_order: "Commande",
-        nav_contact: "Contact",
-
-        // Hero
-        hero_eyebrow: "Beauté Authentique & Premium",
-        hero_title_1: "Reveal Your",
-        hero_title_2: "Natural Beauty",
-        hero_subtitle: "Découvrez notre collection exclusive de soins solaires et de beauté, soigneusement sélectionnés pour révéler votre éclat naturel. Qualité premium, livraison rapide en Algérie.",
-        hero_btn_shop: "Shop Now",
-        hero_btn_explore: "Explore Products",
-        hero_stat_1: "Clients Satisfaits",
-        hero_stat_2: "Produits Authentiques",
-        hero_stat_3: "Livraison Rapide",
-        hero_card_label: "Bestseller",
-        hero_badge_1: "SPF 50+",
-        hero_badge_2: "Livraison 48h",
-
-        // Products Section
-        products_eyebrow: "Notre Collection",
-        products_title_1: "Nos",
-        products_title_2: "Produits Stars",
-        products_desc: "Des soins solaires dermatologiques de haute qualité pour protéger et sublimer votre peau au quotidien.",
-
-        // Why Us Section
-        why_eyebrow: "Nos Engagements",
-        why_title_1: "Pourquoi",
-        why_title_2: "Nous Choisir",
-        why_desc: "Beauty Vibes, c'est une promesse de qualité, d'authenticité et d'un service irréprochable.",
-
-        // Testimonials Section
-        testimonials_eyebrow: "Témoignages",
-        testimonials_title_1: "Ce Que Disent",
-        testimonials_title_2: "Nos Clients",
-        testimonials_desc: "Des milliers de clients satisfaits partagent leur expérience Beauty Vibes.",
-
-        // FAQ Section
-        faq_eyebrow: "FAQ",
-        faq_title_1: "Questions",
-        faq_title_2: "Fréquentes",
-        faq_desc: "Tout ce que vous devez savoir sur nos produits et notre service.",
-
-        // Footer
-        footer_desc: "Votre destination beauté premium en Algérie. Des soins authentiques, une livraison rapide, et un service qui vous ressemble.",
-        footer_nav_title: "Navigation",
-        footer_info_title: "Informations",
-        footer_contact_title: "Contact",
-        footer_privacy: "Politique de confidentialité",
-        footer_terms: "Conditions de vente",
-        footer_return: "Politique de retour",
-        footer_about: "À propos de nous",
-        footer_whatsapp: "WhatsApp disponible",
-        footer_hours: "Lun–Sam : 9h – 20h",
-        footer_copyright: "© 2025 Beauty Vibes. Tous droits réservés.",
-        footer_heart: "Fait avec ❤️ en Algérie",
-
-        // Cart
-        cart_title: "Mon Panier",
-        cart_total: "Total",
-        cart_checkout: "Commander maintenant",
-        cart_empty: "Votre panier est vide.",
-        cart_empty_sub: "Ajoutez des produits pour commencer !",
-
-        // Modal
-        modal_title: "Confirmer la Commande",
-        modal_summary: "Récapitulatif",
-        success_title: "Commande Confirmée !",
-        success_msg: "Merci pour votre confiance. Notre équipe vous contactera très bientôt pour confirmer la livraison de votre commande.",
-        success_btn: "Continuer les achats",
-
-        // Form
-        form_firstname: "Prénom",
-        form_lastname: "Nom",
-        form_phone: "Téléphone",
-        form_wilaya: "Wilaya",
-        form_note: "Note (facultatif)",
-        form_submit: "Confirmer la commande",
-        form_firstname_placeholder: "Votre prénom",
-        form_lastname_placeholder: "Votre nom",
-        form_phone_placeholder: "0X XX XX XX XX",
-        form_wilaya_placeholder: "-- Sélectionnez votre wilaya --",
-        form_note_placeholder: "Adresse précise, indications, remarques...",
-        err_firstname: "Le prénom est requis.",
-        err_lastname: "Le nom est requis.",
-        err_phone: "Numéro de téléphone invalide (10 chiffres requis).",
-        err_wilaya: "Veuillez sélectionner votre wilaya.",
-
-        // Toast
-        toast_added: "ajouté au panier !",
-        toast_empty: "Votre panier est vide !",
-
-        // Whatsapp
-        whatsapp_tooltip: "Contactez-nous",
-
-        // Product labels
-        badge_bestseller: "🔥 Best Seller",
-        badge_new: "✨ Nouveau",
-        btn_add: "Ajouter",
-        product_price_suffix: " DA",
-
-        // Why items
-        why_1_title: "Produits Authentiques",
-        why_1_desc: "Tous nos produits sont 100% originaux, importés directement des grandes marques dermatologiques mondiales.",
-        why_2_title: "Protection Solaire",
-        why_2_desc: "Des formules avancées SPF 50+ recommandées par les dermatologues pour une protection optimale.",
-        why_3_title: "Livraison Rapide",
-        why_3_desc: "Livraison express partout en Algérie sous 24 à 48 heures. Suivi en temps réel de votre commande.",
-        why_4_title: "Paiement à la Livraison",
-        why_4_desc: "Payez uniquement à la réception de votre commande. Aucun risque, totale tranquillité d'esprit.",
-        why_5_title: "Support Client",
-        why_5_desc: "Notre équipe est disponible 7j/7 pour répondre à toutes vos questions et vous conseiller.",
-        why_6_title: "Qualité Garantie",
-        why_6_desc: "Satisfait ou remboursé. Votre satisfaction est notre priorité absolue à chaque commande.",
-
-        // Testimonials
-        testimonial_1_text: "« L'Eucerin Sensitive Protect est absolument parfait pour ma peau sensible. Aucune irritation, fini la rougeur. Je commande déjà mon deuxième flacon ! »",
-        testimonial_1_name: "Sonia B.",
-        testimonial_1_location: "Alger",
-        testimonial_2_text: "« Livraison en 24h à Oran, c'est impressionnant ! Les produits sont bien emballés et 100% authentiques. Le Vichy Anti-Age est un vrai coup de cœur. »",
-        testimonial_2_name: "Meriem K.",
-        testimonial_2_location: "Oran",
-        testimonial_3_text: "« J'ai enfin trouvé la crème solaire parfaite pour ma peau grasse avec l'Avène Cleanance SPF 50+. Fini l'effet brillant ! Service client très professionnel. »",
-        testimonial_3_name: "Lina M.",
-        testimonial_3_location: "Constantine",
-
-        // FAQ Items
-        faq_1_q: "Comment puis-je passer une commande ?",
-        faq_1_a: "Sélectionnez vos produits, ajoutez-les au panier, puis cliquez sur \"Commander\". Remplissez le formulaire avec vos coordonnées et confirmez votre commande. Notre équipe vous contactera sous 24h pour confirmer la livraison.",
-        faq_2_q: "Quel est le délai de livraison ?",
-        faq_2_a: "Nous livrons partout en Algérie sous 24 à 48 heures ouvrables. Pour les wilayas éloignées, le délai peut être de 48 à 72 heures. Vous recevrez une notification avec le suivi de votre colis.",
-        faq_3_q: "Les produits sont-ils authentiques et originaux ?",
-        faq_3_a: "Absolument ! Tous nos produits sont 100% originaux et importés directement des distributeurs officiels. Nous offrons une garantie d'authenticité sur chaque article vendu sur Beauty Vibes.",
-        faq_4_q: "Comment fonctionne le paiement à la livraison ?",
-        faq_4_a: "Vous ne payez qu'à la réception de votre commande. Le livreur vous remet vos produits, vous vérifiez le contenu, et payez en espèces directement. Aucun prépaiement n'est requis.",
-        faq_5_q: "Puis-je retourner un produit si je ne suis pas satisfait ?",
-        faq_5_a: "Oui ! Si vous n'êtes pas entièrement satisfait, contactez-nous dans les 7 jours suivant la réception. Nous organisons le retour et le remboursement intégral sans frais supplémentaires."
-      },
-      ar: {
-        // Navigation
-        nav_home: "الرئيسية",
-        nav_products: "المنتجات",
-        nav_why: "لماذا نحن",
-        nav_testimonials: "آراء العملاء",
-        nav_faq: "الأسئلة الشائعة",
-        nav_order: "طلب",
-        nav_contact: "اتصل بنا",
-
-        // Hero
-        hero_eyebrow: "جمال أصلي وفاخر",
-        hero_title_1: "أظهري",
-        hero_title_2: "جمالك الطبيعي",
-        hero_subtitle: "اكتشفي مجموعتنا الحصرية من العناية الشمسية ومنتجات التجميل، المختارة بعناية لإبراز جمالك الطبيعي. جودة فائقة، توصيل سريع في الجزائر.",
-        hero_btn_shop: "تسوق الآن",
-        hero_btn_explore: "استكشف المنتجات",
-        hero_stat_1: "عملاء راضون",
-        hero_stat_2: "منتجات أصلية",
-        hero_stat_3: "توصيل سريع",
-        hero_card_label: "الأكثر مبيعاً",
-        hero_badge_1: "حماية SPF 50+",
-        hero_badge_2: "توصيل خلال 48 ساعة",
-
-        // Products Section
-        products_eyebrow: "مجموعتنا",
-        products_title_1: "منتجاتنا",
-        products_title_2: "النجمة",
-        products_desc: "عناية شمسية جلدية عالية الجودة لحماية وتجميل بشرتك يومياً.",
-
-        // Why Us Section
-        why_eyebrow: "التزاماتنا",
-        why_title_1: "لماذا",
-        why_title_2: "تختارنا",
-        why_desc: "بيوتي فايبس، وعد بالجودة والأصالة والخدمة المثالية.",
-
-        // Testimonials Section
-        testimonials_eyebrow: "الشهادات",
-        testimonials_title_1: "ما يقوله",
-        testimonials_title_2: "عملاؤنا",
-        testimonials_desc: "آلاف العملاء الراضين يشاركون تجربتهم مع بيوتي فايبس.",
-
-        // FAQ Section
-        faq_eyebrow: "الأسئلة الشائعة",
-        faq_title_1: "الأسئلة",
-        faq_title_2: "الشائعة",
-        faq_desc: "كل ما تحتاج معرفته عن منتجاتنا وخدماتنا.",
-
-        // Footer
-        footer_desc: "وجهتك المفضلة للجمال الفاخر في الجزائر. عناية أصلية، توصيل سريع، وخدمة تناسبك.",
-        footer_nav_title: "التنقل",
-        footer_info_title: "معلومات",
-        footer_contact_title: "اتصل بنا",
-        footer_privacy: "سياسة الخصوصية",
-        footer_terms: "شروط البيع",
-        footer_return: "سياسة الإرجاع",
-        footer_about: "من نحن",
-        footer_whatsapp: "واتساب متاح",
-        footer_hours: "الإثنين–السبت : 9ص – 8م",
-        footer_copyright: "© 2025 بيوتي فايبس. جميع الحقوق محفوظة.",
-        footer_heart: "صُنع بـ ❤️ في الجزائر",
-
-        // Cart
-        cart_title: "سلة التسوق",
-        cart_total: "المجموع",
-        cart_checkout: "اطلب الآن",
-        cart_empty: "سلة التسوق فارغة.",
-        cart_empty_sub: "أضف منتجات للبدء!",
-
-        // Modal
-        modal_title: "تأكيد الطلب",
-        modal_summary: "ملخص الطلب",
-        success_title: "تم تأكيد الطلب!",
-        success_msg: "شكراً لثقتك. سيتصل بك فريقنا قريباً لتأكيد توصيل طلبك.",
-        success_btn: "مواصلة التسوق",
-
-        // Form
-        form_firstname: "الاسم الأول",
-        form_lastname: "اسم العائلة",
-        form_phone: "الهاتف",
-        form_wilaya: "الولاية",
-        form_note: "ملاحظة (اختياري)",
-        form_submit: "تأكيد الطلب",
-        form_firstname_placeholder: "اسمك الأول",
-        form_lastname_placeholder: "اسم عائلتك",
-        form_phone_placeholder: "0X XX XX XX XX",
-        form_wilaya_placeholder: "-- اختر ولايتك --",
-        form_note_placeholder: "العنوان الدقيق، تعليمات، ملاحظات...",
-        err_firstname: "الاسم الأول مطلوب.",
-        err_lastname: "اسم العائلة مطلوب.",
-        err_phone: "رقم الهاتف غير صحيح (10 أرقام مطلوبة).",
-        err_wilaya: "يرجى اختيار ولايتك.",
-
-        // Toast
-        toast_added: "تمت الإضافة إلى السلة!",
-        toast_empty: "سلة التسوق فارغة!",
-
-        // Whatsapp
-        whatsapp_tooltip: "تواصل معنا",
-
-        // Product labels
-        badge_bestseller: "🔥 الأكثر مبيعاً",
-        badge_new: "✨ جديد",
-        btn_add: "أضف",
-        product_price_suffix: " دج",
-
-        // Why items
-        why_1_title: "منتجات أصلية",
-        why_1_desc: "جميع منتجاتنا أصلية 100%، مستوردة مباشرة من كبرى ماركات الأمراض الجلدية العالمية.",
-        why_2_title: "حماية من الشمس",
-        why_2_desc: "تركيبات متطورة SPF 50+ موصى بها من قبل أطباء الجلدية لحماية مثالية.",
-        why_3_title: "توصيل سريع",
-        why_3_desc: "توصيل سريع في جميع أنحاء الجزائر خلال 24 إلى 48 ساعة. متابعة طلبك في الوقت الفعلي.",
-        why_4_title: "الدفع عند الاستلام",
-        why_4_desc: "ادفع فقط عند استلام طلبك. لا يوجد مخاطرة، راحة تامة.",
-        why_5_title: "دعم العملاء",
-        why_5_desc: "فريقنا متاح 7 أيام في الأسبوع للإجابة على جميع أسئلتك وتقديم النصح لك.",
-        why_6_title: "جودة مضمونة",
-        why_6_desc: "رضاك أو استرداد أموالك. رضاك هو أولويتنا المطلقة في كل طلب.",
-
-        // Testimonials
-        testimonial_1_text: "«يوسيرين صن بروتكت مثالي تماماً لبشرتي الحساسة. لا تهيج، اختفى الاحمرار. أطلب بالفعل الزجاجة الثانية!»",
-        testimonial_1_name: "سونيا ب.",
-        testimonial_1_location: "الجزائر",
-        testimonial_2_text: "«التوصيل خلال 24 ساعة إلى وهران، مذهل! المنتجات معبأة بشكل جيد وأصلية 100%. فيشي أنتي-آج محبوب حقاً.»",
-        testimonial_2_name: "مريم ك.",
-        testimonial_2_location: "وهران",
-        testimonial_3_text: "«وجدت أخيراً واقي الشمس المثالي لبشرتي الدهنية مع أفين كلينانس SPF 50+. انتهى اللمعان! خدمة العملاء محترفة جداً.»",
-        testimonial_3_name: "لينا م.",
-        testimonial_3_location: "قسنطينة",
-
-        // FAQ Items
-        faq_1_q: "كيف يمكنني تقديم طلب؟",
-        faq_1_a: "اختر منتجاتك، أضفها إلى السلة، ثم انقر على \"اطلب\". املأ النموذج ببياناتك وأكد طلبك. سيتصل بك فريقنا خلال 24 ساعة لتأكيد التوصيل.",
-        faq_2_q: "ما هو وقت التوصيل؟",
-        faq_2_a: "نوصل في جميع أنحاء الجزائر خلال 24 إلى 48 ساعة عمل. للولايات البعيدة، قد يستغرق 48 إلى 72 ساعة. ستتلقى إشعاراً مع تتبع طلبك.",
-        faq_3_q: "هل المنتجات أصلية؟",
-        faq_3_a: "بالتأكيد! جميع منتجاتنا أصلية 100% ومستوردة مباشرة من الموزعين الرسميين. نقدم ضمان الأصالة على كل منتج مباع في بيوتي فايبس.",
-        faq_4_q: "كيف يعمل الدفع عند الاستلام؟",
-        faq_4_a: "تدفع فقط عند استلام طلبك. يسلمك الموزع منتجاتك، تتحقق من المحتوى، وتدفع نقداً مباشرة. لا حاجة للدفع المسبق.",
-        faq_5_q: "هل يمكنني إرجاع منتج إذا لم أكن راضياً؟",
-        faq_5_a: "نعم! إذا لم تكن راضياً تماماً، اتصل بنا في غضون 7 أيام من الاستلام. نرتب الإرجاع واسترداد المبلغ بالكامل دون رسوم إضافية."
-      }
-    };
-
-    // ============================================
     // PRODUCT DATA
     // ============================================
     const products = [
       {
         id: 1,
         name: "Eucerin Sun Sensitive Protect",
-        name_ar: "يوسيرين صن بروتكت للبشرة الحساسة",
-        desc: "Protection supérieure pour peau sensible et sèche. Sans parfum, résistant à l'eau.",
-        desc_ar: "حماية فائقة للبشرة الحساسة والجافة. خالٍ من العطور، مقاوم للماء.",
+        desc: "Protection fائقة للبشرة الحساسة والجافة، خالٍ من العطور، مقاوم للماء.",
+        descFr: "Protection supérieure pour peau sensible et sèche. Sans parfum, résistant à l'eau.",
         price: 1850,
-        img: "1.jfif",
+        img: "1.jpg",
         badge: "bestseller",
         stars: 5,
         reviews: 128
@@ -2312,11 +1953,10 @@
       {
         id: 2,
         name: "Vichy Capital Soleil Anti-Age 3in1",
-        name_ar: "فيشي كابيتال سوليه مضاد للشيخوخة 3×1",
-        desc: "Protection solaire, anti-rides et éclat en une seule formule. Contient Niacinamide et Acide Hyaluronique.",
-        desc_ar: "حماية من الشمس، مضاد للتجاعيد وإشراق في تركيبة واحدة. يحتوي على النياسيناميد وحمض الهيالورونيك.",
+        desc: "Protection + anti-rides + éclat. Niacinamide & acide hyaluronique.",
+        descFr: "Protection solaire, anti-rides et éclat en une seule formule. Contient Niacinamide et Acide Hyaluronique.",
         price: 2200,
-        img: "2.jfif",
+        img: "2.jpg",
         badge: "new",
         stars: 5,
         reviews: 84
@@ -2324,11 +1964,10 @@
       {
         id: 3,
         name: "Vichy Capital Soleil Velvety Cream",
-        name_ar: "فيشي كابيتال سوليه كريم مخملي",
         desc: "Crème veloutée hydratante 24h, adaptée aux peaux sèches et sensibles.",
-        desc_ar: "كريم مخملي مرطب 24 ساعة، مناسب للبشرة الجافة والحساسة.",
+        descFr: "Crème veloutée hydratante 24h, adaptée aux peaux sèches et sensibles.",
         price: 1950,
-        img: "3.jfif",
+        img: "3.jpg",
         badge: "bestseller",
         stars: 5,
         reviews: 96
@@ -2336,11 +1975,10 @@
       {
         id: 4,
         name: "Avène Cleanance SPF 50+",
-        name_ar: "أفين كلينانس واقي شمس SPF 50+",
-        desc: "Écran solaire mat pour peau grasse et à tendance acnéique. Non comédogène.",
-        desc_ar: "واقي شمسي غير لامع للبشرة الدهنية والمعرضة لحب الشباب. غير كوميدوغيني.",
+        desc: "Écran solaire mat pour peau grasse et à tendance acnéique, non comédogène.",
+        descFr: "Écran solaire mat pour peau grasse et à tendance acnéique. Non comédogène.",
         price: 1780,
-        img: "4.jfif",
+        img: "4.jpg",
         badge: null,
         stars: 4,
         reviews: 67
@@ -2348,11 +1986,10 @@
       {
         id: 5,
         name: "Uriage Crème Extrême 90",
-        name_ar: "أورياج كريم إكستريم 90",
-        desc: "Protection maximale pour peau intolérante au soleil. Sans parfum, formule apaisante.",
-        desc_ar: "حماية قصوى للبشرة غير المتحملة للشمس. خالٍ من العطور، تركيبة مهدئة.",
+        desc: "Protection maximale pour peau intolérante au soleil. Sans parfum, apaisante.",
+        descFr: "Protection maximale pour peau intolérante au soleil. Sans parfum, formule apaisante.",
         price: 2050,
-        img: "5.jfif",
+        img: "5.jpg",
         badge: "new",
         stars: 5,
         reviews: 52
@@ -2381,150 +2018,24 @@
     // CART STATE
     // ============================================
     let cart = [];
-    let currentLang = 'fr';
 
     // ============================================
     // INIT
     // ============================================
     document.addEventListener('DOMContentLoaded', () => {
-      // Load saved language preference
-      const savedLang = localStorage.getItem('beauty_lang') || 'fr';
-      setLanguage(savedLang);
-
       initLoader();
       initBackground();
       initNavbar();
       initMobileNav();
       renderProducts();
-      renderWhyUs();
-      renderTestimonials();
-      renderFAQ();
       renderCart();
       initCartUI();
       initWilayas();
+      initFAQ();
       initScrollReveal();
       initScrollTop();
       initOrderModal();
-      initLangToggle();
-      updateUI();
     });
-
-    // ============================================
-    // LANGUAGE TOGGLE
-    // ============================================
-    function initLangToggle() {
-      document.getElementById('langToggle').addEventListener('click', () => {
-        const newLang = currentLang === 'fr' ? 'ar' : 'fr';
-        setLanguage(newLang);
-        localStorage.setItem('beauty_lang', newLang);
-        updateUI();
-      });
-    }
-
-    function setLanguage(lang) {
-      currentLang = lang;
-      document.getElementById('langLabel').textContent = lang.toUpperCase();
-      // Set RTL for Arabic
-      if (lang === 'ar') {
-        document.documentElement.setAttribute('dir', 'rtl');
-        document.documentElement.setAttribute('lang', 'ar');
-      } else {
-        document.documentElement.setAttribute('dir', 'ltr');
-        document.documentElement.setAttribute('lang', 'fr');
-      }
-    }
-
-    function updateUI() {
-      // Update all text elements with data-key attribute
-      const elements = document.querySelectorAll('[data-key]');
-      elements.forEach(el => {
-        const key = el.getAttribute('data-key');
-        const translation = translations[currentLang][key];
-        if (translation) {
-          // Check if element has child elements that might be affected
-          if (el.children.length === 0 || el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT') {
-            el.textContent = translation;
-          } else {
-            // For elements with mixed content (like hero title with em)
-            const childSpans = el.querySelectorAll('span[data-key]');
-            if (childSpans.length > 0) {
-              childSpans.forEach(span => {
-                const spanKey = span.getAttribute('data-key');
-                const spanTranslation = translations[currentLang][spanKey];
-                if (spanTranslation) span.textContent = spanTranslation;
-              });
-            } else {
-              el.textContent = translation;
-            }
-          }
-        }
-      });
-
-      // Update placeholder texts
-      const placeholders = document.querySelectorAll('[data-key-placeholder]');
-      placeholders.forEach(el => {
-        const key = el.getAttribute('data-key-placeholder');
-        const translation = translations[currentLang][key];
-        if (translation) {
-          el.placeholder = translation;
-        }
-      });
-
-      // Update product cards
-      renderProducts();
-      renderWhyUs();
-      renderTestimonials();
-      renderFAQ();
-      renderCart();
-
-      // Update cart empty message
-      updateCartEmptyMessage();
-
-      // Update modal summary
-      if (document.getElementById('orderModal').classList.contains('open')) {
-        updateModalSummary();
-      }
-
-      // Update success messages
-      updateSuccessMessages();
-
-      // Update error messages
-      updateErrorMessages();
-    }
-
-    function updateCartEmptyMessage() {
-      const emptyDiv = document.querySelector('.cart-empty');
-      if (emptyDiv) {
-        const p = emptyDiv.querySelectorAll('p');
-        if (p.length >= 2) {
-          p[0].textContent = translations[currentLang].cart_empty;
-          p[1].textContent = translations[currentLang].cart_empty_sub;
-        }
-      }
-    }
-
-    function updateSuccessMessages() {
-      const successScreen = document.getElementById('successScreen');
-      if (successScreen) {
-        const title = successScreen.querySelector('.success-title');
-        const msg = successScreen.querySelector('.success-msg');
-        const btn = successScreen.querySelector('.success-close-btn span');
-        if (title) title.textContent = translations[currentLang].success_title;
-        if (msg) msg.textContent = translations[currentLang].success_msg;
-        if (btn) btn.textContent = translations[currentLang].success_btn;
-      }
-    }
-
-    function updateErrorMessages() {
-      const errors = document.querySelectorAll('.field-error');
-      errors.forEach(el => {
-        const key = el.getAttribute('data-key');
-        if (key) {
-          const translation = translations[currentLang][key];
-          if (translation) el.textContent = translation;
-        }
-      });
-    }
 
     // ============================================
     // LOADER
@@ -2616,142 +2127,32 @@
     // ============================================
     function renderProducts() {
       const grid = document.getElementById('productsGrid');
-      const lang = currentLang;
-      const isArabic = lang === 'ar';
-
-      grid.innerHTML = products.map((p, i) => {
-        const name = isArabic ? p.name_ar : p.name;
-        const desc = isArabic ? p.desc_ar : p.desc;
-        const badgeText = p.badge === 'bestseller' 
-          ? (isArabic ? translations.ar.badge_bestseller : translations.fr.badge_bestseller)
-          : p.badge === 'new'
-          ? (isArabic ? translations.ar.badge_new : translations.fr.badge_new)
-          : '';
-        const badgeClass = p.badge === 'bestseller' ? 'badge-bestseller' : 'badge-new';
-        const addText = isArabic ? translations.ar.btn_add : translations.fr.btn_add;
-
-        return `
-          <div class="product-card reveal reveal-delay-${(i % 4) + 1}" data-id="${p.id}">
-            <div class="product-img-wrapper">
-              <img src="${p.img}" alt="${name}" loading="lazy" />
-              ${p.badge ? `<div class="product-badge ${badgeClass}">${badgeText}</div>` : ''}
-              <div class="product-actions">
-                <button class="product-action-btn" title="${isArabic ? 'معاينة سريعة' : 'Aperçu rapide'}"><i class="fas fa-eye"></i></button>
-              </div>
-            </div>
-            <div class="product-body">
-              <div class="product-stars">
-                ${Array(5).fill(0).map((_, si) => `<i class="fa${si < p.stars ? 's' : 'r'} fa-star"></i>`).join('')}
-                <span>(${p.reviews})</span>
-              </div>
-              <div class="product-name">${name}</div>
-              <div class="product-desc">${desc}</div>
-              <div class="product-footer">
-                <div class="product-price">${p.price.toLocaleString('fr-DZ')}<span> ${isArabic ? translations.ar.product_price_suffix : translations.fr.product_price_suffix}</span></div>
-                <button class="add-to-cart-btn" onclick="addToCart(${p.id})">
-                  <i class="fas fa-plus"></i>
-                  <span>${addText}</span>
-                </button>
-              </div>
+      grid.innerHTML = products.map((p, i) => `
+        <div class="product-card reveal reveal-delay-${(i % 4) + 1}" data-id="${p.id}">
+          <div class="product-img-wrapper">
+            <img src="${p.img}" alt="${p.name}" loading="lazy" />
+            ${p.badge ? `<div class="product-badge badge-${p.badge}">${p.badge === 'bestseller' ? '🔥 Best Seller' : '✨ Nouveau'}</div>` : ''}
+            <div class="product-actions">
+              <button class="product-action-btn" title="Aperçu rapide"><i class="fas fa-eye"></i></button>
             </div>
           </div>
-        `;
-      }).join('');
-    }
-
-    // ============================================
-    // RENDER WHY US
-    // ============================================
-    function renderWhyUs() {
-      const grid = document.getElementById('whyGrid');
-      const lang = currentLang;
-      const isArabic = lang === 'ar';
-
-      const whyItems = [
-        { icon: 'fa-certificate', key: 'why_1' },
-        { icon: 'fa-sun', key: 'why_2' },
-        { icon: 'fa-truck-fast', key: 'why_3' },
-        { icon: 'fa-money-bill-wave', key: 'why_4' },
-        { icon: 'fa-headset', key: 'why_5' },
-        { icon: 'fa-shield-halved', key: 'why_6' }
-      ];
-
-      grid.innerHTML = whyItems.map((item, i) => {
-        const title = translations[lang][`${item.key}_title`];
-        const desc = translations[lang][`${item.key}_desc`];
-        return `
-          <div class="why-card reveal reveal-delay-${(i % 3) + 1}">
-            <div class="why-icon"><i class="fas ${item.icon}"></i></div>
-            <div class="why-title">${title}</div>
-            <div class="why-desc">${desc}</div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    // ============================================
-    // RENDER TESTIMONIALS
-    // ============================================
-    function renderTestimonials() {
-      const grid = document.getElementById('testimonialsGrid');
-      const lang = currentLang;
-      const isArabic = lang === 'ar';
-
-      const testimonialData = [
-        { key: 'testimonial_1', initials: 'S' },
-        { key: 'testimonial_2', initials: 'M' },
-        { key: 'testimonial_3', initials: 'L' }
-      ];
-
-      grid.innerHTML = testimonialData.map((item, i) => {
-        const text = translations[lang][`${item.key}_text`];
-        const name = translations[lang][`${item.key}_name`];
-        const location = translations[lang][`${item.key}_location`];
-        return `
-          <div class="testimonial-card reveal reveal-delay-${(i % 3) + 1}">
-            <div class="testimonial-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <div class="product-body">
+            <div class="product-stars">
+              ${Array(5).fill(0).map((_, si) => `<i class="fa${si < p.stars ? 's' : 'r'} fa-star"></i>`).join('')}
+              <span>(${p.reviews})</span>
             </div>
-            <p class="testimonial-text">${text}</p>
-            <div class="testimonial-author">
-              <div class="author-avatar">${item.initials}</div>
-              <div><div class="author-name">${name}</div><div class="author-location">${location}</div></div>
+            <div class="product-name">${p.name}</div>
+            <div class="product-desc">${p.descFr}</div>
+            <div class="product-footer">
+              <div class="product-price">${p.price.toLocaleString('fr-DZ')}<span> DA</span></div>
+              <button class="add-to-cart-btn" onclick="addToCart(${p.id})">
+                <i class="fas fa-plus"></i>
+                <span>Ajouter</span>
+              </button>
             </div>
           </div>
-        `;
-      }).join('');
-    }
-
-    // ============================================
-    // RENDER FAQ
-    // ============================================
-    function renderFAQ() {
-      const list = document.getElementById('faqList');
-      const lang = currentLang;
-
-      const faqData = [1, 2, 3, 4, 5];
-      list.innerHTML = faqData.map((num, i) => {
-        const q = translations[lang][`faq_${num}_q`];
-        const a = translations[lang][`faq_${num}_a`];
-        return `
-          <div class="faq-item reveal ${i === 0 ? 'open' : ''}">
-            <div class="faq-question">
-              <span class="faq-q-text">${q}</span>
-              <div class="faq-icon"><i class="fas fa-plus"></i></div>
-            </div>
-            <div class="faq-answer"><div class="faq-answer-inner">${a}</div></div>
-          </div>
-        `;
-      }).join('');
-
-      // Re-initialize FAQ click events
-      document.querySelectorAll('.faq-item').forEach(item => {
-        item.querySelector('.faq-question').addEventListener('click', function() {
-          const isOpen = item.classList.contains('open');
-          document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-          if (!isOpen) item.classList.add('open');
-        });
-      });
+        </div>
+      `).join('');
     }
 
     // ============================================
@@ -2767,8 +2168,7 @@
         cart.push({ ...product, qty: 1 });
       }
       updateCartUI();
-      const name = currentLang === 'ar' ? product.name_ar : product.name;
-      showToast(`${name.substring(0, 24)}… ${translations[currentLang].toast_added}`);
+      showToast(`${product.name.substring(0, 24)}… ajouté au panier !`);
       // Ripple on button
       const btns = document.querySelectorAll(`.product-card[data-id="${productId}"] .add-to-cart-btn`);
       btns.forEach(btn => {
@@ -2818,38 +2218,33 @@
       const body = document.getElementById('cartBody');
       const foot = document.getElementById('cartFoot');
       const total = document.getElementById('cartTotal');
-      const lang = currentLang;
-      const isArabic = lang === 'ar';
 
       if (cart.length === 0) {
         body.innerHTML = `
           <div class="cart-empty">
             <i class="fas fa-bag-shopping"></i>
-            <p>${translations[lang].cart_empty}</p>
-            <p style="font-size:0.8rem">${translations[lang].cart_empty_sub}</p>
+            <p>Votre panier est vide.</p>
+            <p style="font-size:0.8rem">Ajoutez des produits pour commencer !</p>
           </div>`;
         foot.style.display = 'none';
       } else {
-        body.innerHTML = cart.map(item => {
-          const name = isArabic ? item.name_ar : item.name;
-          return `
-            <div class="cart-item" id="cart-item-${item.id}">
-              <img class="cart-item-img" src="${item.img}" alt="${name}" loading="lazy" />
-              <div class="cart-item-info">
-                <div class="cart-item-name">${name}</div>
-                <div class="cart-item-price">${(item.price * item.qty).toLocaleString('fr-DZ')} ${isArabic ? translations.ar.product_price_suffix : translations.fr.product_price_suffix}</div>
-                <div class="cart-qty">
-                  <button class="qty-btn" onclick="changeQty(${item.id}, -1)"><i class="fas fa-minus"></i></button>
-                  <span class="qty-num">${item.qty}</span>
-                  <button class="qty-btn" onclick="changeQty(${item.id}, 1)"><i class="fas fa-plus"></i></button>
-                </div>
+        body.innerHTML = cart.map(item => `
+          <div class="cart-item" id="cart-item-${item.id}">
+            <img class="cart-item-img" src="${item.img}" alt="${item.name}" loading="lazy" />
+            <div class="cart-item-info">
+              <div class="cart-item-name">${item.name}</div>
+              <div class="cart-item-price">${(item.price * item.qty).toLocaleString('fr-DZ')} DA</div>
+              <div class="cart-qty">
+                <button class="qty-btn" onclick="changeQty(${item.id}, -1)"><i class="fas fa-minus"></i></button>
+                <span class="qty-num">${item.qty}</span>
+                <button class="qty-btn" onclick="changeQty(${item.id}, 1)"><i class="fas fa-plus"></i></button>
               </div>
-              <button class="cart-item-delete" onclick="removeFromCart(${item.id})"><i class="fas fa-trash-can"></i></button>
             </div>
-          `;
-        }).join('');
+            <button class="cart-item-delete" onclick="removeFromCart(${item.id})"><i class="fas fa-trash-can"></i></button>
+          </div>
+        `).join('');
         foot.style.display = 'block';
-        total.textContent = getCartTotal().toLocaleString('fr-DZ') + (isArabic ? translations.ar.product_price_suffix : translations.fr.product_price_suffix);
+        total.textContent = getCartTotal().toLocaleString('fr-DZ') + ' DA';
       }
     }
 
@@ -2898,7 +2293,7 @@
     // ============================================
     function openOrderModal() {
       if (cart.length === 0) {
-        showToast(translations[currentLang].toast_empty, 'error');
+        showToast('Votre panier est vide !', 'error');
         return;
       }
       updateModalSummary();
@@ -2911,22 +2306,17 @@
 
     function updateModalSummary() {
       const summary = document.getElementById('modalSummary');
-      const lang = currentLang;
-      const isArabic = lang === 'ar';
-      const itemsHtml = cart.map(item => {
-        const name = isArabic ? item.name_ar : item.name;
-        return `
-          <div class="modal-summary-item">
-            <span>${name} × ${item.qty}</span>
-            <strong>${(item.price * item.qty).toLocaleString('fr-DZ')} ${isArabic ? translations.ar.product_price_suffix : translations.fr.product_price_suffix}</strong>
-          </div>`;
-      }).join('');
+      const itemsHtml = cart.map(item => `
+        <div class="modal-summary-item">
+          <span>${item.name} × ${item.qty}</span>
+          <strong>${(item.price * item.qty).toLocaleString('fr-DZ')} DA</strong>
+        </div>`).join('');
       summary.innerHTML = `
-        <div class="modal-summary-title"><i class="fas fa-receipt"></i> ${translations[lang].modal_summary}</div>
+        <div class="modal-summary-title"><i class="fas fa-receipt"></i> Récapitulatif</div>
         ${itemsHtml}
         <div class="modal-summary-item" style="font-weight:700;margin-top:4px">
-          <span>${translations[lang].cart_total}</span>
-          <strong style="font-size:1rem">${getCartTotal().toLocaleString('fr-DZ')} ${isArabic ? translations.ar.product_price_suffix : translations.fr.product_price_suffix}</strong>
+          <span>Total</span>
+          <strong style="font-size:1rem">${getCartTotal().toLocaleString('fr-DZ')} DA</strong>
         </div>`;
     }
 
@@ -2953,8 +2343,7 @@
       // Reset errors
       ['fPrenom','fNom','fPhone','fWilaya'].forEach(id => {
         document.getElementById(id).classList.remove('error');
-        const errId = 'err' + id.charAt(1).toUpperCase() + id.slice(2);
-        document.getElementById(errId).classList.remove('show');
+        document.getElementById('err' + id.charAt(1).toUpperCase() + id.slice(2)).classList.remove('show');
       });
 
       const prenom = document.getElementById('fPrenom').value.trim();
@@ -2974,13 +2363,13 @@
 
       if (!valid) return;
       if (cart.length === 0) {
-        showToast(translations[currentLang].toast_empty);
+        showToast('Votre panier est vide !');
         return;
       }
 
       const btn = document.getElementById('submitOrder');
       btn.disabled = true;
-      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + (currentLang === 'ar' ? 'جاري الإرسال...' : 'Envoi en cours...');
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
 
       const orderData = {
         prenom,
@@ -2988,10 +2377,9 @@
         phone,
         wilaya,
         note,
-        produits: cart.map(i => `${currentLang === 'ar' ? i.name_ar : i.name} x${i.qty}`).join(', '),
+        produits: cart.map(i => `${i.name} x${i.qty}`).join(', '),
         total: getCartTotal() + ' DA',
-        date: new Date().toLocaleString('fr-DZ'),
-        langue: currentLang
+        date: new Date().toLocaleString('fr-DZ')
       };
 
       // Send to Google Sheets
@@ -3009,7 +2397,7 @@
           cart = [];
           updateCartUI();
           btn.disabled = false;
-          btn.innerHTML = '<i class="fas fa-paper-plane"></i> ' + (currentLang === 'ar' ? translations.ar.form_submit : translations.fr.form_submit);
+          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Confirmer la commande';
         })
         .catch(() => {
           // Show success anyway (form data captured)
@@ -3018,13 +2406,26 @@
           cart = [];
           updateCartUI();
           btn.disabled = false;
-          btn.innerHTML = '<i class="fas fa-paper-plane"></i> ' + (currentLang === 'ar' ? translations.ar.form_submit : translations.fr.form_submit);
+          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Confirmer la commande';
         });
     }
 
     function showFieldError(inputId, errorId) {
       document.getElementById(inputId).classList.add('error');
       document.getElementById(errorId).classList.add('show');
+    }
+
+    // ============================================
+    // FAQ
+    // ============================================
+    function initFAQ() {
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+          document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+          if (!isOpen) item.classList.add('open');
+        });
+      });
     }
 
     // ============================================

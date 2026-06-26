@@ -2,546 +2,53 @@
 <html lang="fr" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Beauty Vibes • Éclat d'Élégance</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@500;600&family=El+Messiri:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Vibes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&family=El+Messiri:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: linear-gradient(135deg, #fce4ec 0%, #fce9f0 30%, #fdf2f5 60%, #fce4ec 100%);
-            font-family: 'Inter', sans-serif;
-            color: #3d1e2c;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 1.5rem;
-            background-attachment: fixed;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(255, 182, 193, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 160, 180, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(255, 192, 203, 0.15) 0%, transparent 60%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        body.rtl {
-            direction: rtl;
-            font-family: 'El Messiri', 'Inter', sans-serif;
-        }
-
-        body.rtl .brand h1 {
-            font-family: 'El Messiri', 'Playfair Display', serif;
-        }
-
-        body.rtl .product-name {
-            font-family: 'El Messiri', 'Inter', sans-serif;
-        }
-
-        body.rtl input,
-        body.rtl select {
-            text-align: right;
-            direction: rtl;
-        }
-
-        #phone {
-            direction: ltr !important;
-            text-align: left !important;
-        }
-
-        body.rtl .input-group label {
-            text-align: right;
-        }
-
-        body.rtl .error-message {
-            text-align: right;
-        }
-
-        .page-wrapper {
-            max-width: 900px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 3rem;
-            box-shadow: 0 30px 60px -15px rgba(255, 105, 135, 0.25),
-                        0 0 0 1px rgba(255, 255, 255, 0.8) inset;
-            padding: 2.5rem 2.2rem 2.5rem;
-            border: 1px solid rgba(255, 182, 193, 0.5);
-            position: relative;
-            z-index: 1;
-        }
-
-        .lang-switch-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1.8rem;
-            width: 100%;
-        }
-
-        .lang-switch {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 228, 235, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 3rem;
-            padding: 0.4rem;
-            border: 1px solid rgba(255, 160, 180, 0.5);
-            direction: ltr;
-            box-shadow: 0 4px 15px rgba(255, 105, 135, 0.1);
-        }
-
-        .lang-btn {
-            padding: 0.6rem 1.6rem;
-            border-radius: 2rem;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            background: transparent;
-            color: #b3446c;
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
-        }
-
-        .lang-btn.active {
-            background: linear-gradient(135deg, #e91e63, #f06292);
-            color: white;
-            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.35);
-            transform: scale(1.03);
-        }
-
-        .lang-btn:hover:not(.active) {
-            background: rgba(255, 182, 193, 0.5);
-            color: #c2185b;
-            transform: scale(1.02);
-        }
-
-        .brand {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .brand h1 {
-            font-family: 'Playfair Display', 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            background: linear-gradient(135deg, #e91e63, #f06292, #f48fb1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.3rem;
-            text-transform: uppercase;
-            filter: drop-shadow(0 2px 4px rgba(233, 30, 99, 0.2));
-        }
-
-        .brand .tagline {
-            font-size: 1.05rem;
-            font-weight: 400;
-            color: #c2185b;
-            letter-spacing: 1.5px;
-            border-top: 1px dashed rgba(233, 30, 99, 0.35);
-            display: inline-block;
-            padding-top: 0.6rem;
-            margin-top: 0.3rem;
-            font-style: italic;
-            opacity: 0.85;
-        }
-
-        body.rtl .brand .tagline {
-            font-style: normal;
-            letter-spacing: 0.5px;
-        }
-
-        .products-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: stretch;
-            gap: 1.5rem;
-            margin: 2rem 0 2.5rem;
-        }
-
-        .product-card {
-            flex: 1 1 160px;
-            min-width: 150px;
-            max-width: 170px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 2rem;
-            padding: 1.3rem 0.8rem 1.3rem;
-            box-shadow: 0 15px 30px -12px rgba(255, 105, 135, 0.2),
-                        0 0 0 1px rgba(255, 182, 193, 0.3) inset;
-            border: 1px solid rgba(255, 192, 203, 0.5);
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            border-color: #f48fb1;
-            box-shadow: 0 25px 40px -15px rgba(233, 30, 99, 0.3),
-                        0 0 0 1px rgba(244, 143, 177, 0.5) inset;
-            background: rgba(255, 255, 255, 0.85);
-        }
-
-        .product-card.selected {
-            border: 2.5px solid #e91e63;
-            background: rgba(255, 240, 245, 0.85);
-            box-shadow: 0 0 0 6px rgba(233, 30, 99, 0.1),
-                        0 20px 35px -12px rgba(233, 30, 99, 0.3);
-            transform: translateY(-4px);
-        }
-
-        .product-img {
-            width: 140px;
-            height: 140px;
-            border-radius: 1.8rem;
-            object-fit: cover;
-            background: linear-gradient(135deg, #fce4ec, #f8bbd0);
-            margin-bottom: 0.8rem;
-            box-shadow: 0 10px 25px rgba(233, 30, 99, 0.15);
-            transition: all 0.3s ease;
-        }
-
-        .product-card:hover .product-img {
-            transform: scale(1.04);
-            box-shadow: 0 15px 30px rgba(233, 30, 99, 0.25);
-        }
-
-        .product-card.selected .product-img {
-            box-shadow: 0 15px 35px rgba(233, 30, 99, 0.35);
-        }
-
-        .product-name {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: #5c1d36;
-            margin: 0.4rem 0 0.3rem;
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 0.3px;
-        }
-
-        .product-price {
-            font-weight: 700;
-            font-size: 1rem;
-            color: #e91e63;
-            background: linear-gradient(135deg, rgba(255, 228, 235, 0.8), rgba(252, 228, 236, 0.6));
-            padding: 0.3rem 1rem;
-            border-radius: 2rem;
-            display: inline-block;
-            margin-top: 0.2rem;
-            direction: ltr;
-            border: 1px solid rgba(244, 143, 177, 0.3);
-            box-shadow: 0 2px 8px rgba(233, 30, 99, 0.08);
-        }
-
-        .check-mark {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: linear-gradient(135deg, #e91e63, #f06292);
-            color: white;
-            border-radius: 50%;
-            width: 28px;
-            height: 28px;
-            font-size: 16px;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            box-shadow: 0 6px 15px rgba(233, 30, 99, 0.4);
-        }
-
-        body.rtl .check-mark {
-            right: auto;
-            left: 12px;
-        }
-
-        .product-card.selected .check-mark {
-            display: flex;
-            animation: popIn 0.3s ease;
-        }
-
-        @keyframes popIn {
-            0% { transform: scale(0); }
-            70% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-
-        .pricing-note {
-            background: linear-gradient(135deg, rgba(255, 228, 235, 0.6), rgba(252, 228, 236, 0.4));
-            backdrop-filter: blur(10px);
-            border-radius: 2rem;
-            padding: 0.9rem 1.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            font-size: 0.95rem;
-            color: #c2185b;
-            margin: 0.8rem 0 1.5rem;
-            border: 1px solid rgba(255, 182, 193, 0.5);
-            font-weight: 500;
-            box-shadow: 0 4px 12px rgba(233, 30, 99, 0.08);
-            text-align: center;
-            flex-wrap: wrap;
-        }
-
-        .pricing-note .price-ltr {
-            direction: ltr;
-            display: inline-block;
-            unicode-bidi: isolate;
-        }
-
-        .total-section {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 240, 245, 0.7));
-            backdrop-filter: blur(15px);
-            border-radius: 2rem;
-            padding: 1.5rem 2rem;
-            margin: 1.5rem 0 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            border: 1px solid rgba(255, 182, 193, 0.5);
-            box-shadow: 0 10px 30px -10px rgba(233, 30, 99, 0.15);
-        }
-
-        .total-label {
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: #5c1d36;
-        }
-
-        .total-price {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #e91e63;
-            letter-spacing: -0.3px;
-            direction: ltr;
-            text-shadow: 0 2px 4px rgba(233, 30, 99, 0.1);
-        }
-
-        .total-price span {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #c2185b;
-            margin-left: 0.2rem;
-        }
-
-        body.rtl .total-price span {
-            margin-left: 0;
-            margin-right: 0.2rem;
-        }
-
-        .form-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin: 1.5rem 0 1rem;
-        }
-
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.3rem;
-        }
-
-        .input-group label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #881c42;
-            letter-spacing: 0.3px;
-            text-align: left;
-        }
-
-        input, select {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 160, 180, 0.5);
-            border-radius: 1.3rem;
-            padding: 0.95rem 1.3rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            outline: none;
-            transition: all 0.3s ease;
-            color: #3d1e2c;
-            direction: ltr;
-            text-align: left;
-            box-shadow: 0 2px 8px rgba(233, 30, 99, 0.05) inset;
-        }
-
-        input:focus, select:focus {
-            border-color: #e91e63;
-            box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.08),
-                        0 2px 8px rgba(233, 30, 99, 0.05) inset;
-            background: rgba(255, 255, 255, 0.9);
-        }
-
-        #dairaSelect:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .double-input {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-        }
-
-        .double-input .input-group {
-            flex: 1 1 45%;
-        }
-
-        .location-row {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-        }
-
-        .location-row .input-group {
-            flex: 1 1 45%;
-        }
-
-        .submit-btn {
-            background: linear-gradient(135deg, #e91e63, #f06292, #f48fb1);
-            border: none;
-            color: white;
-            font-weight: 600;
-            font-size: 1.2rem;
-            padding: 1.2rem 2rem;
-            border-radius: 2.5rem;
-            width: 100%;
-            cursor: pointer;
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            letter-spacing: 1.5px;
-            margin-top: 0.8rem;
-            box-shadow: 0 12px 30px rgba(233, 30, 99, 0.35);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            font-family: 'Inter', sans-serif;
-            text-transform: uppercase;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .submit-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .submit-btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 18px 38px rgba(233, 30, 99, 0.45);
-        }
-
-        .submit-btn:disabled {
-            opacity: 0.5;
-            pointer-events: none;
-            background: linear-gradient(135deg, #e0b0c0, #d4a0b5);
-            border-color: rgba(200, 150, 170, 0.3);
-            box-shadow: none;
-            transform: none;
-        }
-
-        .error-message {
-            color: #d32f2f;
-            font-size: 0.85rem;
-            margin-top: 0.2rem;
-            display: none;
-            text-align: left;
-            background: rgba(255, 205, 210, 0.4);
-            padding: 0.5rem 1rem;
-            border-radius: 1rem;
-            border: 1px solid rgba(239, 154, 154, 0.4);
-        }
-
-        .success-message {
-            background: linear-gradient(135deg, rgba(232, 245, 233, 0.8), rgba(200, 230, 201, 0.6));
-            backdrop-filter: blur(10px);
-            color: #2e7d32;
-            padding: 1rem;
-            border-radius: 1.2rem;
-            text-align: center;
-            margin-top: 1rem;
-            display: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            border: 1px solid rgba(165, 214, 167, 0.5);
-            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.1);
-        }
-
-        @media (max-width: 600px) {
-            .page-wrapper {
-                padding: 1.8rem 1rem;
-            }
-            .products-grid {
-                gap: 0.8rem;
-            }
-            .product-card {
-                flex: 1 1 130px;
-                min-width: 125px;
-                max-width: 155px;
-                padding: 1rem 0.5rem;
-            }
-            .product-img {
-                width: 115px;
-                height: 115px;
-            }
-            .brand h1 {
-                font-size: 2.6rem;
-            }
-            .total-price {
-                font-size: 2rem;
-            }
-            .pricing-note {
-                font-size: 0.85rem;
-                padding: 0.8rem 1.2rem;
-            }
-        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:linear-gradient(135deg,#fce4ec,#fdf2f5,#fce4ec);font-family:'Inter',sans-serif;color:#3d1e2c;line-height:1.6;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:1.5rem}
+        body.rtl{direction:rtl;font-family:'El Messiri','Inter',sans-serif}
+        body.rtl input,body.rtl select{text-align:right;direction:rtl}
+        body.rtl .input-group label{text-align:right}
+        #phone{direction:ltr!important;text-align:left!important}
+        .page-wrapper{max-width:900px;width:100%;background:rgba(255,255,255,.85);backdrop-filter:blur(20px);border-radius:3rem;padding:2.5rem 2.2rem;box-shadow:0 30px 60px -15px rgba(255,105,135,.25);position:relative;z-index:1}
+        .lang-switch-wrapper{display:flex;justify-content:center;margin-bottom:1.8rem}
+        .lang-switch{display:flex;gap:.5rem;background:rgba(255,228,235,.7);border-radius:3rem;padding:.4rem;direction:ltr}
+        .lang-btn{padding:.6rem 1.6rem;border-radius:2rem;border:none;cursor:pointer;font-weight:600;font-size:.9rem;background:transparent;color:#b3446c;transition:.3s}
+        .lang-btn.active{background:linear-gradient(135deg,#e91e63,#f06292);color:#fff;transform:scale(1.03)}
+        .brand{text-align:center;margin-bottom:2.5rem}
+        .brand h1{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:700;background:linear-gradient(135deg,#e91e63,#f48fb1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase}
+        .brand .tagline{font-size:1rem;color:#c2185b;border-top:1px dashed rgba(233,30,99,.35);display:inline-block;padding-top:.6rem;margin-top:.3rem}
+        .products-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;margin:2rem 0}
+        .product-card{flex:1 1 160px;min-width:150px;max-width:170px;background:rgba(255,255,255,.7);border-radius:2rem;padding:1.3rem .8rem;border:1px solid rgba(255,192,203,.5);cursor:pointer;text-align:center;transition:.3s;position:relative}
+        .product-card:hover{transform:translateY(-8px);border-color:#f48fb1}
+        .product-card.selected{border:2.5px solid #e91e63;background:rgba(255,240,245,.85);box-shadow:0 0 0 6px rgba(233,30,99,.1)}
+        .product-img{width:140px;height:140px;border-radius:1.8rem;object-fit:cover;margin-bottom:.8rem;background:#fce4ec}
+        .product-card:hover .product-img{transform:scale(1.04)}
+        .product-name{font-weight:600;font-size:.95rem;color:#5c1d36;margin:.4rem 0}
+        .product-price{font-weight:700;color:#e91e63;background:rgba(255,228,235,.8);padding:.3rem 1rem;border-radius:2rem;direction:ltr;display:inline-block}
+        .check-mark{position:absolute;top:12px;right:12px;background:#e91e63;color:#fff;border-radius:50%;width:28px;height:28px;display:none;align-items:center;justify-content:center}
+        body.rtl .check-mark{right:auto;left:12px}
+        .product-card.selected .check-mark{display:flex}
+        .pricing-note{background:rgba(255,228,235,.6);border-radius:2rem;padding:.9rem 1.8rem;text-align:center;color:#c2185b;margin:1rem 0;font-weight:500}
+        .total-section{background:rgba(255,240,245,.7);border-radius:2rem;padding:1.5rem 2rem;display:flex;justify-content:space-between;margin:1.5rem 0;border:1px solid rgba(255,182,193,.5)}
+        .total-label{font-size:1.2rem;color:#5c1d36;font-weight:600}
+        .total-price{font-size:2.5rem;font-weight:700;color:#e91e63;direction:ltr}
+        .form-grid{display:flex;flex-direction:column;gap:1rem}
+        .input-group{display:flex;flex-direction:column;gap:.3rem}
+        .input-group label{font-size:.85rem;font-weight:600;color:#881c42;text-align:left}
+        input,select{background:rgba(255,255,255,.7);border:1px solid rgba(255,160,180,.5);border-radius:1.3rem;padding:.95rem 1.3rem;font-size:.95rem;outline:none;direction:ltr;text-align:left;transition:.3s}
+        input:focus,select:focus{border-color:#e91e63;box-shadow:0 0 0 4px rgba(233,30,99,.08)}
+        #dairaSelect:disabled{opacity:.5}
+        .double-input,.location-row{display:flex;gap:.8rem;flex-wrap:wrap}
+        .double-input .input-group,.location-row .input-group{flex:1 1 45%}
+        .submit-btn{background:linear-gradient(135deg,#e91e63,#f48fb1);color:#fff;border:none;font-size:1.2rem;font-weight:600;padding:1.2rem;border-radius:2.5rem;cursor:pointer;text-transform:uppercase;letter-spacing:1.5px;transition:.3s;box-shadow:0 12px 30px rgba(233,30,99,.35)}
+        .submit-btn:hover{transform:translateY(-3px)}
+        .submit-btn:disabled{opacity:.5;pointer-events:none;background:#e0b0c0;box-shadow:none}
+        .error-message{color:#d32f2f;font-size:.85rem;display:none;background:rgba(255,205,210,.4);padding:.5rem 1rem;border-radius:1rem}
+        .success-message{background:rgba(232,245,233,.8);color:#2e7d32;padding:1rem;border-radius:1.2rem;text-align:center;display:none}
+        @media(max-width:600px){.page-wrapper{padding:1.5rem 1rem}.product-img{width:115px;height:115px}.brand h1{font-size:2.6rem}.total-price{font-size:2rem}}
     </style>
 </head>
 <body>
@@ -552,436 +59,159 @@
                 <button class="lang-btn" id="btnAr" onclick="switchLanguage('ar')">🇩🇿 العربية</button>
             </div>
         </div>
-
         <div class="brand">
             <h1>Beauty Vibes</h1>
             <div class="tagline" id="tagline">Plus que la beauté • Un éclat qui inspire confiance</div>
         </div>
-
         <div class="products-grid" id="productsContainer">
-            <div class="product-card" data-id="1" data-name="Sérum Éclat" data-price="1500" onclick="toggleProduct(this)">
-                <span class="check-mark">✓</span>
-                <img src="1.jfif" alt="Sérum Éclat" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22 fill=%22%23fce4ec%22%3E%3Crect width=%22140%22 height=%22140%22 rx=%2225%22/%3E%3Ctext x=%2270%22 y=%2280%22 text-anchor=%22middle%22 fill=%22%23e91e63%22 font-size=%2218%22 font-weight=%22bold%22%3ESérum%3C/text%3E%3C/svg%3E'">
-                <span class="product-name">Sérum Éclat</span>
-                <span class="product-price">1 500 DA</span>
-            </div>
-            <div class="product-card" data-id="2" data-name="Crème Hydratante" data-price="1500" onclick="toggleProduct(this)">
-                <span class="check-mark">✓</span>
-                <img src="2.jfif" alt="Crème Hydratante" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22 fill=%22%23fce4ec%22%3E%3Crect width=%22140%22 height=%22140%22 rx=%2225%22/%3E%3Ctext x=%2270%22 y=%2280%22 text-anchor=%22middle%22 fill=%22%23e91e63%22 font-size=%2218%22 font-weight=%22bold%22%3ECrème%3C/text%3E%3C/svg%3E'">
-                <span class="product-name">Crème Hydratante</span>
-                <span class="product-price">1 500 DA</span>
-            </div>
-            <div class="product-card" data-id="3" data-name="Masque à l'Argile" data-price="1500" onclick="toggleProduct(this)">
-                <span class="check-mark">✓</span>
-                <img src="3.jfif" alt="Masque à l'Argile" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22 fill=%22%23fce4ec%22%3E%3Crect width=%22140%22 height=%22140%22 rx=%2225%22/%3E%3Ctext x=%2270%22 y=%2280%22 text-anchor=%22middle%22 fill=%22%23e91e63%22 font-size=%2218%22 font-weight=%22bold%22%3EMasque%3C/text%3E%3C/svg%3E'">
-                <span class="product-name">Masque à l'Argile</span>
-                <span class="product-price">1 500 DA</span>
-            </div>
-            <div class="product-card" data-id="4" data-name="Tonique Rafraîchissant" data-price="1500" onclick="toggleProduct(this)">
-                <span class="check-mark">✓</span>
-                <img src="4.jfif" alt="Tonique Rafraîchissant" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22 fill=%22%23fce4ec%22%3E%3Crect width=%22140%22 height=%22140%22 rx=%2225%22/%3E%3Ctext x=%2270%22 y=%2280%22 text-anchor=%22middle%22 fill=%22%23e91e63%22 font-size=%2218%22 font-weight=%22bold%22%3ETonique%3C/text%3E%3C/svg%3E'">
-                <span class="product-name">Tonique Rafraîchissant</span>
-                <span class="product-price">1 500 DA</span>
-            </div>
-            <div class="product-card" data-id="5" data-name="Baume à Lèvres" data-price="1500" onclick="toggleProduct(this)">
-                <span class="check-mark">✓</span>
-                <img src="5.jfif" alt="Baume à Lèvres" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22 fill=%22%23fce4ec%22%3E%3Crect width=%22140%22 height=%22140%22 rx=%2225%22/%3E%3Ctext x=%2270%22 y=%2280%22 text-anchor=%22middle%22 fill=%22%23e91e63%22 font-size=%2218%22 font-weight=%22bold%22%3EBaume%3C/text%3E%3C/svg%3E'">
-                <span class="product-name">Baume à Lèvres</span>
-                <span class="product-price">1 500 DA</span>
-            </div>
+            <div class="product-card" data-id="1" data-name="Sérum Éclat" data-price="1500" onclick="toggleProduct(this)"><span class="check-mark">✓</span><img src="1.jfif" class="product-img" onerror="this.style.background='#fce4ec'"><span class="product-name">Sérum Éclat</span><span class="product-price">1 500 DA</span></div>
+            <div class="product-card" data-id="2" data-name="Crème Hydratante" data-price="1500" onclick="toggleProduct(this)"><span class="check-mark">✓</span><img src="2.jfif" class="product-img" onerror="this.style.background='#fce4ec'"><span class="product-name">Crème Hydratante</span><span class="product-price">1 500 DA</span></div>
+            <div class="product-card" data-id="3" data-name="Masque à l'Argile" data-price="1500" onclick="toggleProduct(this)"><span class="check-mark">✓</span><img src="3.jfif" class="product-img" onerror="this.style.background='#fce4ec'"><span class="product-name">Masque à l'Argile</span><span class="product-price">1 500 DA</span></div>
+            <div class="product-card" data-id="4" data-name="Tonique Rafraîchissant" data-price="1500" onclick="toggleProduct(this)"><span class="check-mark">✓</span><img src="4.jfif" class="product-img" onerror="this.style.background='#fce4ec'"><span class="product-name">Tonique Rafraîchissant</span><span class="product-price">1 500 DA</span></div>
+            <div class="product-card" data-id="5" data-name="Baume à Lèvres" data-price="1500" onclick="toggleProduct(this)"><span class="check-mark">✓</span><img src="5.jfif" class="product-img" onerror="this.style.background='#fce4ec'"><span class="product-name">Baume à Lèvres</span><span class="product-price">1 500 DA</span></div>
         </div>
-
-        <div class="pricing-note" id="pricingNote">
-            <span>💖</span> <span id="pricingText">1 produit = <span class="price-ltr">1 500 DA</span> &nbsp;|&nbsp; 2 produits = <span class="price-ltr">3 000 DA</span> &nbsp;|&nbsp; 3 produits ou plus = <strong><span class="price-ltr">3 500 DA</span></strong></span>
-        </div>
-
-        <div class="total-section">
-            <span class="total-label" id="totalLabel">Total :</span>
-            <span class="total-price" id="totalDisplay">0 <span>DA</span></span>
-        </div>
-
-        <div class="form-grid" id="orderForm">
+        <div class="pricing-note"><span>💖</span> <span id="pricingText">1 = 1500 DA | 2 = 3000 DA | 3+ = <strong>3500 DA</strong></span></div>
+        <div class="total-section"><span class="total-label" id="totalLabel">Total :</span><span class="total-price" id="totalDisplay">0 <span>DA</span></span></div>
+        <div class="form-grid">
             <div class="double-input">
-                <div class="input-group">
-                    <label id="lblFirstName">Prénom</label>
-                    <input type="text" id="firstName" placeholder="Votre prénom" autocomplete="given-name">
-                </div>
-                <div class="input-group">
-                    <label id="lblLastName">Nom</label>
-                    <input type="text" id="lastName" placeholder="Votre nom" autocomplete="family-name">
-                </div>
+                <div class="input-group"><label id="lblFirstName">Prénom</label><input id="firstName" placeholder="Votre prénom"></div>
+                <div class="input-group"><label id="lblLastName">Nom</label><input id="lastName" placeholder="Votre nom"></div>
             </div>
-            <div class="input-group">
-                <label id="lblPhone">Numéro de téléphone</label>
-                <input type="tel" id="phone" placeholder="Ex: 0555 12 34 56" autocomplete="tel-national" dir="ltr">
-            </div>
+            <div class="input-group"><label id="lblPhone">Téléphone</label><input type="tel" id="phone" placeholder="Ex: 0555 12 34 56" dir="ltr"></div>
             <div class="location-row">
-                <div class="input-group">
-                    <label id="lblWilaya">Wilaya</label>
-                    <select id="wilayaSelect">
-                        <option value="" disabled selected id="defaultWilaya">-- Sélectionnez votre wilaya --</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label id="lblDaira">Daïra</label>
-                    <select id="dairaSelect" disabled>
-                        <option value="" disabled selected id="defaultDaira">-- Choisissez d'abord la wilaya --</option>
-                    </select>
-                </div>
+                <div class="input-group"><label id="lblWilaya">Wilaya</label><select id="wilayaSelect"><option value="" disabled selected>-- Sélectionnez --</option></select></div>
+                <div class="input-group"><label id="lblDaira">Daïra</label><select id="dairaSelect" disabled><option value="" disabled selected>-- Choisissez wilaya --</option></select></div>
             </div>
-            <div id="formError" class="error-message">Veuillez remplir tous les champs correctement.</div>
+            <div class="error-message" id="formError"></div>
             <button class="submit-btn" id="submitOrderBtn" disabled>Commander ✨</button>
-            <div id="successMessage" class="success-message">Votre commande a été envoyée avec succès ! Nous vous contacterons bientôt 🌿</div>
+            <div class="success-message" id="successMessage"></div>
         </div>
     </div>
 
     <script>
-        (function() {
-            const wilayasData = {
-                "01 - Adrar": ["Adrar", "Aoulef", "Aougrout", "Bordj Badji Mokhtar", "Charouine", "Fenoughil", "Reggane", "T'Sabit", "Timimoun", "Tinerkouk", "Zaouiet Kounta"],
-                "02 - Chlef": ["Chlef", "Abou El Hassan", "Aïn Merane", "Bénairia", "Boukadir", "El Karimia", "El Marsa", "Oued Fodda", "Ouled Ben Abdelkader", "Ouled Farès", "Taougrit", "Ténès", "Zeboudja"],
-                "03 - Laghouat": ["Laghouat", "Aflou", "Aïn Madhi", "Brida", "El Ghicha", "Gueltet Sidi Saâd", "Hassi R'Mel", "Ksar El Hirane", "Oued Morra", "Sidi Makhlouf"],
-                "04 - Oum El Bouaghi": ["Oum El Bouaghi", "Aïn Babouche", "Aïn Beïda", "Aïn Fakroun", "Aïn Kechra", "Aïn M'Lila", "Dhalaa", "F'Kirina", "Ksar Sbahi", "Meskiana", "Oued Nini", "Sigus"],
-                "05 - Batna": ["Batna", "Aïn Djasser", "Aïn Touta", "Arris", "Barika", "Bouhmama", "Chemora", "Djezzar", "El Madher", "Ichmoul", "Menaa", "Merouana", "N'Gaous", "Ouled Si Slimane", "Ras El Aioun", "Seggana", "Seriana", "Tazoult", "Théniet El Abed", "Timgad"],
-                "06 - Béjaïa": ["Béjaïa", "Adekar", "Akbou", "Amizour", "Aokas", "Barbacha", "Beni Maouche", "Chemini", "Darguina", "El Kseur", "Ighil Ali", "Kherrata", "Ouzellaguen", "Seddouk", "Sidi Aïch", "Souk El Ténine", "Tazmalt", "Tichy", "Timezrit"],
-                "07 - Biskra": ["Biskra", "Bordj Ben Azzouz", "Djemorah", "El Kantara", "El Outaya", "Foughala", "Lichana", "M'Chouneche", "Mekhadma", "Ouled Djellal", "Ourlal", "Sidi Khaled", "Sidi Okba", "Tolga", "Zeribet El Oued"],
-                "08 - Béchar": ["Béchar", "Abadla", "Béni Abbès", "Béni Ounif", "El Ouata", "Igli", "Kenadsa", "Kerzaz", "Lahmar", "Mogheul", "Ouled Khoudir", "Taghit"],
-                "09 - Blida": ["Blida", "Boufarik", "Bougara", "Bouinan", "Chebli", "Chiffa", "El Affroun", "Larbaâ", "Meftah", "Mouzaïa", "Oued El Alleug", "Ouled Yaïch"],
-                "10 - Bouira": ["Bouira", "Aïn Bessam", "Bechloul", "Bir Ghbalou", "Bordj Okhriss", "El Adjiba", "El Hachimia", "Haizer", "Kadiria", "Lakhdaria", "M'Chedallah", "Souk El Khemis", "Sour El Ghozlane"],
-                "11 - Tamanrasset": ["Tamanrasset", "Abalessa", "Idlès", "In Ghar", "In Guezzam", "In Salah", "Tazrouk", "Tin Zaouatine"],
-                "12 - Tébessa": ["Tébessa", "Bir El Ater", "Cheria", "El Aouinet", "El Kouif", "El Malabiod", "El Ogla", "Morsott", "Negrine", "Ouenza", "Oum Ali", "Saf Saf El Ouesra"],
-                "13 - Tlemcen": ["Tlemcen", "Aïn Tallout", "Bab El Assa", "Bensekrane", "Béni Boussaïd", "Béni Snous", "Chetouane", "Fellaoucene", "Ghazaouet", "Hennaya", "Maghnia", "Mansourah", "Marsa Ben M'Hidi", "Nedroma", "Ouled Mimoun", "Remchi", "Sabra", "Sebdou", "Sidi Djillali"],
-                "14 - Tiaret": ["Tiaret", "Aïn Deheb", "Aïn Kermes", "Dahmouni", "Frenda", "Hamadia", "Ksar Chellala", "Mahdia", "Mechraa Sfa", "Medroussa", "Meghila", "Oued Lili", "Rahouia", "Sougueur"],
-                "15 - Tizi Ouzou": ["Tizi Ouzou", "Aïn El Hammam", "Azazga", "Béni Douala", "Béni Yenni", "Boghni", "Bouzeguene", "Draâ Ben Khedda", "Draâ El Mizan", "Iferhounene", "Larbaâ Nath Irathen", "Maâtkas", "Makouda", "Mekla", "Ouacifs", "Ouaguenoun", "Tigzirt", "Tizi Gheniff"],
-                "16 - Alger": ["Alger Centre", "Bab El Oued", "Baraki", "Bir Mourad Raïs", "Birtouta", "Bouzareah", "Chéraga", "Dar El Beïda", "Draria", "El Harrach", "Hussein Dey", "Rouïba", "Sidi M'Hamed", "Zéralda"],
-                "17 - Djelfa": ["Djelfa", "Aïn El Ibel", "Aïn Oussara", "Birine", "Charef", "Dar Chioukh", "El Idrissia", "Faidh El Botma", "Hadj Sahary", "Hassi Bahbah", "Messaad", "Sidi Ladjel"],
-                "18 - Jijel": ["Jijel", "Ancer", "Bouraoui Belhadef", "Chekfa", "El Aouana", "El Milia", "Jijel", "Kaous", "Settara", "Sidi Maârouf", "Taher", "Ziama Mansouriah"],
-                "19 - Sétif": ["Sétif", "Aïn Arnat", "Aïn Azel", "Aïn El Kebira", "Aïn Oulmane", "Amoucha", "Babor", "Béni Aziz", "Béni Ourtilane", "Bir El Arch", "Bouandas", "Bougaa", "Djémila", "El Eulma", "Guenzet", "Guidjel", "Hammam Guergour", "Hammam Sokhna", "Maoklane", "Salah Bey"],
-                "20 - Saïda": ["Saïda", "Aïn El Hadjar", "El Hassasna", "Ouled Brahim", "Sidi Boubekeur", "Youb"],
-                "21 - Skikda": ["Skikda", "Aïn Bouziane", "Aïn Kechra", "Azzaba", "Ben Azzouz", "Collo", "El Hadaik", "El Harrouch", "Ouled Attia", "Oum Toub", "Ramdane Djamel", "Sidi Mezghiche", "Tamalous", "Zitouna"],
-                "22 - Sidi Bel Abbès": ["Sidi Bel Abbès", "Aïn El Berd", "Ben Badis", "Marhoum", "Mérine", "Mostefa Ben Brahim", "Moulay Slissen", "Ras El Ma", "Sfisef", "Sidi Ali Benyoub", "Sidi Ali Boussidi", "Sidi Lahcene", "Telagh", "Ténira", "Tessala"],
-                "23 - Annaba": ["Annaba", "Aïn El Berda", "Berrahal", "Chetaïbi", "El Bouni", "El Hadjar", "Oued El Aneb", "Seraïdi", "Treat"],
-                "24 - Guelma": ["Guelma", "Aïn Makhlouf", "Bouchegouf", "Guelaat Bou Sbaa", "Hammam Debagh", "Hammam N'Bails", "Héliopolis", "Khezaras", "Oued Zenati", "Roknia"],
-                "25 - Constantine": ["Constantine", "Aïn Abid", "Aïn Smara", "Beni Hamidane", "Didouche Mourad", "El Khroub", "Hamma Bouziane", "Ibn Ziad", "Zighoud Youcef"],
-                "26 - Médéa": ["Médéa", "Aïn Boucif", "Aziz", "Béni Slimane", "Berrouaghia", "Chahbounia", "Chellalat El Adhaoura", "El Azizia", "El Omaria", "Ksar El Boukhari", "Ouamri", "Ouled Antar", "Ouzera", "Seghouane", "Si Mahdjoub", "Sidi Naâmane", "Souaghi", "Tablat"],
-                "27 - Mostaganem": ["Mostaganem", "Achaacha", "Aïn Nouïssy", "Aïn Tédelès", "Bouguirat", "Hassi Mameche", "Kheir Eddine", "Mesra", "Sidi Ali", "Sidi Lakhdar"],
-                "28 - M'Sila": ["M'Sila", "Aïn El Hadjel", "Aïn El Melh", "Béni Ilmane", "Bou Saâda", "Chellal", "Djebel Messaad", "Hammam Dhalaa", "Khoubana", "Magra", "Medjedel", "Ouled Derradj", "Ouled Sidi Brahim", "Sidi Aïssa", "Sidi Ameur"],
-                "29 - Mascara": ["Mascara", "Aïn Fares", "Aïn Fekan", "Aouf", "Bouhanifia", "El Bordj", "Ghriss", "Hachem", "Mohammadia", "Oggaz", "Ouled Attia", "Sig", "Tighennif", "Tizi", "Zahana"],
-                "30 - Ouargla": ["Ouargla", "Aïn Beida", "El Hadjira", "Hassi Ben Abdellah", "Hassi Messaoud", "Megarine", "Mekhadma", "N'Goussa", "Rouissat", "Sidi Khouiled", "Taibet", "Témacine", "Touggourt"],
-                "31 - Oran": ["Oran", "Aïn El Turk", "Arzew", "Bethioua", "Bir El Djir", "Boutlélis", "Es Sénia", "Gdyel", "Hassi Bounif", "Mers El Kébir", "Oued Tlelat"],
-                "32 - El Bayadh": ["El Bayadh", "Boualem", "Bougtoub", "Boussemghoun", "Brézina", "Chellala", "El Kheiter", "Rogassa"],
-                "33 - Illizi": ["Illizi", "Bordj Omar Driss", "Debdeb", "Djanet", "In Aménas"],
-                "34 - Bordj Bou Arreridj": ["Bordj Bou Arreridj", "Aïn Taghrout", "Bir Kasdali", "Bordj Ghedir", "Bordj Zemmoura", "Djaafra", "El Hamadia", "El M'hir", "Ksar Ksour", "Mansoura", "Medjana", "Ras El Oued"],
-                "35 - Boumerdès": ["Boumerdès", "Boudouaou", "Bordj Ménaïel", "Dellys", "Isser", "Khemis El Khechna", "Naciria", "Thénia"],
-                "36 - El Tarf": ["El Tarf", "Aïn El Assel", "Ben M'Hidi", "Besbes", "Bouhadjar", "Bouteldja", "Chebaita Mokhtar", "Echatt", "El Kala", "Lac des Oiseaux", "Oum El Assel", "Souarekh", "Zitouna"],
-                "37 - Tindouf": ["Tindouf", "Oum El Assel"],
-                "38 - Tissemsilt": ["Tissemsilt", "Ammari", "Bordj Bou Naama", "Bordj El Emir Abdelkader", "Khémisti", "Lardjem", "Lazharia", "Théniet El Had"],
-                "39 - El Oued": ["El Oued", "Bayadha", "Ben Guecha", "Debila", "Djamaa", "El M'Ghair", "Guemar", "Hassi Khalifa", "Magrane", "Mih Ouansa", "Oum Touyour", "Reguiba", "Robbah", "Taleb Larbi"],
-                "40 - Khenchela": ["Khenchela", "Aïn Touila", "Babar", "Bouhmama", "Chechar", "El Hamma", "Kaïs", "M'Sara", "Ouled Rechache", "Taouzianat"],
-                "41 - Souk Ahras": ["Souk Ahras", "Aïn Soltane", "Bir Bouhouche", "Drea", "Haddada", "Khemissa", "M'Daourouch", "Mechroha", "Merahna", "Ouled Driss", "Oum El Adhaïm", "Safel El Ouiden", "Sedrata", "Taoura", "Zaarouria"],
-                "42 - Tipaza": ["Tipaza", "Aïn Tagourait", "Bou Ismaïl", "Cherchell", "Damous", "Fouka", "Gouraya", "Hadjout", "Koléa", "Sidi Amar"],
-                "43 - Mila": ["Mila", "Aïn Beida Harriche", "Aïn Tine", "Bouhatem", "Chelghoum Laïd", "Ferdjioua", "Grarem Gouga", "Oued Endja", "Rouached", "Sidi Mérouane", "Tadjenanet", "Tassadane Haddada", "Telerghma", "Terrai Bainen"],
-                "44 - Aïn Defla": ["Aïn Defla", "Aïn Bouyahia", "Aïn Lechiakh", "Bathia", "Bordj El Emir Khaled", "Boumedfaâ", "Djendel", "El Abadia", "El Amra", "El Attaf", "Hammam Righa", "Khemis Miliana", "Miliana", "Rouina"],
-                "45 - Naâma": ["Naâma", "Aïn Séfra", "Asla", "Mécheria", "Mekmen Ben Amar", "Moghrar", "Sfissifa"],
-                "46 - Aïn Témouchent": ["Aïn Témouchent", "Aïn Kihal", "Aïn Tolba", "Béni Saf", "El Amria", "El Malah", "Hammam Bou Hadjar", "Oued Sebbah", "Sidi Boumediene"],
-                "47 - Ghardaïa": ["Ghardaïa", "Berriane", "Bounoura", "Dhayet Bendhahoua", "El Atteuf", "El Guerara", "El Meniaa", "Hassi El Gara", "Mansoura", "Metlili", "Sebseb", "Zelfana"],
-                "48 - Relizane": ["Relizane", "Aïn Tarek", "Ammi Moussa", "Djidiouia", "El Hamadna", "El Matmar", "Mazouna", "Mendes", "Oued Rhiou", "Ramka", "Sidi Khettab", "Sidi M'Hamed Ben Ali", "Yellel", "Zemmora"],
-                "49 - El M'Ghair": ["El M'Ghair", "Djamaa", "El Oued", "M'Rara", "Oum Touyour", "Sidi Amrane", "Still", "Tendla"],
-                "50 - El Meniaa": ["El Meniaa", "Hassi El Gara"],
-                "51 - Ouled Djellal": ["Ouled Djellal", "Besbes", "Doucen", "Sidi Khaled"],
-                "52 - Bordj Baji Mokhtar": ["Bordj Badji Mokhtar", "Timiaouine"],
-                "53 - Béni Abbès": ["Béni Abbès", "Igli", "El Ouata", "Kerzaz", "Ouled Khoudir", "Tabelbala"],
-                "54 - Timimoun": ["Timimoun", "Aougrout", "Charouine", "Deldoul", "Ksar Kaddour", "Ouled Aïssa", "Ouled Saïd", "Tinerkouk"],
-                "55 - Touggourt": ["Touggourt", "M'Naguer", "Megarine", "Nezla", "Sidi Slimane", "Taibet", "Tebesbest", "Zaouïa El Abidia"],
-                "56 - Djanet": ["Djanet", "Bordj El Haouas"],
-                "57 - In Salah": ["In Salah", "Foggaret Ezzoua", "In Ghar"],
-                "58 - In Guezzam": ["In Guezzam", "Tin Zaouatine"]
-            };
+        // رابط Worker الخاص بك
+        const WORKER_URL = 'https://muddy-scene-f7c3.abdou2901200100.workers.dev';
 
-            const wilayaSelect = document.getElementById('wilayaSelect');
-            const dairaSelect = document.getElementById('dairaSelect');
+        const wilayasData={ "01 - Adrar":["Adrar","Aoulef","Aougrout","Bordj Badji Mokhtar","Charouine","Fenoughil","Reggane","T'Sabit","Timimoun","Tinerkouk","Zaouiet Kounta"],"02 - Chlef":["Chlef","Abou El Hassan","Aïn Merane","Bénairia","Boukadir","El Karimia","El Marsa","Oued Fodda","Ouled Ben Abdelkader","Ouled Farès","Taougrit","Ténès","Zeboudja"],"03 - Laghouat":["Laghouat","Aflou","Aïn Madhi","Brida","El Ghicha","Gueltet Sidi Saâd","Hassi R'Mel","Ksar El Hirane","Oued Morra","Sidi Makhlouf"],"04 - Oum El Bouaghi":["Oum El Bouaghi","Aïn Babouche","Aïn Beïda","Aïn Fakroun","Aïn Kechra","Aïn M'Lila","Dhalaa","F'Kirina","Ksar Sbahi","Meskiana","Oued Nini","Sigus"],"05 - Batna":["Batna","Aïn Djasser","Aïn Touta","Arris","Barika","Bouhmama","Chemora","Djezzar","El Madher","Ichmoul","Menaa","Merouana","N'Gaous","Ouled Si Slimane","Ras El Aioun","Seggana","Seriana","Tazoult","Théniet El Abed","Timgad"],"06 - Béjaïa":["Béjaïa","Adekar","Akbou","Amizour","Aokas","Barbacha","Beni Maouche","Chemini","Darguina","El Kseur","Ighil Ali","Kherrata","Ouzellaguen","Seddouk","Sidi Aïch","Souk El Ténine","Tazmalt","Tichy","Timezrit"],"07 - Biskra":["Biskra","Bordj Ben Azzouz","Djemorah","El Kantara","El Outaya","Foughala","Lichana","M'Chouneche","Mekhadma","Ouled Djellal","Ourlal","Sidi Khaled","Sidi Okba","Tolga","Zeribet El Oued"],"08 - Béchar":["Béchar","Abadla","Béni Abbès","Béni Ounif","El Ouata","Igli","Kenadsa","Kerzaz","Lahmar","Mogheul","Ouled Khoudir","Taghit"],"09 - Blida":["Blida","Boufarik","Bougara","Bouinan","Chebli","Chiffa","El Affroun","Larbaâ","Meftah","Mouzaïa","Oued El Alleug","Ouled Yaïch"],"10 - Bouira":["Bouira","Aïn Bessam","Bechloul","Bir Ghbalou","Bordj Okhriss","El Adjiba","El Hachimia","Haizer","Kadiria","Lakhdaria","M'Chedallah","Souk El Khemis","Sour El Ghozlane"],"11 - Tamanrasset":["Tamanrasset","Abalessa","Idlès","In Ghar","In Guezzam","In Salah","Tazrouk","Tin Zaouatine"],"12 - Tébessa":["Tébessa","Bir El Ater","Cheria","El Aouinet","El Kouif","El Malabiod","El Ogla","Morsott","Negrine","Ouenza","Oum Ali","Saf Saf El Ouesra"],"13 - Tlemcen":["Tlemcen","Aïn Tallout","Bab El Assa","Bensekrane","Béni Boussaïd","Béni Snous","Chetouane","Fellaoucene","Ghazaouet","Hennaya","Maghnia","Mansourah","Marsa Ben M'Hidi","Nedroma","Ouled Mimoun","Remchi","Sabra","Sebdou","Sidi Djillali"],"14 - Tiaret":["Tiaret","Aïn Deheb","Aïn Kermes","Dahmouni","Frenda","Hamadia","Ksar Chellala","Mahdia","Mechraa Sfa","Medroussa","Meghila","Oued Lili","Rahouia","Sougueur"],"15 - Tizi Ouzou":["Tizi Ouzou","Aïn El Hammam","Azazga","Béni Douala","Béni Yenni","Boghni","Bouzeguene","Draâ Ben Khedda","Draâ El Mizan","Iferhounene","Larbaâ Nath Irathen","Maâtkas","Makouda","Mekla","Ouacifs","Ouaguenoun","Tigzirt","Tizi Gheniff"],"16 - Alger":["Alger Centre","Bab El Oued","Baraki","Bir Mourad Raïs","Birtouta","Bouzareah","Chéraga","Dar El Beïda","Draria","El Harrach","Hussein Dey","Rouïba","Sidi M'Hamed","Zéralda"],"17 - Djelfa":["Djelfa","Aïn El Ibel","Aïn Oussara","Birine","Charef","Dar Chioukh","El Idrissia","Faidh El Botma","Hadj Sahary","Hassi Bahbah","Messaad","Sidi Ladjel"],"18 - Jijel":["Jijel","Ancer","Bouraoui Belhadef","Chekfa","El Aouana","El Milia","Jijel","Kaous","Settara","Sidi Maârouf","Taher","Ziama Mansouriah"],"19 - Sétif":["Sétif","Aïn Arnat","Aïn Azel","Aïn El Kebira","Aïn Oulmane","Amoucha","Babor","Béni Aziz","Béni Ourtilane","Bir El Arch","Bouandas","Bougaa","Djémila","El Eulma","Guenzet","Guidjel","Hammam Guergour","Hammam Sokhna","Maoklane","Salah Bey"],"20 - Saïda":["Saïda","Aïn El Hadjar","El Hassasna","Ouled Brahim","Sidi Boubekeur","Youb"],"21 - Skikda":["Skikda","Aïn Bouziane","Aïn Kechra","Azzaba","Ben Azzouz","Collo","El Hadaik","El Harrouch","Ouled Attia","Oum Toub","Ramdane Djamel","Sidi Mezghiche","Tamalous","Zitouna"],"22 - Sidi Bel Abbès":["Sidi Bel Abbès","Aïn El Berd","Ben Badis","Marhoum","Mérine","Mostefa Ben Brahim","Moulay Slissen","Ras El Ma","Sfisef","Sidi Ali Benyoub","Sidi Ali Boussidi","Sidi Lahcene","Telagh","Ténira","Tessala"],"23 - Annaba":["Annaba","Aïn El Berda","Berrahal","Chetaïbi","El Bouni","El Hadjar","Oued El Aneb","Seraïdi","Treat"],"24 - Guelma":["Guelma","Aïn Makhlouf","Bouchegouf","Guelaat Bou Sbaa","Hammam Debagh","Hammam N'Bails","Héliopolis","Khezaras","Oued Zenati","Roknia"],"25 - Constantine":["Constantine","Aïn Abid","Aïn Smara","Beni Hamidane","Didouche Mourad","El Khroub","Hamma Bouziane","Ibn Ziad","Zighoud Youcef"],"26 - Médéa":["Médéa","Aïn Boucif","Aziz","Béni Slimane","Berrouaghia","Chahbounia","Chellalat El Adhaoura","El Azizia","El Omaria","Ksar El Boukhari","Ouamri","Ouled Antar","Ouzera","Seghouane","Si Mahdjoub","Sidi Naâmane","Souaghi","Tablat"],"27 - Mostaganem":["Mostaganem","Achaacha","Aïn Nouïssy","Aïn Tédelès","Bouguirat","Hassi Mameche","Kheir Eddine","Mesra","Sidi Ali","Sidi Lakhdar"],"28 - M'Sila":["M'Sila","Aïn El Hadjel","Aïn El Melh","Béni Ilmane","Bou Saâda","Chellal","Djebel Messaad","Hammam Dhalaa","Khoubana","Magra","Medjedel","Ouled Derradj","Ouled Sidi Brahim","Sidi Aïssa","Sidi Ameur"],"29 - Mascara":["Mascara","Aïn Fares","Aïn Fekan","Aouf","Bouhanifia","El Bordj","Ghriss","Hachem","Mohammadia","Oggaz","Ouled Attia","Sig","Tighennif","Tizi","Zahana"],"30 - Ouargla":["Ouargla","Aïn Beida","El Hadjira","Hassi Ben Abdellah","Hassi Messaoud","Megarine","Mekhadma","N'Goussa","Rouissat","Sidi Khouiled","Taibet","Témacine","Touggourt"],"31 - Oran":["Oran","Aïn El Turk","Arzew","Bethioua","Bir El Djir","Boutlélis","Es Sénia","Gdyel","Hassi Bounif","Mers El Kébir","Oued Tlelat"],"32 - El Bayadh":["El Bayadh","Boualem","Bougtoub","Boussemghoun","Brézina","Chellala","El Kheiter","Rogassa"],"33 - Illizi":["Illizi","Bordj Omar Driss","Debdeb","Djanet","In Aménas"],"34 - Bordj Bou Arreridj":["Bordj Bou Arreridj","Aïn Taghrout","Bir Kasdali","Bordj Ghedir","Bordj Zemmoura","Djaafra","El Hamadia","El M'hir","Ksar Ksour","Mansoura","Medjana","Ras El Oued"],"35 - Boumerdès":["Boumerdès","Boudouaou","Bordj Ménaïel","Dellys","Isser","Khemis El Khechna","Naciria","Thénia"],"36 - El Tarf":["El Tarf","Aïn El Assel","Ben M'Hidi","Besbes","Bouhadjar","Bouteldja","Chebaita Mokhtar","Echatt","El Kala","Lac des Oiseaux","Oum El Assel","Souarekh","Zitouna"],"37 - Tindouf":["Tindouf","Oum El Assel"],"38 - Tissemsilt":["Tissemsilt","Ammari","Bordj Bou Naama","Bordj El Emir Abdelkader","Khémisti","Lardjem","Lazharia","Théniet El Had"],"39 - El Oued":["El Oued","Bayadha","Ben Guecha","Debila","Djamaa","El M'Ghair","Guemar","Hassi Khalifa","Magrane","Mih Ouansa","Oum Touyour","Reguiba","Robbah","Taleb Larbi"],"40 - Khenchela":["Khenchela","Aïn Touila","Babar","Bouhmama","Chechar","El Hamma","Kaïs","M'Sara","Ouled Rechache","Taouzianat"],"41 - Souk Ahras":["Souk Ahras","Aïn Soltane","Bir Bouhouche","Drea","Haddada","Khemissa","M'Daourouch","Mechroha","Merahna","Ouled Driss","Oum El Adhaïm","Safel El Ouiden","Sedrata","Taoura","Zaarouria"],"42 - Tipaza":["Tipaza","Aïn Tagourait","Bou Ismaïl","Cherchell","Damous","Fouka","Gouraya","Hadjout","Koléa","Sidi Amar"],"43 - Mila":["Mila","Aïn Beida Harriche","Aïn Tine","Bouhatem","Chelghoum Laïd","Ferdjioua","Grarem Gouga","Oued Endja","Rouached","Sidi Mérouane","Tadjenanet","Tassadane Haddada","Telerghma","Terrai Bainen"],"44 - Aïn Defla":["Aïn Defla","Aïn Bouyahia","Aïn Lechiakh","Bathia","Bordj El Emir Khaled","Boumedfaâ","Djendel","El Abadia","El Amra","El Attaf","Hammam Righa","Khemis Miliana","Miliana","Rouina"],"45 - Naâma":["Naâma","Aïn Séfra","Asla","Mécheria","Mekmen Ben Amar","Moghrar","Sfissifa"],"46 - Aïn Témouchent":["Aïn Témouchent","Aïn Kihal","Aïn Tolba","Béni Saf","El Amria","El Malah","Hammam Bou Hadjar","Oued Sebbah","Sidi Boumediene"],"47 - Ghardaïa":["Ghardaïa","Berriane","Bounoura","Dhayet Bendhahoua","El Atteuf","El Guerara","El Meniaa","Hassi El Gara","Mansoura","Metlili","Sebseb","Zelfana"],"48 - Relizane":["Relizane","Aïn Tarek","Ammi Moussa","Djidiouia","El Hamadna","El Matmar","Mazouna","Mendes","Oued Rhiou","Ramka","Sidi Khettab","Sidi M'Hamed Ben Ali","Yellel","Zemmora"],"49 - El M'Ghair":["El M'Ghair","Djamaa","El Oued","M'Rara","Oum Touyour","Sidi Amrane","Still","Tendla"],"50 - El Meniaa":["El Meniaa","Hassi El Gara"],"51 - Ouled Djellal":["Ouled Djellal","Besbes","Doucen","Sidi Khaled"],"52 - Bordj Baji Mokhtar":["Bordj Badji Mokhtar","Timiaouine"],"53 - Béni Abbès":["Béni Abbès","Igli","El Ouata","Kerzaz","Ouled Khoudir","Tabelbala"],"54 - Timimoun":["Timimoun","Aougrout","Charouine","Deldoul","Ksar Kaddour","Ouled Aïssa","Ouled Saïd","Tinerkouk"],"55 - Touggourt":["Touggourt","M'Naguer","Megarine","Nezla","Sidi Slimane","Taibet","Tebesbest","Zaouïa El Abidia"],"56 - Djanet":["Djanet","Bordj El Haouas"],"57 - In Salah":["In Salah","Foggaret Ezzoua","In Ghar"],"58 - In Guezzam":["In Guezzam","Tin Zaouatine"] };
 
-            function populateWilayas(lang) {
-                wilayaSelect.innerHTML = '';
-                const defaultOption = document.createElement('option');
-                defaultOption.value = '';
-                defaultOption.disabled = true;
-                defaultOption.selected = true;
-                defaultOption.textContent = lang === 'fr' ? '-- Sélectionnez votre wilaya --' : '-- اختر ولايتك --';
-                wilayaSelect.appendChild(defaultOption);
+        let currentLang='fr';
+        const selectedProducts=new Map();
+        const tt={
+            fr:{tagline:"Plus que la beauté • Un éclat qui inspire confiance",pricingText:'1 = 1500 DA | 2 = 3000 DA | 3+ = <strong>3500 DA</strong>',totalLabel:"Total :",lblFirstName:"Prénom",lblLastName:"Nom",lblPhone:"Téléphone",lblWilaya:"Wilaya",lblDaira:"Daïra",firstNamePlaceholder:"Votre prénom",lastNamePlaceholder:"Votre nom",phonePlaceholder:"Ex: 0555 12 34 56",submitBtn:"Commander ✨",errorSelect:"Sélectionnez au moins 1 produit.",errorFields:"Remplissez tous les champs.",successMsg:"✅ Commande envoyée ! Nous vous contacterons 🌿",errorTelegram:"❌ Erreur. Réessayez.",currency:"DA"},
+            ar:{tagline:"أكثر من جمال • إشراقة تلهب الثقة",pricingText:'1 = 1500 دج | 2 = 3000 دج | 3+ = <strong>3500 دج</strong>',totalLabel:"المجموع :",lblFirstName:"الاسم",lblLastName:"اللقب",lblPhone:"رقم الهاتف",lblWilaya:"الولاية",lblDaira:"الدائرة",firstNamePlaceholder:"أدخل اسمك",lastNamePlaceholder:"أدخل لقبك",phonePlaceholder:"Ex: 0555 12 34 56",submitBtn:"✨ أرسل الطلب",errorSelect:"اختر منتجاً واحداً على الأقل.",errorFields:"املأ جميع الحقول.",successMsg:"✅ تم الإرسال! سنتواصل معك 🌿",errorTelegram:"❌ خطأ. حاول مجدداً.",currency:"دج"}
+        };
 
-                Object.keys(wilayasData).forEach(w => {
-                    const option = document.createElement('option');
-                    option.value = w;
-                    option.textContent = w;
-                    wilayaSelect.appendChild(option);
+        function populateWilayas(lang){
+            const s=document.getElementById('wilayaSelect');
+            s.innerHTML=`<option value="" disabled selected>${lang==='fr'?'-- Sélectionnez --':'-- اختر الولاية --'}</option>`;
+            Object.keys(wilayasData).forEach(w=>{const o=document.createElement('option');o.value=w;o.textContent=w;s.appendChild(o);});
+            resetDairaSelect(lang);
+        }
+
+        function resetDairaSelect(lang){
+            const s=document.getElementById('dairaSelect');
+            s.innerHTML=`<option value="" disabled selected>${lang==='fr'?'-- Choisissez wilaya --':'-- اختر الولاية أولا --'}</option>`;
+            s.disabled=true;
+        }
+
+        document.getElementById('wilayaSelect').addEventListener('change',function(){
+            const sw=this.value;const s=document.getElementById('dairaSelect');s.innerHTML='';
+            if(sw&&wilayasData[sw]){
+                const d=document.createElement('option');d.value='';d.disabled=true;d.selected=true;
+                d.textContent=currentLang==='fr'?'-- Sélectionnez daïra --':'-- اختر الدائرة --';
+                s.appendChild(d);
+                wilayasData[sw].forEach(dr=>{const o=document.createElement('option');o.value=dr;o.textContent=dr;s.appendChild(o);});
+                s.disabled=false;
+            }else{resetDairaSelect(currentLang);}
+        });
+
+        window.switchLanguage=function(lang){
+            currentLang=lang;const t=tt[lang];
+            document.body.classList.toggle('rtl',lang==='ar');
+            document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+            document.documentElement.lang=lang==='ar'?'ar':'fr';
+            document.title=lang==='ar'?'Beauty Vibes • إشراقة أناقتك':'Beauty Vibes • Éclat d\'Élégance';
+            document.getElementById('btnFr').classList.toggle('active',lang==='fr');
+            document.getElementById('btnAr').classList.toggle('active',lang==='ar');
+            document.getElementById('tagline').textContent=t.tagline;
+            document.getElementById('pricingText').innerHTML=t.pricingText;
+            document.getElementById('totalLabel').textContent=t.totalLabel;
+            document.getElementById('lblFirstName').textContent=t.lblFirstName;
+            document.getElementById('lblLastName').textContent=t.lblLastName;
+            document.getElementById('lblPhone').textContent=t.lblPhone;
+            document.getElementById('lblWilaya').textContent=t.lblWilaya;
+            document.getElementById('lblDaira').textContent=t.lblDaira;
+            document.getElementById('firstName').placeholder=t.firstNamePlaceholder;
+            document.getElementById('lastName').placeholder=t.lastNamePlaceholder;
+            document.getElementById('phone').placeholder=t.phonePlaceholder;
+            document.getElementById('submitOrderBtn').textContent=t.submitBtn;
+            populateWilayas(lang);upd();
+            document.getElementById('formError').style.display='none';
+            document.getElementById('successMessage').style.display='none';
+        };
+
+        function calcPrice(c){if(c===0)return 0;if(c===1)return 1500;if(c===2)return 3000;return 3500;}
+
+        function upd(){
+            const total=calcPrice(selectedProducts.size);
+            document.getElementById('totalDisplay').innerHTML=total.toLocaleString('fr-FR').replace(/\s/g,' ')+' <span>'+tt[currentLang].currency+'</span>';
+            document.getElementById('submitOrderBtn').disabled=selectedProducts.size===0;
+        }
+
+        window.toggleProduct=function(card){
+            const id=card.dataset.id;
+            if(selectedProducts.has(id)){selectedProducts.delete(id);card.classList.remove('selected');}
+            else{selectedProducts.set(id,{name:card.dataset.name,price:parseInt(card.dataset.price)});card.classList.add('selected');}
+            upd();
+        };
+
+        document.getElementById('submitOrderBtn').addEventListener('click',async function(e){
+            e.preventDefault();const t=tt[currentLang];
+            const fn=document.getElementById('firstName').value.trim();
+            const ln=document.getElementById('lastName').value.trim();
+            const ph=document.getElementById('phone').value.trim();
+            const wl=document.getElementById('wilayaSelect').value;
+            const dr=document.getElementById('dairaSelect').value;
+            const er=document.getElementById('formError');
+            const sm=document.getElementById('successMessage');
+            const btn=document.getElementById('submitOrderBtn');
+
+            if(!fn||!ln||!ph||!wl||!dr||selectedProducts.size===0){
+                er.textContent=selectedProducts.size===0?t.errorSelect:t.errorFields;
+                er.style.display='block';return;
+            }
+            if(!/^[0-9+\s()-]{8,}$/.test(ph)){er.textContent='Numéro invalide';er.style.display='block';return;}
+
+            btn.disabled=true;btn.textContent='⏳ Envoi...';er.style.display='none';sm.style.display='none';
+
+            const count=selectedProducts.size;const totalPrice=calcPrice(count);
+            let pl='';selectedProducts.forEach(p=>{pl+='  • '+p.name+'\n';});
+            let sv='';if(count>=3){sv=' ( économisé '+(count*1500-totalPrice).toLocaleString('fr-FR')+' DA )';}
+
+            try{
+                const res=await fetch(WORKER_URL,{
+                    method:'POST',headers:{'Content-Type':'application/json'},
+                    body:JSON.stringify({
+                        products:Array.from(selectedProducts.values()),
+                        count,total:totalPrice,savings:sv,
+                        customer:{firstName:fn,lastName:ln,phone:ph,wilaya:wl,daira:dr}
+                    })
                 });
-
-                resetDairaSelect(lang);
-            }
-
-            function resetDairaSelect(lang) {
-                dairaSelect.innerHTML = '';
-                const defaultOption = document.createElement('option');
-                defaultOption.value = '';
-                defaultOption.disabled = true;
-                defaultOption.selected = true;
-                defaultOption.textContent = lang === 'fr' ? '-- Choisissez d\'abord la wilaya --' : '-- اختر الولاية أولاً --';
-                dairaSelect.appendChild(defaultOption);
-                dairaSelect.disabled = true;
-            }
-
-            wilayaSelect.addEventListener('change', function() {
-                const selectedWilaya = this.value;
-                const lang = currentLang;
-                
-                dairaSelect.innerHTML = '';
-                
-                if (selectedWilaya && wilayasData[selectedWilaya]) {
-                    const dairas = wilayasData[selectedWilaya];
-                    
-                    const defaultOption = document.createElement('option');
-                    defaultOption.value = '';
-                    defaultOption.disabled = true;
-                    defaultOption.selected = true;
-                    defaultOption.textContent = lang === 'fr' ? '-- Sélectionnez votre daïra --' : '-- اختر الدائرة --';
-                    dairaSelect.appendChild(defaultOption);
-                    
-                    dairas.forEach(d => {
-                        const option = document.createElement('option');
-                        option.value = d;
-                        option.textContent = d;
-                        dairaSelect.appendChild(option);
-                    });
-                    
-                    dairaSelect.disabled = false;
-                } else {
-                    resetDairaSelect(lang);
-                }
-            });
-
-            const translations = {
-                fr: {
-                    tagline: "Plus que la beauté • Un éclat qui inspire confiance",
-                    pricingText: '1 produit = <span class="price-ltr">1 500 DA</span> &nbsp;|&nbsp; 2 produits = <span class="price-ltr">3 000 DA</span> &nbsp;|&nbsp; 3 produits ou plus = <strong><span class="price-ltr">3 500 DA</span></strong>',
-                    totalLabel: "Total :",
-                    lblFirstName: "Prénom",
-                    lblLastName: "Nom",
-                    lblPhone: "Numéro de téléphone",
-                    lblWilaya: "Wilaya",
-                    lblDaira: "Daïra",
-                    firstNamePlaceholder: "Votre prénom",
-                    lastNamePlaceholder: "Votre nom",
-                    phonePlaceholder: "Ex: 0555 12 34 56",
-                    defaultWilaya: "-- Sélectionnez votre wilaya --",
-                    defaultDaira: "-- Choisissez d'abord la wilaya --",
-                    dairaPlaceholder: "-- Sélectionnez votre daïra --",
-                    submitBtn: "Commander ✨",
-                    errorMsg: "Veuillez remplir tous les champs correctement.",
-                    successMsg: "Votre commande a été envoyée avec succès ! Nous vous contacterons bientôt 🌿",
-                    errorSelect: "Veuillez sélectionner au moins 1 produit.",
-                    errorFields: "Veuillez remplir tous les champs correctement.",
-                    currency: "DA"
-                },
-                ar: {
-                    tagline: "أكثر من جمال • إشراقة تلهب الثقة",
-                    pricingText: 'منتج واحد = <span class="price-ltr">1 500 دج</span> &nbsp;|&nbsp; منتجين = <span class="price-ltr">3 000 دج</span> &nbsp;|&nbsp; 3 منتجات أو أكثر = <strong><span class="price-ltr">3 500 دج</span></strong>',
-                    totalLabel: "المجموع :",
-                    lblFirstName: "الاسم",
-                    lblLastName: "اللقب",
-                    lblPhone: "رقم الهاتف",
-                    lblWilaya: "الولاية",
-                    lblDaira: "الدائرة",
-                    firstNamePlaceholder: "أدخل اسمك",
-                    lastNamePlaceholder: "أدخل لقبك",
-                    phonePlaceholder: "مثال: 0555 12 34 56",
-                    defaultWilaya: "-- اختر ولايتك --",
-                    defaultDaira: "-- اختر الولاية أولاً --",
-                    dairaPlaceholder: "-- اختر الدائرة --",
-                    submitBtn: "✨ أرسل الطلب",
-                    errorMsg: "يرجى ملء جميع الحقول بشكل صحيح.",
-                    successMsg: "تم إرسال طلبك بنجاح! سنتواصل معك قريباً 🌿",
-                    errorSelect: "يرجى اختيار منتج واحد على الأقل.",
-                    errorFields: "يرجى ملء جميع الحقول بشكل صحيح.",
-                    currency: "دج"
-                }
-            };
-
-            let currentLang = 'fr';
-
-            window.switchLanguage = function(lang) {
-                currentLang = lang;
-                const t = translations[lang];
-
-                if (lang === 'ar') {
-                    document.body.classList.add('rtl');
-                    document.documentElement.dir = 'rtl';
-                    document.documentElement.lang = 'ar';
-                    document.title = "Beauty Vibes • إشراقة أناقتك";
-                } else {
-                    document.body.classList.remove('rtl');
-                    document.documentElement.dir = 'ltr';
-                    document.documentElement.lang = 'fr';
-                    document.title = "Beauty Vibes • Éclat d'Élégance";
-                }
-
-                document.getElementById('btnFr').classList.toggle('active', lang === 'fr');
-                document.getElementById('btnAr').classList.toggle('active', lang === 'ar');
-
-                document.getElementById('tagline').textContent = t.tagline;
-                document.getElementById('pricingText').innerHTML = t.pricingText;
-                document.getElementById('totalLabel').textContent = t.totalLabel;
-                document.getElementById('lblFirstName').textContent = t.lblFirstName;
-                document.getElementById('lblLastName').textContent = t.lblLastName;
-                document.getElementById('lblPhone').textContent = t.lblPhone;
-                document.getElementById('lblWilaya').textContent = t.lblWilaya;
-                document.getElementById('lblDaira').textContent = t.lblDaira;
-                document.getElementById('firstName').placeholder = t.firstNamePlaceholder;
-                document.getElementById('lastName').placeholder = t.lastNamePlaceholder;
-                document.getElementById('phone').placeholder = t.phonePlaceholder;
-                document.getElementById('submitOrderBtn').textContent = t.submitBtn;
-                document.getElementById('formError').textContent = t.errorMsg;
-
-                updateTotalDisplay();
-                populateWilayas(lang);
-
-                document.getElementById('formError').style.display = 'none';
-                document.getElementById('successMessage').style.display = 'none';
-            };
-
-            const selectedProducts = new Map();
-            const totalDisplay = document.getElementById('totalDisplay');
-            const submitBtn = document.getElementById('submitOrderBtn');
-            const formError = document.getElementById('formError');
-            const successMessage = document.getElementById('successMessage');
-
-            const firstNameInput = document.getElementById('firstName');
-            const lastNameInput = document.getElementById('lastName');
-            const phoneInput = document.getElementById('phone');
-            const wilayaInput = document.getElementById('wilayaSelect');
-            const dairaInput = document.getElementById('dairaSelect');
-
-            // الأسعار الصحيحة
-            function calculatePrice(count) {
-                if (count === 0) return 0;
-                if (count === 1) return 1500;
-                if (count === 2) return 3000;
-                if (count >= 3) return 3500;
-                return 0;
-            }
-
-            function updateTotalDisplay() {
-                const count = selectedProducts.size;
-                const total = calculatePrice(count);
-                const currency = translations[currentLang].currency;
-                totalDisplay.innerHTML = total.toLocaleString('fr-FR').replace(/\s/g, ' ') + ' <span>' + currency + '</span>';
-            }
-
-            window.toggleProduct = function(cardElement) {
-                const id = cardElement.dataset.id;
-                const name = cardElement.dataset.name;
-                const price = parseInt(cardElement.dataset.price, 10);
-
-                if (selectedProducts.has(id)) {
-                    selectedProducts.delete(id);
-                    cardElement.classList.remove('selected');
-                } else {
-                    selectedProducts.set(id, { name, price });
-                    cardElement.classList.add('selected');
-                }
-
-                updateTotalAndUI();
-            };
-
-            function updateTotalAndUI() {
-                updateTotalDisplay();
-                submitBtn.disabled = selectedProducts.size === 0;
-                formError.style.display = 'none';
-                successMessage.style.display = 'none';
-            }
-
-            function validateForm() {
-                const firstName = firstNameInput.value.trim();
-                const lastName = lastNameInput.value.trim();
-                const phone = phoneInput.value.trim();
-                const wilaya = wilayaInput.value;
-                const daira = dairaInput.value;
-
-                if (!firstName || !lastName || !phone || !wilaya || !daira) return false;
-                if (selectedProducts.size === 0) return false;
-                const phoneRegex = /^[0-9+\s()-]{8,}$/;
-                if (!phoneRegex.test(phone)) return false;
-                return true;
-            }
-
-            function showError(message) {
-                formError.textContent = message;
-                formError.style.display = 'block';
-                successMessage.style.display = 'none';
-            }
-
-            submitBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const t = translations[currentLang];
-                
-                if (!validateForm()) {
-                    if (selectedProducts.size === 0) {
-                        showError(t.errorSelect);
-                    } else {
-                        showError(t.errorFields);
-                    }
-                    return;
-                }
-
-                const count = selectedProducts.size;
-                const totalPrice = calculatePrice(count);
-
-                const orderData = {
-                    products: Array.from(selectedProducts.values()),
-                    count: count,
-                    total: totalPrice,
-                    customer: {
-                        firstName: firstNameInput.value.trim(),
-                        lastName: lastNameInput.value.trim(),
-                        phone: phoneInput.value.trim(),
-                        wilaya: wilayaInput.value,
-                        daira: dairaInput.value
-                    }
-                };
-
-                console.log('📦 Commande :', orderData);
-                
-                successMessage.textContent = t.successMsg;
-                successMessage.style.display = 'block';
-                formError.style.display = 'none';
-                
-                setTimeout(() => {
-                    document.querySelectorAll('.product-card.selected').forEach(card => {
-                        card.classList.remove('selected');
-                    });
-                    selectedProducts.clear();
-                    updateTotalAndUI();
-                    
-                    firstNameInput.value = '';
-                    lastNameInput.value = '';
-                    phoneInput.value = '';
-                    wilayaInput.value = '';
+                const data=await res.json();
+                if(data.success){
+                    sm.textContent=t.successMsg;sm.style.display='block';
+                    document.querySelectorAll('.product-card.selected').forEach(c=>c.classList.remove('selected'));
+                    selectedProducts.clear();upd();
+                    document.getElementById('firstName').value='';document.getElementById('lastName').value='';
+                    document.getElementById('phone').value='';document.getElementById('wilayaSelect').value='';
                     resetDairaSelect(currentLang);
-                    
-                    setTimeout(() => {
-                        successMessage.style.display = 'none';
-                    }, 4000);
-                }, 1500);
-            });
+                    setTimeout(()=>{sm.style.display='none';},5000);
+                }else{er.textContent=t.errorTelegram;er.style.display='block';}
+            }catch(err){er.textContent=t.errorTelegram;er.style.display='block';}
+            btn.disabled=false;btn.textContent=t.submitBtn;
+        });
 
-            [firstNameInput, lastNameInput, phoneInput, wilayaInput, dairaInput].forEach(input => {
-                input.addEventListener('input', () => { formError.style.display = 'none'; });
-                input.addEventListener('change', () => { formError.style.display = 'none'; });
-            });
-
-            populateWilayas('fr');
-            updateTotalAndUI();
-        })();
+        populateWilayas('fr');upd();
     </script>
 </body>
 </html>

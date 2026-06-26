@@ -71,7 +71,6 @@
             <div class="tagline" id="tagline">Plus que la beauté • Un éclat qui inspire confiance</div>
         </div>
 
-        <!-- المنتجات -->
         <div class="products-grid" id="productsContainer"></div>
 
         <div class="pricing-note"><span>💖</span> <span id="pricingText">1 = 1500 DA | 2 = 3000 DA | 3+ = <strong>3500 DA</strong></span></div>
@@ -123,7 +122,6 @@
             {id:5,name:"Baume à Lèvres",price:1500,img:"5.jfif"}
         ];
 
-        // تهيئة المنتجات
         const container = document.getElementById('productsContainer');
         products.forEach(p => {
             container.innerHTML += `
@@ -141,46 +139,32 @@
         });
 
         let currentLang='fr',currentShipping=0;
-        const cart = {}; // {id: quantity}
+        const cart = {};
 
-        // 🎯 نظام الأسعار
         const discountPoints = {3:3500, 6:7000, 7:8300, 9:10500, 12:14000, 15:17500};
 
         function calcTotalPrice(totalQty) {
             if (totalQty === 0) return 0;
             if (totalQty === 1) return 1500;
             if (totalQty === 2) return 3000;
-            
-            // البحث عن أقرب نقطة خصم
-            let price = 0;
-            let remaining = totalQty;
-            
-            // التحقق من نقاط الخصم من الأكبر للأصغر
+            let price = 0, remaining = totalQty;
             const points = Object.keys(discountPoints).map(Number).sort((a,b)=>b-a);
-            
             for (const point of points) {
                 if (remaining >= point) {
-                    const sets = Math.floor(remaining / point);
-                    // نأخذ مجموعة واحدة فقط عند نقطة الخصم
                     price += discountPoints[point];
                     remaining -= point;
                     break;
                 }
             }
-            
-            // الباقي يحسب بـ 1300 للحبة
             if (remaining > 0) {
                 if (remaining === 1) price += 1500;
                 else if (remaining === 2) price += 3000;
                 else price += remaining * 1300;
             }
-            
             return price;
         }
 
-        function getTotalQty() {
-            return Object.values(cart).reduce((sum,q)=>sum+q,0);
-        }
+        function getTotalQty() { return Object.values(cart).reduce((sum,q)=>sum+q,0); }
 
         function updateAllTotals() {
             const totalQty = getTotalQty();
@@ -204,18 +188,12 @@
 
         window.toggleProduct = function(card) {
             const id = parseInt(card.dataset.id);
-            if (cart[id] && cart[id] > 0) {
-                cart[id] = 0;
-                card.classList.remove('selected');
-            } else {
-                cart[id] = 1;
-                card.classList.add('selected');
-            }
+            if (cart[id] && cart[id] > 0) { cart[id] = 0; card.classList.remove('selected'); }
+            else { cart[id] = 1; card.classList.add('selected'); }
             document.getElementById('qty-'+id).textContent = cart[id] || 0;
             updateAllTotals();
         };
 
-        // الشحن
         function extractWilayaName(full) { return full.replace(/^\d+\s*-\s*/, '').trim(); }
         function getShippingCost(fullWilaya, type) {
             const name = extractWilayaName(fullWilaya);
@@ -226,14 +204,12 @@
         window.updateShipping = function() {
             const wl = document.getElementById('wilayaSelect').value;
             const dt = document.querySelector('input[name="deliveryType"]:checked');
-            const addr = document.getElementById('addressInput');
-            const info = document.getElementById('shippingInfo');
+            const addr = document.getElementById('addressInput'), info = document.getElementById('shippingInfo');
             if (wl && dt) {
                 currentShipping = getShippingCost(wl, dt.value);
                 document.getElementById('shippingDisplay').textContent = currentShipping.toLocaleString('fr-FR') + ' ' + tt[currentLang].currency;
-                addr.disabled = false;
-                info.style.display = 'block';
-                info.textContent = currentLang==='fr' ? `Frais: ${currentShipping} DA (${dt.value==='home'?'Domicile':'Bureau'})` : `التكلفة: ${currentShipping} دج (${dt.value==='home'?'المنزل':'المكتب'})`;
+                addr.disabled = false; info.style.display = 'block';
+                info.textContent = currentLang==='fr' ? `Frais: ${currentShipping} DA` : `التكلفة: ${currentShipping} دج`;
             } else {
                 currentShipping = 0;
                 document.getElementById('shippingDisplay').textContent = '-- ' + tt[currentLang].currency;
@@ -242,10 +218,9 @@
             updateAllTotals();
         };
 
-        // الترجمة
         const tt={
-            fr:{tagline:"Plus que la beauté • Un éclat qui inspire confiance",pricingText:'1 = 1500 DA | 2 = 3000 DA | 3 = 3500 DA | +1300/h 🎁',lblSubtotal:"Sous-total :",lblShipping:"Livraison :",lblTotal:"Total :",lblFirstName:"Prénom",lblLastName:"Nom",lblPhone:"Téléphone",lblWilaya:"Wilaya",lblDaira:"Daïra",lblDelivery:"Type de livraison",optHome:"🏠 Domicile",optOffice:"🏢 Bureau",lblAddress:"Adresse exacte",firstNamePlaceholder:"Votre prénom",lastNamePlaceholder:"Votre nom",phonePlaceholder:"Ex: 0555 12 34 56",addressPlaceholder:"Rue, N°, Commune...",submitBtn:"Commander ✨",errorSelect:"Sélectionnez au moins 1 produit.",errorFields:"Remplissez tous les champs.",errorDelivery:"Choisissez le type de livraison.",successMsg:"✅ Commande envoyée ! 🌿",errorTelegram:"❌ Erreur.",currency:"DA"},
-            ar:{tagline:"أكثر من جمال • إشراقة تلهب الثقة",pricingText:'1 = 1500 دج | 2 = 3000 دج | 3 = 3500 دج | +1300/حبة 🎁',lblSubtotal:"المجموع الفرعي :",lblShipping:"التوصيل :",lblTotal:"المجموع :",lblFirstName:"الاسم",lblLastName:"اللقب",lblPhone:"رقم الهاتف",lblWilaya:"الولاية",lblDaira:"الدائرة",lblDelivery:"نوع التوصيل",optHome:"🏠 المنزل",optOffice:"🏢 المكتب",lblAddress:"العنوان بالضبط",firstNamePlaceholder:"أدخل اسمك",lastNamePlaceholder:"أدخل لقبك",phonePlaceholder:"Ex: 0555 12 34 56",addressPlaceholder:"الشارع، الرقم، البلدية...",submitBtn:"✨ أرسل الطلب",errorSelect:"اختر منتجاً واحداً على الأقل.",errorFields:"املأ جميع الحقول.",errorDelivery:"اختر نوع التوصيل.",successMsg:"✅ تم الإرسال! 🌿",errorTelegram:"❌ خطأ.",currency:"دج"}
+            fr:{tagline:"Plus que la beauté",pricingText:'1=1500 | 2=3000 | 3=3500 | +1300/h 🎁',lblSubtotal:"Sous-total :",lblShipping:"Livraison :",lblTotal:"Total :",lblFirstName:"Prénom",lblLastName:"Nom",lblPhone:"Téléphone",lblWilaya:"Wilaya",lblDaira:"Daïra",lblDelivery:"Livraison",optHome:"🏠 Domicile",optOffice:"🏢 Bureau",lblAddress:"Adresse",firstNamePlaceholder:"Prénom",lastNamePlaceholder:"Nom",phonePlaceholder:"Ex: 0555 12 34 56",addressPlaceholder:"Rue, N°...",submitBtn:"Commander ✨",errorSelect:"Sélectionnez un produit.",errorFields:"Remplissez tout.",errorDelivery:"Choisissez livraison.",successMsg:"✅ Commande envoyée! 🌿",errorTelegram:"❌ Erreur.",currency:"DA"},
+            ar:{tagline:"أكثر من جمال",pricingText:'1=1500 | 2=3000 | 3=3500 | +1300/ح 🎁',lblSubtotal:"المجموع الفرعي :",lblShipping:"التوصيل :",lblTotal:"المجموع :",lblFirstName:"الاسم",lblLastName:"اللقب",lblPhone:"الهاتف",lblWilaya:"الولاية",lblDaira:"الدائرة",lblDelivery:"التوصيل",optHome:"🏠 المنزل",optOffice:"🏢 المكتب",lblAddress:"العنوان",firstNamePlaceholder:"الاسم",lastNamePlaceholder:"اللقب",phonePlaceholder:"Ex: 0555 12 34 56",addressPlaceholder:"الشارع، الرقم...",submitBtn:"✨ أرسل",errorSelect:"اختر منتجاً.",errorFields:"املأ الحقول.",errorDelivery:"اختر التوصيل.",successMsg:"✅ تم الإرسال! 🌿",errorTelegram:"❌ خطأ.",currency:"دج"}
         };
 
         function populateWilayas(lang){
@@ -254,23 +229,20 @@
             Object.keys(wilayasData).forEach(w=>{const o=document.createElement('option');o.value=w;o.textContent=w;s.appendChild(o);});
             resetDairaSelect(lang);
         }
-
         function resetDairaSelect(lang){
             const s=document.getElementById('dairaSelect');
             s.innerHTML=`<option value="" disabled selected>${lang==='fr'?'-- Choisissez wilaya --':'-- اختر الولاية أولا --'}</option>`;
             s.disabled=true;
         }
-
         document.getElementById('wilayaSelect').addEventListener('change',function(){
             const sw=this.value;const s=document.getElementById('dairaSelect');s.innerHTML='';
             if(sw&&wilayasData[sw]){
-                s.innerHTML=`<option value="" disabled selected>${currentLang==='fr'?'-- Sélectionnez daïra --':'-- اختر الدائرة --'}</option>`;
+                s.innerHTML=`<option value="" disabled selected>${currentLang==='fr'?'-- Daïra --':'-- الدائرة --'}</option>`;
                 wilayasData[sw].forEach(dr=>{const o=document.createElement('option');o.value=dr;o.textContent=dr;s.appendChild(o);});
                 s.disabled=false;
             }else{resetDairaSelect(currentLang);}
             updateShipping();
         });
-
         window.switchLanguage=function(lang){
             currentLang=lang;const t=tt[lang];
             document.body.classList.toggle('rtl',lang==='ar');
@@ -287,34 +259,41 @@
             populateWilayas(lang);updateAllTotals();
         };
 
-        // إرسال الطلب
+        // ============ الإرسال مع الكمية ============
         document.getElementById('submitOrderBtn').addEventListener('click',async function(e){
             e.preventDefault();const t=tt[currentLang];
-            const fn=document.getElementById('firstName').value.trim();
-            const ln=document.getElementById('lastName').value.trim();
-            const ph=document.getElementById('phone').value.trim();
-            const wl=document.getElementById('wilayaSelect').value;
-            const dr=document.getElementById('dairaSelect').value;
-            const dt=document.querySelector('input[name="deliveryType"]:checked');
+            const fn=document.getElementById('firstName').value.trim(),ln=document.getElementById('lastName').value.trim();
+            const ph=document.getElementById('phone').value.trim(),wl=document.getElementById('wilayaSelect').value;
+            const dr=document.getElementById('dairaSelect').value,dt=document.querySelector('input[name="deliveryType"]:checked');
             const addr=document.getElementById('addressInput').value.trim();
-            const er=document.getElementById('formError');
-            const sm=document.getElementById('successMessage');
+            const er=document.getElementById('formError'),sm=document.getElementById('successMessage');
             if(!fn||!ln||!ph||!wl||!dr||!dt||!addr||getTotalQty()===0){
                 er.textContent=getTotalQty()===0?t.errorSelect:!dt?t.errorDelivery:t.errorFields;
                 er.style.display='block';return;
             }
             if(!/^[0-9+\s()-]{8,}$/.test(ph)){er.textContent='Numéro invalide';er.style.display='block';return;}
-
-            const btn=document.getElementById('submitOrderBtn');
-            btn.disabled=true;btn.textContent='⏳ ...';er.style.display='none';sm.style.display='none';
-
-            const totalQty=getTotalQty();const sub=calcTotalPrice(totalQty);const total=sub+currentShipping;
-            let pl='';Object.entries(cart).forEach(([id,q])=>{if(q>0){const p=products.find(x=>x.id===parseInt(id));pl+=`  • ${p.name} x${q}\n`;}});
-            let sv='';if(totalQty>=3){const normal=totalQty*1500;if(normal>sub)sv='\n💸 Économisé: '+(normal-sub).toLocaleString('fr-FR')+' DA';}
-
+            const btn=document.getElementById('submitOrderBtn');btn.disabled=true;btn.textContent='⏳...';er.style.display='none';sm.style.display='none';
+            const totalQty=getTotalQty(),sub=calcTotalPrice(totalQty),total=sub+currentShipping;
+            let pl='',sv='';
+            // ✅ إرسال الكمية مع كل منتج
+            const cartProducts = [];
+            Object.entries(cart).forEach(([id,q])=>{
+                if(q>0){
+                    const p=products.find(x=>x.id===parseInt(id));
+                    pl+=`  • ${p.name} x${q}\n`;
+                    cartProducts.push({...p, qty: q}); // ✅ qty هنا
+                }
+            });
+            if(totalQty>=3){const normal=totalQty*1500;if(normal>sub)sv='\n💸 Économisé: '+(normal-sub).toLocaleString('fr-FR')+' DA';}
             try{
                 const res=await fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},
-                    body:JSON.stringify({products:Object.entries(cart).filter(([_,q])=>q>0).map(([id,q])=>({...products.find(p=>p.id===parseInt(id)),qty:q})),count:totalQty,subtotal:sub,shipping:currentShipping,total,savings:sv,deliveryType:dt.value,customer:{firstName:fn,lastName:ln,phone:ph,wilaya:wl,daira:dr,address:addr}})});
+                    body:JSON.stringify({
+                        products: cartProducts, // ✅ يحتوي على qty
+                        count: totalQty, subtotal: sub, shipping: currentShipping, total, savings: sv,
+                        deliveryType: dt.value,
+                        customer: {firstName:fn, lastName:ln, phone:ph, wilaya:wl, daira:dr, address:addr}
+                    })
+                });
                 const data=await res.json();
                 if(data.success){
                     sm.textContent=t.successMsg;sm.style.display='block';

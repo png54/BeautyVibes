@@ -1,2925 +1,760 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beauty Vibes – Soins & Beauté Premium</title>
-  <meta name="description" content="Beauty Vibes – Votre destination beauté premium. Découvrez nos soins solaires et produits de beauté authentiques livrés partout en Algérie." />
-
-  <!-- Google Fonts -->
+  <title>Beauty Vibes · Éclat naturel</title>
+  <!-- Google Fonts & Font Awesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Poppins:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
-    /* ============================================
-       CSS VARIABLES & RESET
-    ============================================ */
-    :root {
-      --white: #ffffff;
-      --soft-pink: #fce4ec;
-      --light-pink: #f8bbd9;
-      --rose-pink: #e91e8c;
-      --rose-gold: #c8a96e;
-      --rose-gold-light: #e8d5b0;
-      --beige: #fdf6f0;
-      --light-beige: #faf3ec;
-      --light-gray: #f5f5f5;
-      --medium-gray: #9e9e9e;
-      --dark-gray: #424242;
-      --text-primary: #2d1b33;
-      --text-secondary: #5d4060;
-      --text-muted: #9e8fa5;
-      --glass-bg: rgba(255, 255, 255, 0.75);
-      --glass-border: rgba(255, 255, 255, 0.6);
-      --shadow-soft: 0 8px 32px rgba(201, 144, 170, 0.18);
-      --shadow-card: 0 4px 24px rgba(201, 144, 170, 0.14);
-      --shadow-hover: 0 16px 48px rgba(201, 144, 170, 0.28);
-      --radius-sm: 12px;
-      --radius-md: 20px;
-      --radius-lg: 32px;
-      --radius-xl: 48px;
-      --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      --transition-fast: all 0.2s ease;
-      --font-arabic: 'Noto Kufi Arabic', 'Poppins', sans-serif;
-      --selected-border: #e91e8c;
-      --selected-bg: rgba(233, 30, 140, 0.08);
+    /* ===== RESET & BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-
-    /* RTL Support */
-    html[dir="rtl"] {
-      direction: rtl;
-    }
-
-    html[dir="rtl"] .hero-text {
-      padding-right: 0;
-      padding-left: 20px;
-    }
-
-    html[dir="rtl"] .hero-eyebrow i {
-      margin-left: 8px;
-      margin-right: 0;
-    }
-
-    html[dir="rtl"] .hero-cta .btn-primary i,
-    html[dir="rtl"] .hero-cta .btn-outline i {
-      margin-left: 8px;
-      margin-right: 0;
-    }
-
-    html[dir="rtl"] .product-stars span {
-      margin-left: 0;
-      margin-right: 4px;
-    }
-
-    html[dir="rtl"] .footer-links a::before {
-      content: '←';
-    }
-
-    html[dir="rtl"] .footer-links a:hover {
-      padding-left: 0;
-      padding-right: 6px;
-    }
-
-    html[dir="rtl"] .float-whatsapp-tooltip {
-      left: auto;
-      right: 68px;
-    }
-
-    html[dir="rtl"] .faq-icon {
-      transform: rotate(0deg);
-    }
-    html[dir="rtl"] .faq-item.open .faq-icon {
-      transform: rotate(45deg);
-    }
-
-    /* Arabic font for body when RTL */
-    html[dir="rtl"] body {
-      font-family: var(--font-arabic);
-    }
-
-    html[dir="rtl"] .nav-brand,
-    html[dir="rtl"] .hero-title,
-    html[dir="rtl"] .section-title,
-    html[dir="rtl"] .footer-title,
-    html[dir="rtl"] .product-name,
-    html[dir="rtl"] .cart-head-title,
-    html[dir="rtl"] .modal-title,
-    html[dir="rtl"] .success-title,
-    html[dir="rtl"] .why-title,
-    html[dir="rtl"] .testimonial-text {
-      font-family: var(--font-arabic);
-    }
-
-    html[dir="rtl"] .loader-brand,
-    html[dir="rtl"] .hero-card-name {
-      font-family: var(--font-arabic);
-    }
-
-    html[dir="rtl"] .mobile-nav a {
-      font-family: var(--font-arabic);
-    }
-
-    html[dir="rtl"] .stat-label {
-      font-family: var(--font-arabic);
-    }
-
-    html[dir="rtl"] .selected-counter span {
-      font-family: var(--font-arabic);
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; font-size: 16px; }
-
     body {
-      font-family: 'Poppins', sans-serif;
-      color: var(--text-primary);
-      background: var(--beige);
+      font-family: 'Inter', sans-serif;
+      background: #fcf8f5;
+      color: #3e2e2a;
+      line-height: 1.5;
       overflow-x: hidden;
-      line-height: 1.7;
     }
-
-    img { max-width: 100%; height: auto; display: block; }
+    h1, h2, h3, h4, .brand-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .brand-logo {
+      color: #d98a8a; /* rose pink */
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
-    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    img { max-width: 100%; display: block; }
 
-    .container {
-      width: 100%;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
+    /* ===== GLASSMORPHISM & BACKGROUND ===== */
+    .glass {
+      background: rgba(255, 255, 255, 0.38);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 215, 215, 0.2);
+      border-radius: 32px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
     }
-
-    /* ============================================
-       ANIMATED BACKGROUND
-    ============================================ */
-    .bg-canvas {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .bg-gradient {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 20% 20%, rgba(252, 228, 236, 0.7) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 80% at 80% 80%, rgba(248, 187, 217, 0.5) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 50% at 50% 50%, rgba(253, 246, 240, 0.9) 0%, transparent 80%);
-    }
-
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(60px);
-      opacity: 0.35;
-      animation: orbFloat 12s ease-in-out infinite;
-    }
-    .orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, #fce4ec, #f48fb1); top: -100px; left: -150px; animation-delay: 0s; }
-    .orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, #e8d5b0, #c8a96e); bottom: -80px; right: -100px; animation-delay: -4s; }
-    .orb-3 { width: 400px; height: 400px; background: radial-gradient(circle, #fdf6f0, #fce4ec); top: 40%; left: 40%; animation-delay: -8s; }
-
-    @keyframes orbFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -30px) scale(1.05); }
-      66% { transform: translate(-20px, 20px) scale(0.97); }
-    }
-
-    /* Floating petals */
-    .petal {
-      position: absolute;
-      opacity: 0;
-      animation: petalFall linear infinite;
-      pointer-events: none;
-    }
-    .petal svg { width: 100%; height: 100%; }
-
-    @keyframes petalFall {
-      0%   { transform: translateY(-60px) rotate(0deg) translateX(0); opacity: 0; }
-      10%  { opacity: 0.7; }
-      90%  { opacity: 0.4; }
-      100% { transform: translateY(110vh) rotate(720deg) translateX(60px); opacity: 0; }
-    }
-
-    /* Butterfly */
-    .butterfly {
-      position: absolute;
-      animation: butterflyFloat linear infinite;
-      pointer-events: none;
-      opacity: 0;
-    }
-    @keyframes butterflyFloat {
-      0%   { transform: translate(0, 0) rotate(0deg); opacity: 0; }
-      5%   { opacity: 0.6; }
-      50%  { transform: translate(200px, -100px) rotate(15deg); opacity: 0.5; }
-      95%  { opacity: 0.3; }
-      100% { transform: translate(-100px, 200px) rotate(-10deg); opacity: 0; }
-    }
-    @keyframes wingFlap {
-      0%, 100% { transform: scaleX(1); }
-      50% { transform: scaleX(0.3); }
-    }
-
-    /* ============================================
-       LOADING SCREEN
-    ============================================ */
-    #loader {
+    .bg-ambient {
       position: fixed;
       inset: 0;
-      background: linear-gradient(135deg, #fce4ec 0%, #fdf6f0 50%, #f8bbd9 100%);
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 24px;
-      transition: opacity 0.6s ease, visibility 0.6s ease;
-    }
-    #loader.hidden { opacity: 0; visibility: hidden; }
-
-    .loader-brand {
-      font-family: 'Great Vibes', cursive;
-      font-size: clamp(3rem, 8vw, 5rem);
-      color: var(--rose-pink);
-      animation: brandPulse 1.5s ease-in-out infinite;
-    }
-    @keyframes brandPulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.7; transform: scale(1.04); }
-    }
-
-    .loader-dots {
-      display: flex; gap: 10px;
-    }
-    .loader-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--rose-pink);
-      animation: dotBounce 1.2s ease-in-out infinite;
-    }
-    .loader-dot:nth-child(2) { animation-delay: 0.2s; background: var(--rose-gold); }
-    .loader-dot:nth-child(3) { animation-delay: 0.4s; background: var(--light-pink); }
-    @keyframes dotBounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-14px); }
-    }
-
-    /* ============================================
-       NAVBAR
-    ============================================ */
-    #navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      padding: 20px 0;
-      transition: var(--transition);
-    }
-    #navbar.scrolled {
-      padding: 12px 0;
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--glass-border);
-      box-shadow: 0 4px 24px rgba(201, 144, 170, 0.15);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .nav-brand {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.2rem;
-      color: var(--rose-pink);
-      text-shadow: 0 2px 12px rgba(233, 30, 140, 0.2);
-      letter-spacing: 1px;
-      flex-shrink: 0;
-      transition: var(--transition);
-    }
-    .nav-brand:hover { transform: scale(1.04); }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .nav-links a {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      padding: 8px 14px;
-      border-radius: 24px;
-      transition: var(--transition-fast);
-      white-space: nowrap;
-      letter-spacing: 0.3px;
-    }
-    .nav-links a:hover {
-      color: var(--rose-pink);
-      background: rgba(233, 30, 140, 0.08);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .lang-toggle {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(233, 30, 140, 0.08);
-      border: 1px solid rgba(233, 30, 140, 0.2);
-      border-radius: 50px;
-      padding: 6px 14px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--rose-pink);
-      transition: var(--transition-fast);
-      cursor: pointer;
-    }
-    .lang-toggle:hover {
-      background: var(--rose-pink);
-      color: white;
-      border-color: var(--rose-pink);
-    }
-    .lang-toggle i {
-      font-size: 0.7rem;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      width: 28px; cursor: pointer;
-    }
-    .hamburger span {
-      display: block;
-      height: 2px; width: 100%;
-      background: var(--rose-pink);
-      border-radius: 2px;
-      transition: var(--transition-fast);
-    }
-    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* Mobile nav drawer */
-    .mobile-nav {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: var(--glass-bg);
-      backdrop-filter: blur(24px);
-      z-index: 999;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-    }
-    .mobile-nav.open { opacity: 1; visibility: visible; }
-    .mobile-nav a {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      padding: 12px 32px;
-      transition: var(--transition-fast);
-      border-radius: var(--radius-md);
-    }
-    .mobile-nav a:hover { color: var(--rose-pink); background: rgba(233, 30, 140, 0.07); }
-
-    /* ============================================
-       HERO SECTION
-    ============================================ */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
+      z-index: -1;
+      background: #fff8f5;
       overflow: hidden;
-      padding: 120px 0 80px;
+      pointer-events: none;
     }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .hero-text { padding-right: 20px; }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(233, 30, 140, 0.08);
-      border: 1px solid rgba(233, 30, 140, 0.2);
-      border-radius: 50px;
-      padding: 8px 20px;
-      margin-bottom: 28px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--rose-pink);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      animation: fadeInDown 0.8s ease 0.2s both;
-    }
-    .hero-eyebrow i { font-size: 0.7rem; }
-
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 5vw, 4.8rem);
-      font-weight: 800;
-      line-height: 1.1;
-      color: var(--text-primary);
-      margin-bottom: 24px;
-      animation: fadeInUp 0.9s ease 0.3s both;
-    }
-    .hero-title em {
-      font-style: italic;
-      color: var(--rose-pink);
-      position: relative;
-    }
-    .hero-title em::after {
-      content: '';
+    .bg-ambient .butterfly {
       position: absolute;
-      bottom: -4px; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--rose-pink), transparent);
-      border-radius: 2px;
-    }
-
-    .hero-subtitle {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 460px;
-      margin-bottom: 40px;
-      line-height: 1.8;
-      animation: fadeInUp 0.9s ease 0.45s both;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      animation: fadeInUp 0.9s ease 0.6s both;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 32px;
-      background: linear-gradient(135deg, var(--rose-pink) 0%, #f06292 100%);
-      color: white;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 0.5px;
-      box-shadow: 0 8px 24px rgba(233, 30, 140, 0.35);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      width: 0; height: 0;
-      background: rgba(255,255,255,0.2);
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(circle at 30% 30%, #fbd5d5, #f0b8b8);
       border-radius: 50%;
-      transform: translate(-50%, -50%);
-      transition: width 0.5s, height 0.5s;
+      opacity: 0.25;
+      filter: blur(6px);
+      animation: floatButterfly 28s infinite alternate ease-in-out;
     }
-    .btn-primary:hover::before { width: 300px; height: 300px; }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(233, 30, 140, 0.45); }
-    .btn-primary:active { transform: translateY(0); }
-
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 32px;
-      background: transparent;
-      color: var(--text-secondary);
-      border: 2px solid rgba(200, 169, 110, 0.5);
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 0.5px;
-      transition: var(--transition);
-    }
-    .btn-outline:hover {
-      background: var(--rose-gold);
-      border-color: var(--rose-gold);
-      color: white;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(200, 169, 110, 0.35);
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 32px;
-      margin-top: 48px;
-      animation: fadeInUp 0.9s ease 0.75s both;
-    }
-    .stat-item { text-align: center; }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--rose-pink);
-      line-height: 1;
-    }
-    .stat-label { font-size: 0.75rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.5px; }
-    .stat-divider { width: 1px; background: rgba(200, 169, 110, 0.3); }
-
-    /* Hero visual */
-    .hero-visual {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: fadeInRight 1s ease 0.4s both;
-    }
-
-    .hero-glow {
+    .bg-ambient .bloom {
       position: absolute;
-      width: 480px; height: 480px;
-      background: radial-gradient(circle, rgba(233, 30, 140, 0.12) 0%, transparent 70%);
       border-radius: 50%;
-      animation: glowPulse 4s ease-in-out infinite;
+      background: radial-gradient(circle, #fadcd9, transparent 70%);
+      opacity: 0.15;
+      filter: blur(40px);
     }
-    @keyframes glowPulse {
-      0%, 100% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.1); opacity: 1; }
-    }
-
-    .hero-card-main {
-      position: relative;
-      z-index: 2;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-xl);
-      padding: 32px;
-      backdrop-filter: blur(16px);
-      box-shadow: var(--shadow-hover);
-      animation: heroFloat 5s ease-in-out infinite;
-      width: 340px;
-    }
-    @keyframes heroFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-16px); }
-    }
-
-    .hero-card-main img {
-      width: 100%; height: 220px;
-      object-fit: cover;
-      border-radius: var(--radius-md);
-      margin-bottom: 20px;
-    }
-    .hero-card-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--rose-pink);
-      margin-bottom: 6px;
-    }
-    .hero-card-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-    .hero-card-price {
-      font-weight: 700;
-      color: var(--rose-gold);
-      font-size: 1.2rem;
-      margin-top: 8px;
-    }
-
-    .hero-badge {
+    .bg-ambient .leaf {
       position: absolute;
-      background: linear-gradient(135deg, var(--rose-pink), #f06292);
-      color: white;
-      border-radius: 50px;
-      padding: 10px 20px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      box-shadow: 0 6px 20px rgba(233, 30, 140, 0.4);
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      width: 120px;
+      height: 60px;
+      background: #e8d1c4;
+      opacity: 0.08;
+      border-radius: 80% 0 80% 0;
+      transform: rotate(20deg);
     }
-    .hero-badge-1 { top: -16px; right: -24px; animation: badgeFloat 4s ease-in-out infinite 0.5s; }
-    .hero-badge-2 { bottom: -16px; left: -24px; animation: badgeFloat 4s ease-in-out infinite 1.5s; background: linear-gradient(135deg, var(--rose-gold), #b8956a); }
-    @keyframes badgeFloat {
-      0%, 100% { transform: translateY(0) rotate(-2deg); }
-      50% { transform: translateY(-8px) rotate(2deg); }
+    @keyframes floatButterfly {
+      0% { transform: translate(10vw, 20vh) scale(1) rotate(0deg); }
+      33% { transform: translate(70vw, 10vh) scale(1.2) rotate(30deg); }
+      66% { transform: translate(30vw, 70vh) scale(0.9) rotate(-20deg); }
+      100% { transform: translate(80vw, 60vh) scale(1.1) rotate(15deg); }
     }
 
-    /* ============================================
-       SECTION COMMON
-    ============================================ */
-    section { position: relative; z-index: 1; }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-
-    .section-eyebrow {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--rose-pink);
-      margin-bottom: 14px;
-      padding: 6px 18px;
-      background: rgba(233, 30, 140, 0.08);
-      border-radius: 50px;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      color: var(--text-primary);
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-    .section-title span { color: var(--rose-pink); font-style: italic; }
-
-    .section-desc {
-      font-size: 1rem;
-      color: var(--text-muted);
-      max-width: 560px;
-      margin: 0 auto;
-      line-height: 1.8;
-    }
-
-    .section-divider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 20px;
-    }
-    .divider-line { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--rose-gold)); }
-    .divider-line:last-child { background: linear-gradient(90deg, var(--rose-gold), transparent); }
-    .divider-dot { width: 6px; height: 6px; background: var(--rose-pink); border-radius: 50%; }
-
-    /* Reveal animation */
+    /* ===== REVEAL SCROLL ===== */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
     }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-
-    /* ============================================
-       PRODUCTS SECTION
-    ============================================ */
-    #products { padding: 100px 0 80px; background: transparent; }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 28px;
-    }
-
-    .product-card {
-      background: var(--glass-bg);
-      border: 2px solid var(--glass-border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow-card);
-      transition: var(--transition);
-      position: relative;
-      cursor: pointer;
-    }
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-hover);
-      border-color: rgba(233, 30, 140, 0.25);
-    }
-    .product-card.selected {
-      border-color: var(--rose-pink);
-      background: var(--selected-bg);
-      box-shadow: 0 0 0 3px rgba(233, 30, 140, 0.15), var(--shadow-hover);
-      transform: translateY(-6px);
-    }
-    .product-card.selected .product-select-btn {
-      background: var(--rose-pink);
-      color: white;
-    }
-    .product-card.selected .product-select-btn i {
-      transform: rotate(90deg);
-    }
-
-    .product-img-wrapper {
-      position: relative;
-      overflow: hidden;
-      height: 240px;
-      background: linear-gradient(135deg, var(--soft-pink), var(--light-beige));
-    }
-    .product-img-wrapper img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-    .product-card:hover .product-img-wrapper img { transform: scale(1.05); }
-
-    .product-badge {
-      position: absolute;
-      top: 16px; left: 16px;
-      padding: 6px 14px;
-      border-radius: 50px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-    }
-    .badge-bestseller { background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: white; box-shadow: 0 4px 12px rgba(238, 90, 36, 0.4); }
-    .badge-new { background: linear-gradient(135deg, var(--rose-pink), #f06292); color: white; box-shadow: 0 4px 12px rgba(233, 30, 140, 0.4); }
-
-    .product-check {
-      position: absolute;
-      top: 16px; right: 16px;
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      background: var(--glass-bg);
-      border: 2px solid var(--glass-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      backdrop-filter: blur(8px);
-      transition: var(--transition-fast);
-    }
-    .product-card.selected .product-check {
-      background: var(--rose-pink);
-      border-color: var(--rose-pink);
-      color: white;
-    }
-
-    .product-body { padding: 20px 24px 24px; }
-
-    .product-stars {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      margin-bottom: 10px;
-    }
-    .product-stars i { color: #ffc107; font-size: 0.75rem; }
-    .product-stars span { font-size: 0.75rem; color: var(--text-muted); margin-left: 4px; }
-
-    .product-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      line-height: 1.3;
-      margin-bottom: 8px;
-    }
-
-    .product-desc {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 16px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .product-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .product-price {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: var(--rose-pink);
-    }
-    .product-price span { font-size: 0.75rem; font-weight: 500; color: var(--text-muted); font-family: 'Poppins', sans-serif; }
-
-    .product-select-btn {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
-      background: var(--glass-bg);
-      border: 2px solid var(--glass-border);
-      color: var(--text-secondary);
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      transition: var(--transition);
-    }
-    .product-select-btn:hover {
-      background: rgba(233, 30, 140, 0.08);
-      border-color: var(--rose-pink);
-      color: var(--rose-pink);
-    }
-    .product-card.selected .product-select-btn {
-      background: var(--rose-pink);
-      border-color: var(--rose-pink);
-      color: white;
-    }
-    .product-select-btn i {
-      transition: transform 0.3s ease;
-    }
-
-    /* ============================================
-       ORDER SUMMARY (FLOATING)
-    ============================================ */
-    .order-summary {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-top: 1px solid var(--glass-border);
-      box-shadow: 0 -8px 32px rgba(201, 144, 170, 0.2);
-      padding: 16px 0;
-      transform: translateY(100%);
-      transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-    .order-summary.show {
+    .reveal.visible {
+      opacity: 1;
       transform: translateY(0);
     }
 
-    .summary-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .summary-products {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      flex: 1;
-    }
-
-    .summary-product-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(233, 30, 140, 0.08);
-      border: 1px solid rgba(233, 30, 140, 0.15);
-      border-radius: 50px;
-      padding: 4px 12px 4px 8px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-    }
-    .summary-product-tag img {
-      width: 24px; height: 24px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    .summary-product-tag .remove-tag {
-      color: var(--text-muted);
-      font-size: 0.65rem;
-      cursor: pointer;
-      transition: var(--transition-fast);
-    }
-    .summary-product-tag .remove-tag:hover {
-      color: #ef5350;
-    }
-
-    .summary-counter {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-weight: 500;
-      white-space: nowrap;
-    }
-    .summary-counter strong {
-      color: var(--rose-pink);
-      font-weight: 700;
-    }
-
-    .summary-total {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--rose-pink);
-      white-space: nowrap;
-    }
-    .summary-total span {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .summary-actions {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .btn-order {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 32px;
-      background: linear-gradient(135deg, var(--rose-pink), #f06292);
-      color: white;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 0.5px;
-      box-shadow: 0 8px 24px rgba(233, 30, 140, 0.35);
-      transition: var(--transition);
-      white-space: nowrap;
-    }
-    .btn-order:hover:not(:disabled) {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(233, 30, 140, 0.45);
-    }
-    .btn-order:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transform: none !important;
-    }
-
-    .btn-clear {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 10px 18px;
-      background: rgba(239, 83, 80, 0.08);
-      color: #ef5350;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      transition: var(--transition-fast);
-      white-space: nowrap;
-    }
-    .btn-clear:hover {
-      background: rgba(239, 83, 80, 0.15);
-    }
-
-    .summary-min-msg {
-      font-size: 0.75rem;
-      color: #ef5350;
-      font-weight: 600;
-      display: none;
-    }
-    .summary-min-msg.show {
-      display: block;
-    }
-
-    /* ============================================
-       WHY US SECTION
-    ============================================ */
-    #why-us { padding: 80px 0; background: transparent; }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .why-card {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-lg);
-      padding: 36px 28px;
-      text-align: center;
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow-card);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-    .why-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--rose-pink), var(--rose-gold));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
-    }
-    .why-card:hover::before { transform: scaleX(1); }
-    .why-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
-
-    .why-icon {
-      width: 72px; height: 72px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(233, 30, 140, 0.1), rgba(200, 169, 110, 0.1));
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 24px;
-      font-size: 1.6rem;
-      color: var(--rose-pink);
-      transition: var(--transition);
-    }
-    .why-card:hover .why-icon { background: linear-gradient(135deg, var(--rose-pink), #f06292); color: white; transform: scale(1.1) rotate(5deg); }
-
-    .why-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 10px;
-    }
-    .why-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; }
-
-    /* ============================================
-       TESTIMONIALS
-    ============================================ */
-    #testimonials { padding: 80px 0; background: transparent; }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .testimonial-card {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow-card);
-      transition: var(--transition);
-      position: relative;
-    }
-    .testimonial-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
-    .testimonial-card::before {
-      content: '"';
-      font-family: 'Playfair Display', serif;
-      font-size: 6rem;
-      line-height: 1;
-      color: var(--rose-pink);
-      opacity: 0.12;
-      position: absolute;
-      top: 12px; left: 20px;
-    }
-
-    .testimonial-stars { display: flex; gap: 3px; margin-bottom: 16px; }
-    .testimonial-stars i { color: #ffc107; font-size: 0.8rem; }
-
-    .testimonial-text {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      line-height: 1.75;
-      font-style: italic;
-      margin-bottom: 24px;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .author-avatar {
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--rose-pink), var(--rose-gold));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-      color: white;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .author-name { font-weight: 700; font-size: 0.9rem; color: var(--text-primary); }
-    .author-location { font-size: 0.78rem; color: var(--text-muted); }
-
-    /* ============================================
-       FAQ
-    ============================================ */
-    #faq { padding: 80px 0; background: transparent; }
-
-    .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
-
-    .faq-item {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-md);
-      backdrop-filter: blur(12px);
-      overflow: hidden;
-      transition: var(--transition);
-      box-shadow: var(--shadow-card);
-    }
-    .faq-item:hover { border-color: rgba(233, 30, 140, 0.25); }
-
-    .faq-question {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 22px 28px;
-      cursor: pointer;
-      gap: 16px;
-    }
-    .faq-q-text { font-weight: 600; font-size: 0.95rem; color: var(--text-primary); line-height: 1.4; }
-    .faq-icon {
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      background: rgba(233, 30, 140, 0.08);
-      color: var(--rose-pink);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      font-size: 0.75rem;
-      transition: var(--transition);
-    }
-    .faq-item.open .faq-icon { background: var(--rose-pink); color: white; transform: rotate(45deg); }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.4s ease;
-    }
-    .faq-item.open .faq-answer { max-height: 300px; }
-    .faq-answer-inner {
-      padding: 0 28px 22px;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.8;
-      border-top: 1px solid rgba(200, 169, 110, 0.15);
-      padding-top: 16px;
-    }
-
-    /* ============================================
-       ORDER MODAL
-    ============================================ */
-    .modal-overlay {
+    /* ===== NAVBAR ===== */
+    .navbar {
       position: fixed;
-      inset: 0;
-      background: rgba(45, 27, 51, 0.5);
-      z-index: 3000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-      backdrop-filter: blur(6px);
-    }
-    .modal-overlay.open { opacity: 1; visibility: visible; }
-
-    .modal-box {
-      background: linear-gradient(160deg, #fff5f8 0%, #fdf6f0 100%);
-      border-radius: var(--radius-xl);
-      width: 100%;
-      max-width: 600px;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: 0 32px 80px rgba(45, 27, 51, 0.3);
-      transform: scale(0.9) translateY(20px);
-      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-    .modal-box::-webkit-scrollbar { width: 4px; }
-    .modal-box::-webkit-scrollbar-thumb { background: var(--light-pink); border-radius: 2px; }
-    .modal-overlay.open .modal-box { transform: scale(1) translateY(0); }
-
-    .modal-head {
-      padding: 32px 36px 24px;
-      border-bottom: 1px solid rgba(200, 169, 110, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .modal-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: var(--text-primary);
-    }
-    .modal-close {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: rgba(233, 30, 140, 0.08);
-      color: var(--rose-pink);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-      transition: var(--transition-fast);
-    }
-    .modal-close:hover { background: var(--rose-pink); color: white; transform: rotate(90deg); }
-
-    .modal-body { padding: 28px 36px 36px; }
-
-    .modal-order-summary {
-      background: rgba(233, 30, 140, 0.04);
-      border: 1px solid rgba(233, 30, 140, 0.12);
-      border-radius: var(--radius-md);
-      padding: 18px 22px;
-      margin-bottom: 28px;
-    }
-    .modal-summary-title { font-size: 0.8rem; font-weight: 700; color: var(--rose-pink); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
-    .modal-summary-item {
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 0.8rem 2.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      padding: 6px 0;
-      border-bottom: 1px dashed rgba(200, 169, 110, 0.2);
+      background: rgba(255, 248, 245, 0.3);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 999;
+      transition: background 0.3s, box-shadow 0.3s;
+      border-bottom: 1px solid rgba(255, 215, 215, 0.15);
     }
-    .modal-summary-item:last-child { border-bottom: none; }
-    .modal-summary-item strong { color: var(--rose-pink); }
-
-    .form-group { margin-bottom: 20px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .form-label {
-      display: block;
-      font-size: 0.8rem;
+    .navbar.scrolled {
+      background: rgba(255, 245, 242, 0.85);
+      box-shadow: 0 8px 32px rgba(180, 120, 120, 0.08);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      font-weight: 400;
+      font-size: 0.95rem;
+    }
+    .nav-links a {
+      transition: color 0.2s;
+      color: #4d3b36;
+    }
+    .nav-links a:hover {
+      color: #d98a8a;
+    }
+    .cart-icon {
+      position: relative;
+      font-size: 1.4rem;
+      color: #4d3b36;
+      transition: 0.2s;
+    }
+    .cart-icon:hover { color: #d98a8a; }
+    .cart-badge {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background: #d98a8a;
+      color: #fff;
+      font-size: 0.7rem;
       font-weight: 600;
-      color: var(--text-secondary);
-      margin-bottom: 8px;
+      padding: 0.2rem 0.5rem;
+      border-radius: 30px;
+      min-width: 18px;
+      text-align: center;
+    }
+    .hamburger { display: none; }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 6rem 4rem 4rem;
+      position: relative;
+    }
+    .hero-content {
+      max-width: 680px;
+      background: rgba(255, 250, 248, 0.3);
+      backdrop-filter: blur(6px);
+      padding: 3rem 3.5rem;
+      border-radius: 48px;
+      border: 1px solid rgba(255, 215, 215, 0.2);
+      box-shadow: 0 30px 50px rgba(160, 100, 100, 0.05);
+    }
+    .hero h1 {
+      font-size: 3.8rem;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .hero h1 span {
+      color: #d98a8a;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #5c4b46;
+      margin: 1.5rem 0 2.2rem;
+      max-width: 440px;
+    }
+    .btn-group {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.4rem;
+      border-radius: 60px;
+      font-weight: 500;
+      background: white;
+      color: #4d3b36;
+      border: 1px solid #f0d4ce;
+      transition: all 0.25s;
+      box-shadow: 0 4px 12px rgba(180, 120, 120, 0.05);
+      backdrop-filter: blur(4px);
       letter-spacing: 0.3px;
     }
-    .form-label span { color: var(--rose-pink); }
-
-    .form-input, .form-select, .form-textarea {
-      width: 100%;
-      padding: 14px 18px;
-      background: rgba(255, 255, 255, 0.8);
-      border: 1.5px solid rgba(200, 169, 110, 0.3);
-      border-radius: var(--radius-sm);
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.88rem;
-      color: var(--text-primary);
-      transition: var(--transition-fast);
-      outline: none;
-      backdrop-filter: blur(4px);
-    }
-    .form-input:focus, .form-select:focus, .form-textarea:focus {
-      border-color: var(--rose-pink);
-      background: white;
-      box-shadow: 0 0 0 4px rgba(233, 30, 140, 0.08);
-    }
-    .form-input.error, .form-select.error { border-color: #ef5350; box-shadow: 0 0 0 4px rgba(239, 83, 80, 0.1); }
-    .form-textarea { resize: vertical; min-height: 80px; }
-    .form-select { cursor: pointer; }
-    .field-error { font-size: 0.75rem; color: #ef5350; margin-top: 5px; display: none; }
-    .field-error.show { display: block; }
-
-    .btn-submit {
-      width: 100%;
-      padding: 18px;
-      background: linear-gradient(135deg, var(--rose-pink), #f06292);
+    .btn-primary {
+      background: #d98a8a;
       color: white;
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      box-shadow: 0 8px 24px rgba(233, 30, 140, 0.35);
-      transition: var(--transition);
+      border: none;
+      box-shadow: 0 8px 20px rgba(217, 138, 138, 0.25);
+    }
+    .btn-primary:hover {
+      background: #c97a7a;
+      transform: scale(1.02);
+      box-shadow: 0 12px 28px rgba(217, 138, 138, 0.35);
+    }
+    .btn-outline:hover {
+      background: #f5e3e0;
+      border-color: #d98a8a;
+    }
+
+    /* ===== PRODUCT CARDS ===== */
+    .section-title {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 2rem;
+      color: #3e2e2a;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2rem;
+      padding: 2rem 2.5rem 4rem;
+    }
+    .product-card {
+      background: rgba(255, 250, 248, 0.5);
+      backdrop-filter: blur(6px);
+      border-radius: 40px;
+      padding: 1.8rem 1.2rem 1.5rem;
+      border: 1px solid rgba(255, 215, 215, 0.15);
+      box-shadow: 0 15px 30px rgba(140, 100, 100, 0.04);
+      transition: all 0.3s;
+      text-align: center;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 50px rgba(160, 110, 110, 0.1);
+      border-color: rgba(217, 138, 138, 0.2);
+    }
+    .product-card img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 28px;
+      background: #f5edea;
+      margin-bottom: 1rem;
+      transition: 0.3s;
+    }
+    .product-card:hover img {
+      transform: scale(1.02);
+    }
+    .product-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0.3rem 0 0.2rem;
+    }
+    .product-card .desc {
+      font-size: 0.85rem;
+      color: #6b5a54;
+      margin-bottom: 0.6rem;
+      min-height: 2.6rem;
+    }
+    .product-card .price {
+      font-weight: 600;
+      color: #3e2e2a;
+      font-size: 1.2rem;
+    }
+    .stars {
+      color: #e7b6a3;
+      letter-spacing: 2px;
+      font-size: 0.9rem;
+    }
+    .badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: #d98a8a;
+      color: white;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .btn-add {
+      margin-top: 1rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      background: white;
+      border: 1px solid #e7c9c2;
+      transition: 0.2s;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .btn-add:hover {
+      background: #d98a8a;
+      color: white;
+      border-color: #d98a8a;
+    }
+
+    /* ===== CART DRAWER ===== */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(40, 30, 30, 0.2);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+    }
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 400px;
+      max-width: 90%;
+      height: 100%;
+      background: #fcf6f2;
+      backdrop-filter: blur(20px);
+      box-shadow: -20px 0 40px rgba(0,0,0,0.05);
+      padding: 2rem 1.8rem;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      z-index: 1001;
+      overflow-y: auto;
+      border-left: 1px solid rgba(255, 215, 215, 0.2);
+    }
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+    .cart-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .cart-item {
+      display: flex;
+      gap: 1rem;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #f0ded9;
+    }
+    .cart-item img {
+      width: 60px;
+      height: 60px;
+      border-radius: 20px;
+      background: #f0e2dd;
+      object-fit: cover;
+    }
+    .cart-item-info {
+      flex: 1;
+    }
+    .cart-item-info h4 { font-size: 0.95rem; }
+    .cart-item-info .qty-control {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-top: 0.3rem;
+    }
+    .qty-control button {
+      background: transparent;
+      border: 1px solid #decac4;
+      border-radius: 30px;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+    }
+
+    /* ===== ORDER MODAL ===== */
+    .order-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 20, 20, 0.3);
+      backdrop-filter: blur(12px);
+      z-index: 1100;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      margin-top: 8px;
-    }
-    .btn-submit:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(233, 30, 140, 0.45); }
-    .btn-submit:disabled { opacity: 0.7; cursor: not-allowed; }
-
-    /* ============================================
-       SUCCESS STATE
-    ============================================ */
-    .success-screen {
-      text-align: center;
-      padding: 20px 0;
-      display: none;
-    }
-    .success-screen.show { display: block; }
-    .success-icon {
-      width: 90px; height: 90px;
-      background: linear-gradient(135deg, #4caf50, #66bb6a);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.5rem;
-      color: white;
-      margin: 0 auto 24px;
-      animation: successPop 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    }
-    @keyframes successPop {
-      0% { transform: scale(0); }
-      70% { transform: scale(1.15); }
-      100% { transform: scale(1); }
-    }
-    .success-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--text-primary);
-      margin-bottom: 12px;
-    }
-    .success-msg { font-size: 0.9rem; color: var(--text-muted); line-height: 1.8; max-width: 380px; margin: 0 auto 28px; }
-    .success-close-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 36px;
-      background: linear-gradient(135deg, var(--rose-pink), #f06292);
-      color: white;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: var(--transition);
-    }
-    .success-close-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(233, 30, 140, 0.4); }
-
-    /* ============================================
-       FOOTER
-    ============================================ */
-    footer {
-      background: linear-gradient(160deg, #2d1b33 0%, #1a0d20 100%);
-      color: rgba(255,255,255,0.7);
-      padding: 64px 0 0;
-      position: relative;
-      z-index: 1;
-    }
-    footer::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(233, 30, 140, 0.5), var(--rose-gold), rgba(233, 30, 140, 0.5), transparent);
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .footer-brand .nav-brand { display: block; margin-bottom: 16px; }
-    .footer-desc { font-size: 0.85rem; line-height: 1.8; max-width: 280px; margin-bottom: 24px; }
-
-    .footer-social { display: flex; gap: 10px; }
-    .social-btn {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.15);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.85rem;
-      transition: var(--transition-fast);
-    }
-    .social-btn:hover { background: var(--rose-pink); border-color: var(--rose-pink); color: white; transform: translateY(-3px); }
-
-    .footer-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 20px;
-    }
-
-    .footer-links { display: flex; flex-direction: column; gap: 10px; }
-    .footer-links a {
-      font-size: 0.85rem;
-      transition: var(--transition-fast);
-      display: flex; align-items: center; gap: 6px;
-    }
-    .footer-links a::before { content: '→'; color: var(--rose-pink); font-size: 0.75rem; opacity: 0; transform: translateX(-6px); transition: var(--transition-fast); }
-    .footer-links a:hover { color: white; padding-left: 6px; }
-    .footer-links a:hover::before { opacity: 1; transform: translateX(0); }
-
-    .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.85rem; }
-    .footer-contact-item i { color: var(--rose-pink); margin-top: 2px; }
-
-    .footer-bottom {
-      padding: 20px 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-size: 0.8rem;
-    }
-    .footer-bottom a { color: var(--rose-pink); transition: var(--transition-fast); }
-    .footer-bottom a:hover { text-decoration: underline; }
-
-    /* ============================================
-       FLOATING ELEMENTS
-    ============================================ */
-    .float-whatsapp {
-      position: fixed;
-      bottom: 100px;
-      left: 28px;
-      width: 58px; height: 58px;
-      background: linear-gradient(135deg, #25d366, #20c05e);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem;
-      color: white;
-      z-index: 99;
-      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
-      transition: var(--transition);
-      animation: whatsappPulse 2.5s ease-in-out infinite;
-    }
-    .float-whatsapp:hover { transform: scale(1.12) rotate(-5deg); box-shadow: 0 10px 32px rgba(37, 211, 102, 0.55); }
-    @keyframes whatsappPulse {
-      0%, 100% { box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45), 0 0 0 0 rgba(37, 211, 102, 0.4); }
-      50% { box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45), 0 0 0 14px rgba(37, 211, 102, 0); }
-    }
-    .float-whatsapp-tooltip {
-      position: absolute;
-      left: 68px;
-      background: #25d366;
-      color: white;
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 50px;
-      white-space: nowrap;
-      opacity: 0;
-      transform: translateX(-8px);
-      transition: var(--transition-fast);
-      pointer-events: none;
-    }
-    .float-whatsapp:hover .float-whatsapp-tooltip { opacity: 1; transform: translateX(0); }
-
-    .float-top {
-      position: fixed;
-      bottom: 28px; right: 28px;
-      width: 50px; height: 50px;
-      background: linear-gradient(135deg, var(--rose-pink), #f06292);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-      color: white;
-      z-index: 99;
-      box-shadow: 0 6px 20px rgba(233, 30, 140, 0.4);
-      transition: var(--transition);
       opacity: 0;
       visibility: hidden;
+      transition: 0.3s;
     }
-    .float-top.show { opacity: 1; visibility: visible; }
-    .float-top:hover { transform: translateY(-4px) scale(1.08); box-shadow: 0 10px 28px rgba(233, 30, 140, 0.5); }
-
-    /* ============================================
-       KEYFRAME ANIMATIONS
-    ============================================ */
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .order-modal.open {
+      opacity: 1;
+      visibility: visible;
     }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
+    .order-modal-content {
+      background: #fcf6f2;
+      max-width: 540px;
+      width: 90%;
+      padding: 2rem 2.5rem;
+      border-radius: 48px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.1);
+      max-height: 90vh;
+      overflow-y: auto;
     }
-    @keyframes fadeInRight {
-      from { opacity: 0; transform: translateX(40px); }
-      to { opacity: 1; transform: translateX(0); }
+    .order-modal-content input, .order-modal-content select, .order-modal-content textarea {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      border: 1px solid #ecd9d2;
+      border-radius: 60px;
+      background: white;
+      margin-bottom: 1rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    /* ============================================
-       RESPONSIVE
-    ============================================ */
-    @media (max-width: 1024px) {
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
-      .why-grid { grid-template-columns: repeat(2, 1fr); }
-      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    .order-modal-content input:focus, .order-modal-content select:focus {
+      border-color: #d98a8a;
     }
 
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .mobile-nav { display: flex; }
-
-      .hero-content { grid-template-columns: 1fr; text-align: center; gap: 40px; }
-      .hero-text { padding-right: 0; }
-      .hero-subtitle { margin: 0 auto 40px; }
-      .hero-cta { justify-content: center; }
-      .hero-stats { justify-content: center; }
-      .hero-visual { order: -1; }
-      .hero-card-main { width: 280px; }
-
-      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-      .why-grid { grid-template-columns: 1fr; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-      .form-row { grid-template-columns: 1fr; }
-      .modal-body, .modal-head { padding-left: 24px; padding-right: 24px; }
-
-      .summary-inner {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-      }
-      .summary-products { justify-content: center; }
-      .summary-actions {
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-      .summary-total {
-        text-align: center;
-        font-size: 1.2rem;
-      }
-
-      html[dir="rtl"] .hero-text {
-        padding-left: 0;
-      }
+    /* ===== FOOTER & MISC ===== */
+    footer {
+      padding: 3rem 2rem 1.5rem;
+      background: rgba(255, 245, 240, 0.4);
+      backdrop-filter: blur(6px);
+      border-top: 1px solid rgba(255, 215, 215, 0.15);
+      margin-top: 3rem;
     }
-
-    @media (max-width: 480px) {
-      .products-grid { grid-template-columns: 1fr; }
-      .hero-card-main { width: 260px; }
-      .hero-badge-1, .hero-badge-2 { display: none; }
-      .summary-product-tag { font-size: 0.65rem; }
-      .btn-order { padding: 12px 20px; font-size: 0.8rem; }
-      .btn-clear { padding: 8px 14px; font-size: 0.7rem; }
-    }
-
-    /* ============================================
-       TOAST NOTIFICATION
-    ============================================ */
-    .toast-container {
+    .whatsapp-float {
       position: fixed;
-      bottom: 110px;
-      right: 28px;
-      z-index: 5000;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      pointer-events: none;
-    }
-    .toast {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-md);
-      padding: 14px 20px;
-      backdrop-filter: blur(16px);
-      box-shadow: var(--shadow-hover);
+      bottom: 2rem;
+      right: 2rem;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 60px;
       display: flex;
       align-items: center;
-      gap: 12px;
-      min-width: 240px;
-      animation: toastIn 0.3s ease;
-      pointer-events: auto;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+      z-index: 900;
+      transition: 0.2s;
     }
-    @keyframes toastIn {
-      from { transform: translateX(60px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
+    .whatsapp-float:hover { transform: scale(1.06); }
+    .back-top {
+      position: fixed;
+      bottom: 6rem;
+      right: 2.2rem;
+      background: #d98a8a;
+      color: white;
+      width: 48px;
+      height: 48px;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      z-index: 900;
+      opacity: 0;
+      transition: 0.3s;
+      box-shadow: 0 4px 16px rgba(217, 138, 138, 0.3);
     }
-    .toast.fadeout { animation: toastOut 0.3s ease forwards; }
-    @keyframes toastOut {
-      to { transform: translateX(60px); opacity: 0; }
+    .back-top.visible { opacity: 1; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .navbar { padding: 0.6rem 1.2rem; }
+      .nav-links { display: none; flex-direction: column; gap: 0.8rem; background: rgba(255,248,245,0.9); backdrop-filter: blur(12px); padding: 1.5rem; border-radius: 40px; position: absolute; top: 70px; left: 1rem; right: 1rem; }
+      .nav-links.open { display: flex; }
+      .hamburger { display: block; font-size: 1.4rem; }
+      .hero { padding: 6rem 1.5rem 3rem; }
+      .hero h1 { font-size: 2.6rem; }
+      .hero-content { padding: 2rem; }
+      .products-grid { padding: 1.5rem; gap: 1.5rem; grid-template-columns: 1fr 1fr; }
     }
-    .toast-icon { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.9rem; }
-    .toast-success .toast-icon { background: rgba(76, 175, 80, 0.15); color: #4caf50; }
-    .toast-error .toast-icon { background: rgba(239, 83, 80, 0.15); color: #ef5350; }
-    .toast-text { font-size: 0.85rem; font-weight: 500; color: var(--text-primary); }
+    @media (max-width: 500px) {
+      .products-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-
-  <!-- ============ LOADING ============ -->
-  <div id="loader">
-    <div class="loader-brand">Beauty Vibes</div>
-    <div class="loader-dots">
-      <div class="loader-dot"></div>
-      <div class="loader-dot"></div>
-      <div class="loader-dot"></div>
-    </div>
+  <!-- Ambient Background -->
+  <div class="bg-ambient">
+    <div class="butterfly" style="top:10%; left:5%;"></div>
+    <div class="butterfly" style="top:60%; left:80%; width:60px; height:60px;"></div>
+    <div class="bloom" style="width:400px; height:400px; top:20%; left:-10%;"></div>
+    <div class="bloom" style="width:300px; height:300px; bottom:10%; right:5%;"></div>
+    <div class="leaf" style="top:40%; left:20%;"></div>
+    <div class="leaf" style="bottom:20%; right:10%;"></div>
   </div>
 
-  <!-- ============ BACKGROUND CANVAS ============ -->
-  <div class="bg-canvas" id="bgCanvas">
-    <div class="bg-gradient"></div>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-  </div>
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="brand-logo"><i class="fas fa-feather-alt" style="margin-right:8px; color:#d98a8a;"></i>Beauty Vibes</div>
+    <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Accueil</a></li>
+      <li><a href="#products">Produits</a></li>
+      <li><a href="#why">Pourquoi Nous</a></li>
+      <li><a href="#testimonials">Avis</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#" id="orderBtn">Commande</a></li>
+      <li><a href="#footer">Contact</a></li>
+      <li><a href="#" class="cart-icon" id="cartIcon"><i class="fas fa-shopping-bag"></i><span class="cart-badge" id="cartCount">0</span></a></li>
+    </ul>
+  </header>
 
-  <!-- ============ NAVBAR ============ -->
-  <nav id="navbar">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="#" class="nav-brand">Beauty Vibes</a>
-        <div class="nav-links" id="navLinks">
-          <a href="#hero" data-key="nav_home">Accueil</a>
-          <a href="#products" data-key="nav_products">Produits</a>
-          <a href="#why-us" data-key="nav_why">Pourquoi Nous</a>
-          <a href="#testimonials" data-key="nav_testimonials">Avis Clients</a>
-          <a href="#faq" data-key="nav_faq">FAQ</a>
-          <a href="#footer" data-key="nav_contact">Contact</a>
-        </div>
-        <div class="nav-actions">
-          <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
-            <i class="fas fa-globe"></i>
-            <span id="langLabel">FR</span>
-          </button>
-          <div class="hamburger" id="hamburger">
-            <span></span><span></span><span></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Mobile Nav -->
-  <nav class="mobile-nav" id="mobileNav">
-    <a href="#hero" onclick="closeMobileNav()" data-key="nav_home">Accueil</a>
-    <a href="#products" onclick="closeMobileNav()" data-key="nav_products">Produits</a>
-    <a href="#why-us" onclick="closeMobileNav()" data-key="nav_why">Pourquoi Nous</a>
-    <a href="#testimonials" onclick="closeMobileNav()" data-key="nav_testimonials">Avis Clients</a>
-    <a href="#faq" onclick="closeMobileNav()" data-key="nav_faq">FAQ</a>
-    <a href="#footer" onclick="closeMobileNav()" data-key="nav_contact">Contact</a>
-  </nav>
-
-  <!-- ============ HERO ============ -->
-  <section id="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-text">
-          <div class="hero-eyebrow"><i class="fas fa-star"></i> <span data-key="hero_eyebrow">Beauté Authentique & Premium</span></div>
-          <h1 class="hero-title">
-            <span data-key="hero_title_1">Créez Votre</span><br><em><span data-key="hero_title_2">Bague Beauté</span></em>
-          </h1>
-          <p class="hero-subtitle" data-key="hero_subtitle">
-            Choisissez 3 produits ou plus parmi notre collection et bénéficiez d'un prix préférentiel. Livraison rapide en Algérie.
-          </p>
-          <div class="hero-cta">
-            <a href="#products" class="btn-primary"><i class="fas fa-sparkles"></i> <span data-key="hero_btn_shop">Composer ma Bague</span></a>
-            <a href="#products" class="btn-outline"><i class="fas fa-arrow-right"></i> <span data-key="hero_btn_explore">Voir les Produits</span></a>
-          </div>
-          <div class="hero-stats">
-            <div class="stat-item"><div class="stat-num">5K+</div><div class="stat-label" data-key="hero_stat_1">Clients Satisfaits</div></div>
-            <div class="stat-divider"></div>
-            <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label" data-key="hero_stat_2">Produits Authentiques</div></div>
-            <div class="stat-divider"></div>
-            <div class="stat-item"><div class="stat-num">48h</div><div class="stat-label" data-key="hero_stat_3">Livraison Rapide</div></div>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-glow"></div>
-          <div class="hero-card-main">
-            <img src="1.jfif" alt="Eucerin Sun Sensitive" loading="lazy" />
-            <div class="hero-card-label" data-key="hero_card_label">Bague 3+ Produits</div>
-            <div class="hero-card-name" data-key="hero_card_name">Créez votre pack personnalisé</div>
-            <div class="hero-card-price" data-key="hero_card_price">Prix préférentiel</div>
-          </div>
-          <div class="hero-badge hero-badge-1"><i class="fas fa-shield-check"></i> <span data-key="hero_badge_1">100% Authentique</span></div>
-          <div class="hero-badge hero-badge-2"><i class="fas fa-truck"></i> <span data-key="hero_badge_2">Livraison 48h</span></div>
-        </div>
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-content reveal">
+      <h1>Révélez votre <span>éclat naturel</span></h1>
+      <p>Beauty Vibes — soins solaires d'exception, formulés pour révéler votre beauté. Protection, élégance et sensorialité.</p>
+      <div class="btn-group">
+        <a href="#products" class="btn btn-primary">Shop Now</a>
+        <a href="#products" class="btn btn-outline">Explorer</a>
       </div>
     </div>
   </section>
 
-  <!-- ============ PRODUCTS ============ -->
-  <section id="products">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-eyebrow"><i class="fas fa-leaf"></i> <span data-key="products_eyebrow">Notre Collection</span></div>
-        <h2 class="section-title"><span data-key="products_title_1">Choisissez</span> <span data-key="products_title_2">Vos Produits</span></h2>
-        <p class="section-desc" data-key="products_desc">Sélectionnez 3 produits ou plus pour composer votre bague beauté personnalisée.</p>
-        <div class="section-divider">
-          <div class="divider-line"></div>
-          <div class="divider-dot"></div>
-          <div class="divider-line"></div>
-        </div>
-      </div>
-      <div class="products-grid" id="productsGrid">
-        <!-- Injected by JS -->
-      </div>
+  <!-- Products -->
+  <section id="products" style="padding-top:2rem;">
+    <h2 class="section-title reveal">Nos essentiels</h2>
+    <div class="products-grid" id="productGrid"></div>
+  </section>
+
+  <!-- Why us -->
+  <section id="why" style="padding:2rem 2.5rem;">
+    <h2 class="section-title reveal">Pourquoi nous</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:2rem;">
+      <div class="glass" style="padding:2rem; text-align:center; border-radius:40px;"><i class="fas fa-check-circle" style="color:#d98a8a; font-size:2.5rem;"></i><h4>Produits Authentiques</h4></div>
+      <div class="glass" style="padding:2rem; text-align:center; border-radius:40px;"><i class="fas fa-sun" style="color:#d98a8a; font-size:2.5rem;"></i><h4>Protection Solaire</h4></div>
+      <div class="glass" style="padding:2rem; text-align:center; border-radius:40px;"><i class="fas fa-truck" style="color:#d98a8a; font-size:2.5rem;"></i><h4>Livraison Rapide</h4></div>
+      <div class="glass" style="padding:2rem; text-align:center; border-radius:40px;"><i class="fas fa-credit-card" style="color:#d98a8a; font-size:2.5rem;"></i><h4>Paiement à la livraison</h4></div>
     </div>
   </section>
 
-  <!-- ============ WHY US ============ -->
-  <section id="why-us">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-eyebrow"><i class="fas fa-heart"></i> <span data-key="why_eyebrow">Nos Engagements</span></div>
-        <h2 class="section-title"><span data-key="why_title_1">Pourquoi</span> <span data-key="why_title_2">Nous Choisir</span></h2>
-        <p class="section-desc" data-key="why_desc">Beauty Vibes, c'est une promesse de qualité, d'authenticité et d'un service irréprochable.</p>
-        <div class="section-divider">
-          <div class="divider-line"></div>
-          <div class="divider-dot"></div>
-          <div class="divider-line"></div>
-        </div>
-      </div>
-      <div class="why-grid" id="whyGrid">
-        <!-- Injected by JS -->
-      </div>
+  <!-- Testimonials & FAQ (simplified) -->
+  <section id="testimonials" style="padding:2rem 2.5rem;">
+    <h2 class="section-title reveal">Avis clients</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem;">
+      <div class="glass" style="padding:1.8rem; border-radius:40px;"><i class="fas fa-star" style="color:#e7b6a3;"></i><i class="fas fa-star" style="color:#e7b6a3;"></i><i class="fas fa-star" style="color:#e7b6a3;"></i><i class="fas fa-star" style="color:#e7b6a3;"></i><i class="fas fa-star" style="color:#e7b6a3;"></i><p>“Texture incroyable, ma peau est radieuse.”</p><small>— Sarah</small></div>
+      <div class="glass" style="padding:1.8rem; border-radius:40px;"><i class="fas fa-star" style="color:#e7b6a3;"></i><i class="fas fa-star" style="color:#e7b6a3;"></i><i class="fas fa-star" style="color:#e7b6a3;"></i><i class="fas fa-star" style="color:#e7b6a3;"></i><i class="fas fa-star" style="color:#e7b6a3;"></i><p>“Protection efficace, ne laisse pas de film blanc.”</p><small>— Leïla</small></div>
     </div>
   </section>
 
-  <!-- ============ TESTIMONIALS ============ -->
-  <section id="testimonials">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-eyebrow"><i class="fas fa-quote-left"></i> <span data-key="testimonials_eyebrow">Témoignages</span></div>
-        <h2 class="section-title"><span data-key="testimonials_title_1">Ce Que Disent</span> <span data-key="testimonials_title_2">Nos Clients</span></h2>
-        <p class="section-desc" data-key="testimonials_desc">Des milliers de clients satisfaits partagent leur expérience Beauty Vibes.</p>
-        <div class="section-divider">
-          <div class="divider-line"></div>
-          <div class="divider-dot"></div>
-          <div class="divider-line"></div>
-        </div>
-      </div>
-      <div class="testimonials-grid" id="testimonialsGrid">
-        <!-- Injected by JS -->
-      </div>
+  <section id="faq" style="padding:2rem 2.5rem;">
+    <h2 class="section-title reveal">FAQ</h2>
+    <div class="glass" style="padding:1.5rem; border-radius:40px; max-width:700px; margin:0 auto;">
+      <details><summary>Quels sont les délais de livraison ?</summary>2-3 jours ouvrés en moyenne.</details>
+      <details><summary>Produits certifiés ?</summary>Oui, tous nos produits sont authentiques.</details>
     </div>
   </section>
 
-  <!-- ============ FAQ ============ -->
-  <section id="faq">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-eyebrow"><i class="fas fa-circle-question"></i> <span data-key="faq_eyebrow">FAQ</span></div>
-        <h2 class="section-title"><span data-key="faq_title_1">Questions</span> <span data-key="faq_title_2">Fréquentes</span></h2>
-        <p class="section-desc" data-key="faq_desc">Tout ce que vous devez savoir sur nos produits et notre service.</p>
-        <div class="section-divider">
-          <div class="divider-line"></div>
-          <div class="divider-dot"></div>
-          <div class="divider-line"></div>
-        </div>
-      </div>
-      <div class="faq-list" id="faqList">
-        <!-- Injected by JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FOOTER ============ -->
+  <!-- Footer -->
   <footer id="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="#" class="nav-brand">Beauty Vibes</a>
-          <p class="footer-desc" data-key="footer_desc">Votre destination beauté premium en Algérie. Des soins authentiques, une livraison rapide, et un service qui vous ressemble.</p>
-          <div class="footer-social">
-            <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <a href="#" class="social-btn" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-title" data-key="footer_nav_title">Navigation</div>
-          <div class="footer-links">
-            <a href="#hero" data-key="nav_home">Accueil</a>
-            <a href="#products" data-key="nav_products">Produits</a>
-            <a href="#why-us" data-key="nav_why">Pourquoi Nous</a>
-            <a href="#testimonials" data-key="nav_testimonials">Avis Clients</a>
-            <a href="#faq" data-key="nav_faq">FAQ</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-title" data-key="footer_info_title">Informations</div>
-          <div class="footer-links">
-            <a href="#" data-key="footer_privacy">Politique de confidentialité</a>
-            <a href="#" data-key="footer_terms">Conditions de vente</a>
-            <a href="#" data-key="footer_return">Politique de retour</a>
-            <a href="#" data-key="footer_about">À propos de nous</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-title" data-key="footer_contact_title">Contact</div>
-          <div class="footer-contact-item"><i class="fas fa-phone"></i><span>+213 5XX XXX XXX</span></div>
-          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>contact@beautyvibes.dz</span></div>
-          <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><span data-key="footer_whatsapp">WhatsApp disponible</span></div>
-          <div class="footer-contact-item"><i class="fas fa-clock"></i><span data-key="footer_hours">Lun–Sam : 9h – 20h</span></div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span data-key="footer_copyright">© 2025 Beauty Vibes. Tous droits réservés.</span>
-        <span data-key="footer_heart">Fait avec <i class="fas fa-heart" style="color:var(--rose-pink)"></i> en Algérie</span>
-      </div>
+    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:2rem;">
+      <div><span class="brand-logo"><i class="fas fa-feather-alt"></i> Beauty Vibes</span><p style="margin-top:0.5rem;">Éclat naturel, protection absolue.</p></div>
+      <div><h4>Liens</h4><a href="#products">Produits</a> · <a href="#why">Pourquoi</a> · <a href="#faq">FAQ</a></div>
+      <div><h4>Contact</h4><i class="fas fa-envelope"></i> hello@beautyvibes.dz</div>
     </div>
+    <p style="text-align:center; margin-top:2rem; font-size:0.8rem; opacity:0.6;">© 2026 Beauty Vibes — Tous droits réservés</p>
   </footer>
 
-  <!-- ============ ORDER SUMMARY (FLOATING BAR) ============ -->
-  <div class="order-summary" id="orderSummary">
-    <div class="container">
-      <div class="summary-inner">
-        <div class="summary-products" id="summaryProducts">
-          <!-- Injected by JS -->
-        </div>
-        <div class="summary-counter" id="summaryCounter">
-          <span data-key="summary_selected"><strong id="selectedCount">0</strong> produit(s) sélectionné(s)</span>
-          <span class="summary-min-msg" id="minMsg" data-key="summary_min">Minimum 3 produits requis</span>
-        </div>
-        <div class="summary-total" id="summaryTotal">
-          <span data-key="summary_total">Total</span> <span id="totalPrice">0</span> <span>DA</span>
-        </div>
-        <div class="summary-actions">
-          <button class="btn-clear" id="clearBtn" data-key="summary_clear"><i class="fas fa-trash-can"></i> Effacer</button>
-          <button class="btn-order" id="orderBtn" disabled data-key="summary_order">
-            <i class="fas fa-check-circle"></i> Commander
-          </button>
-        </div>
-      </div>
+  <!-- WhatsApp & BackTop -->
+  <a href="https://wa.me/213XXXXXXXXX" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <div class="back-top" id="backTop"><i class="fas fa-chevron-up"></i></div>
+
+  <!-- Cart Overlay & Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div style="display:flex; justify-content:space-between; align-items:center;"><h3>Votre panier</h3><i class="fas fa-times" id="closeCart" style="cursor:pointer; font-size:1.4rem;"></i></div>
+    <div id="cartItems" style="margin:1.5rem 0;"></div>
+    <div style="font-weight:600; font-size:1.3rem; border-top:1px solid #e7d2cb; padding-top:1rem;">Total: <span id="cartTotal">0</span> DA</div>
+    <button class="btn btn-primary" id="checkoutBtn" style="width:100%; margin-top:1.2rem;">Commander</button>
+  </div>
+
+  <!-- Order Modal -->
+  <div class="order-modal" id="orderModal">
+    <div class="order-modal-content">
+      <h3 style="margin-bottom:1rem;">Confirmation commande</h3>
+      <div id="orderSummary" style="background:#f5edea; padding:1rem; border-radius:30px; margin-bottom:1.5rem;"></div>
+      <input type="text" id="nom" placeholder="Nom *" />
+      <input type="text" id="prenom" placeholder="Prénom *" />
+      <input type="text" id="phone" placeholder="Téléphone * (ex: 0555123456)" />
+      <select id="wilaya"><option value="">Wilaya *</option></select>
+      <textarea id="note" placeholder="Note (optionnel)"></textarea>
+      <button class="btn btn-primary" id="confirmOrder" style="width:100%;">Confirmer la commande</button>
+      <i class="fas fa-times" id="closeOrder" style="float:right; margin-top:-2.5rem; cursor:pointer; font-size:1.4rem;"></i>
     </div>
   </div>
 
-  <!-- ============ ORDER MODAL ============ -->
-  <div class="modal-overlay" id="orderModal">
-    <div class="modal-box">
-      <div class="modal-head">
-        <div class="modal-title"><span data-key="modal_title">Confirmer la Commande</span></div>
-        <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
-      </div>
-      <div class="modal-body">
-        <!-- Success screen -->
-        <div class="success-screen" id="successScreen">
-          <div class="success-icon"><i class="fas fa-check"></i></div>
-          <div class="success-title" data-key="success_title">Commande Confirmée !</div>
-          <p class="success-msg" data-key="success_msg">Merci pour votre confiance. Notre équipe vous contactera très bientôt pour confirmer la livraison de votre commande.</p>
-          <button class="success-close-btn" id="successClose"><i class="fas fa-heart"></i> <span data-key="success_btn">Continuer les achats</span></button>
-        </div>
-        <!-- Order form -->
-        <div id="orderForm">
-          <div class="modal-order-summary" id="modalSummary"></div>
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="fPrenom"><span data-key="form_firstname">Prénom</span> <span>*</span></label>
-              <input type="text" id="fPrenom" class="form-input" data-key-placeholder="form_firstname_placeholder" placeholder="Votre prénom" />
-              <div class="field-error" id="errPrenom" data-key="err_firstname">Le prénom est requis.</div>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="fNom"><span data-key="form_lastname">Nom</span> <span>*</span></label>
-              <input type="text" id="fNom" class="form-input" data-key-placeholder="form_lastname_placeholder" placeholder="Votre nom" />
-              <div class="field-error" id="errNom" data-key="err_lastname">Le nom est requis.</div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="fPhone"><span data-key="form_phone">Téléphone</span> <span>*</span></label>
-            <input type="tel" id="fPhone" class="form-input" data-key-placeholder="form_phone_placeholder" placeholder="0X XX XX XX XX" />
-            <div class="field-error" id="errPhone" data-key="err_phone">Numéro de téléphone invalide (10 chiffres requis).</div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="fWilaya"><span data-key="form_wilaya">Wilaya</span> <span>*</span></label>
-            <select id="fWilaya" class="form-select">
-              <option value="" data-key="form_wilaya_placeholder">-- Sélectionnez votre wilaya --</option>
-            </select>
-            <div class="field-error" id="errWilaya" data-key="err_wilaya">Veuillez sélectionner votre wilaya.</div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="fNote"><span data-key="form_note">Note (facultatif)</span></label>
-            <textarea id="fNote" class="form-textarea" data-key-placeholder="form_note_placeholder" placeholder="Adresse précise, indications, remarques..."></textarea>
-          </div>
-          <button class="btn-submit" id="submitOrder">
-            <i class="fas fa-paper-plane"></i>
-            <span data-key="form_submit">Confirmer la commande</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ============ FLOATING BUTTONS ============ -->
-  <a href="https://wa.me/213500000000" target="_blank" class="float-whatsapp" aria-label="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-    <span class="float-whatsapp-tooltip" data-key="whatsapp_tooltip">Contactez-nous</span>
-  </a>
-  <button class="float-top" id="scrollTop" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></button>
-
-  <!-- ============ TOAST ============ -->
-  <div class="toast-container" id="toastContainer"></div>
-
-  <!-- ============ JAVASCRIPT ============ -->
   <script>
-    // ============================================
-    // CONFIGURATION
-    // ============================================
-    const GOOGLE_SCRIPT_URL = "PUT_YOUR_SCRIPT_URL_HERE";
-
-    // ============================================
-    // TRANSLATIONS
-    // ============================================
-    const translations = {
-      fr: {
-        nav_home: "Accueil",
-        nav_products: "Produits",
-        nav_why: "Pourquoi Nous",
-        nav_testimonials: "Avis Clients",
-        nav_faq: "FAQ",
-        nav_contact: "Contact",
-        hero_eyebrow: "Beauté Authentique & Premium",
-        hero_title_1: "Créez Votre",
-        hero_title_2: "Bague Beauté",
-        hero_subtitle: "Choisissez 3 produits ou plus parmi notre collection et bénéficiez d'un prix préférentiel. Livraison rapide en Algérie.",
-        hero_btn_shop: "Composer ma Bague",
-        hero_btn_explore: "Voir les Produits",
-        hero_stat_1: "Clients Satisfaits",
-        hero_stat_2: "Produits Authentiques",
-        hero_stat_3: "Livraison Rapide",
-        hero_card_label: "Bague 3+ Produits",
-        hero_card_name: "Créez votre pack personnalisé",
-        hero_card_price: "Prix préférentiel",
-        hero_badge_1: "100% Authentique",
-        hero_badge_2: "Livraison 48h",
-        products_eyebrow: "Notre Collection",
-        products_title_1: "Choisissez",
-        products_title_2: "Vos Produits",
-        products_desc: "Sélectionnez 3 produits ou plus pour composer votre bague beauté personnalisée.",
-        why_eyebrow: "Nos Engagements",
-        why_title_1: "Pourquoi",
-        why_title_2: "Nous Choisir",
-        why_desc: "Beauty Vibes, c'est une promesse de qualité, d'authenticité et d'un service irréprochable.",
-        testimonials_eyebrow: "Témoignages",
-        testimonials_title_1: "Ce Que Disent",
-        testimonials_title_2: "Nos Clients",
-        testimonials_desc: "Des milliers de clients satisfaits partagent leur expérience Beauty Vibes.",
-        faq_eyebrow: "FAQ",
-        faq_title_1: "Questions",
-        faq_title_2: "Fréquentes",
-        faq_desc: "Tout ce que vous devez savoir sur nos produits et notre service.",
-        footer_desc: "Votre destination beauté premium en Algérie. Des soins authentiques, une livraison rapide, et un service qui vous ressemble.",
-        footer_nav_title: "Navigation",
-        footer_info_title: "Informations",
-        footer_contact_title: "Contact",
-        footer_privacy: "Politique de confidentialité",
-        footer_terms: "Conditions de vente",
-        footer_return: "Politique de retour",
-        footer_about: "À propos de nous",
-        footer_whatsapp: "WhatsApp disponible",
-        footer_hours: "Lun–Sam : 9h – 20h",
-        footer_copyright: "© 2025 Beauty Vibes. Tous droits réservés.",
-        footer_heart: "Fait avec ❤️ en Algérie",
-        modal_title: "Confirmer la Commande",
-        modal_summary: "Récapitulatif",
-        success_title: "Commande Confirmée !",
-        success_msg: "Merci pour votre confiance. Notre équipe vous contactera très bientôt pour confirmer la livraison de votre commande.",
-        success_btn: "Continuer les achats",
-        form_firstname: "Prénom",
-        form_lastname: "Nom",
-        form_phone: "Téléphone",
-        form_wilaya: "Wilaya",
-        form_note: "Note (facultatif)",
-        form_submit: "Confirmer la commande",
-        form_firstname_placeholder: "Votre prénom",
-        form_lastname_placeholder: "Votre nom",
-        form_phone_placeholder: "0X XX XX XX XX",
-        form_wilaya_placeholder: "-- Sélectionnez votre wilaya --",
-        form_note_placeholder: "Adresse précise, indications, remarques...",
-        err_firstname: "Le prénom est requis.",
-        err_lastname: "Le nom est requis.",
-        err_phone: "Numéro de téléphone invalide (10 chiffres requis).",
-        err_wilaya: "Veuillez sélectionner votre wilaya.",
-        toast_added: "ajouté à votre bague !",
-        toast_removed: "retiré de votre bague",
-        toast_min: "Veuillez sélectionner au moins 3 produits",
-        toast_empty: "Veuillez sélectionner au moins 3 produits",
-        whatsapp_tooltip: "Contactez-nous",
-        badge_bestseller: "🔥 Best Seller",
-        badge_new: "✨ Nouveau",
-        btn_select: "Sélectionner",
-        btn_deselect: "Désélectionner",
-        product_price_suffix: " DA",
-        summary_selected: "<strong id='selectedCount'>0</strong> produit(s) sélectionné(s)",
-        summary_min: "Minimum 3 produits requis",
-        summary_total: "Total",
-        summary_clear: "Effacer",
-        summary_order: "Commander",
-        why_1_title: "Produits Authentiques",
-        why_1_desc: "Tous nos produits sont 100% originaux, importés directement des grandes marques dermatologiques mondiales.",
-        why_2_title: "Protection Solaire",
-        why_2_desc: "Des formules avancées SPF 50+ recommandées par les dermatologues pour une protection optimale.",
-        why_3_title: "Livraison Rapide",
-        why_3_desc: "Livraison express partout en Algérie sous 24 à 48 heures. Suivi en temps réel de votre commande.",
-        why_4_title: "Paiement à la Livraison",
-        why_4_desc: "Payez uniquement à la réception de votre commande. Aucun risque, totale tranquillité d'esprit.",
-        why_5_title: "Support Client",
-        why_5_desc: "Notre équipe est disponible 7j/7 pour répondre à toutes vos questions et vous conseiller.",
-        why_6_title: "Qualité Garantie",
-        why_6_desc: "Satisfait ou remboursé. Votre satisfaction est notre priorité absolue à chaque commande.",
-        testimonial_1_text: "« L'Eucerin Sensitive Protect est absolument parfait pour ma peau sensible. Aucune irritation, fini la rougeur. Je commande déjà mon deuxième flacon ! »",
-        testimonial_1_name: "Sonia B.",
-        testimonial_1_location: "Alger",
-        testimonial_2_text: "« Livraison en 24h à Oran, c'est impressionnant ! Les produits sont bien emballés et 100% authentiques. Le Vichy Anti-Age est un vrai coup de cœur. »",
-        testimonial_2_name: "Meriem K.",
-        testimonial_2_location: "Oran",
-        testimonial_3_text: "« J'ai enfin trouvé la crème solaire parfaite pour ma peau grasse avec l'Avène Cleanance SPF 50+. Fini l'effet brillant ! Service client très professionnel. »",
-        testimonial_3_name: "Lina M.",
-        testimonial_3_location: "Constantine",
-        faq_1_q: "Comment puis-je passer une commande ?",
-        faq_1_a: "Sélectionnez 3 produits ou plus, puis cliquez sur \"Commander\" dans la barre du bas. Remplissez le formulaire avec vos coordonnées et confirmez votre commande. Notre équipe vous contactera sous 24h pour confirmer la livraison.",
-        faq_2_q: "Quel est le délai de livraison ?",
-        faq_2_a: "Nous livrons partout en Algérie sous 24 à 48 heures ouvrables. Pour les wilayas éloignées, le délai peut être de 48 à 72 heures. Vous recevrez une notification avec le suivi de votre colis.",
-        faq_3_q: "Les produits sont-ils authentiques et originaux ?",
-        faq_3_a: "Absolument ! Tous nos produits sont 100% originaux et importés directement des distributeurs officiels. Nous offrons une garantie d'authenticité sur chaque article vendu sur Beauty Vibes.",
-        faq_4_q: "Comment fonctionne le paiement à la livraison ?",
-        faq_4_a: "Vous ne payez qu'à la réception de votre commande. Le livreur vous remet vos produits, vous vérifiez le contenu, et payez en espèces directement. Aucun prépaiement n'est requis.",
-        faq_5_q: "Puis-je retourner un produit si je ne suis pas satisfait ?",
-        faq_5_a: "Oui ! Si vous n'êtes pas entièrement satisfait, contactez-nous dans les 7 jours suivant la réception. Nous organisons le retour et le remboursement intégral sans frais supplémentaires."
-      },
-      ar: {
-        nav_home: "الرئيسية",
-        nav_products: "المنتجات",
-        nav_why: "لماذا نحن",
-        nav_testimonials: "آراء العملاء",
-        nav_faq: "الأسئلة الشائعة",
-        nav_contact: "اتصل بنا",
-        hero_eyebrow: "جمال أصلي وفاخر",
-        hero_title_1: "اصنعي",
-        hero_title_2: "باقة جمالك",
-        hero_subtitle: "اختاري 3 منتجات أو أكثر من مجموعتنا واستفيدي من سعر تفضيلي. توصيل سريع في الجزائر.",
-        hero_btn_shop: "شكّلي باقاتي",
-        hero_btn_explore: "شاهدي المنتجات",
-        hero_stat_1: "عملاء راضون",
-        hero_stat_2: "منتجات أصلية",
-        hero_stat_3: "توصيل سريع",
-        hero_card_label: "باقة 3+ منتجات",
-        hero_card_name: "اصنعي حزمة مخصصة لك",
-        hero_card_price: "سعر تفضيلي",
-        hero_badge_1: "أصلي 100%",
-        hero_badge_2: "توصيل 48 ساعة",
-        products_eyebrow: "مجموعتنا",
-        products_title_1: "اختاري",
-        products_title_2: "منتجاتك",
-        products_desc: "اختاري 3 منتجات أو أكثر لتشكيل باقة جمالك المخصصة.",
-        why_eyebrow: "التزاماتنا",
-        why_title_1: "لماذا",
-        why_title_2: "تختارنا",
-        why_desc: "بيوتي فايبس، وعد بالجودة والأصالة والخدمة المثالية.",
-        testimonials_eyebrow: "الشهادات",
-        testimonials_title_1: "ما يقوله",
-        testimonials_title_2: "عملاؤنا",
-        testimonials_desc: "آلاف العملاء الراضين يشاركون تجربتهم مع بيوتي فايبس.",
-        faq_eyebrow: "الأسئلة الشائعة",
-        faq_title_1: "الأسئلة",
-        faq_title_2: "الشائعة",
-        faq_desc: "كل ما تحتاج معرفته عن منتجاتنا وخدماتنا.",
-        footer_desc: "وجهتك المفضلة للجمال الفاخر في الجزائر. عناية أصلية، توصيل سريع، وخدمة تناسبك.",
-        footer_nav_title: "التنقل",
-        footer_info_title: "معلومات",
-        footer_contact_title: "اتصل بنا",
-        footer_privacy: "سياسة الخصوصية",
-        footer_terms: "شروط البيع",
-        footer_return: "سياسة الإرجاع",
-        footer_about: "من نحن",
-        footer_whatsapp: "واتساب متاح",
-        footer_hours: "الإثنين–السبت : 9ص – 8م",
-        footer_copyright: "© 2025 بيوتي فايبس. جميع الحقوق محفوظة.",
-        footer_heart: "صُنع بـ ❤️ في الجزائر",
-        modal_title: "تأكيد الطلب",
-        modal_summary: "ملخص الطلب",
-        success_title: "تم تأكيد الطلب!",
-        success_msg: "شكراً لثقتك. سيتصل بك فريقنا قريباً لتأكيد توصيل طلبك.",
-        success_btn: "مواصلة التسوق",
-        form_firstname: "الاسم الأول",
-        form_lastname: "اسم العائلة",
-        form_phone: "الهاتف",
-        form_wilaya: "الولاية",
-        form_note: "ملاحظة (اختياري)",
-        form_submit: "تأكيد الطلب",
-        form_firstname_placeholder: "اسمك الأول",
-        form_lastname_placeholder: "اسم عائلتك",
-        form_phone_placeholder: "0X XX XX XX XX",
-        form_wilaya_placeholder: "-- اختر ولايتك --",
-        form_note_placeholder: "العنوان الدقيق، تعليمات، ملاحظات...",
-        err_firstname: "الاسم الأول مطلوب.",
-        err_lastname: "اسم العائلة مطلوب.",
-        err_phone: "رقم الهاتف غير صحيح (10 أرقام مطلوبة).",
-        err_wilaya: "يرجى اختيار ولايتك.",
-        toast_added: "تمت إضافة إلى باقاتك!",
-        toast_removed: "تمت إزالته من باقاتك",
-        toast_min: "يرجى اختيار 3 منتجات على الأقل",
-        toast_empty: "يرجى اختيار 3 منتجات على الأقل",
-        whatsapp_tooltip: "تواصل معنا",
-        badge_bestseller: "🔥 الأكثر مبيعاً",
-        badge_new: "✨ جديد",
-        btn_select: "اختر",
-        btn_deselect: "إلغاء الاختيار",
-        product_price_suffix: " دج",
-        summary_selected: "<strong id='selectedCount'>0</strong> منتج(منتجات) مختارة",
-        summary_min: "3 منتجات كحد أدنى مطلوبة",
-        summary_total: "المجموع",
-        summary_clear: "إلغاء الكل",
-        summary_order: "اطلب",
-        why_1_title: "منتجات أصلية",
-        why_1_desc: "جميع منتجاتنا أصلية 100%، مستوردة مباشرة من كبرى ماركات الأمراض الجلدية العالمية.",
-        why_2_title: "حماية من الشمس",
-        why_2_desc: "تركيبات متطورة SPF 50+ موصى بها من قبل أطباء الجلدية لحماية مثالية.",
-        why_3_title: "توصيل سريع",
-        why_3_desc: "توصيل سريع في جميع أنحاء الجزائر خلال 24 إلى 48 ساعة. متابعة طلبك في الوقت الفعلي.",
-        why_4_title: "الدفع عند الاستلام",
-        why_4_desc: "ادفع فقط عند استلام طلبك. لا يوجد مخاطرة، راحة تامة.",
-        why_5_title: "دعم العملاء",
-        why_5_desc: "فريقنا متاح 7 أيام في الأسبوع للإجابة على جميع أسئلتك وتقديم النصح لك.",
-        why_6_title: "جودة مضمونة",
-        why_6_desc: "رضاك أو استرداد أموالك. رضاك هو أولويتنا المطلقة في كل طلب.",
-        testimonial_1_text: "«يوسيرين صن بروتكت مثالي تماماً لبشرتي الحساسة. لا تهيج، اختفى الاحمرار. أطلب بالفعل الزجاجة الثانية!»",
-        testimonial_1_name: "سونيا ب.",
-        testimonial_1_location: "الجزائر",
-        testimonial_2_text: "«التوصيل خلال 24 ساعة إلى وهران، مذهل! المنتجات معبأة بشكل جيد وأصلية 100%. فيشي أنتي-آج محبوب حقاً.»",
-        testimonial_2_name: "مريم ك.",
-        testimonial_2_location: "وهران",
-        testimonial_3_text: "«وجدت أخيراً واقي الشمس المثالي لبشرتي الدهنية مع أفين كلينانس SPF 50+. انتهى اللمعان! خدمة العملاء محترفة جداً.»",
-        testimonial_3_name: "لينا م.",
-        testimonial_3_location: "قسنطينة",
-        faq_1_q: "كيف يمكنني تقديم طلب؟",
-        faq_1_a: "اختاري 3 منتجات أو أكثر، ثم انقري على \"اطلب\" في الشريط السفلي. املئي النموذج ببياناتك وأكدي طلبك. سيتصل بك فريقنا خلال 24 ساعة لتأكيد التوصيل.",
-        faq_2_q: "ما هو وقت التوصيل؟",
-        faq_2_a: "نوصل في جميع أنحاء الجزائر خلال 24 إلى 48 ساعة عمل. للولايات البعيدة، قد يستغرق 48 إلى 72 ساعة. ستتلقى إشعاراً مع تتبع طلبك.",
-        faq_3_q: "هل المنتجات أصلية؟",
-        faq_3_a: "بالتأكيد! جميع منتجاتنا أصلية 100% ومستوردة مباشرة من الموزعين الرسميين. نقدم ضمان الأصالة على كل منتج مباع في بيوتي فايبس.",
-        faq_4_q: "كيف يعمل الدفع عند الاستلام؟",
-        faq_4_a: "تدفع فقط عند استلام طلبك. يسلمك الموزع منتجاتك، تتحقق من المحتوى، وتدفع نقداً مباشرة. لا حاجة للدفع المسبق.",
-        faq_5_q: "هل يمكنني إرجاع منتج إذا لم أكن راضياً؟",
-        faq_5_a: "نعم! إذا لم تكن راضياً تماماً، اتصل بنا في غضون 7 أيام من الاستلام. نرتب الإرجاع واسترداد المبلغ بالكامل دون رسوم إضافية."
-      }
-    };
-
-    // ============================================
-    // PRODUCT DATA
-    // ============================================
+    // ===== DATA =====
     const products = [
-      {
-        id: 1,
-        name: "Eucerin Sun Sensitive Protect",
-        name_ar: "يوسيرين صن بروتكت للبشرة الحساسة",
-        desc: "Protection supérieure pour peau sensible et sèche. Sans parfum, résistant à l'eau.",
-        desc_ar: "حماية فائقة للبشرة الحساسة والجافة. خالٍ من العطور، مقاوم للماء.",
-        price: 1850,
-        img: "1.jfif",
-        badge: "bestseller",
-        stars: 5,
-        reviews: 128
-      },
-      {
-        id: 2,
-        name: "Vichy Capital Soleil Anti-Age 3in1",
-        name_ar: "فيشي كابيتال سوليه مضاد للشيخوخة 3×1",
-        desc: "Protection solaire, anti-rides et éclat en une seule formule. Contient Niacinamide et Acide Hyaluronique.",
-        desc_ar: "حماية من الشمس، مضاد للتجاعيد وإشراق في تركيبة واحدة. يحتوي على النياسيناميد وحمض الهيالورونيك.",
-        price: 2200,
-        img: "2.jfif",
-        badge: "new",
-        stars: 5,
-        reviews: 84
-      },
-      {
-        id: 3,
-        name: "Vichy Capital Soleil Velvety Cream",
-        name_ar: "فيشي كابيتال سوليه كريم مخملي",
-        desc: "Crème veloutée hydratante 24h, adaptée aux peaux sèches et sensibles.",
-        desc_ar: "كريم مخملي مرطب 24 ساعة، مناسب للبشرة الجافة والحساسة.",
-        price: 1950,
-        img: "3.jfif",
-        badge: "bestseller",
-        stars: 5,
-        reviews: 96
-      },
-      {
-        id: 4,
-        name: "Avène Cleanance SPF 50+",
-        name_ar: "أفين كلينانس واقي شمس SPF 50+",
-        desc: "Écran solaire mat pour peau grasse et à tendance acnéique. Non comédogène.",
-        desc_ar: "واقي شمسي غير لامع للبشرة الدهنية والمعرضة لحب الشباب. غير كوميدوغيني.",
-        price: 1780,
-        img: "4.jfif",
-        badge: null,
-        stars: 4,
-        reviews: 67
-      },
-      {
-        id: 5,
-        name: "Uriage Crème Extrême 90",
-        name_ar: "أورياج كريم إكستريم 90",
-        desc: "Protection maximale pour peau intolérante au soleil. Sans parfum, formule apaisante.",
-        desc_ar: "حماية قصوى للبشرة غير المتحملة للشمس. خالٍ من العطور، تركيبة مهدئة.",
-        price: 2050,
-        img: "5.jfif",
-        badge: "new",
-        stars: 5,
-        reviews: 52
-      }
+      { id:1, name:'Eucerin Sun Sensitive Protect', desc:'Protection ultra pour peaux sensibles, sans parfum.', price:3200, image:'1.jpg', badge:'Best Seller' },
+      { id:2, name:'Vichy Capital Soleil Anti-Age 3in1', desc:'Protection + anti-rides + éclat, acide hyaluronique.', price:4100, image:'2.jpg', badge:'New' },
+      { id:3, name:'Vichy Capital Soleil Velvety Cream', desc:'Crème velours hydratante 24h, peaux sèches.', price:3800, image:'3.jpg', badge:'' },
+      { id:4, name:'Avène Cleanance SPF 50+', desc:'Matifiant, non comédogène, peaux acnéiques.', price:3600, image:'4.jpg', badge:'' },
+      { id:5, name:'Uriage Crème Extrême 90', desc:'Protection maximale, sans parfum, apaisant.', price:3900, image:'5.jpg', badge:'' }
     ];
 
-    // ============================================
-    // ALGERIAN WILAYAS
-    // ============================================
-    const wilayas = [
-      "01 - Adrar","02 - Chlef","03 - Laghouat","04 - Oum El Bouaghi","05 - Batna",
-      "06 - Béjaïa","07 - Biskra","08 - Béchar","09 - Blida","10 - Bouira",
-      "11 - Tamanrasset","12 - Tébessa","13 - Tlemcen","14 - Tiaret","15 - Tizi Ouzou",
-      "16 - Alger","17 - Djelfa","18 - Jijel","19 - Sétif","20 - Saïda",
-      "21 - Skikda","22 - Sidi Bel Abbès","23 - Annaba","24 - Guelma","25 - Constantine",
-      "26 - Médéa","27 - Mostaganem","28 - M'Sila","29 - Mascara","30 - Ouargla",
-      "31 - Oran","32 - El Bayadh","33 - Illizi","34 - Bordj Bou Arréridj","35 - Boumerdès",
-      "36 - El Tarf","37 - Tindouf","38 - Tissemsilt","39 - El Oued","40 - Khenchela",
-      "41 - Souk Ahras","42 - Tipaza","43 - Mila","44 - Aïn Defla","45 - Naâma",
-      "46 - Aïn Témouchent","47 - Ghardaïa","48 - Relizane","49 - El M'ghair","50 - El Meniaa",
-      "51 - Ouled Djellal","52 - Bordj Baji Mokhtar","53 - Béni Abbès","54 - Timimoun",
-      "55 - Touggourt","56 - Djanet","57 - In Salah","58 - In Guezzam"
-    ];
+    let cart = [];
 
-    // ============================================
-    // STATE
-    // ============================================
-    let selectedProducts = [];
-    let currentLang = 'fr';
-
-    // ============================================
-    // INIT
-    // ============================================
-    document.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem('beauty_lang') || 'fr';
-      setLanguage(savedLang);
-
-      initLoader();
-      initBackground();
-      initNavbar();
-      initMobileNav();
-      renderProducts();
-      renderWhyUs();
-      renderTestimonials();
-      renderFAQ();
-      initWilayas();
-      initScrollReveal();
-      initScrollTop();
-      initOrderModal();
-      initLangToggle();
-      updateUI();
-      updateSummary();
-
-      // Close summary initially if no products
-      if (selectedProducts.length === 0) {
-        document.getElementById('orderSummary').classList.remove('show');
-      }
-    });
-
-    // ============================================
-    // LANGUAGE TOGGLE
-    // ============================================
-    function initLangToggle() {
-      document.getElementById('langToggle').addEventListener('click', () => {
-        const newLang = currentLang === 'fr' ? 'ar' : 'fr';
-        setLanguage(newLang);
-        localStorage.setItem('beauty_lang', newLang);
-        updateUI();
-      });
-    }
-
-    function setLanguage(lang) {
-      currentLang = lang;
-      document.getElementById('langLabel').textContent = lang.toUpperCase();
-      if (lang === 'ar') {
-        document.documentElement.setAttribute('dir', 'rtl');
-        document.documentElement.setAttribute('lang', 'ar');
-      } else {
-        document.documentElement.setAttribute('dir', 'ltr');
-        document.documentElement.setAttribute('lang', 'fr');
-      }
-    }
-
-    function updateUI() {
-      const elements = document.querySelectorAll('[data-key]');
-      elements.forEach(el => {
-        const key = el.getAttribute('data-key');
-        const translation = translations[currentLang][key];
-        if (translation) {
-          if (el.children.length === 0 || el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT') {
-            el.textContent = translation;
-          } else {
-            const childSpans = el.querySelectorAll('span[data-key]');
-            if (childSpans.length > 0) {
-              childSpans.forEach(span => {
-                const spanKey = span.getAttribute('data-key');
-                const spanTranslation = translations[currentLang][spanKey];
-                if (spanTranslation) span.textContent = spanTranslation;
-              });
-            } else {
-              el.textContent = translation;
-            }
-          }
-        }
-      });
-
-      const placeholders = document.querySelectorAll('[data-key-placeholder]');
-      placeholders.forEach(el => {
-        const key = el.getAttribute('data-key-placeholder');
-        const translation = translations[currentLang][key];
-        if (translation) {
-          el.placeholder = translation;
-        }
-      });
-
-      renderProducts();
-      renderWhyUs();
-      renderTestimonials();
-      renderFAQ();
-      updateSummary();
-      updateErrorMessages();
-      updateSuccessMessages();
-    }
-
-    // ============================================
-    // LOADER
-    // ============================================
-    function initLoader() {
-      setTimeout(() => {
-        document.getElementById('loader').classList.add('hidden');
-      }, 1800);
-    }
-
-    // ============================================
-    // ANIMATED BACKGROUND
-    // ============================================
-    function initBackground() {
-      const canvas = document.getElementById('bgCanvas');
-      const petalColors = ['#fce4ec','#f8bbd9','#f48fb1','#fdd8e5','#ffe0ef'];
-      for (let i = 0; i < 18; i++) {
-        const petal = document.createElement('div');
-        petal.className = 'petal';
-        const size = Math.random() * 16 + 8;
-        petal.style.cssText = `
-          left: ${Math.random() * 100}%;
-          width: ${size}px;
-          height: ${size * 1.5}px;
-          animation-duration: ${Math.random() * 12 + 10}s;
-          animation-delay: ${Math.random() * -15}s;
-        `;
-        const color = petalColors[Math.floor(Math.random() * petalColors.length)];
-        petal.innerHTML = `<svg viewBox="0 0 30 45" xmlns="http://www.w3.org/2000/svg"><ellipse cx="15" cy="22" rx="12" ry="20" fill="${color}" opacity="0.8"/></svg>`;
-        canvas.appendChild(petal);
-      }
-
-      for (let i = 0; i < 4; i++) {
-        const butterfly = document.createElement('div');
-        butterfly.className = 'butterfly';
-        const size = Math.random() * 20 + 16;
-        butterfly.style.cssText = `
-          left: ${Math.random() * 80 + 10}%;
-          top: ${Math.random() * 60 + 10}%;
-          animation-duration: ${Math.random() * 20 + 18}s;
-          animation-delay: ${Math.random() * -20}s;
-        `;
-        const c = ['#f48fb1','#ce93d8','#f8bbd9','#e1bee7'][i % 4];
-        butterfly.innerHTML = `
-          <svg width="${size * 2}" height="${size}" viewBox="0 0 80 40" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="20" cy="16" rx="18" ry="14" fill="${c}" opacity="0.6" style="animation:wingFlap 0.5s ease-in-out infinite;transform-origin:40px 20px"/>
-            <ellipse cx="60" cy="16" rx="18" ry="14" fill="${c}" opacity="0.6" style="animation:wingFlap 0.5s ease-in-out infinite 0.25s;transform-origin:40px 20px"/>
-            <ellipse cx="40" cy="20" rx="3" ry="12" fill="#5d4060" opacity="0.7"/>
-          </svg>`;
-        canvas.appendChild(butterfly);
-      }
-    }
-
-    // ============================================
-    // NAVBAR
-    // ============================================
-    function initNavbar() {
-      const navbar = document.getElementById('navbar');
-      window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 50);
-        const scrollTop = document.getElementById('scrollTop');
-        scrollTop.classList.toggle('show', window.scrollY > 400);
-      });
-    }
-
-    // ============================================
-    // MOBILE NAV
-    // ============================================
-    function initMobileNav() {
-      const hamburger = document.getElementById('hamburger');
-      const mobileNav = document.getElementById('mobileNav');
-      hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        mobileNav.classList.toggle('open');
-        document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
-      });
-    }
-    function closeMobileNav() {
-      document.getElementById('hamburger').classList.remove('active');
-      document.getElementById('mobileNav').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    // ============================================
-    // RENDER PRODUCTS
-    // ============================================
+    // ===== RENDER PRODUCTS =====
     function renderProducts() {
-      const grid = document.getElementById('productsGrid');
-      const lang = currentLang;
-      const isArabic = lang === 'ar';
-
-      grid.innerHTML = products.map((p, i) => {
-        const name = isArabic ? p.name_ar : p.name;
-        const desc = isArabic ? p.desc_ar : p.desc;
-        const badgeText = p.badge === 'bestseller' 
-          ? (isArabic ? translations.ar.badge_bestseller : translations.fr.badge_bestseller)
-          : p.badge === 'new'
-          ? (isArabic ? translations.ar.badge_new : translations.fr.badge_new)
-          : '';
-        const badgeClass = p.badge === 'bestseller' ? 'badge-bestseller' : 'badge-new';
-        const isSelected = selectedProducts.some(sp => sp.id === p.id);
-        const btnText = isSelected 
-          ? (isArabic ? translations.ar.btn_deselect : translations.fr.btn_deselect)
-          : (isArabic ? translations.ar.btn_select : translations.fr.btn_select);
-
-        return `
-          <div class="product-card reveal reveal-delay-${(i % 4) + 1} ${isSelected ? 'selected' : ''}" data-id="${p.id}" onclick="toggleProduct(${p.id})">
-            <div class="product-img-wrapper">
-              <img src="${p.img}" alt="${name}" loading="lazy" />
-              ${p.badge ? `<div class="product-badge ${badgeClass}">${badgeText}</div>` : ''}
-              <div class="product-check">
-                <i class="fas fa-${isSelected ? 'check' : 'plus'}"></i>
-              </div>
-            </div>
-            <div class="product-body">
-              <div class="product-stars">
-                ${Array(5).fill(0).map((_, si) => `<i class="fa${si < p.stars ? 's' : 'r'} fa-star"></i>`).join('')}
-                <span>(${p.reviews})</span>
-              </div>
-              <div class="product-name">${name}</div>
-              <div class="product-desc">${desc}</div>
-              <div class="product-footer">
-                <div class="product-price">${p.price.toLocaleString('fr-DZ')}<span> ${isArabic ? translations.ar.product_price_suffix : translations.fr.product_price_suffix}</span></div>
-                <button class="product-select-btn" onclick="event.stopPropagation(); toggleProduct(${p.id})">
-                  <i class="fas fa-${isSelected ? 'minus' : 'plus'}"></i>
-                  <span>${btnText}</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        `;
-      }).join('');
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = products.map(p => `
+        <div class="product-card reveal">
+          ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
+          <img src="${p.image}" alt="${p.name}" loading="lazy" />
+          <h3>${p.name}</h3>
+          <div class="desc">${p.desc}</div>
+          <div class="stars">★★★★★</div>
+          <div class="price">${p.price} DA</div>
+          <button class="btn-add" data-id="${p.id}"><i class="fas fa-shopping-bag"></i> Ajouter</button>
+        </div>
+      `).join('');
+      // attach add events
+      document.querySelectorAll('.btn-add').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const id = parseInt(btn.dataset.id);
+          addToCart(id);
+        });
+      });
     }
 
-    // ============================================
-    // TOGGLE PRODUCT SELECTION
-    // ============================================
-    function toggleProduct(productId) {
-      const product = products.find(p => p.id === productId);
-      if (!product) return;
+    // ===== CART =====
+    function addToCart(id) {
+      const item = products.find(p => p.id === id);
+      const exist = cart.find(c => c.id === id);
+      if (exist) { exist.qty++; } else { cart.push({...item, qty:1}); }
+      updateCart();
+    }
 
-      const index = selectedProducts.findIndex(p => p.id === productId);
-      const lang = currentLang;
-
-      if (index > -1) {
-        // Remove product
-        selectedProducts.splice(index, 1);
-        showToast(`${lang === 'ar' ? product.name_ar : product.name} ${translations[lang].toast_removed}`, 'info');
-      } else {
-        // Add product
-        selectedProducts.push({ ...product });
-        showToast(`${lang === 'ar' ? product.name_ar : product.name} ${translations[lang].toast_added}`, 'success');
+    function updateCart() {
+      const badge = document.getElementById('cartCount');
+      const totalQty = cart.reduce((acc, c) => acc + c.qty, 0);
+      badge.textContent = totalQty;
+      const drawer = document.getElementById('cartItems');
+      if (cart.length === 0) { drawer.innerHTML = '<p style="text-align:center;color:#7a6560;">Votre panier est vide</p>'; }
+      else {
+        drawer.innerHTML = cart.map(c => `
+          <div class="cart-item">
+            <img src="${c.image}" alt="${c.name}" />
+            <div class="cart-item-info">
+              <h4>${c.name}</h4>
+              <div class="qty-control">
+                <button class="decQty" data-id="${c.id}">−</button>
+                <span>${c.qty}</span>
+                <button class="incQty" data-id="${c.id}">+</button>
+                <i class="fas fa-trash-alt" style="color:#b0857a; margin-left:0.8rem; cursor:pointer;" data-id="${c.id}"></i>
+              </div>
+              <small>${c.price * c.qty} DA</small>
+            </div>
+          </div>
+        `).join('');
+        // events
+        document.querySelectorAll('.incQty').forEach(b => b.addEventListener('click', (e) => changeQty(parseInt(b.dataset.id), 1)));
+        document.querySelectorAll('.decQty').forEach(b => b.addEventListener('click', (e) => changeQty(parseInt(b.dataset.id), -1)));
+        document.querySelectorAll('.fa-trash-alt').forEach(i => i.addEventListener('click', (e) => removeItem(parseInt(i.dataset.id))));
       }
+      document.getElementById('cartTotal').textContent = cart.reduce((s, c) => s + c.price * c.qty, 0);
+    }
 
-      renderProducts();
-      updateSummary();
+    function changeQty(id, delta) {
+      const item = cart.find(c => c.id === id);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) cart = cart.filter(c => c.id !== id);
+      updateCart();
+    }
+    function removeItem(id) {
+      cart = cart.filter(c => c.id !== id);
+      updateCart();
+    }
 
-      // Show/hide summary bar
+    // ===== CART UI =====
+    document.getElementById('cartIcon').addEventListener('click', (e) => { e.preventDefault(); toggleCart(true); });
+    document.getElementById('closeCart').addEventListener('click', () => toggleCart(false));
+    document.getElementById('cartOverlay').addEventListener('click', () => toggleCart(false));
+    function toggleCart(open) {
+      document.getElementById('cartOverlay').classList.toggle('open', open);
+      document.getElementById('cartDrawer').classList.toggle('open', open);
+    }
+
+    // ===== ORDER MODAL =====
+    document.getElementById('checkoutBtn').addEventListener('click', () => {
+      if (cart.length === 0) { alert('Votre panier est vide.'); return; }
+      document.getElementById('orderModal').classList.add('open');
       const summary = document.getElementById('orderSummary');
-      if (selectedProducts.length > 0) {
-        summary.classList.add('show');
-      } else {
-        summary.classList.remove('show');
-      }
-
-      // Check minimum
-      const orderBtn = document.getElementById('orderBtn');
-      const minMsg = document.getElementById('minMsg');
-      if (selectedProducts.length >= 3) {
-        orderBtn.disabled = false;
-        minMsg.classList.remove('show');
-      } else {
-        orderBtn.disabled = true;
-        minMsg.classList.add('show');
-      }
-    }
-
-    // ============================================
-    // UPDATE SUMMARY
-    // ============================================
-    function updateSummary() {
-      const container = document.getElementById('summaryProducts');
-      const countEl = document.getElementById('selectedCount');
-      const totalEl = document.getElementById('totalPrice');
-      const lang = currentLang;
-      const isArabic = lang === 'ar';
-
-      // Update count
-      countEl.textContent = selectedProducts.length;
-
-      // Update total
-      const total = selectedProducts.reduce((sum, p) => sum + p.price, 0);
-      totalEl.textContent = total.toLocaleString('fr-DZ');
-
-      // Update products tags
-      if (selectedProducts.length === 0) {
-        container.innerHTML = `<span style="font-size:0.8rem;color:var(--text-muted);">${isArabic ? 'لم تختر أي منتج بعد' : 'Aucun produit sélectionné'}</span>`;
-      } else {
-        container.innerHTML = selectedProducts.map(p => {
-          const name = isArabic ? p.name_ar : p.name;
-          return `
-            <span class="summary-product-tag">
-              <img src="${p.img}" alt="${name}" />
-              ${name.substring(0, 20)}${name.length > 20 ? '…' : ''}
-              <span class="remove-tag" onclick="event.stopPropagation(); toggleProduct(${p.id})"><i class="fas fa-times"></i></span>
-            </span>
-          `;
-        }).join('');
-      }
-
-      // Update min message
-      const minMsg = document.getElementById('minMsg');
-      const orderBtn = document.getElementById('orderBtn');
-      if (selectedProducts.length >= 3) {
-        orderBtn.disabled = false;
-        minMsg.classList.remove('show');
-      } else {
-        orderBtn.disabled = true;
-        minMsg.classList.add('show');
-      }
-    }
-
-    // ============================================
-    // CLEAR SELECTION
-    // ============================================
-    document.getElementById('clearBtn').addEventListener('click', () => {
-      if (selectedProducts.length === 0) return;
-      selectedProducts = [];
-      renderProducts();
-      updateSummary();
-      document.getElementById('orderSummary').classList.remove('show');
-      showToast(translations[currentLang].toast_empty, 'info');
+      summary.innerHTML = cart.map(c => `<div>${c.name} × ${c.qty} = ${c.price*c.qty} DA</div>`).join('');
     });
+    document.getElementById('closeOrder').addEventListener('click', () => document.getElementById('orderModal').classList.remove('open'));
+    document.getElementById('orderModal').addEventListener('click', (e) => { if (e.target === e.currentTarget) document.getElementById('orderModal').classList.remove('open'); });
 
-    // ============================================
-    // ORDER BUTTON
-    // ============================================
-    document.getElementById('orderBtn').addEventListener('click', () => {
-      if (selectedProducts.length < 3) {
-        showToast(translations[currentLang].toast_min, 'error');
+    // ===== WILAYAS =====
+    (function populateWilayas() {
+      const wilayas = ['Adrar','Chlef','Laghouat','Oum El Bouaghi','Batna','Béjaïa','Biskra','Blida','Bouira','Tamanrasset','Tébessa','Tlemcen','Tiaret','Tizi Ouzou','Alger','Djelfa','Jijel','Sétif','Saïda','Skikda','Sidi Bel Abbès','Annaba','Guelma','Constantine','Médéa','Mostaganem','M'Sila','Mascara','Ouargla','Oran','El Bayadh','Illizi','Bordj Bou Arréridj','Boumerdès','El Tarf','Tindouf','Tissemsilt','El Oued','Khenchela','Souk Ahras','Tipaza','Mila','Aïn Defla','Naâma','Aïn Témouchent','Ghardaïa','Relizane','Timimoun','Bordj Badji Mokhtar','Ouled Djellal','Béni Abbès','In Salah','In Guezzam','Touggourt','Djanet','El M'Ghair','El Menia'];
+      const select = document.getElementById('wilaya');
+      wilayas.forEach(w => { const opt = document.createElement('option'); opt.value = w; opt.textContent = w; select.appendChild(opt); });
+    })();
+
+    // ===== CONFIRM ORDER (Google Sheets simulation) =====
+    document.getElementById('confirmOrder').addEventListener('click', async () => {
+      const nom = document.getElementById('nom').value.trim();
+      const prenom = document.getElementById('prenom').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const wilaya = document.getElementById('wilaya').value;
+      const note = document.getElementById('note').value.trim();
+      if (!nom || !prenom || !phone || !wilaya || cart.length === 0) {
+        alert('Veuillez remplir tous les champs obligatoires et avoir au moins un produit.');
         return;
       }
-      openOrderModal();
-    });
+      if (!/^[0-9]{10,15}$/.test(phone)) { alert('Numéro de téléphone invalide.'); return; }
 
-    // ============================================
-    // RENDER WHY US
-    // ============================================
-    function renderWhyUs() {
-      const grid = document.getElementById('whyGrid');
-      const lang = currentLang;
-
-      const whyItems = [
-        { icon: 'fa-certificate', key: 'why_1' },
-        { icon: 'fa-sun', key: 'why_2' },
-        { icon: 'fa-truck-fast', key: 'why_3' },
-        { icon: 'fa-money-bill-wave', key: 'why_4' },
-        { icon: 'fa-headset', key: 'why_5' },
-        { icon: 'fa-shield-halved', key: 'why_6' }
-      ];
-
-      grid.innerHTML = whyItems.map((item, i) => {
-        const title = translations[lang][`${item.key}_title`];
-        const desc = translations[lang][`${item.key}_desc`];
-        return `
-          <div class="why-card reveal reveal-delay-${(i % 3) + 1}">
-            <div class="why-icon"><i class="fas ${item.icon}"></i></div>
-            <div class="why-title">${title}</div>
-            <div class="why-desc">${desc}</div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    // ============================================
-    // RENDER TESTIMONIALS
-    // ============================================
-    function renderTestimonials() {
-      const grid = document.getElementById('testimonialsGrid');
-      const lang = currentLang;
-
-      const testimonialData = [
-        { key: 'testimonial_1', initials: 'S' },
-        { key: 'testimonial_2', initials: 'M' },
-        { key: 'testimonial_3', initials: 'L' }
-      ];
-
-      grid.innerHTML = testimonialData.map((item, i) => {
-        const text = translations[lang][`${item.key}_text`];
-        const name = translations[lang][`${item.key}_name`];
-        const location = translations[lang][`${item.key}_location`];
-        return `
-          <div class="testimonial-card reveal reveal-delay-${(i % 3) + 1}">
-            <div class="testimonial-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-text">${text}</p>
-            <div class="testimonial-author">
-              <div class="author-avatar">${item.initials}</div>
-              <div><div class="author-name">${name}</div><div class="author-location">${location}</div></div>
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    // ============================================
-    // RENDER FAQ
-    // ============================================
-    function renderFAQ() {
-      const list = document.getElementById('faqList');
-      const lang = currentLang;
-
-      const faqData = [1, 2, 3, 4, 5];
-      list.innerHTML = faqData.map((num, i) => {
-        const q = translations[lang][`faq_${num}_q`];
-        const a = translations[lang][`faq_${num}_a`];
-        return `
-          <div class="faq-item reveal ${i === 0 ? 'open' : ''}">
-            <div class="faq-question">
-              <span class="faq-q-text">${q}</span>
-              <div class="faq-icon"><i class="fas fa-plus"></i></div>
-            </div>
-            <div class="faq-answer"><div class="faq-answer-inner">${a}</div></div>
-          </div>
-        `;
-      }).join('');
-
-      document.querySelectorAll('.faq-item').forEach(item => {
-        item.querySelector('.faq-question').addEventListener('click', function() {
-          const isOpen = item.classList.contains('open');
-          document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-          if (!isOpen) item.classList.add('open');
-        });
-      });
-    }
-
-    // ============================================
-    // WILAYAS
-    // ============================================
-    function initWilayas() {
-      const sel = document.getElementById('fWilaya');
-      wilayas.forEach(w => {
-        const opt = document.createElement('option');
-        opt.value = w;
-        opt.textContent = w;
-        sel.appendChild(opt);
-      });
-    }
-
-    // ============================================
-    // ORDER MODAL
-    // ============================================
-    function openOrderModal() {
-      if (selectedProducts.length < 3) {
-        showToast(translations[currentLang].toast_min, 'error');
-        return;
-      }
-      updateModalSummary();
-      const modal = document.getElementById('orderModal');
-      modal.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      document.getElementById('successScreen').classList.remove('show');
-      document.getElementById('orderForm').style.display = 'block';
-    }
-
-    function updateModalSummary() {
-      const summary = document.getElementById('modalSummary');
-      const lang = currentLang;
-      const isArabic = lang === 'ar';
-      const itemsHtml = selectedProducts.map(item => {
-        const name = isArabic ? item.name_ar : item.name;
-        return `
-          <div class="modal-summary-item">
-            <span>${name}</span>
-            <strong>${item.price.toLocaleString('fr-DZ')} ${isArabic ? translations.ar.product_price_suffix : translations.fr.product_price_suffix}</strong>
-          </div>`;
-      }).join('');
-      const total = selectedProducts.reduce((sum, p) => sum + p.price, 0);
-      summary.innerHTML = `
-        <div class="modal-summary-title"><i class="fas fa-receipt"></i> ${translations[lang].modal_summary}</div>
-        ${itemsHtml}
-        <div class="modal-summary-item" style="font-weight:700;margin-top:4px">
-          <span>${translations[lang].summary_total}</span>
-          <strong style="font-size:1rem">${total.toLocaleString('fr-DZ')} ${isArabic ? translations.ar.product_price_suffix : translations.fr.product_price_suffix}</strong>
-        </div>
-        <div class="modal-summary-item" style="font-weight:500;color:var(--text-muted);font-size:0.8rem;border-bottom:none;padding-top:8px;">
-          <span>${isArabic ? 'عدد المنتجات' : 'Nombre de produits'}</span>
-          <span><strong>${selectedProducts.length}</strong></span>
-        </div>
-      `;
-    }
-
-    function initOrderModal() {
-      document.getElementById('modalClose').addEventListener('click', closeOrderModal);
-      document.getElementById('orderModal').addEventListener('click', e => {
-        if (e.target === document.getElementById('orderModal')) closeOrderModal();
-      });
-      document.getElementById('submitOrder').addEventListener('click', submitOrder);
-      document.getElementById('successClose').addEventListener('click', () => {
-        closeOrderModal();
-      });
-    }
-
-    function closeOrderModal() {
-      document.getElementById('orderModal').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    // ============================================
-    // FORM VALIDATION & SUBMISSION
-    // ============================================
-    function submitOrder() {
-      ['fPrenom','fNom','fPhone','fWilaya'].forEach(id => {
-        document.getElementById(id).classList.remove('error');
-        const errId = 'err' + id.charAt(1).toUpperCase() + id.slice(2);
-        document.getElementById(errId).classList.remove('show');
-      });
-
-      const prenom = document.getElementById('fPrenom').value.trim();
-      const nom = document.getElementById('fNom').value.trim();
-      const phone = document.getElementById('fPhone').value.trim();
-      const wilaya = document.getElementById('fWilaya').value;
-      const note = document.getElementById('fNote').value.trim();
-
-      let valid = true;
-
-      if (!prenom) { showFieldError('fPrenom', 'errPrenom'); valid = false; }
-      if (!nom) { showFieldError('fNom', 'errNom'); valid = false; }
-      if (!phone || !/^(0[567]\d{8}|0\d{8,9})$/.test(phone.replace(/\s/g, ''))) {
-        showFieldError('fPhone', 'errPhone'); valid = false;
-      }
-      if (!wilaya) { showFieldError('fWilaya', 'errWilaya'); valid = false; }
-
-      if (!valid) return;
-      if (selectedProducts.length < 3) {
-        showToast(translations[currentLang].toast_min, 'error');
-        return;
-      }
-
-      const btn = document.getElementById('submitOrder');
-      btn.disabled = true;
-      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + (currentLang === 'ar' ? 'جاري الإرسال...' : 'Envoi en cours...');
-
-      const total = selectedProducts.reduce((sum, p) => sum + p.price, 0);
-      const isArabic = currentLang === 'ar';
-      const orderData = {
-        prenom,
-        nom,
-        phone,
-        wilaya,
-        note,
-        produits: selectedProducts.map(i => `${isArabic ? i.name_ar : i.name}`).join(', '),
-        quantite: selectedProducts.length,
-        total: total + ' DA',
-        date: new Date().toLocaleString('fr-DZ'),
-        langue: currentLang
-      };
-
-      const formData = new FormData();
-      Object.entries(orderData).forEach(([k, v]) => formData.append(k, v));
-
-      const doFetch = GOOGLE_SCRIPT_URL !== "PUT_YOUR_SCRIPT_URL_HERE"
-        ? fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: formData })
-        : Promise.resolve({ ok: true });
-
-      doFetch
-        .then(() => {
-          document.getElementById('successScreen').classList.add('show');
-          document.getElementById('orderForm').style.display = 'none';
-          selectedProducts = [];
-          renderProducts();
-          updateSummary();
-          document.getElementById('orderSummary').classList.remove('show');
-          btn.disabled = false;
-          btn.innerHTML = '<i class="fas fa-paper-plane"></i> ' + (currentLang === 'ar' ? translations.ar.form_submit : translations.fr.form_submit);
-        })
-        .catch(() => {
-          document.getElementById('successScreen').classList.add('show');
-          document.getElementById('orderForm').style.display = 'none';
-          selectedProducts = [];
-          renderProducts();
-          updateSummary();
-          document.getElementById('orderSummary').classList.remove('show');
-          btn.disabled = false;
-          btn.innerHTML = '<i class="fas fa-paper-plane"></i> ' + (currentLang === 'ar' ? translations.ar.form_submit : translations.fr.form_submit);
-        });
-    }
-
-    function showFieldError(inputId, errorId) {
-      document.getElementById(inputId).classList.add('error');
-      document.getElementById(errorId).classList.add('show');
-    }
-
-    function updateErrorMessages() {
-      const errors = document.querySelectorAll('.field-error');
-      errors.forEach(el => {
-        const key = el.getAttribute('data-key');
-        if (key) {
-          const translation = translations[currentLang][key];
-          if (translation) el.textContent = translation;
+      // GOOGLE_SCRIPT_URL placeholder
+      const GOOGLE_SCRIPT_URL = "PUT_YOUR_SCRIPT_URL_HERE";
+      const payload = { nom, prenom, phone, wilaya, note, cart: cart.map(c => ({ name: c.name, qty: c.qty, price: c.price })) };
+      try {
+        // Simulation (en vrai utilisez fetch avec GOOGLE_SCRIPT_URL)
+        if (GOOGLE_SCRIPT_URL === "PUT_YOUR_SCRIPT_URL_HERE") {
+          // Simule un succès pour démonstration
+          await new Promise(resolve => setTimeout(resolve, 800));
+        } else {
+          await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) });
         }
-      });
-    }
-
-    function updateSuccessMessages() {
-      const successScreen = document.getElementById('successScreen');
-      if (successScreen) {
-        const title = successScreen.querySelector('.success-title');
-        const msg = successScreen.querySelector('.success-msg');
-        const btn = successScreen.querySelector('.success-close-btn span');
-        if (title) title.textContent = translations[currentLang].success_title;
-        if (msg) msg.textContent = translations[currentLang].success_msg;
-        if (btn) btn.textContent = translations[currentLang].success_btn;
-      }
-    }
-
-    // ============================================
-    // SCROLL REVEAL
-    // ============================================
-    function initScrollReveal() {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    }
-
-    // ============================================
-    // SCROLL TOP
-    // ============================================
-    function initScrollTop() {
-      document.getElementById('scrollTop').addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
-
-    // ============================================
-    // TOAST NOTIFICATION
-    // ============================================
-    function showToast(message, type = 'success') {
-      const container = document.getElementById('toastContainer');
-      const toast = document.createElement('div');
-      toast.className = `toast toast-${type}`;
-      toast.innerHTML = `
-        <div class="toast-icon"><i class="fas fa-${type === 'success' ? 'check' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i></div>
-        <span class="toast-text">${message}</span>`;
-      container.appendChild(toast);
-      setTimeout(() => {
-        toast.classList.add('fadeout');
-        setTimeout(() => toast.remove(), 350);
-      }, 3000);
-    }
-
-    // ============================================
-    // SMOOTH SCROLL FOR NAV LINKS
-    // ============================================
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
+        alert('✅ Commande confirmée avec succès ! Merci.');
+        cart = []; updateCart(); toggleCart(false);
+        document.getElementById('orderModal').classList.remove('open');
+        document.getElementById('nom').value = ''; document.getElementById('prenom').value = ''; document.getElementById('phone').value = ''; document.getElementById('wilaya').value = ''; document.getElementById('note').value = '';
+      } catch (e) { alert('Erreur lors de l\'envoi, veuillez réessayer.'); }
     });
+
+    // ===== NAVBAR & SCROLL =====
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+      const bt = document.getElementById('backTop');
+      if (window.scrollY > 500) bt.classList.add('visible'); else bt.classList.remove('visible');
+    });
+    document.getElementById('backTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    document.getElementById('hamburger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+
+    // ===== REVEAL ON SCROLL =====
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ===== INIT =====
+    renderProducts();
+    updateCart();
   </script>
 </body>
 </html>

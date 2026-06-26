@@ -6,7 +6,7 @@
     <title>Beauty Vibes • Éclat d'Élégance</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&family=Cormorant+Garamond:wght@500;600&family=El+Messiri:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@500;600&family=El+Messiri:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,9 +15,9 @@
         }
 
         body {
-            background: #fdfaf7;
+            background: linear-gradient(135deg, #fce4ec 0%, #fce9f0 30%, #fdf2f5 60%, #fce4ec 100%);
             font-family: 'Inter', sans-serif;
-            color: #2e2a28;
+            color: #3d1e2c;
             line-height: 1.6;
             display: flex;
             flex-direction: column;
@@ -25,6 +25,22 @@
             justify-content: center;
             min-height: 100vh;
             padding: 1.5rem;
+            background-attachment: fixed;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 182, 193, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 160, 180, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 192, 203, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         body.rtl {
@@ -46,7 +62,6 @@
             direction: rtl;
         }
 
-        /* رقم الهاتف في الوضع العربي: اتجاه من اليمين لليسار */
         body.rtl #phone {
             direction: rtl !important;
             text-align: right !important;
@@ -63,20 +78,24 @@
         .page-wrapper {
             max-width: 900px;
             width: 100%;
-            background: #ffffff;
-            border-radius: 2.5rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
-            padding: 2rem 2rem 2.2rem;
-            background: linear-gradient(180deg, #ffffff 0%, #fefcf9 100%);
-            border: 1px solid rgba(235, 215, 195, 0.4);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 3rem;
+            box-shadow: 0 30px 60px -15px rgba(255, 105, 135, 0.25),
+                        0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+            padding: 2.5rem 2.2rem 2.5rem;
+            border: 1px solid rgba(255, 182, 193, 0.5);
+            position: relative;
+            z-index: 1;
         }
 
-        /* شريط اللغة - ثابت في المنتصف دائماً */
+        /* شريط اللغة */
         .lang-switch-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             width: 100%;
         }
 
@@ -85,37 +104,41 @@
             justify-content: center;
             align-items: center;
             gap: 0.5rem;
-            background: #faf5f0;
+            background: rgba(255, 228, 235, 0.7);
+            backdrop-filter: blur(10px);
             border-radius: 3rem;
             padding: 0.4rem;
-            border: 1px solid #eddacb;
-            direction: ltr; /* يبقى دائماً LTR حتى في الوضع العربي */
+            border: 1px solid rgba(255, 160, 180, 0.5);
+            direction: ltr;
+            box-shadow: 0 4px 15px rgba(255, 105, 135, 0.1);
         }
 
         .lang-btn {
-            padding: 0.5rem 1.5rem;
+            padding: 0.6rem 1.6rem;
             border-radius: 2rem;
             border: none;
             cursor: pointer;
             font-weight: 600;
             font-size: 0.9rem;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             background: transparent;
-            color: #8b7a6b;
+            color: #b3446c;
             font-family: 'Inter', sans-serif;
             letter-spacing: 0.5px;
             white-space: nowrap;
         }
 
         .lang-btn.active {
-            background: #b2825c;
+            background: linear-gradient(135deg, #e91e63, #f06292);
             color: white;
-            box-shadow: 0 4px 12px rgba(139, 90, 58, 0.25);
+            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.35);
+            transform: scale(1.03);
         }
 
         .lang-btn:hover:not(.active) {
-            background: #f0e5da;
-            color: #5c4332;
+            background: rgba(255, 182, 193, 0.5);
+            color: #c2185b;
+            transform: scale(1.02);
         }
 
         .brand {
@@ -125,28 +148,29 @@
 
         .brand h1 {
             font-family: 'Playfair Display', 'Cormorant Garamond', serif;
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             font-weight: 700;
-            letter-spacing: 2px;
-            color: #3e2c23;
-            background: linear-gradient(135deg, #c0986b, #8b5a3a);
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #e91e63, #f06292, #f48fb1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.3rem;
             text-transform: uppercase;
+            filter: drop-shadow(0 2px 4px rgba(233, 30, 99, 0.2));
         }
 
         .brand .tagline {
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 400;
-            color: #8b7a6b;
-            letter-spacing: 1px;
-            border-top: 1px dashed #e3d6c8;
+            color: #c2185b;
+            letter-spacing: 1.5px;
+            border-top: 1px dashed rgba(233, 30, 99, 0.35);
             display: inline-block;
-            padding-top: 0.5rem;
-            margin-top: 0.2rem;
+            padding-top: 0.6rem;
+            margin-top: 0.3rem;
             font-style: italic;
+            opacity: 0.85;
         }
 
         body.rtl .brand .tagline {
@@ -168,31 +192,37 @@
             flex: 1 1 160px;
             min-width: 150px;
             max-width: 170px;
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-radius: 2rem;
-            padding: 1.2rem 0.8rem 1.2rem;
-            box-shadow: 0 12px 24px -12px rgba(120, 80, 50, 0.15);
-            border: 1px solid #f1e4d7;
-            transition: all 0.3s ease;
+            padding: 1.3rem 0.8rem 1.3rem;
+            box-shadow: 0 15px 30px -12px rgba(255, 105, 135, 0.2),
+                        0 0 0 1px rgba(255, 182, 193, 0.3) inset;
+            border: 1px solid rgba(255, 192, 203, 0.5);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            background: #fffbf7;
             position: relative;
         }
 
         .product-card:hover {
-            transform: translateY(-6px);
-            border-color: #d9b692;
-            box-shadow: 0 24px 30px -14px rgba(160, 110, 70, 0.25);
+            transform: translateY(-8px);
+            border-color: #f48fb1;
+            box-shadow: 0 25px 40px -15px rgba(233, 30, 99, 0.3),
+                        0 0 0 1px rgba(244, 143, 177, 0.5) inset;
+            background: rgba(255, 255, 255, 0.85);
         }
 
         .product-card.selected {
-            border: 2.5px solid #b2825c;
-            background: #fff6ef;
-            box-shadow: 0 0 0 5px rgba(178, 130, 92, 0.2);
+            border: 2.5px solid #e91e63;
+            background: rgba(255, 240, 245, 0.85);
+            box-shadow: 0 0 0 6px rgba(233, 30, 99, 0.1),
+                        0 20px 35px -12px rgba(233, 30, 99, 0.3);
+            transform: translateY(-4px);
         }
 
         .product-img {
@@ -200,25 +230,25 @@
             height: 140px;
             border-radius: 1.8rem;
             object-fit: cover;
-            background: #f7ede2;
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0);
             margin-bottom: 0.8rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 25px rgba(233, 30, 99, 0.15);
             transition: all 0.3s ease;
         }
 
         .product-card:hover .product-img {
-            transform: scale(1.03);
-            box-shadow: 0 14px 26px rgba(0,0,0,0.12);
+            transform: scale(1.04);
+            box-shadow: 0 15px 30px rgba(233, 30, 99, 0.25);
         }
 
         .product-card.selected .product-img {
-            box-shadow: 0 12px 28px rgba(139, 90, 58, 0.35);
+            box-shadow: 0 15px 35px rgba(233, 30, 99, 0.35);
         }
 
         .product-name {
             font-weight: 600;
             font-size: 0.95rem;
-            color: #4d3829;
+            color: #5c1d36;
             margin: 0.4rem 0 0.3rem;
             font-family: 'Inter', sans-serif;
             letter-spacing: 0.3px;
@@ -227,20 +257,22 @@
         .product-price {
             font-weight: 700;
             font-size: 1rem;
-            color: #7b5c46;
-            background: #fcf3ea;
-            padding: 0.25rem 1rem;
+            color: #e91e63;
+            background: linear-gradient(135deg, rgba(255, 228, 235, 0.8), rgba(252, 228, 236, 0.6));
+            padding: 0.3rem 1rem;
             border-radius: 2rem;
             display: inline-block;
             margin-top: 0.2rem;
             direction: ltr;
+            border: 1px solid rgba(244, 143, 177, 0.3);
+            box-shadow: 0 2px 8px rgba(233, 30, 99, 0.08);
         }
 
         .check-mark {
             position: absolute;
             top: 12px;
             right: 12px;
-            background: #b2825c;
+            background: linear-gradient(135deg, #e91e63, #f06292);
             color: white;
             border-radius: 50%;
             width: 28px;
@@ -250,7 +282,7 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            box-shadow: 0 4px 10px rgba(139, 90, 58, 0.3);
+            box-shadow: 0 6px 15px rgba(233, 30, 99, 0.4);
         }
 
         body.rtl .check-mark {
@@ -260,53 +292,67 @@
 
         .product-card.selected .check-mark {
             display: flex;
+            animation: popIn 0.3s ease;
         }
 
-        .rule-info {
-            background: #faf5f0;
-            border-radius: 3rem;
+        @keyframes popIn {
+            0% { transform: scale(0); }
+            70% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* ملاحظة الأسعار */
+        .pricing-note {
+            background: linear-gradient(135deg, rgba(255, 228, 235, 0.6), rgba(252, 228, 236, 0.4));
+            backdrop-filter: blur(10px);
+            border-radius: 2rem;
             padding: 0.9rem 1.8rem;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            font-size: 1rem;
-            color: #5c4332;
+            font-size: 0.95rem;
+            color: #c2185b;
             margin: 0.8rem 0 1.5rem;
-            border: 1px solid #eddacb;
+            border: 1px solid rgba(255, 182, 193, 0.5);
             font-weight: 500;
+            box-shadow: 0 4px 12px rgba(233, 30, 99, 0.08);
+            text-align: center;
         }
 
         .total-section {
-            background: #f6efe8;
-            border-radius: 1.5rem;
-            padding: 1.4rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 240, 245, 0.7));
+            backdrop-filter: blur(15px);
+            border-radius: 2rem;
+            padding: 1.5rem 2rem;
             margin: 1.5rem 0 2rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            border: 1px solid #e2cfbc;
+            border: 1px solid rgba(255, 182, 193, 0.5);
+            box-shadow: 0 10px 30px -10px rgba(233, 30, 99, 0.15);
         }
 
         .total-label {
             font-weight: 600;
             font-size: 1.2rem;
-            color: #4b3627;
+            color: #5c1d36;
         }
 
         .total-price {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #3e2c23;
+            color: #e91e63;
             letter-spacing: -0.3px;
             direction: ltr;
+            text-shadow: 0 2px 4px rgba(233, 30, 99, 0.1);
         }
 
         .total-price span {
             font-size: 1.1rem;
             font-weight: 500;
-            color: #7e6755;
+            color: #c2185b;
             margin-left: 0.2rem;
         }
 
@@ -331,29 +377,36 @@
         .input-group label {
             font-size: 0.85rem;
             font-weight: 600;
-            color: #5f4b3a;
+            color: #881c42;
             letter-spacing: 0.3px;
             text-align: left;
         }
 
         input, select {
-            background: #ffffff;
-            border: 1px solid #e1cfbc;
-            border-radius: 1.2rem;
-            padding: 0.9rem 1.3rem;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 160, 180, 0.5);
+            border-radius: 1.3rem;
+            padding: 0.95rem 1.3rem;
             font-family: 'Inter', sans-serif;
             font-size: 0.95rem;
             outline: none;
-            transition: 0.2s;
-            background: #fefcf9;
-            color: #2e2a28;
+            transition: all 0.3s ease;
+            color: #3d1e2c;
             direction: ltr;
             text-align: left;
+            box-shadow: 0 2px 8px rgba(233, 30, 99, 0.05) inset;
         }
 
         input:focus, select:focus {
-            border-color: #b2825c;
-            box-shadow: 0 0 0 3px rgba(178, 130, 92, 0.15);
+            border-color: #e91e63;
+            box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.08),
+                        0 2px 8px rgba(233, 30, 99, 0.05) inset;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        input::placeholder, select::placeholder {
+            color: #d4a0b5;
         }
 
         #phone {
@@ -372,63 +425,88 @@
         }
 
         .submit-btn {
-            background: #b2825c;
+            background: linear-gradient(135deg, #e91e63, #f06292, #f48fb1);
             border: none;
             color: white;
             font-weight: 600;
             font-size: 1.2rem;
-            padding: 1.1rem 2rem;
+            padding: 1.2rem 2rem;
             border-radius: 2.5rem;
             width: 100%;
             cursor: pointer;
-            transition: 0.25s;
-            background: linear-gradient(135deg, #b2825c, #8b5a3a);
-            letter-spacing: 1px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 1.5px;
             margin-top: 0.8rem;
-            box-shadow: 0 10px 22px rgba(139, 90, 58, 0.3);
-            border: 1px solid #a77852;
+            box-shadow: 0 12px 30px rgba(233, 30, 99, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             font-family: 'Inter', sans-serif;
             text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .submit-btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .submit-btn:hover {
-            background: linear-gradient(135deg, #c79a73, #9f6a48);
-            box-shadow: 0 14px 28px rgba(139, 90, 58, 0.4);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 18px 38px rgba(233, 30, 99, 0.45);
         }
 
         .submit-btn:disabled {
             opacity: 0.5;
             pointer-events: none;
-            background: #cdbcab;
-            border-color: #c7b3a0;
+            background: linear-gradient(135deg, #e0b0c0, #d4a0b5);
+            border-color: rgba(200, 150, 170, 0.3);
             box-shadow: none;
             transform: none;
         }
 
         .error-message {
-            color: #c04e3a;
+            color: #d32f2f;
             font-size: 0.85rem;
             margin-top: 0.2rem;
             display: none;
             text-align: left;
+            background: rgba(255, 205, 210, 0.4);
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(239, 154, 154, 0.4);
         }
 
         .success-message {
-            background: #e7f3e9;
-            color: #2b4b2f;
-            padding: 0.9rem;
-            border-radius: 1rem;
+            background: linear-gradient(135deg, rgba(232, 245, 233, 0.8), rgba(200, 230, 201, 0.6));
+            backdrop-filter: blur(10px);
+            color: #2e7d32;
+            padding: 1rem;
+            border-radius: 1.2rem;
             text-align: center;
             margin-top: 1rem;
             display: none;
             font-weight: 500;
             font-size: 0.95rem;
+            border: 1px solid rgba(165, 214, 167, 0.5);
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.1);
         }
 
         @media (max-width: 600px) {
             .page-wrapper {
-                padding: 1.5rem 0.8rem;
+                padding: 1.8rem 1rem;
             }
             .products-grid {
                 gap: 0.8rem;
@@ -444,17 +522,21 @@
                 height: 115px;
             }
             .brand h1 {
-                font-size: 2.5rem;
+                font-size: 2.6rem;
             }
             .total-price {
                 font-size: 2rem;
+            }
+            .pricing-note {
+                font-size: 0.85rem;
+                padding: 0.8rem 1.2rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="page-wrapper">
-        <!-- أزرار تغيير اللغة - ثابتة في المنتصف دائماً -->
+        <!-- أزرار تغيير اللغة -->
         <div class="lang-switch-wrapper">
             <div class="lang-switch">
                 <button class="lang-btn active" id="btnFr" onclick="switchLanguage('fr')">🇫🇷 Français</button>
@@ -469,47 +551,50 @@
 
         <!-- شبكة المنتجات -->
         <div class="products-grid" id="productsContainer">
-            <div class="product-card" data-id="1" data-name="Sérum Éclat" data-price="2400" onclick="toggleProduct(this)">
+            <div class="product-card" data-id="1" data-name="Sérum Éclat" data-price="1500" onclick="toggleProduct(this)">
                 <span class="check-mark">✓</span>
-                <img src="1.jfif" alt="Sérum Éclat" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22 fill=%22%23e8d5c0%22%3E%3Crect width=%22140%22 height=%22140%22 rx=%2225%22/%3E%3Ctext x=%2270%22 y=%2280%22 text-anchor=%22middle%22 fill=%22%23b2825c%22 font-size=%2220%22 font-weight=%22bold%22%3ESérum%3C/text%3E%3C/svg%3E'">
+                <img src="1.jfif" alt="Sérum Éclat" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22 fill=%22%23fce4ec%22%3E%3Crect width=%22140%22 height=%22140%22 rx=%2225%22/%3E%3Ctext x=%2270%22 y=%2280%22 text-anchor=%22middle%22 fill=%22%23e91e63%22 font-size=%2218%22 font-weight=%22bold%22%3ESérum%3C/text%3E%3C/svg%3E'">
                 <span class="product-name">Sérum Éclat</span>
-                <span class="product-price">2 400 DA</span>
+                <span class="product-price">1 500 DA</span>
             </div>
-            <div class="product-card" data-id="2" data-name="Crème Hydratante" data-price="1950" onclick="toggleProduct(this)">
+            <div class="product-card" data-id="2" data-name="Crème Hydratante" data-price="1500" onclick="toggleProduct(this)">
                 <span class="check-mark">✓</span>
-                <img src="2.jfif" alt="Crème Hydratante" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22 fill=%22%23e8d5c0%22%3E%3Crect width=%22140%22 height=%22140%22 rx=%2225%22/%3E%3Ctext x=%2270%22 y=%2280%22 text-anchor=%22middle%22 fill=%22%23b2825c%22 font-size=%2220%22 font-weight=%22bold%22%3ECrème%3C/text%3E%3C/svg%3E'">
+                <img src="2.jfif" alt="Crème Hydratante" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22 fill=%22%23fce4ec%22%3E%3Crect width=%22140%22 height=%22140%22 rx=%2225%22/%3E%3Ctext x=%2270%22 y=%2280%22 text-anchor=%22middle%22 fill=%22%23e91e63%22 font-size=%2218%22 font-weight=%22bold%22%3ECrème%3C/text%3E%3C/svg%3E'">
                 <span class="product-name">Crème Hydratante</span>
-                <span class="product-price">1 950 DA</span>
+                <span class="product-price">1 500 DA</span>
             </div>
-            <div class="product-card" data-id="3" data-name="Masque à l'Argile" data-price="1800" onclick="toggleProduct(this)">
+            <div class="product-card" data-id="3" data-name="Masque à l'Argile" data-price="1500" onclick="toggleProduct(this)">
                 <span class="check-mark">✓</span>
-                <img src="3.jfif" alt="Masque à l'Argile" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22 fill=%22%23e8d5c0%22%3E%3Crect width=%22140%22 height=%22140%22 rx=%2225%22/%3E%3Ctext x=%2270%22 y=%2280%22 text-anchor=%22middle%22 fill=%22%23b2825c%22 font-size=%2220%22 font-weight=%22bold%22%3EMasque%3C/text%3E%3C/svg%3E'">
+                <img src="3.jfif" alt="Masque à l'Argile" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22 fill=%22%23fce4ec%22%3E%3Crect width=%22140%22 height=%22140%22 rx=%2225%22/%3E%3Ctext x=%2270%22 y=%2280%22 text-anchor=%22middle%22 fill=%22%23e91e63%22 font-size=%2218%22 font-weight=%22bold%22%3EMasque%3C/text%3E%3C/svg%3E'">
                 <span class="product-name">Masque à l'Argile</span>
-                <span class="product-price">1 800 DA</span>
+                <span class="product-price">1 500 DA</span>
             </div>
             <div class="product-card" data-id="4" data-name="Tonique Rafraîchissant" data-price="1500" onclick="toggleProduct(this)">
                 <span class="check-mark">✓</span>
-                <img src="4.jfif" alt="Tonique Rafraîchissant" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22 fill=%22%23e8d5c0%22%3E%3Crect width=%22140%22 height=%22140%22 rx=%2225%22/%3E%3Ctext x=%2270%22 y=%2280%22 text-anchor=%22middle%22 fill=%22%23b2825c%22 font-size=%2220%22 font-weight=%22bold%22%3ETonique%3C/text%3E%3C/svg%3E'">
+                <img src="4.jfif" alt="Tonique Rafraîchissant" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22 fill=%22%23fce4ec%22%3E%3Crect width=%22140%22 height=%22140%22 rx=%2225%22/%3E%3Ctext x=%2270%22 y=%2280%22 text-anchor=%22middle%22 fill=%22%23e91e63%22 font-size=%2218%22 font-weight=%22bold%22%3ETonique%3C/text%3E%3C/svg%3E'">
                 <span class="product-name">Tonique Rafraîchissant</span>
                 <span class="product-price">1 500 DA</span>
             </div>
-            <div class="product-card" data-id="5" data-name="Baume à Lèvres" data-price="1100" onclick="toggleProduct(this)">
+            <div class="product-card" data-id="5" data-name="Baume à Lèvres" data-price="1500" onclick="toggleProduct(this)">
                 <span class="check-mark">✓</span>
-                <img src="5.jfif" alt="Baume à Lèvres" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22 fill=%22%23e8d5c0%22%3E%3Crect width=%22140%22 height=%22140%22 rx=%2225%22/%3E%3Ctext x=%2270%22 y=%2280%22 text-anchor=%22middle%22 fill=%22%23b2825c%22 font-size=%2220%22 font-weight=%22bold%22%3EBaume%3C/text%3E%3C/svg%3E'">
+                <img src="5.jfif" alt="Baume à Lèvres" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22 fill=%22%23fce4ec%22%3E%3Crect width=%22140%22 height=%22140%22 rx=%2225%22/%3E%3Ctext x=%2270%22 y=%2280%22 text-anchor=%22middle%22 fill=%22%23e91e63%22 font-size=%2218%22 font-weight=%22bold%22%3EBaume%3C/text%3E%3C/svg%3E'">
                 <span class="product-name">Baume à Lèvres</span>
-                <span class="product-price">1 100 DA</span>
+                <span class="product-price">1 500 DA</span>
             </div>
         </div>
 
-        <div class="rule-info" id="ruleInfo">
-            <span>🌸</span> <span id="ruleText">Vous devez sélectionner <strong>3 produits minimum</strong> pour commander</span>
+        <!-- ملاحظة نظام الأسعار -->
+        <div class="pricing-note" id="pricingNote">
+            <span>💖</span> <span id="pricingText">1 produit = 1 500 DA &nbsp;|&nbsp; 2 produits = 3 000 DA &nbsp;|&nbsp; 3 produits ou plus = <strong>3 500 DA</strong></span>
         </div>
 
+        <!-- السعر الإجمالي -->
         <div class="total-section">
             <span class="total-label" id="totalLabel">Total :</span>
             <span class="total-price" id="totalDisplay">0 <span>DA</span></span>
         </div>
 
+        <!-- نموذج الطلب -->
         <div class="form-grid" id="orderForm">
             <div class="double-input">
                 <div class="input-group">
@@ -531,7 +616,7 @@
                     <option value="" disabled selected id="defaultWilaya">-- Sélectionnez votre wilaya --</option>
                 </select>
             </div>
-            <div id="formError" class="error-message">Veuillez remplir tous les champs et sélectionner 3 produits minimum.</div>
+            <div id="formError" class="error-message">Veuillez remplir tous les champs correctement.</div>
             <button class="submit-btn" id="submitOrderBtn" disabled>Commander ✨</button>
             <div id="successMessage" class="success-message">Votre commande a été envoyée avec succès ! Nous vous contacterons bientôt 🌿</div>
         </div>
@@ -564,7 +649,6 @@
                 defaultOption.selected = true;
                 defaultOption.textContent = lang === 'fr' ? '-- Sélectionnez votre wilaya --' : '-- اختر ولايتك --';
                 wilayaSelect.appendChild(defaultOption);
-
                 wilayas.forEach(w => {
                     const option = document.createElement('option');
                     option.value = w;
@@ -576,7 +660,7 @@
             const translations = {
                 fr: {
                     tagline: "Plus que la beauté • Un éclat qui inspire confiance",
-                    ruleText: 'Vous devez sélectionner <strong>3 produits minimum</strong> pour commander',
+                    pricingText: '1 produit = 1 500 DA &nbsp;|&nbsp; 2 produits = 3 000 DA &nbsp;|&nbsp; 3 produits ou plus = <strong>3 500 DA</strong>',
                     totalLabel: "Total :",
                     lblFirstName: "Prénom",
                     lblLastName: "Nom",
@@ -587,15 +671,15 @@
                     phonePlaceholder: "Ex: 0555 12 34 56",
                     defaultWilaya: "-- Sélectionnez votre wilaya --",
                     submitBtn: "Commander ✨",
-                    errorMsg: "Veuillez remplir tous les champs et sélectionner 3 produits minimum.",
+                    errorMsg: "Veuillez remplir tous les champs correctement.",
                     successMsg: "Votre commande a été envoyée avec succès ! Nous vous contacterons bientôt 🌿",
-                    errorSelect: "Veuillez sélectionner 3 produits minimum. Vous en avez sélectionné ",
+                    errorSelect: "Veuillez sélectionner au moins 1 produit.",
                     errorFields: "Veuillez remplir tous les champs correctement.",
                     currency: "DA"
                 },
                 ar: {
                     tagline: "أكثر من جمال • إشراقة تلهب الثقة",
-                    ruleText: '<strong>يجب عليك اختيار 3 منتجات على الأقل</strong> لإتمام الطلب',
+                    pricingText: '<strong>3 500 دج</strong> = 3 منتجات أو أكثر &nbsp;|&nbsp; 3 000 دج = منتجين &nbsp;|&nbsp; 1 500 دج = منتج واحد',
                     totalLabel: "المجموع :",
                     lblFirstName: "الاسم",
                     lblLastName: "اللقب",
@@ -606,9 +690,9 @@
                     phonePlaceholder: "مثال: 0555 12 34 56",
                     defaultWilaya: "-- اختر ولايتك --",
                     submitBtn: "✨ أرسل الطلب",
-                    errorMsg: "يرجى ملء جميع الحقول واختيار 3 منتجات على الأقل.",
+                    errorMsg: "يرجى ملء جميع الحقول بشكل صحيح.",
                     successMsg: "تم إرسال طلبك بنجاح! سنتواصل معك قريباً 🌿",
-                    errorSelect: "يجب عليك اختيار 3 منتجات على الأقل. لقد اخترت ",
+                    errorSelect: "يرجى اختيار منتج واحد على الأقل.",
                     errorFields: "يرجى ملء جميع الحقول بشكل صحيح.",
                     currency: "دج"
                 }
@@ -636,7 +720,7 @@
                 document.getElementById('btnAr').classList.toggle('active', lang === 'ar');
 
                 document.getElementById('tagline').textContent = t.tagline;
-                document.getElementById('ruleText').innerHTML = t.ruleText;
+                document.getElementById('pricingText').innerHTML = t.pricingText;
                 document.getElementById('totalLabel').textContent = t.totalLabel;
                 document.getElementById('lblFirstName').textContent = t.lblFirstName;
                 document.getElementById('lblLastName').textContent = t.lblLastName;
@@ -655,18 +739,7 @@
                 document.getElementById('successMessage').style.display = 'none';
             };
 
-            function updateTotalDisplay() {
-                let total = 0;
-                selectedProducts.forEach(product => {
-                    total += product.price;
-                });
-                const currency = translations[currentLang].currency;
-                totalDisplay.innerHTML = total.toLocaleString('fr-FR').replace(/\s/g, ' ') + ' <span>' + currency + '</span>';
-            }
-
             const selectedProducts = new Map();
-            const MIN_PRODUCTS = 3;
-
             const totalDisplay = document.getElementById('totalDisplay');
             const submitBtn = document.getElementById('submitOrderBtn');
             const formError = document.getElementById('formError');
@@ -676,6 +749,22 @@
             const lastNameInput = document.getElementById('lastName');
             const phoneInput = document.getElementById('phone');
             const wilayaInput = document.getElementById('wilayaSelect');
+
+            // دالة حساب السعر حسب عدد المنتجات
+            function calculatePrice(count) {
+                if (count === 0) return 0;
+                if (count === 1) return 1500;
+                if (count === 2) return 3000;
+                if (count >= 3) return 3500;
+                return 0;
+            }
+
+            function updateTotalDisplay() {
+                const count = selectedProducts.size;
+                const total = calculatePrice(count);
+                const currency = translations[currentLang].currency;
+                totalDisplay.innerHTML = total.toLocaleString('fr-FR').replace(/\s/g, ' ') + ' <span>' + currency + '</span>';
+            }
 
             window.toggleProduct = function(cardElement) {
                 const id = cardElement.dataset.id;
@@ -695,10 +784,8 @@
 
             function updateTotalAndUI() {
                 updateTotalDisplay();
-
-                const isValidProductCount = selectedProducts.size >= MIN_PRODUCTS;
-                submitBtn.disabled = !isValidProductCount;
-
+                // يمكن شراء منتج واحد فأكثر
+                submitBtn.disabled = selectedProducts.size === 0;
                 formError.style.display = 'none';
                 successMessage.style.display = 'none';
             }
@@ -709,16 +796,10 @@
                 const phone = phoneInput.value.trim();
                 const wilaya = wilayaInput.value;
 
-                if (!firstName || !lastName || !phone || !wilaya) {
-                    return false;
-                }
-                if (selectedProducts.size < MIN_PRODUCTS) {
-                    return false;
-                }
+                if (!firstName || !lastName || !phone || !wilaya) return false;
+                if (selectedProducts.size === 0) return false;
                 const phoneRegex = /^[0-9+\s()-]{8,}$/;
-                if (!phoneRegex.test(phone)) {
-                    return false;
-                }
+                if (!phoneRegex.test(phone)) return false;
                 return true;
             }
 
@@ -733,17 +814,21 @@
                 const t = translations[currentLang];
                 
                 if (!validateForm()) {
-                    if (selectedProducts.size < MIN_PRODUCTS) {
-                        showError(t.errorSelect + selectedProducts.size + '.');
+                    if (selectedProducts.size === 0) {
+                        showError(t.errorSelect);
                     } else {
                         showError(t.errorFields);
                     }
                     return;
                 }
 
+                const count = selectedProducts.size;
+                const totalPrice = calculatePrice(count);
+
                 const orderData = {
                     products: Array.from(selectedProducts.values()),
-                    total: Array.from(selectedProducts.values()).reduce((sum, p) => sum + p.price, 0),
+                    count: count,
+                    total: totalPrice,
                     customer: {
                         firstName: firstNameInput.value.trim(),
                         lastName: lastNameInput.value.trim(),
@@ -769,7 +854,6 @@
                     lastNameInput.value = '';
                     phoneInput.value = '';
                     wilayaInput.value = '';
-                    submitBtn.disabled = true;
                     
                     setTimeout(() => {
                         successMessage.style.display = 'none';
@@ -778,12 +862,8 @@
             });
 
             [firstNameInput, lastNameInput, phoneInput, wilayaInput].forEach(input => {
-                input.addEventListener('input', () => {
-                    formError.style.display = 'none';
-                });
-                input.addEventListener('change', () => {
-                    formError.style.display = 'none';
-                });
+                input.addEventListener('input', () => { formError.style.display = 'none'; });
+                input.addEventListener('change', () => { formError.style.display = 'none'; });
             });
 
             populateWilayas('fr');

@@ -45,6 +45,8 @@
       --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
       --transition-fast: all 0.2s ease;
       --font-arabic: 'Noto Kufi Arabic', 'Poppins', sans-serif;
+      --selected-border: #e91e8c;
+      --selected-bg: rgba(233, 30, 140, 0.08);
     }
 
     /* RTL Support */
@@ -80,20 +82,6 @@
     html[dir="rtl"] .footer-links a:hover {
       padding-left: 0;
       padding-right: 6px;
-    }
-
-    html[dir="rtl"] .cart-drawer {
-      right: auto;
-      left: 0;
-      transform: translateX(-100%);
-    }
-    html[dir="rtl"] .cart-overlay.open .cart-drawer {
-      transform: translateX(0);
-    }
-
-    html[dir="rtl"] .toast-container {
-      right: auto;
-      left: 28px;
     }
 
     html[dir="rtl"] .float-whatsapp-tooltip {
@@ -136,6 +124,10 @@
     }
 
     html[dir="rtl"] .stat-label {
+      font-family: var(--font-arabic);
+    }
+
+    html[dir="rtl"] .selected-counter span {
       font-family: var(--font-arabic);
     }
 
@@ -364,37 +356,6 @@
     }
     .lang-toggle i {
       font-size: 0.7rem;
-    }
-
-    .cart-btn {
-      position: relative;
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--rose-pink), #f06292);
-      display: flex; align-items: center; justify-content: center;
-      color: white;
-      font-size: 1rem;
-      box-shadow: 0 4px 16px rgba(233, 30, 140, 0.35);
-      transition: var(--transition);
-    }
-    .cart-btn:hover { transform: scale(1.1) rotate(-5deg); box-shadow: 0 8px 24px rgba(233, 30, 140, 0.45); }
-
-    .cart-count {
-      position: absolute;
-      top: -4px; right: -4px;
-      width: 20px; height: 20px;
-      background: var(--rose-gold);
-      color: white;
-      font-size: 0.65rem;
-      font-weight: 700;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      border: 2px solid white;
-      animation: badgePop 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    }
-    @keyframes badgePop {
-      0% { transform: scale(0); }
-      100% { transform: scale(1); }
     }
 
     .hamburger {
@@ -743,7 +704,7 @@
     /* ============================================
        PRODUCTS SECTION
     ============================================ */
-    #products { padding: 100px 0; background: transparent; }
+    #products { padding: 100px 0 80px; background: transparent; }
 
     .products-grid {
       display: grid;
@@ -753,7 +714,7 @@
 
     .product-card {
       background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
+      border: 2px solid var(--glass-border);
       border-radius: var(--radius-lg);
       overflow: hidden;
       backdrop-filter: blur(12px);
@@ -763,15 +724,28 @@
       cursor: pointer;
     }
     .product-card:hover {
-      transform: translateY(-10px) scale(1.01);
+      transform: translateY(-6px);
       box-shadow: var(--shadow-hover);
       border-color: rgba(233, 30, 140, 0.25);
+    }
+    .product-card.selected {
+      border-color: var(--rose-pink);
+      background: var(--selected-bg);
+      box-shadow: 0 0 0 3px rgba(233, 30, 140, 0.15), var(--shadow-hover);
+      transform: translateY(-6px);
+    }
+    .product-card.selected .product-select-btn {
+      background: var(--rose-pink);
+      color: white;
+    }
+    .product-card.selected .product-select-btn i {
+      transform: rotate(90deg);
     }
 
     .product-img-wrapper {
       position: relative;
       overflow: hidden;
-      height: 260px;
+      height: 240px;
       background: linear-gradient(135deg, var(--soft-pink), var(--light-beige));
     }
     .product-img-wrapper img {
@@ -779,7 +753,7 @@
       object-fit: cover;
       transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
-    .product-card:hover .product-img-wrapper img { transform: scale(1.08); }
+    .product-card:hover .product-img-wrapper img { transform: scale(1.05); }
 
     .product-badge {
       position: absolute;
@@ -794,31 +768,28 @@
     .badge-bestseller { background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: white; box-shadow: 0 4px 12px rgba(238, 90, 36, 0.4); }
     .badge-new { background: linear-gradient(135deg, var(--rose-pink), #f06292); color: white; box-shadow: 0 4px 12px rgba(233, 30, 140, 0.4); }
 
-    .product-actions {
+    .product-check {
       position: absolute;
       top: 16px; right: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      opacity: 0;
-      transform: translateX(10px);
-      transition: var(--transition);
-    }
-    .product-card:hover .product-actions { opacity: 1; transform: translateX(0); }
-    .product-action-btn {
-      width: 38px; height: 38px;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
+      width: 32px; height: 32px;
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
+      background: var(--glass-bg);
+      border: 2px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.75rem;
       backdrop-filter: blur(8px);
-      font-size: 0.85rem;
-      color: var(--text-secondary);
       transition: var(--transition-fast);
     }
-    .product-action-btn:hover { background: var(--rose-pink); color: white; border-color: var(--rose-pink); }
+    .product-card.selected .product-check {
+      background: var(--rose-pink);
+      border-color: var(--rose-pink);
+      color: white;
+    }
 
-    .product-body { padding: 24px; }
+    .product-body { padding: 20px 24px 24px; }
 
     .product-stars {
       display: flex;
@@ -842,7 +813,7 @@
       font-size: 0.82rem;
       color: var(--text-muted);
       line-height: 1.6;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
@@ -858,225 +829,190 @@
 
     .product-price {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 800;
       color: var(--rose-pink);
     }
     .product-price span { font-size: 0.75rem; font-weight: 500; color: var(--text-muted); font-family: 'Poppins', sans-serif; }
 
-    .add-to-cart-btn {
+    .product-select-btn {
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 22px;
-      background: linear-gradient(135deg, var(--rose-pink), #f06292);
-      color: white;
+      padding: 10px 18px;
+      background: var(--glass-bg);
+      border: 2px solid var(--glass-border);
+      color: var(--text-secondary);
       border-radius: 50px;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 600;
       transition: var(--transition);
-      box-shadow: 0 4px 14px rgba(233, 30, 140, 0.3);
-      position: relative;
-      overflow: hidden;
     }
-    .add-to-cart-btn::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, #f06292, var(--rose-pink));
-      opacity: 0;
-      transition: opacity 0.3s;
+    .product-select-btn:hover {
+      background: rgba(233, 30, 140, 0.08);
+      border-color: var(--rose-pink);
+      color: var(--rose-pink);
     }
-    .add-to-cart-btn:hover::before { opacity: 1; }
-    .add-to-cart-btn:hover { transform: scale(1.04); box-shadow: 0 8px 20px rgba(233, 30, 140, 0.45); }
-    .add-to-cart-btn span { position: relative; z-index: 1; }
-    .add-to-cart-btn i { position: relative; z-index: 1; }
+    .product-card.selected .product-select-btn {
+      background: var(--rose-pink);
+      border-color: var(--rose-pink);
+      color: white;
+    }
+    .product-select-btn i {
+      transition: transform 0.3s ease;
+    }
 
     /* ============================================
-       CART DRAWER
+       ORDER SUMMARY (FLOATING)
     ============================================ */
-    .cart-overlay {
+    .order-summary {
       position: fixed;
-      inset: 0;
-      background: rgba(45, 27, 51, 0.4);
-      z-index: 2000;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-      backdrop-filter: blur(4px);
-    }
-    .cart-overlay.open { opacity: 1; visibility: visible; }
-
-    .cart-drawer {
-      position: fixed;
-      top: 0; right: 0; bottom: 0;
-      width: 420px;
-      max-width: 100vw;
-      background: linear-gradient(160deg, #fff5f8 0%, #fdf6f0 100%);
-      z-index: 2001;
-      transform: translateX(100%);
-      transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
-      display: flex;
-      flex-direction: column;
-      box-shadow: -8px 0 48px rgba(201, 144, 170, 0.25);
-    }
-    .cart-overlay.open .cart-drawer { transform: translateX(0); }
-
-    .cart-head {
-      padding: 28px 28px 20px;
-      border-bottom: 1px solid rgba(200, 169, 110, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .cart-head-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--text-primary);
-    }
-    .cart-close {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: rgba(233, 30, 140, 0.08);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--rose-pink);
-      font-size: 1.1rem;
-      transition: var(--transition-fast);
-    }
-    .cart-close:hover { background: var(--rose-pink); color: white; transform: rotate(90deg); }
-
-    .cart-body {
-      flex: 1;
-      overflow-y: auto;
-      padding: 20px 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .cart-body::-webkit-scrollbar { width: 4px; }
-    .cart-body::-webkit-scrollbar-thumb { background: var(--light-pink); border-radius: 2px; }
-
-    .cart-empty {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      color: var(--text-muted);
-      text-align: center;
-      padding: 40px 0;
-    }
-    .cart-empty i { font-size: 3.5rem; color: var(--light-pink); }
-    .cart-empty p { font-size: 0.95rem; }
-
-    .cart-item {
-      display: flex;
-      gap: 14px;
-      padding: 16px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
       background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-md);
-      backdrop-filter: blur(8px);
-      align-items: flex-start;
-      animation: slideInRight 0.3s ease;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--glass-border);
+      box-shadow: 0 -8px 32px rgba(201, 144, 170, 0.2);
+      padding: 16px 0;
+      transform: translateY(100%);
+      transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
-    @keyframes slideInRight {
-      from { transform: translateX(20px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-
-    .cart-item-img {
-      width: 70px; height: 70px;
-      border-radius: var(--radius-sm);
-      object-fit: cover;
-      flex-shrink: 0;
+    .order-summary.show {
+      transform: translateY(0);
     }
 
-    .cart-item-info { flex: 1; min-width: 0; }
-    .cart-item-name {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 4px;
-      line-height: 1.3;
-    }
-    .cart-item-price {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--rose-pink);
-    }
-
-    .cart-qty {
+    .summary-inner {
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-top: 10px;
-    }
-    .qty-btn {
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      background: rgba(233, 30, 140, 0.1);
-      color: var(--rose-pink);
-      font-size: 0.75rem;
-      display: flex; align-items: center; justify-content: center;
-      transition: var(--transition-fast);
-      font-weight: 700;
-    }
-    .qty-btn:hover { background: var(--rose-pink); color: white; }
-    .qty-num { font-weight: 700; font-size: 0.9rem; color: var(--text-primary); min-width: 20px; text-align: center; }
-
-    .cart-item-delete {
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      color: var(--medium-gray);
-      font-size: 0.8rem;
-      display: flex; align-items: center; justify-content: center;
-      transition: var(--transition-fast);
-      flex-shrink: 0;
-    }
-    .cart-item-delete:hover { background: rgba(239, 83, 80, 0.1); color: #ef5350; }
-
-    .cart-foot {
-      padding: 20px 28px 28px;
-      border-top: 1px solid rgba(200, 169, 110, 0.2);
-    }
-    .cart-summary {
-      display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
+      gap: 20px;
+      flex-wrap: wrap;
     }
-    .cart-total-label { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
-    .cart-total-value {
+
+    .summary-products {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+
+    .summary-product-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(233, 30, 140, 0.08);
+      border: 1px solid rgba(233, 30, 140, 0.15);
+      border-radius: 50px;
+      padding: 4px 12px 4px 8px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+    .summary-product-tag img {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .summary-product-tag .remove-tag {
+      color: var(--text-muted);
+      font-size: 0.65rem;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .summary-product-tag .remove-tag:hover {
+      color: #ef5350;
+    }
+
+    .summary-counter {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .summary-counter strong {
+      color: var(--rose-pink);
+      font-weight: 700;
+    }
+
+    .summary-total {
       font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       font-weight: 800;
       color: var(--rose-pink);
+      white-space: nowrap;
     }
-    .cart-checkout-btn {
+    .summary-total span {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .summary-actions {
       display: flex;
+      gap: 12px;
       align-items: center;
-      justify-content: center;
+    }
+
+    .btn-order {
+      display: inline-flex;
+      align-items: center;
       gap: 10px;
-      width: 100%;
-      padding: 18px;
+      padding: 14px 32px;
       background: linear-gradient(135deg, var(--rose-pink), #f06292);
       color: white;
       border-radius: 50px;
-      font-size: 0.95rem;
       font-weight: 700;
+      font-size: 0.9rem;
       letter-spacing: 0.5px;
       box-shadow: 0 8px 24px rgba(233, 30, 140, 0.35);
       transition: var(--transition);
+      white-space: nowrap;
     }
-    .cart-checkout-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(233, 30, 140, 0.45); }
+    .btn-order:hover:not(:disabled) {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(233, 30, 140, 0.45);
+    }
+    .btn-order:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    .btn-clear {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      background: rgba(239, 83, 80, 0.08);
+      color: #ef5350;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: var(--transition-fast);
+      white-space: nowrap;
+    }
+    .btn-clear:hover {
+      background: rgba(239, 83, 80, 0.15);
+    }
+
+    .summary-min-msg {
+      font-size: 0.75rem;
+      color: #ef5350;
+      font-weight: 600;
+      display: none;
+    }
+    .summary-min-msg.show {
+      display: block;
+    }
 
     /* ============================================
        WHY US SECTION
     ============================================ */
-    #why-us { padding: 100px 0; background: transparent; }
+    #why-us { padding: 80px 0; background: transparent; }
 
     .why-grid {
       display: grid;
@@ -1133,7 +1069,7 @@
     /* ============================================
        TESTIMONIALS
     ============================================ */
-    #testimonials { padding: 100px 0; background: transparent; }
+    #testimonials { padding: 80px 0; background: transparent; }
 
     .testimonials-grid {
       display: grid;
@@ -1195,7 +1131,7 @@
     /* ============================================
        FAQ
     ============================================ */
-    #faq { padding: 100px 0; background: transparent; }
+    #faq { padding: 80px 0; background: transparent; }
 
     .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
 
@@ -1505,14 +1441,15 @@
     ============================================ */
     .float-whatsapp {
       position: fixed;
-      bottom: 28px; left: 28px;
+      bottom: 100px;
+      left: 28px;
       width: 58px; height: 58px;
       background: linear-gradient(135deg, #25d366, #20c05e);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.4rem;
       color: white;
-      z-index: 999;
+      z-index: 99;
       box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
       transition: var(--transition);
       animation: whatsappPulse 2.5s ease-in-out infinite;
@@ -1548,7 +1485,7 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 1rem;
       color: white;
-      z-index: 999;
+      z-index: 99;
       box-shadow: 0 6px 20px rgba(233, 30, 140, 0.4);
       transition: var(--transition);
       opacity: 0;
@@ -1607,6 +1544,21 @@
       .form-row { grid-template-columns: 1fr; }
       .modal-body, .modal-head { padding-left: 24px; padding-right: 24px; }
 
+      .summary-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+      .summary-products { justify-content: center; }
+      .summary-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .summary-total {
+        text-align: center;
+        font-size: 1.2rem;
+      }
+
       html[dir="rtl"] .hero-text {
         padding-left: 0;
       }
@@ -1616,6 +1568,9 @@
       .products-grid { grid-template-columns: 1fr; }
       .hero-card-main { width: 260px; }
       .hero-badge-1, .hero-badge-2 { display: none; }
+      .summary-product-tag { font-size: 0.65rem; }
+      .btn-order { padding: 12px 20px; font-size: 0.8rem; }
+      .btn-clear { padding: 8px 14px; font-size: 0.7rem; }
     }
 
     /* ============================================
@@ -1623,7 +1578,7 @@
     ============================================ */
     .toast-container {
       position: fixed;
-      bottom: 100px;
+      bottom: 110px;
       right: 28px;
       z-index: 5000;
       display: flex;
@@ -1655,6 +1610,7 @@
     }
     .toast-icon { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.9rem; }
     .toast-success .toast-icon { background: rgba(76, 175, 80, 0.15); color: #4caf50; }
+    .toast-error .toast-icon { background: rgba(239, 83, 80, 0.15); color: #ef5350; }
     .toast-text { font-size: 0.85rem; font-weight: 500; color: var(--text-primary); }
   </style>
 </head>
@@ -1689,17 +1645,12 @@
           <a href="#why-us" data-key="nav_why">Pourquoi Nous</a>
           <a href="#testimonials" data-key="nav_testimonials">Avis Clients</a>
           <a href="#faq" data-key="nav_faq">FAQ</a>
-          <a href="#order" id="navOrderBtn" data-key="nav_order">Commande</a>
           <a href="#footer" data-key="nav_contact">Contact</a>
         </div>
         <div class="nav-actions">
           <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
             <i class="fas fa-globe"></i>
             <span id="langLabel">FR</span>
-          </button>
-          <button class="cart-btn" id="cartToggle" aria-label="Panier">
-            <i class="fas fa-bag-shopping"></i>
-            <span class="cart-count" id="cartCount" style="display:none;">0</span>
           </button>
           <div class="hamburger" id="hamburger">
             <span></span><span></span><span></span>
@@ -1716,7 +1667,6 @@
     <a href="#why-us" onclick="closeMobileNav()" data-key="nav_why">Pourquoi Nous</a>
     <a href="#testimonials" onclick="closeMobileNav()" data-key="nav_testimonials">Avis Clients</a>
     <a href="#faq" onclick="closeMobileNav()" data-key="nav_faq">FAQ</a>
-    <a href="#order" onclick="closeMobileNav()" data-key="nav_order">Commande</a>
     <a href="#footer" onclick="closeMobileNav()" data-key="nav_contact">Contact</a>
   </nav>
 
@@ -1727,14 +1677,14 @@
         <div class="hero-text">
           <div class="hero-eyebrow"><i class="fas fa-star"></i> <span data-key="hero_eyebrow">Beauté Authentique & Premium</span></div>
           <h1 class="hero-title">
-            <span data-key="hero_title_1">Reveal Your</span><br><em><span data-key="hero_title_2">Natural Beauty</span></em>
+            <span data-key="hero_title_1">Créez Votre</span><br><em><span data-key="hero_title_2">Bague Beauté</span></em>
           </h1>
           <p class="hero-subtitle" data-key="hero_subtitle">
-            Découvrez notre collection exclusive de soins solaires et de beauté, soigneusement sélectionnés pour révéler votre éclat naturel. Qualité premium, livraison rapide en Algérie.
+            Choisissez 3 produits ou plus parmi notre collection et bénéficiez d'un prix préférentiel. Livraison rapide en Algérie.
           </p>
           <div class="hero-cta">
-            <a href="#products" class="btn-primary"><i class="fas fa-sparkles"></i> <span data-key="hero_btn_shop">Shop Now</span></a>
-            <a href="#products" class="btn-outline"><i class="fas fa-arrow-right"></i> <span data-key="hero_btn_explore">Explore Products</span></a>
+            <a href="#products" class="btn-primary"><i class="fas fa-sparkles"></i> <span data-key="hero_btn_shop">Composer ma Bague</span></a>
+            <a href="#products" class="btn-outline"><i class="fas fa-arrow-right"></i> <span data-key="hero_btn_explore">Voir les Produits</span></a>
           </div>
           <div class="hero-stats">
             <div class="stat-item"><div class="stat-num">5K+</div><div class="stat-label" data-key="hero_stat_1">Clients Satisfaits</div></div>
@@ -1748,11 +1698,11 @@
           <div class="hero-glow"></div>
           <div class="hero-card-main">
             <img src="1.jfif" alt="Eucerin Sun Sensitive" loading="lazy" />
-            <div class="hero-card-label" data-key="hero_card_label">Bestseller</div>
-            <div class="hero-card-name">Eucerin Sun Sensitive Protect</div>
-            <div class="hero-card-price">1 850 DA</div>
+            <div class="hero-card-label" data-key="hero_card_label">Bague 3+ Produits</div>
+            <div class="hero-card-name" data-key="hero_card_name">Créez votre pack personnalisé</div>
+            <div class="hero-card-price" data-key="hero_card_price">Prix préférentiel</div>
           </div>
-          <div class="hero-badge hero-badge-1"><i class="fas fa-shield-check"></i> <span data-key="hero_badge_1">SPF 50+</span></div>
+          <div class="hero-badge hero-badge-1"><i class="fas fa-shield-check"></i> <span data-key="hero_badge_1">100% Authentique</span></div>
           <div class="hero-badge hero-badge-2"><i class="fas fa-truck"></i> <span data-key="hero_badge_2">Livraison 48h</span></div>
         </div>
       </div>
@@ -1764,8 +1714,8 @@
     <div class="container">
       <div class="section-header reveal">
         <div class="section-eyebrow"><i class="fas fa-leaf"></i> <span data-key="products_eyebrow">Notre Collection</span></div>
-        <h2 class="section-title"><span data-key="products_title_1">Nos</span> <span data-key="products_title_2">Produits Stars</span></h2>
-        <p class="section-desc" data-key="products_desc">Des soins solaires dermatologiques de haute qualité pour protéger et sublimer votre peau au quotidien.</p>
+        <h2 class="section-title"><span data-key="products_title_1">Choisissez</span> <span data-key="products_title_2">Vos Produits</span></h2>
+        <p class="section-desc" data-key="products_desc">Sélectionnez 3 produits ou plus pour composer votre bague beauté personnalisée.</p>
         <div class="section-divider">
           <div class="divider-line"></div>
           <div class="divider-dot"></div>
@@ -1883,20 +1833,26 @@
     </div>
   </footer>
 
-  <!-- ============ CART OVERLAY ============ -->
-  <div class="cart-overlay" id="cartOverlay">
-    <div class="cart-drawer" id="cartDrawer">
-      <div class="cart-head">
-        <div class="cart-head-title"><i class="fas fa-bag-shopping" style="color:var(--rose-pink);margin-right:10px"></i><span data-key="cart_title">Mon Panier</span></div>
-        <button class="cart-close" id="cartClose"><i class="fas fa-times"></i></button>
-      </div>
-      <div class="cart-body" id="cartBody"></div>
-      <div class="cart-foot" id="cartFoot" style="display:none;">
-        <div class="cart-summary">
-          <div class="cart-total-label" data-key="cart_total">Total</div>
-          <div class="cart-total-value" id="cartTotal">0 DA</div>
+  <!-- ============ ORDER SUMMARY (FLOATING BAR) ============ -->
+  <div class="order-summary" id="orderSummary">
+    <div class="container">
+      <div class="summary-inner">
+        <div class="summary-products" id="summaryProducts">
+          <!-- Injected by JS -->
         </div>
-        <button class="cart-checkout-btn" id="checkoutBtn"><i class="fas fa-check-circle"></i> <span data-key="cart_checkout">Commander maintenant</span></button>
+        <div class="summary-counter" id="summaryCounter">
+          <span data-key="summary_selected"><strong id="selectedCount">0</strong> produit(s) sélectionné(s)</span>
+          <span class="summary-min-msg" id="minMsg" data-key="summary_min">Minimum 3 produits requis</span>
+        </div>
+        <div class="summary-total" id="summaryTotal">
+          <span data-key="summary_total">Total</span> <span id="totalPrice">0</span> <span>DA</span>
+        </div>
+        <div class="summary-actions">
+          <button class="btn-clear" id="clearBtn" data-key="summary_clear"><i class="fas fa-trash-can"></i> Effacer</button>
+          <button class="btn-order" id="orderBtn" disabled data-key="summary_order">
+            <i class="fas fa-check-circle"></i> Commander
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -1983,24 +1939,25 @@
         nav_why: "Pourquoi Nous",
         nav_testimonials: "Avis Clients",
         nav_faq: "FAQ",
-        nav_order: "Commande",
         nav_contact: "Contact",
         hero_eyebrow: "Beauté Authentique & Premium",
-        hero_title_1: "Reveal Your",
-        hero_title_2: "Natural Beauty",
-        hero_subtitle: "Découvrez notre collection exclusive de soins solaires et de beauté, soigneusement sélectionnés pour révéler votre éclat naturel. Qualité premium, livraison rapide en Algérie.",
-        hero_btn_shop: "Shop Now",
-        hero_btn_explore: "Explore Products",
+        hero_title_1: "Créez Votre",
+        hero_title_2: "Bague Beauté",
+        hero_subtitle: "Choisissez 3 produits ou plus parmi notre collection et bénéficiez d'un prix préférentiel. Livraison rapide en Algérie.",
+        hero_btn_shop: "Composer ma Bague",
+        hero_btn_explore: "Voir les Produits",
         hero_stat_1: "Clients Satisfaits",
         hero_stat_2: "Produits Authentiques",
         hero_stat_3: "Livraison Rapide",
-        hero_card_label: "Bestseller",
-        hero_badge_1: "SPF 50+",
+        hero_card_label: "Bague 3+ Produits",
+        hero_card_name: "Créez votre pack personnalisé",
+        hero_card_price: "Prix préférentiel",
+        hero_badge_1: "100% Authentique",
         hero_badge_2: "Livraison 48h",
         products_eyebrow: "Notre Collection",
-        products_title_1: "Nos",
-        products_title_2: "Produits Stars",
-        products_desc: "Des soins solaires dermatologiques de haute qualité pour protéger et sublimer votre peau au quotidien.",
+        products_title_1: "Choisissez",
+        products_title_2: "Vos Produits",
+        products_desc: "Sélectionnez 3 produits ou plus pour composer votre bague beauté personnalisée.",
         why_eyebrow: "Nos Engagements",
         why_title_1: "Pourquoi",
         why_title_2: "Nous Choisir",
@@ -2025,11 +1982,6 @@
         footer_hours: "Lun–Sam : 9h – 20h",
         footer_copyright: "© 2025 Beauty Vibes. Tous droits réservés.",
         footer_heart: "Fait avec ❤️ en Algérie",
-        cart_title: "Mon Panier",
-        cart_total: "Total",
-        cart_checkout: "Commander maintenant",
-        cart_empty: "Votre panier est vide.",
-        cart_empty_sub: "Ajoutez des produits pour commencer !",
         modal_title: "Confirmer la Commande",
         modal_summary: "Récapitulatif",
         success_title: "Commande Confirmée !",
@@ -2050,13 +2002,21 @@
         err_lastname: "Le nom est requis.",
         err_phone: "Numéro de téléphone invalide (10 chiffres requis).",
         err_wilaya: "Veuillez sélectionner votre wilaya.",
-        toast_added: "ajouté au panier !",
-        toast_empty: "Votre panier est vide !",
+        toast_added: "ajouté à votre bague !",
+        toast_removed: "retiré de votre bague",
+        toast_min: "Veuillez sélectionner au moins 3 produits",
+        toast_empty: "Veuillez sélectionner au moins 3 produits",
         whatsapp_tooltip: "Contactez-nous",
         badge_bestseller: "🔥 Best Seller",
         badge_new: "✨ Nouveau",
-        btn_add: "Ajouter",
+        btn_select: "Sélectionner",
+        btn_deselect: "Désélectionner",
         product_price_suffix: " DA",
+        summary_selected: "<strong id='selectedCount'>0</strong> produit(s) sélectionné(s)",
+        summary_min: "Minimum 3 produits requis",
+        summary_total: "Total",
+        summary_clear: "Effacer",
+        summary_order: "Commander",
         why_1_title: "Produits Authentiques",
         why_1_desc: "Tous nos produits sont 100% originaux, importés directement des grandes marques dermatologiques mondiales.",
         why_2_title: "Protection Solaire",
@@ -2079,7 +2039,7 @@
         testimonial_3_name: "Lina M.",
         testimonial_3_location: "Constantine",
         faq_1_q: "Comment puis-je passer une commande ?",
-        faq_1_a: "Sélectionnez vos produits, ajoutez-les au panier, puis cliquez sur \"Commander\". Remplissez le formulaire avec vos coordonnées et confirmez votre commande. Notre équipe vous contactera sous 24h pour confirmer la livraison.",
+        faq_1_a: "Sélectionnez 3 produits ou plus, puis cliquez sur \"Commander\" dans la barre du bas. Remplissez le formulaire avec vos coordonnées et confirmez votre commande. Notre équipe vous contactera sous 24h pour confirmer la livraison.",
         faq_2_q: "Quel est le délai de livraison ?",
         faq_2_a: "Nous livrons partout en Algérie sous 24 à 48 heures ouvrables. Pour les wilayas éloignées, le délai peut être de 48 à 72 heures. Vous recevrez une notification avec le suivi de votre colis.",
         faq_3_q: "Les produits sont-ils authentiques et originaux ?",
@@ -2095,24 +2055,25 @@
         nav_why: "لماذا نحن",
         nav_testimonials: "آراء العملاء",
         nav_faq: "الأسئلة الشائعة",
-        nav_order: "طلب",
         nav_contact: "اتصل بنا",
         hero_eyebrow: "جمال أصلي وفاخر",
-        hero_title_1: "أظهري",
-        hero_title_2: "جمالك الطبيعي",
-        hero_subtitle: "اكتشفي مجموعتنا الحصرية من العناية الشمسية ومنتجات التجميل، المختارة بعناية لإبراز جمالك الطبيعي. جودة فائقة، توصيل سريع في الجزائر.",
-        hero_btn_shop: "تسوق الآن",
-        hero_btn_explore: "استكشف المنتجات",
+        hero_title_1: "اصنعي",
+        hero_title_2: "باقة جمالك",
+        hero_subtitle: "اختاري 3 منتجات أو أكثر من مجموعتنا واستفيدي من سعر تفضيلي. توصيل سريع في الجزائر.",
+        hero_btn_shop: "شكّلي باقاتي",
+        hero_btn_explore: "شاهدي المنتجات",
         hero_stat_1: "عملاء راضون",
         hero_stat_2: "منتجات أصلية",
         hero_stat_3: "توصيل سريع",
-        hero_card_label: "الأكثر مبيعاً",
-        hero_badge_1: "حماية SPF 50+",
-        hero_badge_2: "توصيل خلال 48 ساعة",
+        hero_card_label: "باقة 3+ منتجات",
+        hero_card_name: "اصنعي حزمة مخصصة لك",
+        hero_card_price: "سعر تفضيلي",
+        hero_badge_1: "أصلي 100%",
+        hero_badge_2: "توصيل 48 ساعة",
         products_eyebrow: "مجموعتنا",
-        products_title_1: "منتجاتنا",
-        products_title_2: "النجمة",
-        products_desc: "عناية شمسية جلدية عالية الجودة لحماية وتجميل بشرتك يومياً.",
+        products_title_1: "اختاري",
+        products_title_2: "منتجاتك",
+        products_desc: "اختاري 3 منتجات أو أكثر لتشكيل باقة جمالك المخصصة.",
         why_eyebrow: "التزاماتنا",
         why_title_1: "لماذا",
         why_title_2: "تختارنا",
@@ -2137,11 +2098,6 @@
         footer_hours: "الإثنين–السبت : 9ص – 8م",
         footer_copyright: "© 2025 بيوتي فايبس. جميع الحقوق محفوظة.",
         footer_heart: "صُنع بـ ❤️ في الجزائر",
-        cart_title: "سلة التسوق",
-        cart_total: "المجموع",
-        cart_checkout: "اطلب الآن",
-        cart_empty: "سلة التسوق فارغة.",
-        cart_empty_sub: "أضف منتجات للبدء!",
         modal_title: "تأكيد الطلب",
         modal_summary: "ملخص الطلب",
         success_title: "تم تأكيد الطلب!",
@@ -2162,13 +2118,21 @@
         err_lastname: "اسم العائلة مطلوب.",
         err_phone: "رقم الهاتف غير صحيح (10 أرقام مطلوبة).",
         err_wilaya: "يرجى اختيار ولايتك.",
-        toast_added: "تمت الإضافة إلى السلة!",
-        toast_empty: "سلة التسوق فارغة!",
+        toast_added: "تمت إضافة إلى باقاتك!",
+        toast_removed: "تمت إزالته من باقاتك",
+        toast_min: "يرجى اختيار 3 منتجات على الأقل",
+        toast_empty: "يرجى اختيار 3 منتجات على الأقل",
         whatsapp_tooltip: "تواصل معنا",
         badge_bestseller: "🔥 الأكثر مبيعاً",
         badge_new: "✨ جديد",
-        btn_add: "أضف",
+        btn_select: "اختر",
+        btn_deselect: "إلغاء الاختيار",
         product_price_suffix: " دج",
+        summary_selected: "<strong id='selectedCount'>0</strong> منتج(منتجات) مختارة",
+        summary_min: "3 منتجات كحد أدنى مطلوبة",
+        summary_total: "المجموع",
+        summary_clear: "إلغاء الكل",
+        summary_order: "اطلب",
         why_1_title: "منتجات أصلية",
         why_1_desc: "جميع منتجاتنا أصلية 100%، مستوردة مباشرة من كبرى ماركات الأمراض الجلدية العالمية.",
         why_2_title: "حماية من الشمس",
@@ -2191,7 +2155,7 @@
         testimonial_3_name: "لينا م.",
         testimonial_3_location: "قسنطينة",
         faq_1_q: "كيف يمكنني تقديم طلب؟",
-        faq_1_a: "اختر منتجاتك، أضفها إلى السلة، ثم انقر على \"اطلب\". املأ النموذج ببياناتك وأكد طلبك. سيتصل بك فريقنا خلال 24 ساعة لتأكيد التوصيل.",
+        faq_1_a: "اختاري 3 منتجات أو أكثر، ثم انقري على \"اطلب\" في الشريط السفلي. املئي النموذج ببياناتك وأكدي طلبك. سيتصل بك فريقنا خلال 24 ساعة لتأكيد التوصيل.",
         faq_2_q: "ما هو وقت التوصيل؟",
         faq_2_a: "نوصل في جميع أنحاء الجزائر خلال 24 إلى 48 ساعة عمل. للولايات البعيدة، قد يستغرق 48 إلى 72 ساعة. ستتلقى إشعاراً مع تتبع طلبك.",
         faq_3_q: "هل المنتجات أصلية؟",
@@ -2288,9 +2252,9 @@
     ];
 
     // ============================================
-    // CART STATE
+    // STATE
     // ============================================
-    let cart = [];
+    let selectedProducts = [];
     let currentLang = 'fr';
 
     // ============================================
@@ -2308,14 +2272,18 @@
       renderWhyUs();
       renderTestimonials();
       renderFAQ();
-      renderCart();
-      initCartUI();
       initWilayas();
       initScrollReveal();
       initScrollTop();
       initOrderModal();
       initLangToggle();
       updateUI();
+      updateSummary();
+
+      // Close summary initially if no products
+      if (selectedProducts.length === 0) {
+        document.getElementById('orderSummary').classList.remove('show');
+      }
     });
 
     // ============================================
@@ -2378,47 +2346,9 @@
       renderWhyUs();
       renderTestimonials();
       renderFAQ();
-      renderCart();
-      updateCartEmptyMessage();
-      if (document.getElementById('orderModal').classList.contains('open')) {
-        updateModalSummary();
-      }
-      updateSuccessMessages();
+      updateSummary();
       updateErrorMessages();
-    }
-
-    function updateCartEmptyMessage() {
-      const emptyDiv = document.querySelector('.cart-empty');
-      if (emptyDiv) {
-        const p = emptyDiv.querySelectorAll('p');
-        if (p.length >= 2) {
-          p[0].textContent = translations[currentLang].cart_empty;
-          p[1].textContent = translations[currentLang].cart_empty_sub;
-        }
-      }
-    }
-
-    function updateSuccessMessages() {
-      const successScreen = document.getElementById('successScreen');
-      if (successScreen) {
-        const title = successScreen.querySelector('.success-title');
-        const msg = successScreen.querySelector('.success-msg');
-        const btn = successScreen.querySelector('.success-close-btn span');
-        if (title) title.textContent = translations[currentLang].success_title;
-        if (msg) msg.textContent = translations[currentLang].success_msg;
-        if (btn) btn.textContent = translations[currentLang].success_btn;
-      }
-    }
-
-    function updateErrorMessages() {
-      const errors = document.querySelectorAll('.field-error');
-      errors.forEach(el => {
-        const key = el.getAttribute('data-key');
-        if (key) {
-          const translation = translations[currentLang][key];
-          if (translation) el.textContent = translation;
-        }
-      });
+      updateSuccessMessages();
     }
 
     // ============================================
@@ -2520,15 +2450,18 @@
           ? (isArabic ? translations.ar.badge_new : translations.fr.badge_new)
           : '';
         const badgeClass = p.badge === 'bestseller' ? 'badge-bestseller' : 'badge-new';
-        const addText = isArabic ? translations.ar.btn_add : translations.fr.btn_add;
+        const isSelected = selectedProducts.some(sp => sp.id === p.id);
+        const btnText = isSelected 
+          ? (isArabic ? translations.ar.btn_deselect : translations.fr.btn_deselect)
+          : (isArabic ? translations.ar.btn_select : translations.fr.btn_select);
 
         return `
-          <div class="product-card reveal reveal-delay-${(i % 4) + 1}" data-id="${p.id}">
+          <div class="product-card reveal reveal-delay-${(i % 4) + 1} ${isSelected ? 'selected' : ''}" data-id="${p.id}" onclick="toggleProduct(${p.id})">
             <div class="product-img-wrapper">
               <img src="${p.img}" alt="${name}" loading="lazy" />
               ${p.badge ? `<div class="product-badge ${badgeClass}">${badgeText}</div>` : ''}
-              <div class="product-actions">
-                <button class="product-action-btn" title="${isArabic ? 'معاينة سريعة' : 'Aperçu rapide'}"><i class="fas fa-eye"></i></button>
+              <div class="product-check">
+                <i class="fas fa-${isSelected ? 'check' : 'plus'}"></i>
               </div>
             </div>
             <div class="product-body">
@@ -2540,9 +2473,9 @@
               <div class="product-desc">${desc}</div>
               <div class="product-footer">
                 <div class="product-price">${p.price.toLocaleString('fr-DZ')}<span> ${isArabic ? translations.ar.product_price_suffix : translations.fr.product_price_suffix}</span></div>
-                <button class="add-to-cart-btn" onclick="addToCart(${p.id})">
-                  <i class="fas fa-plus"></i>
-                  <span>${addText}</span>
+                <button class="product-select-btn" onclick="event.stopPropagation(); toggleProduct(${p.id})">
+                  <i class="fas fa-${isSelected ? 'minus' : 'plus'}"></i>
+                  <span>${btnText}</span>
                 </button>
               </div>
             </div>
@@ -2552,12 +2485,122 @@
     }
 
     // ============================================
+    // TOGGLE PRODUCT SELECTION
+    // ============================================
+    function toggleProduct(productId) {
+      const product = products.find(p => p.id === productId);
+      if (!product) return;
+
+      const index = selectedProducts.findIndex(p => p.id === productId);
+      const lang = currentLang;
+
+      if (index > -1) {
+        // Remove product
+        selectedProducts.splice(index, 1);
+        showToast(`${lang === 'ar' ? product.name_ar : product.name} ${translations[lang].toast_removed}`, 'info');
+      } else {
+        // Add product
+        selectedProducts.push({ ...product });
+        showToast(`${lang === 'ar' ? product.name_ar : product.name} ${translations[lang].toast_added}`, 'success');
+      }
+
+      renderProducts();
+      updateSummary();
+
+      // Show/hide summary bar
+      const summary = document.getElementById('orderSummary');
+      if (selectedProducts.length > 0) {
+        summary.classList.add('show');
+      } else {
+        summary.classList.remove('show');
+      }
+
+      // Check minimum
+      const orderBtn = document.getElementById('orderBtn');
+      const minMsg = document.getElementById('minMsg');
+      if (selectedProducts.length >= 3) {
+        orderBtn.disabled = false;
+        minMsg.classList.remove('show');
+      } else {
+        orderBtn.disabled = true;
+        minMsg.classList.add('show');
+      }
+    }
+
+    // ============================================
+    // UPDATE SUMMARY
+    // ============================================
+    function updateSummary() {
+      const container = document.getElementById('summaryProducts');
+      const countEl = document.getElementById('selectedCount');
+      const totalEl = document.getElementById('totalPrice');
+      const lang = currentLang;
+      const isArabic = lang === 'ar';
+
+      // Update count
+      countEl.textContent = selectedProducts.length;
+
+      // Update total
+      const total = selectedProducts.reduce((sum, p) => sum + p.price, 0);
+      totalEl.textContent = total.toLocaleString('fr-DZ');
+
+      // Update products tags
+      if (selectedProducts.length === 0) {
+        container.innerHTML = `<span style="font-size:0.8rem;color:var(--text-muted);">${isArabic ? 'لم تختر أي منتج بعد' : 'Aucun produit sélectionné'}</span>`;
+      } else {
+        container.innerHTML = selectedProducts.map(p => {
+          const name = isArabic ? p.name_ar : p.name;
+          return `
+            <span class="summary-product-tag">
+              <img src="${p.img}" alt="${name}" />
+              ${name.substring(0, 20)}${name.length > 20 ? '…' : ''}
+              <span class="remove-tag" onclick="event.stopPropagation(); toggleProduct(${p.id})"><i class="fas fa-times"></i></span>
+            </span>
+          `;
+        }).join('');
+      }
+
+      // Update min message
+      const minMsg = document.getElementById('minMsg');
+      const orderBtn = document.getElementById('orderBtn');
+      if (selectedProducts.length >= 3) {
+        orderBtn.disabled = false;
+        minMsg.classList.remove('show');
+      } else {
+        orderBtn.disabled = true;
+        minMsg.classList.add('show');
+      }
+    }
+
+    // ============================================
+    // CLEAR SELECTION
+    // ============================================
+    document.getElementById('clearBtn').addEventListener('click', () => {
+      if (selectedProducts.length === 0) return;
+      selectedProducts = [];
+      renderProducts();
+      updateSummary();
+      document.getElementById('orderSummary').classList.remove('show');
+      showToast(translations[currentLang].toast_empty, 'info');
+    });
+
+    // ============================================
+    // ORDER BUTTON
+    // ============================================
+    document.getElementById('orderBtn').addEventListener('click', () => {
+      if (selectedProducts.length < 3) {
+        showToast(translations[currentLang].toast_min, 'error');
+        return;
+      }
+      openOrderModal();
+    });
+
+    // ============================================
     // RENDER WHY US
     // ============================================
     function renderWhyUs() {
       const grid = document.getElementById('whyGrid');
       const lang = currentLang;
-      const isArabic = lang === 'ar';
 
       const whyItems = [
         { icon: 'fa-certificate', key: 'why_1' },
@@ -2587,7 +2630,6 @@
     function renderTestimonials() {
       const grid = document.getElementById('testimonialsGrid');
       const lang = currentLang;
-      const isArabic = lang === 'ar';
 
       const testimonialData = [
         { key: 'testimonial_1', initials: 'S' },
@@ -2646,130 +2688,6 @@
     }
 
     // ============================================
-    // CART LOGIC
-    // ============================================
-    function addToCart(productId) {
-      const product = products.find(p => p.id === productId);
-      if (!product) return;
-      const existing = cart.find(i => i.id === productId);
-      if (existing) {
-        existing.qty++;
-      } else {
-        cart.push({ ...product, qty: 1 });
-      }
-      updateCartUI();
-      const name = currentLang === 'ar' ? product.name_ar : product.name;
-      showToast(`${name.substring(0, 24)}… ${translations[currentLang].toast_added}`);
-      const btns = document.querySelectorAll(`.product-card[data-id="${productId}"] .add-to-cart-btn`);
-      btns.forEach(btn => {
-        btn.style.transform = 'scale(0.94)';
-        setTimeout(() => btn.style.transform = '', 150);
-      });
-    }
-
-    function changeQty(productId, delta) {
-      const item = cart.find(i => i.id === productId);
-      if (!item) return;
-      item.qty += delta;
-      if (item.qty <= 0) {
-        cart = cart.filter(i => i.id !== productId);
-      }
-      updateCartUI();
-    }
-
-    function removeFromCart(productId) {
-      cart = cart.filter(i => i.id !== productId);
-      updateCartUI();
-    }
-
-    function getCartTotal() {
-      return cart.reduce((sum, i) => sum + i.price * i.qty, 0);
-    }
-
-    function getCartCount() {
-      return cart.reduce((sum, i) => sum + i.qty, 0);
-    }
-
-    function updateCartUI() {
-      renderCart();
-      const count = getCartCount();
-      const countEl = document.getElementById('cartCount');
-      if (count > 0) {
-        countEl.textContent = count;
-        countEl.style.display = 'flex';
-        countEl.style.animation = 'none';
-        requestAnimationFrame(() => countEl.style.animation = 'badgePop 0.3s cubic-bezier(0.68,-0.55,0.27,1.55)');
-      } else {
-        countEl.style.display = 'none';
-      }
-    }
-
-    function renderCart() {
-      const body = document.getElementById('cartBody');
-      const foot = document.getElementById('cartFoot');
-      const total = document.getElementById('cartTotal');
-      const lang = currentLang;
-      const isArabic = lang === 'ar';
-
-      if (cart.length === 0) {
-        body.innerHTML = `
-          <div class="cart-empty">
-            <i class="fas fa-bag-shopping"></i>
-            <p>${translations[lang].cart_empty}</p>
-            <p style="font-size:0.8rem">${translations[lang].cart_empty_sub}</p>
-          </div>`;
-        foot.style.display = 'none';
-      } else {
-        body.innerHTML = cart.map(item => {
-          const name = isArabic ? item.name_ar : item.name;
-          return `
-            <div class="cart-item" id="cart-item-${item.id}">
-              <img class="cart-item-img" src="${item.img}" alt="${name}" loading="lazy" />
-              <div class="cart-item-info">
-                <div class="cart-item-name">${name}</div>
-                <div class="cart-item-price">${(item.price * item.qty).toLocaleString('fr-DZ')} ${isArabic ? translations.ar.product_price_suffix : translations.fr.product_price_suffix}</div>
-                <div class="cart-qty">
-                  <button class="qty-btn" onclick="changeQty(${item.id}, -1)"><i class="fas fa-minus"></i></button>
-                  <span class="qty-num">${item.qty}</span>
-                  <button class="qty-btn" onclick="changeQty(${item.id}, 1)"><i class="fas fa-plus"></i></button>
-                </div>
-              </div>
-              <button class="cart-item-delete" onclick="removeFromCart(${item.id})"><i class="fas fa-trash-can"></i></button>
-            </div>
-          `;
-        }).join('');
-        foot.style.display = 'block';
-        total.textContent = getCartTotal().toLocaleString('fr-DZ') + (isArabic ? translations.ar.product_price_suffix : translations.fr.product_price_suffix);
-      }
-    }
-
-    // ============================================
-    // CART UI EVENTS
-    // ============================================
-    function initCartUI() {
-      const overlay = document.getElementById('cartOverlay');
-      document.getElementById('cartToggle').addEventListener('click', () => {
-        overlay.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      });
-      document.getElementById('cartClose').addEventListener('click', closeCart);
-      overlay.addEventListener('click', e => { if (e.target === overlay) closeCart(); });
-      document.getElementById('checkoutBtn').addEventListener('click', () => {
-        closeCart();
-        openOrderModal();
-      });
-      document.getElementById('navOrderBtn').addEventListener('click', (e) => {
-        e.preventDefault();
-        openOrderModal();
-      });
-    }
-
-    function closeCart() {
-      document.getElementById('cartOverlay').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    // ============================================
     // WILAYAS
     // ============================================
     function initWilayas() {
@@ -2786,8 +2704,8 @@
     // ORDER MODAL
     // ============================================
     function openOrderModal() {
-      if (cart.length === 0) {
-        showToast(translations[currentLang].toast_empty, 'error');
+      if (selectedProducts.length < 3) {
+        showToast(translations[currentLang].toast_min, 'error');
         return;
       }
       updateModalSummary();
@@ -2802,21 +2720,27 @@
       const summary = document.getElementById('modalSummary');
       const lang = currentLang;
       const isArabic = lang === 'ar';
-      const itemsHtml = cart.map(item => {
+      const itemsHtml = selectedProducts.map(item => {
         const name = isArabic ? item.name_ar : item.name;
         return `
           <div class="modal-summary-item">
-            <span>${name} × ${item.qty}</span>
-            <strong>${(item.price * item.qty).toLocaleString('fr-DZ')} ${isArabic ? translations.ar.product_price_suffix : translations.fr.product_price_suffix}</strong>
+            <span>${name}</span>
+            <strong>${item.price.toLocaleString('fr-DZ')} ${isArabic ? translations.ar.product_price_suffix : translations.fr.product_price_suffix}</strong>
           </div>`;
       }).join('');
+      const total = selectedProducts.reduce((sum, p) => sum + p.price, 0);
       summary.innerHTML = `
         <div class="modal-summary-title"><i class="fas fa-receipt"></i> ${translations[lang].modal_summary}</div>
         ${itemsHtml}
         <div class="modal-summary-item" style="font-weight:700;margin-top:4px">
-          <span>${translations[lang].cart_total}</span>
-          <strong style="font-size:1rem">${getCartTotal().toLocaleString('fr-DZ')} ${isArabic ? translations.ar.product_price_suffix : translations.fr.product_price_suffix}</strong>
-        </div>`;
+          <span>${translations[lang].summary_total}</span>
+          <strong style="font-size:1rem">${total.toLocaleString('fr-DZ')} ${isArabic ? translations.ar.product_price_suffix : translations.fr.product_price_suffix}</strong>
+        </div>
+        <div class="modal-summary-item" style="font-weight:500;color:var(--text-muted);font-size:0.8rem;border-bottom:none;padding-top:8px;">
+          <span>${isArabic ? 'عدد المنتجات' : 'Nombre de produits'}</span>
+          <span><strong>${selectedProducts.length}</strong></span>
+        </div>
+      `;
     }
 
     function initOrderModal() {
@@ -2861,8 +2785,8 @@
       if (!wilaya) { showFieldError('fWilaya', 'errWilaya'); valid = false; }
 
       if (!valid) return;
-      if (cart.length === 0) {
-        showToast(translations[currentLang].toast_empty);
+      if (selectedProducts.length < 3) {
+        showToast(translations[currentLang].toast_min, 'error');
         return;
       }
 
@@ -2870,14 +2794,17 @@
       btn.disabled = true;
       btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + (currentLang === 'ar' ? 'جاري الإرسال...' : 'Envoi en cours...');
 
+      const total = selectedProducts.reduce((sum, p) => sum + p.price, 0);
+      const isArabic = currentLang === 'ar';
       const orderData = {
         prenom,
         nom,
         phone,
         wilaya,
         note,
-        produits: cart.map(i => `${currentLang === 'ar' ? i.name_ar : i.name} x${i.qty}`).join(', '),
-        total: getCartTotal() + ' DA',
+        produits: selectedProducts.map(i => `${isArabic ? i.name_ar : i.name}`).join(', '),
+        quantite: selectedProducts.length,
+        total: total + ' DA',
         date: new Date().toLocaleString('fr-DZ'),
         langue: currentLang
       };
@@ -2893,16 +2820,20 @@
         .then(() => {
           document.getElementById('successScreen').classList.add('show');
           document.getElementById('orderForm').style.display = 'none';
-          cart = [];
-          updateCartUI();
+          selectedProducts = [];
+          renderProducts();
+          updateSummary();
+          document.getElementById('orderSummary').classList.remove('show');
           btn.disabled = false;
           btn.innerHTML = '<i class="fas fa-paper-plane"></i> ' + (currentLang === 'ar' ? translations.ar.form_submit : translations.fr.form_submit);
         })
         .catch(() => {
           document.getElementById('successScreen').classList.add('show');
           document.getElementById('orderForm').style.display = 'none';
-          cart = [];
-          updateCartUI();
+          selectedProducts = [];
+          renderProducts();
+          updateSummary();
+          document.getElementById('orderSummary').classList.remove('show');
           btn.disabled = false;
           btn.innerHTML = '<i class="fas fa-paper-plane"></i> ' + (currentLang === 'ar' ? translations.ar.form_submit : translations.fr.form_submit);
         });
@@ -2911,6 +2842,29 @@
     function showFieldError(inputId, errorId) {
       document.getElementById(inputId).classList.add('error');
       document.getElementById(errorId).classList.add('show');
+    }
+
+    function updateErrorMessages() {
+      const errors = document.querySelectorAll('.field-error');
+      errors.forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (key) {
+          const translation = translations[currentLang][key];
+          if (translation) el.textContent = translation;
+        }
+      });
+    }
+
+    function updateSuccessMessages() {
+      const successScreen = document.getElementById('successScreen');
+      if (successScreen) {
+        const title = successScreen.querySelector('.success-title');
+        const msg = successScreen.querySelector('.success-msg');
+        const btn = successScreen.querySelector('.success-close-btn span');
+        if (title) title.textContent = translations[currentLang].success_title;
+        if (msg) msg.textContent = translations[currentLang].success_msg;
+        if (btn) btn.textContent = translations[currentLang].success_btn;
+      }
     }
 
     // ============================================
@@ -2945,7 +2899,7 @@
       const toast = document.createElement('div');
       toast.className = `toast toast-${type}`;
       toast.innerHTML = `
-        <div class="toast-icon"><i class="fas fa-${type === 'success' ? 'check' : 'info-circle'}"></i></div>
+        <div class="toast-icon"><i class="fas fa-${type === 'success' ? 'check' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i></div>
         <span class="toast-text">${message}</span>`;
       container.appendChild(toast);
       setTimeout(() => {

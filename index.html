@@ -11,49 +11,51 @@
         body.rtl{direction:rtl;font-family:'El Messiri','Inter',sans-serif}
         body.rtl input,body.rtl select{text-align:right;direction:rtl}
         body.rtl .input-group label{text-align:right}
-        body.rtl .radio-group{justify-content:flex-end}
         #phone{direction:ltr!important;text-align:left!important}
-        .page-wrapper{max-width:900px;width:100%;background:rgba(255,255,255,.85);backdrop-filter:blur(20px);border-radius:3rem;padding:2.5rem 2.2rem;box-shadow:0 30px 60px -15px rgba(255,105,135,.25);position:relative;z-index:1}
-        .lang-switch-wrapper{display:flex;justify-content:center;margin-bottom:1.8rem}
+        .page-wrapper{max-width:900px;width:100%;background:rgba(255,255,255,.85);backdrop-filter:blur(20px);border-radius:3rem;padding:2rem 2rem;box-shadow:0 30px 60px -15px rgba(255,105,135,.25);position:relative;z-index:1}
+        .lang-switch-wrapper{display:flex;justify-content:center;margin-bottom:1.5rem}
         .lang-switch{display:flex;gap:.5rem;background:rgba(255,228,235,.7);border-radius:3rem;padding:.4rem;direction:ltr}
         .lang-btn{padding:.6rem 1.6rem;border-radius:2rem;border:none;cursor:pointer;font-weight:600;font-size:.9rem;background:transparent;color:#b3446c;transition:.3s}
         .lang-btn.active{background:linear-gradient(135deg,#e91e63,#f06292);color:#fff;transform:scale(1.03)}
-        .brand{text-align:center;margin-bottom:2.5rem}
+        .brand{text-align:center;margin-bottom:2rem}
         .brand h1{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:700;background:linear-gradient(135deg,#e91e63,#f48fb1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase}
-        .brand .tagline{font-size:1rem;color:#c2185b;border-top:1px dashed rgba(233,30,99,.35);display:inline-block;padding-top:.6rem;margin-top:.3rem}
-        .products-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;margin:2rem 0}
-        .product-card{flex:1 1 160px;min-width:150px;max-width:170px;background:rgba(255,255,255,.7);border-radius:2rem;padding:1.3rem .8rem;border:1px solid rgba(255,192,203,.5);cursor:pointer;text-align:center;transition:.3s;position:relative}
-        .product-card:hover{transform:translateY(-8px);border-color:#f48fb1}
+        .brand .tagline{font-size:1rem;color:#c2185b;border-top:1px dashed rgba(233,30,99,.35);display:inline-block;padding-top:.5rem;margin-top:.2rem}
+        .products-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem;margin:2rem 0}
+        .product-card{flex:1 1 155px;min-width:145px;max-width:165px;background:rgba(255,255,255,.7);border-radius:2rem;padding:1.2rem .7rem;border:1px solid rgba(255,192,203,.5);cursor:pointer;text-align:center;transition:.3s;position:relative}
+        .product-card:hover{transform:translateY(-5px);border-color:#f48fb1}
         .product-card.selected{border:2.5px solid #e91e63;background:rgba(255,240,245,.85);box-shadow:0 0 0 6px rgba(233,30,99,.1)}
-        .product-img{width:140px;height:140px;border-radius:1.8rem;object-fit:cover;margin-bottom:.8rem;background:#fce4ec}
-        .product-card:hover .product-img{transform:scale(1.04)}
-        .product-name{font-weight:600;font-size:.95rem;color:#5c1d36;margin:.4rem 0}
-        .product-price{font-weight:700;color:#e91e63;background:rgba(255,228,235,.8);padding:.3rem 1rem;border-radius:2rem;direction:ltr;display:inline-block}
-        .check-mark{position:absolute;top:12px;right:12px;background:#e91e63;color:#fff;border-radius:50%;width:28px;height:28px;display:none;align-items:center;justify-content:center;font-size:14px}
-        body.rtl .check-mark{right:auto;left:12px}
+        .product-img{width:130px;height:130px;border-radius:1.5rem;object-fit:cover;margin-bottom:.6rem;background:#fce4ec}
+        .product-name{font-weight:600;font-size:.9rem;color:#5c1d36;margin:.3rem 0}
+        .product-price{font-weight:700;font-size:.9rem;color:#e91e63;background:rgba(255,228,235,.8);padding:.2rem .8rem;border-radius:2rem;direction:ltr;display:inline-block}
+        .qty-selector{display:flex;align-items:center;justify-content:center;gap:.4rem;margin-top:.5rem}
+        .qty-btn{width:28px;height:28px;border-radius:50%;border:1px solid #e91e63;background:#fff;color:#e91e63;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:bold;transition:.2s}
+        .qty-btn:hover{background:#e91e63;color:#fff}
+        .qty-num{font-weight:700;font-size:1rem;color:#3d1e2c;min-width:20px;text-align:center}
+        .check-mark{position:absolute;top:10px;right:10px;background:#e91e63;color:#fff;border-radius:50%;width:24px;height:24px;display:none;align-items:center;justify-content:center;font-size:12px}
+        body.rtl .check-mark{right:auto;left:10px}
         .product-card.selected .check-mark{display:flex}
-        .pricing-note{background:rgba(255,228,235,.6);border-radius:2rem;padding:.9rem 1.8rem;text-align:center;color:#c2185b;margin:1rem 0;font-weight:500}
-        .total-section{background:rgba(255,240,245,.7);border-radius:2rem;padding:1.5rem 2rem;margin:1.5rem 0;border:1px solid rgba(255,182,193,.5)}
-        .total-row{display:flex;justify-content:space-between;padding:.3rem 0;font-size:1rem;color:#5c1d36}
-        .total-row.final{font-size:1.5rem;font-weight:700;color:#e91e63;border-top:1px dashed rgba(233,30,99,.3);margin-top:.5rem;padding-top:.8rem}
-        .form-grid{display:flex;flex-direction:column;gap:1rem}
-        .input-group{display:flex;flex-direction:column;gap:.3rem}
-        .input-group label{font-size:.85rem;font-weight:600;color:#881c42;text-align:left}
-        input,select{background:rgba(255,255,255,.7);border:1px solid rgba(255,160,180,.5);border-radius:1.3rem;padding:.95rem 1.3rem;font-size:.95rem;outline:none;direction:ltr;text-align:left;transition:.3s}
-        input:focus,select:focus{border-color:#e91e63;box-shadow:0 0 0 4px rgba(233,30,99,.08)}
+        .total-section{background:rgba(255,240,245,.7);border-radius:2rem;padding:1.3rem 1.8rem;margin:1.5rem 0;border:1px solid rgba(255,182,193,.5)}
+        .total-row{display:flex;justify-content:space-between;padding:.25rem 0;font-size:.95rem;color:#5c1d36}
+        .total-row.final{font-size:1.4rem;font-weight:700;color:#e91e63;border-top:1px dashed rgba(233,30,99,.3);margin-top:.4rem;padding-top:.7rem}
+        .form-grid{display:flex;flex-direction:column;gap:.8rem}
+        .input-group{display:flex;flex-direction:column;gap:.25rem}
+        .input-group label{font-size:.8rem;font-weight:600;color:#881c42;text-align:left}
+        input,select{background:rgba(255,255,255,.7);border:1px solid rgba(255,160,180,.5);border-radius:1.2rem;padding:.85rem 1.2rem;font-size:.9rem;outline:none;direction:ltr;text-align:left;transition:.3s}
+        input:focus,select:focus{border-color:#e91e63;box-shadow:0 0 0 3px rgba(233,30,99,.08)}
         #dairaSelect:disabled,#addressInput:disabled{opacity:.5}
-        .radio-group{display:flex;gap:1.5rem;flex-wrap:wrap}
-        .radio-group label{display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.9rem;color:#5c1d36}
-        .radio-group input[type="radio"]{accent-color:#e91e63;width:18px;height:18px}
-        .double-input,.location-row{display:flex;gap:.8rem;flex-wrap:wrap}
+        .radio-group{display:flex;gap:1.2rem;flex-wrap:wrap}
+        .radio-group label{display:flex;align-items:center;gap:.3rem;cursor:pointer;font-size:.85rem;color:#5c1d36}
+        .radio-group input[type="radio"]{accent-color:#e91e63;width:17px;height:17px}
+        .double-input,.location-row{display:flex;gap:.7rem;flex-wrap:wrap}
         .double-input .input-group,.location-row .input-group{flex:1 1 45%}
-        .submit-btn{background:linear-gradient(135deg,#e91e63,#f48fb1);color:#fff;border:none;font-size:1.2rem;font-weight:600;padding:1.2rem;border-radius:2.5rem;cursor:pointer;text-transform:uppercase;letter-spacing:1.5px;transition:.3s;box-shadow:0 12px 30px rgba(233,30,99,.35)}
-        .submit-btn:hover{transform:translateY(-3px)}
+        .submit-btn{background:linear-gradient(135deg,#e91e63,#f48fb1);color:#fff;border:none;font-size:1.1rem;font-weight:600;padding:1.1rem;border-radius:2.5rem;cursor:pointer;text-transform:uppercase;letter-spacing:1px;transition:.3s;box-shadow:0 12px 30px rgba(233,30,99,.35)}
+        .submit-btn:hover{transform:translateY(-2px)}
         .submit-btn:disabled{opacity:.5;pointer-events:none;background:#e0b0c0;box-shadow:none}
-        .error-message{color:#d32f2f;font-size:.85rem;display:none;background:rgba(255,205,210,.4);padding:.5rem 1rem;border-radius:1rem}
+        .error-message{color:#d32f2f;font-size:.8rem;display:none;background:rgba(255,205,210,.4);padding:.5rem 1rem;border-radius:1rem}
         .success-message{background:rgba(232,245,233,.8);color:#2e7d32;padding:1rem;border-radius:1.2rem;text-align:center;display:none}
-        .shipping-info{font-size:.8rem;color:#881c42;margin-top:.2rem;display:none}
-        @media(max-width:600px){.page-wrapper{padding:1.5rem 1rem}.product-img{width:115px;height:115px}.brand h1{font-size:2.6rem}}
+        .shipping-info{font-size:.75rem;color:#881c42;margin-top:.15rem;display:none}
+        .pricing-note{background:rgba(255,228,235,.6);border-radius:1.5rem;padding:.7rem 1.2rem;text-align:center;color:#c2185b;margin:.8rem 0;font-weight:500;font-size:.85rem}
+        @media(max-width:600px){.page-wrapper{padding:1.5rem 1rem}.product-img{width:105px;height:105px}.brand h1{font-size:2.4rem}}
     </style>
 </head>
 <body>
@@ -68,13 +70,10 @@
             <h1>Beauty Vibes</h1>
             <div class="tagline" id="tagline">Plus que la beauté • Un éclat qui inspire confiance</div>
         </div>
-        <div class="products-grid" id="productsContainer">
-            <div class="product-card" data-id="1" data-name="Sérum Éclat" data-price="1500" onclick="toggleProduct(this)"><span class="check-mark">✓</span><img src="1.jfif" class="product-img" onerror="this.style.background='#fce4ec'"><span class="product-name">Sérum Éclat</span><span class="product-price">1 500 DA</span></div>
-            <div class="product-card" data-id="2" data-name="Crème Hydratante" data-price="1500" onclick="toggleProduct(this)"><span class="check-mark">✓</span><img src="2.jfif" class="product-img" onerror="this.style.background='#fce4ec'"><span class="product-name">Crème Hydratante</span><span class="product-price">1 500 DA</span></div>
-            <div class="product-card" data-id="3" data-name="Masque à l'Argile" data-price="1500" onclick="toggleProduct(this)"><span class="check-mark">✓</span><img src="3.jfif" class="product-img" onerror="this.style.background='#fce4ec'"><span class="product-name">Masque à l'Argile</span><span class="product-price">1 500 DA</span></div>
-            <div class="product-card" data-id="4" data-name="Tonique Rafraîchissant" data-price="1500" onclick="toggleProduct(this)"><span class="check-mark">✓</span><img src="4.jfif" class="product-img" onerror="this.style.background='#fce4ec'"><span class="product-name">Tonique Rafraîchissant</span><span class="product-price">1 500 DA</span></div>
-            <div class="product-card" data-id="5" data-name="Baume à Lèvres" data-price="1500" onclick="toggleProduct(this)"><span class="check-mark">✓</span><img src="5.jfif" class="product-img" onerror="this.style.background='#fce4ec'"><span class="product-name">Baume à Lèvres</span><span class="product-price">1 500 DA</span></div>
-        </div>
+
+        <!-- المنتجات -->
+        <div class="products-grid" id="productsContainer"></div>
+
         <div class="pricing-note"><span>💖</span> <span id="pricingText">1 = 1500 DA | 2 = 3000 DA | 3+ = <strong>3500 DA</strong></span></div>
         <div class="total-section">
             <div class="total-row"><span id="lblSubtotal">Sous-total :</span><span id="subtotalDisplay">0 DA</span></div>
@@ -112,37 +111,112 @@
     <script>
         const WORKER_URL = 'https://muddy-scene-f7c3.abdou2901200100.workers.dev';
 
-        const shippingCosts = {
-            "Alger": [590, 450], "Oran": [700, 550], "Sidi Bel Abbès": [700, 550],
-            "Mostaganem": [700, 550], "Mascara": [700, 550], "Aïn Témouchent": [700, 550],
-            "Chlef": [700, 550], "Oum El Bouaghi": [900, 650], "Batna": [900, 650],
-            "Béjaïa": [900, 650], "Blida": [900, 650], "Bouira": [900, 650],
-            "Tlemcen": [900, 650], "Tiaret": [900, 650], "Tizi Ouzou": [900, 650],
-            "Jijel": [900, 650], "Sétif": [900, 650], "Saïda": [900, 650],
-            "Skikda": [900, 650], "Annaba": [900, 650], "Guelma": [900, 650],
-            "Constantine": [900, 650], "Médéa": [900, 650], "M'Sila": [900, 650],
-            "Bordj Bou Arreridj": [900, 650], "Boumerdès": [900, 650], "El Tarf": [900, 650],
-            "Tissemsilt": [900, 650], "Khenchela": [900, 650], "Souk Ahras": [900, 650],
-            "Tipaza": [900, 650], "Mila": [900, 650], "Aïn Defla": [900, 650],
-            "Relizane": [900, 650], "Laghouat": [950, 750], "Biskra": [950, 750],
-            "Béchar": [950, 750], "Tébessa": [950, 750], "Djelfa": [950, 750],
-            "Ouargla": [950, 750], "El Oued": [950, 750], "Ghardaïa": [950, 750],
-            "Ouled Djellal": [950, 750], "Béni Abbès": [950, 750], "Touggourt": [950, 750],
-            "El M'Ghair": [950, 750], "El Menia": [950, 750], "Adrar": [1050, 850],
-            "El Bayadh": [1050, 850], "Naâma": [1050, 850], "Timimoun": [1050, 850],
-            "Bordj Badji Mokhtar": [1050, 850], "Tamanrasset": [1600, 1400],
-            "Illizi": [1600, 1400], "Tindouf": [1600, 1400], "In Salah": [1600, 1400],
-            "In Guezzam": [1600, 1400], "Djanet": [1600, 1400]
+        const shippingCosts={ "Alger":[590,450],"Oran":[700,550],"Sidi Bel Abbès":[700,550],"Mostaganem":[700,550],"Mascara":[700,550],"Aïn Témouchent":[700,550],"Chlef":[700,550],"Oum El Bouaghi":[900,650],"Batna":[900,650],"Béjaïa":[900,650],"Blida":[900,650],"Bouira":[900,650],"Tlemcen":[900,650],"Tiaret":[900,650],"Tizi Ouzou":[900,650],"Jijel":[900,650],"Sétif":[900,650],"Saïda":[900,650],"Skikda":[900,650],"Annaba":[900,650],"Guelma":[900,650],"Constantine":[900,650],"Médéa":[900,650],"M'Sila":[900,650],"Bordj Bou Arreridj":[900,650],"Boumerdès":[900,650],"El Tarf":[900,650],"Tissemsilt":[900,650],"Khenchela":[900,650],"Souk Ahras":[900,650],"Tipaza":[900,650],"Mila":[900,650],"Aïn Defla":[900,650],"Relizane":[900,650],"Laghouat":[950,750],"Biskra":[950,750],"Béchar":[950,750],"Tébessa":[950,750],"Djelfa":[950,750],"Ouargla":[950,750],"El Oued":[950,750],"Ghardaïa":[950,750],"Ouled Djellal":[950,750],"Béni Abbès":[950,750],"Touggourt":[950,750],"El M'Ghair":[950,750],"El Menia":[950,750],"Adrar":[1050,850],"El Bayadh":[1050,850],"Naâma":[1050,850],"Timimoun":[1050,850],"Bordj Badji Mokhtar":[1050,850],"Tamanrasset":[1600,1400],"Illizi":[1600,1400],"Tindouf":[1600,1400],"In Salah":[1600,1400],"In Guezzam":[1600,1400],"Djanet":[1600,1400] };
+
+        const wilayasData={ "01 - Adrar":["Adrar","Aoulef"],"02 - Chlef":["Chlef","Abou El Hassan"],"03 - Laghouat":["Laghouat","Aflou"],"04 - Oum El Bouaghi":["Oum El Bouaghi","Aïn Babouche"],"05 - Batna":["Batna","Aïn Djasser"],"06 - Béjaïa":["Béjaïa","Adekar"],"07 - Biskra":["Biskra","Bordj Ben Azzouz"],"08 - Béchar":["Béchar","Abadla"],"09 - Blida":["Blida","Boufarik"],"10 - Bouira":["Bouira","Aïn Bessam"],"11 - Tamanrasset":["Tamanrasset","Abalessa"],"12 - Tébessa":["Tébessa","Bir El Ater"],"13 - Tlemcen":["Tlemcen","Aïn Tallout"],"14 - Tiaret":["Tiaret","Aïn Deheb"],"15 - Tizi Ouzou":["Tizi Ouzou","Aïn El Hammam"],"16 - Alger":["Alger Centre","Bab El Oued","Baraki","Bir Mourad Raïs","Bouzareah","Chéraga","Dar El Beïda","Draria","El Harrach","Hussein Dey","Rouïba","Sidi M'Hamed","Zéralda"],"17 - Djelfa":["Djelfa","Aïn El Ibel"],"18 - Jijel":["Jijel","Ancer"],"19 - Sétif":["Sétif","Aïn Arnat"],"20 - Saïda":["Saïda","Aïn El Hadjar"],"21 - Skikda":["Skikda","Aïn Bouziane"],"22 - Sidi Bel Abbès":["Sidi Bel Abbès","Aïn El Berd"],"23 - Annaba":["Annaba","Aïn El Berda"],"24 - Guelma":["Guelma","Aïn Makhlouf"],"25 - Constantine":["Constantine","Aïn Abid"],"26 - Médéa":["Médéa","Aïn Boucif"],"27 - Mostaganem":["Mostaganem","Achaacha"],"28 - M'Sila":["M'Sila","Aïn El Hadjel"],"29 - Mascara":["Mascara","Aïn Fares"],"30 - Ouargla":["Ouargla","Aïn Beida"],"31 - Oran":["Oran","Aïn El Turk","Arzew","Bethioua","Bir El Djir","Es Sénia","Gdyel","Hassi Bounif","Mers El Kébir","Oued Tlelat"],"32 - El Bayadh":["El Bayadh","Boualem"],"33 - Illizi":["Illizi","Bordj Omar Driss"],"34 - Bordj Bou Arreridj":["Bordj Bou Arreridj","Aïn Taghrout"],"35 - Boumerdès":["Boumerdès","Boudouaou"],"36 - El Tarf":["El Tarf","Aïn El Assel"],"37 - Tindouf":["Tindouf","Oum El Assel"],"38 - Tissemsilt":["Tissemsilt","Ammari"],"39 - El Oued":["El Oued","Bayadha"],"40 - Khenchela":["Khenchela","Aïn Touila"],"41 - Souk Ahras":["Souk Ahras","Aïn Soltane"],"42 - Tipaza":["Tipaza","Aïn Tagourait"],"43 - Mila":["Mila","Aïn Beida Harriche"],"44 - Aïn Defla":["Aïn Defla","Aïn Bouyahia"],"45 - Naâma":["Naâma","Aïn Séfra"],"46 - Aïn Témouchent":["Aïn Témouchent","Aïn Kihal"],"47 - Ghardaïa":["Ghardaïa","Berriane"],"48 - Relizane":["Relizane","Aïn Tarek"],"49 - El M'Ghair":["El M'Ghair","Djamaa"],"50 - El Meniaa":["El Meniaa","Hassi El Gara"],"51 - Ouled Djellal":["Ouled Djellal","Besbes"],"52 - Bordj Baji Mokhtar":["Bordj Badji Mokhtar","Timiaouine"],"53 - Béni Abbès":["Béni Abbès","Igli"],"54 - Timimoun":["Timimoun","Aougrout"],"55 - Touggourt":["Touggourt","M'Naguer"],"56 - Djanet":["Djanet","Bordj El Haouas"],"57 - In Salah":["In Salah","Foggaret Ezzoua"],"58 - In Guezzam":["In Guezzam","Tin Zaouatine"] };
+
+        const products = [
+            {id:1,name:"Sérum Éclat",price:1500,img:"1.jfif"},
+            {id:2,name:"Crème Hydratante",price:1500,img:"2.jfif"},
+            {id:3,name:"Masque à l'Argile",price:1500,img:"3.jfif"},
+            {id:4,name:"Tonique Rafraîchissant",price:1500,img:"4.jfif"},
+            {id:5,name:"Baume à Lèvres",price:1500,img:"5.jfif"}
+        ];
+
+        // تهيئة المنتجات
+        const container = document.getElementById('productsContainer');
+        products.forEach(p => {
+            container.innerHTML += `
+                <div class="product-card" data-id="${p.id}" data-name="${p.name}" data-price="${p.price}" onclick="toggleProduct(this)">
+                    <span class="check-mark">✓</span>
+                    <img src="${p.img}" class="product-img" onerror="this.style.background='#fce4ec'">
+                    <span class="product-name">${p.name}</span>
+                    <span class="product-price">1 500 DA</span>
+                    <div class="qty-selector" onclick="event.stopPropagation()">
+                        <button class="qty-btn" onclick="changeQty(${p.id}, -1)">−</button>
+                        <span class="qty-num" id="qty-${p.id}">0</span>
+                        <button class="qty-btn" onclick="changeQty(${p.id}, 1)">+</button>
+                    </div>
+                </div>`;
+        });
+
+        let currentLang='fr',currentShipping=0;
+        const cart = {}; // {id: quantity}
+
+        // 🎯 نظام الأسعار
+        const discountPoints = {3:3500, 6:7000, 7:8300, 9:10500, 12:14000, 15:17500};
+
+        function calcTotalPrice(totalQty) {
+            if (totalQty === 0) return 0;
+            if (totalQty === 1) return 1500;
+            if (totalQty === 2) return 3000;
+            
+            // البحث عن أقرب نقطة خصم
+            let price = 0;
+            let remaining = totalQty;
+            
+            // التحقق من نقاط الخصم من الأكبر للأصغر
+            const points = Object.keys(discountPoints).map(Number).sort((a,b)=>b-a);
+            
+            for (const point of points) {
+                if (remaining >= point) {
+                    const sets = Math.floor(remaining / point);
+                    // نأخذ مجموعة واحدة فقط عند نقطة الخصم
+                    price += discountPoints[point];
+                    remaining -= point;
+                    break;
+                }
+            }
+            
+            // الباقي يحسب بـ 1300 للحبة
+            if (remaining > 0) {
+                if (remaining === 1) price += 1500;
+                else if (remaining === 2) price += 3000;
+                else price += remaining * 1300;
+            }
+            
+            return price;
+        }
+
+        function getTotalQty() {
+            return Object.values(cart).reduce((sum,q)=>sum+q,0);
+        }
+
+        function updateAllTotals() {
+            const totalQty = getTotalQty();
+            const sub = calcTotalPrice(totalQty);
+            const cur = tt[currentLang].currency;
+            document.getElementById('subtotalDisplay').textContent = sub.toLocaleString('fr-FR') + ' ' + cur;
+            document.getElementById('shippingDisplay').textContent = currentShipping ? currentShipping.toLocaleString('fr-FR') + ' ' + cur : '-- ' + cur;
+            document.getElementById('totalDisplay').textContent = (sub + currentShipping).toLocaleString('fr-FR') + ' ' + cur;
+            document.getElementById('submitOrderBtn').disabled = totalQty === 0;
+        }
+
+        window.changeQty = function(id, delta) {
+            if (!cart[id]) cart[id] = 0;
+            cart[id] = Math.max(0, cart[id] + delta);
+            document.getElementById('qty-'+id).textContent = cart[id];
+            const card = document.querySelector(`.product-card[data-id="${id}"]`);
+            if (cart[id] > 0) card.classList.add('selected');
+            else card.classList.remove('selected');
+            updateAllTotals();
         };
 
-        const wilayasData={ "01 - Adrar":["Adrar","Aoulef","Aougrout","Bordj Badji Mokhtar","Charouine","Fenoughil","Reggane","T'Sabit","Timimoun","Tinerkouk","Zaouiet Kounta"],"02 - Chlef":["Chlef","Abou El Hassan","Aïn Merane","Bénairia","Boukadir","El Karimia","El Marsa","Oued Fodda","Ouled Ben Abdelkader","Ouled Farès","Taougrit","Ténès","Zeboudja"],"03 - Laghouat":["Laghouat","Aflou","Aïn Madhi","Brida","El Ghicha","Gueltet Sidi Saâd","Hassi R'Mel","Ksar El Hirane","Oued Morra","Sidi Makhlouf"],"04 - Oum El Bouaghi":["Oum El Bouaghi","Aïn Babouche","Aïn Beïda","Aïn Fakroun","Aïn Kechra","Aïn M'Lila","Dhalaa","F'Kirina","Ksar Sbahi","Meskiana","Oued Nini","Sigus"],"05 - Batna":["Batna","Aïn Djasser","Aïn Touta","Arris","Barika","Bouhmama","Chemora","Djezzar","El Madher","Ichmoul","Menaa","Merouana","N'Gaous","Ouled Si Slimane","Ras El Aioun","Seggana","Seriana","Tazoult","Théniet El Abed","Timgad"],"06 - Béjaïa":["Béjaïa","Adekar","Akbou","Amizour","Aokas","Barbacha","Beni Maouche","Chemini","Darguina","El Kseur","Ighil Ali","Kherrata","Ouzellaguen","Seddouk","Sidi Aïch","Souk El Ténine","Tazmalt","Tichy","Timezrit"],"07 - Biskra":["Biskra","Bordj Ben Azzouz","Djemorah","El Kantara","El Outaya","Foughala","Lichana","M'Chouneche","Mekhadma","Ouled Djellal","Ourlal","Sidi Khaled","Sidi Okba","Tolga","Zeribet El Oued"],"08 - Béchar":["Béchar","Abadla","Béni Abbès","Béni Ounif","El Ouata","Igli","Kenadsa","Kerzaz","Lahmar","Mogheul","Ouled Khoudir","Taghit"],"09 - Blida":["Blida","Boufarik","Bougara","Bouinan","Chebli","Chiffa","El Affroun","Larbaâ","Meftah","Mouzaïa","Oued El Alleug","Ouled Yaïch"],"10 - Bouira":["Bouira","Aïn Bessam","Bechloul","Bir Ghbalou","Bordj Okhriss","El Adjiba","El Hachimia","Haizer","Kadiria","Lakhdaria","M'Chedallah","Souk El Khemis","Sour El Ghozlane"],"11 - Tamanrasset":["Tamanrasset","Abalessa","Idlès","In Ghar","In Guezzam","In Salah","Tazrouk","Tin Zaouatine"],"12 - Tébessa":["Tébessa","Bir El Ater","Cheria","El Aouinet","El Kouif","El Malabiod","El Ogla","Morsott","Negrine","Ouenza","Oum Ali","Saf Saf El Ouesra"],"13 - Tlemcen":["Tlemcen","Aïn Tallout","Bab El Assa","Bensekrane","Béni Boussaïd","Béni Snous","Chetouane","Fellaoucene","Ghazaouet","Hennaya","Maghnia","Mansourah","Marsa Ben M'Hidi","Nedroma","Ouled Mimoun","Remchi","Sabra","Sebdou","Sidi Djillali"],"14 - Tiaret":["Tiaret","Aïn Deheb","Aïn Kermes","Dahmouni","Frenda","Hamadia","Ksar Chellala","Mahdia","Mechraa Sfa","Medroussa","Meghila","Oued Lili","Rahouia","Sougueur"],"15 - Tizi Ouzou":["Tizi Ouzou","Aïn El Hammam","Azazga","Béni Douala","Béni Yenni","Boghni","Bouzeguene","Draâ Ben Khedda","Draâ El Mizan","Iferhounene","Larbaâ Nath Irathen","Maâtkas","Makouda","Mekla","Ouacifs","Ouaguenoun","Tigzirt","Tizi Gheniff"],"16 - Alger":["Alger Centre","Bab El Oued","Baraki","Bir Mourad Raïs","Birtouta","Bouzareah","Chéraga","Dar El Beïda","Draria","El Harrach","Hussein Dey","Rouïba","Sidi M'Hamed","Zéralda"],"17 - Djelfa":["Djelfa","Aïn El Ibel","Aïn Oussara","Birine","Charef","Dar Chioukh","El Idrissia","Faidh El Botma","Hadj Sahary","Hassi Bahbah","Messaad","Sidi Ladjel"],"18 - Jijel":["Jijel","Ancer","Bouraoui Belhadef","Chekfa","El Aouana","El Milia","Jijel","Kaous","Settara","Sidi Maârouf","Taher","Ziama Mansouriah"],"19 - Sétif":["Sétif","Aïn Arnat","Aïn Azel","Aïn El Kebira","Aïn Oulmane","Amoucha","Babor","Béni Aziz","Béni Ourtilane","Bir El Arch","Bouandas","Bougaa","Djémila","El Eulma","Guenzet","Guidjel","Hammam Guergour","Hammam Sokhna","Maoklane","Salah Bey"],"20 - Saïda":["Saïda","Aïn El Hadjar","El Hassasna","Ouled Brahim","Sidi Boubekeur","Youb"],"21 - Skikda":["Skikda","Aïn Bouziane","Aïn Kechra","Azzaba","Ben Azzouz","Collo","El Hadaik","El Harrouch","Ouled Attia","Oum Toub","Ramdane Djamel","Sidi Mezghiche","Tamalous","Zitouna"],"22 - Sidi Bel Abbès":["Sidi Bel Abbès","Aïn El Berd","Ben Badis","Marhoum","Mérine","Mostefa Ben Brahim","Moulay Slissen","Ras El Ma","Sfisef","Sidi Ali Benyoub","Sidi Ali Boussidi","Sidi Lahcene","Telagh","Ténira","Tessala"],"23 - Annaba":["Annaba","Aïn El Berda","Berrahal","Chetaïbi","El Bouni","El Hadjar","Oued El Aneb","Seraïdi","Treat"],"24 - Guelma":["Guelma","Aïn Makhlouf","Bouchegouf","Guelaat Bou Sbaa","Hammam Debagh","Hammam N'Bails","Héliopolis","Khezaras","Oued Zenati","Roknia"],"25 - Constantine":["Constantine","Aïn Abid","Aïn Smara","Beni Hamidane","Didouche Mourad","El Khroub","Hamma Bouziane","Ibn Ziad","Zighoud Youcef"],"26 - Médéa":["Médéa","Aïn Boucif","Aziz","Béni Slimane","Berrouaghia","Chahbounia","Chellalat El Adhaoura","El Azizia","El Omaria","Ksar El Boukhari","Ouamri","Ouled Antar","Ouzera","Seghouane","Si Mahdjoub","Sidi Naâmane","Souaghi","Tablat"],"27 - Mostaganem":["Mostaganem","Achaacha","Aïn Nouïssy","Aïn Tédelès","Bouguirat","Hassi Mameche","Kheir Eddine","Mesra","Sidi Ali","Sidi Lakhdar"],"28 - M'Sila":["M'Sila","Aïn El Hadjel","Aïn El Melh","Béni Ilmane","Bou Saâda","Chellal","Djebel Messaad","Hammam Dhalaa","Khoubana","Magra","Medjedel","Ouled Derradj","Ouled Sidi Brahim","Sidi Aïssa","Sidi Ameur"],"29 - Mascara":["Mascara","Aïn Fares","Aïn Fekan","Aouf","Bouhanifia","El Bordj","Ghriss","Hachem","Mohammadia","Oggaz","Ouled Attia","Sig","Tighennif","Tizi","Zahana"],"30 - Ouargla":["Ouargla","Aïn Beida","El Hadjira","Hassi Ben Abdellah","Hassi Messaoud","Megarine","Mekhadma","N'Goussa","Rouissat","Sidi Khouiled","Taibet","Témacine","Touggourt"],"31 - Oran":["Oran","Aïn El Turk","Arzew","Bethioua","Bir El Djir","Boutlélis","Es Sénia","Gdyel","Hassi Bounif","Mers El Kébir","Oued Tlelat"],"32 - El Bayadh":["El Bayadh","Boualem","Bougtoub","Boussemghoun","Brézina","Chellala","El Kheiter","Rogassa"],"33 - Illizi":["Illizi","Bordj Omar Driss","Debdeb","Djanet","In Aménas"],"34 - Bordj Bou Arreridj":["Bordj Bou Arreridj","Aïn Taghrout","Bir Kasdali","Bordj Ghedir","Bordj Zemmoura","Djaafra","El Hamadia","El M'hir","Ksar Ksour","Mansoura","Medjana","Ras El Oued"],"35 - Boumerdès":["Boumerdès","Boudouaou","Bordj Ménaïel","Dellys","Isser","Khemis El Khechna","Naciria","Thénia"],"36 - El Tarf":["El Tarf","Aïn El Assel","Ben M'Hidi","Besbes","Bouhadjar","Bouteldja","Chebaita Mokhtar","Echatt","El Kala","Lac des Oiseaux","Oum El Assel","Souarekh","Zitouna"],"37 - Tindouf":["Tindouf","Oum El Assel"],"38 - Tissemsilt":["Tissemsilt","Ammari","Bordj Bou Naama","Bordj El Emir Abdelkader","Khémisti","Lardjem","Lazharia","Théniet El Had"],"39 - El Oued":["El Oued","Bayadha","Ben Guecha","Debila","Djamaa","El M'Ghair","Guemar","Hassi Khalifa","Magrane","Mih Ouansa","Oum Touyour","Reguiba","Robbah","Taleb Larbi"],"40 - Khenchela":["Khenchela","Aïn Touila","Babar","Bouhmama","Chechar","El Hamma","Kaïs","M'Sara","Ouled Rechache","Taouzianat"],"41 - Souk Ahras":["Souk Ahras","Aïn Soltane","Bir Bouhouche","Drea","Haddada","Khemissa","M'Daourouch","Mechroha","Merahna","Ouled Driss","Oum El Adhaïm","Safel El Ouiden","Sedrata","Taoura","Zaarouria"],"42 - Tipaza":["Tipaza","Aïn Tagourait","Bou Ismaïl","Cherchell","Damous","Fouka","Gouraya","Hadjout","Koléa","Sidi Amar"],"43 - Mila":["Mila","Aïn Beida Harriche","Aïn Tine","Bouhatem","Chelghoum Laïd","Ferdjioua","Grarem Gouga","Oued Endja","Rouached","Sidi Mérouane","Tadjenanet","Tassadane Haddada","Telerghma","Terrai Bainen"],"44 - Aïn Defla":["Aïn Defla","Aïn Bouyahia","Aïn Lechiakh","Bathia","Bordj El Emir Khaled","Boumedfaâ","Djendel","El Abadia","El Amra","El Attaf","Hammam Righa","Khemis Miliana","Miliana","Rouina"],"45 - Naâma":["Naâma","Aïn Séfra","Asla","Mécheria","Mekmen Ben Amar","Moghrar","Sfissifa"],"46 - Aïn Témouchent":["Aïn Témouchent","Aïn Kihal","Aïn Tolba","Béni Saf","El Amria","El Malah","Hammam Bou Hadjar","Oued Sebbah","Sidi Boumediene"],"47 - Ghardaïa":["Ghardaïa","Berriane","Bounoura","Dhayet Bendhahoua","El Atteuf","El Guerara","El Meniaa","Hassi El Gara","Mansoura","Metlili","Sebseb","Zelfana"],"48 - Relizane":["Relizane","Aïn Tarek","Ammi Moussa","Djidiouia","El Hamadna","El Matmar","Mazouna","Mendes","Oued Rhiou","Ramka","Sidi Khettab","Sidi M'Hamed Ben Ali","Yellel","Zemmora"],"49 - El M'Ghair":["El M'Ghair","Djamaa","El Oued","M'Rara","Oum Touyour","Sidi Amrane","Still","Tendla"],"50 - El Meniaa":["El Meniaa","Hassi El Gara"],"51 - Ouled Djellal":["Ouled Djellal","Besbes","Doucen","Sidi Khaled"],"52 - Bordj Baji Mokhtar":["Bordj Badji Mokhtar","Timiaouine"],"53 - Béni Abbès":["Béni Abbès","Igli","El Ouata","Kerzaz","Ouled Khoudir","Tabelbala"],"54 - Timimoun":["Timimoun","Aougrout","Charouine","Deldoul","Ksar Kaddour","Ouled Aïssa","Ouled Saïd","Tinerkouk"],"55 - Touggourt":["Touggourt","M'Naguer","Megarine","Nezla","Sidi Slimane","Taibet","Tebesbest","Zaouïa El Abidia"],"56 - Djanet":["Djanet","Bordj El Haouas"],"57 - In Salah":["In Salah","Foggaret Ezzoua","In Ghar"],"58 - In Guezzam":["In Guezzam","Tin Zaouatine"] };
+        window.toggleProduct = function(card) {
+            const id = parseInt(card.dataset.id);
+            if (cart[id] && cart[id] > 0) {
+                cart[id] = 0;
+                card.classList.remove('selected');
+            } else {
+                cart[id] = 1;
+                card.classList.add('selected');
+            }
+            document.getElementById('qty-'+id).textContent = cart[id] || 0;
+            updateAllTotals();
+        };
 
-        let currentLang='fr';
-        const selectedProducts=new Map();
-        let currentShipping=0;
-
+        // الشحن
         function extractWilayaName(full) { return full.replace(/^\d+\s*-\s*/, '').trim(); }
-
         function getShippingCost(fullWilaya, type) {
             const name = extractWilayaName(fullWilaya);
             if (!shippingCosts[name]) return 0;
@@ -154,28 +228,24 @@
             const dt = document.querySelector('input[name="deliveryType"]:checked');
             const addr = document.getElementById('addressInput');
             const info = document.getElementById('shippingInfo');
-            
             if (wl && dt) {
                 currentShipping = getShippingCost(wl, dt.value);
-                document.getElementById('shippingDisplay').textContent = currentShipping.toLocaleString('fr-FR') + ' DA';
+                document.getElementById('shippingDisplay').textContent = currentShipping.toLocaleString('fr-FR') + ' ' + tt[currentLang].currency;
                 addr.disabled = false;
                 info.style.display = 'block';
-                const wName = extractWilayaName(wl);
-                info.textContent = currentLang==='fr' ? 
-                    `Frais de livraison pour ${wName} (${dt.value==='home'?'Domicile':'Bureau'}) : ${currentShipping} DA` :
-                    `تكلفة التوصيل لـ ${wName} (${dt.value==='home'?'المنزل':'المكتب'}) : ${currentShipping} دج`;
+                info.textContent = currentLang==='fr' ? `Frais: ${currentShipping} DA (${dt.value==='home'?'Domicile':'Bureau'})` : `التكلفة: ${currentShipping} دج (${dt.value==='home'?'المنزل':'المكتب'})`;
             } else {
                 currentShipping = 0;
-                document.getElementById('shippingDisplay').textContent = '-- DA';
-                addr.disabled = true;
-                info.style.display = 'none';
+                document.getElementById('shippingDisplay').textContent = '-- ' + tt[currentLang].currency;
+                addr.disabled = true; info.style.display = 'none';
             }
             updateAllTotals();
         };
 
+        // الترجمة
         const tt={
-            fr:{tagline:"Plus que la beauté • Un éclat qui inspire confiance",pricingText:'1 = 1500 DA | 2 = 3000 DA | 3+ = <strong>3500 DA</strong>',lblSubtotal:"Sous-total :",lblShipping:"Livraison :",lblTotal:"Total :",lblFirstName:"Prénom",lblLastName:"Nom",lblPhone:"Téléphone",lblWilaya:"Wilaya",lblDaira:"Daïra",lblDelivery:"Type de livraison",optHome:"🏠 Domicile",optOffice:"🏢 Bureau",lblAddress:"Adresse exacte",firstNamePlaceholder:"Votre prénom",lastNamePlaceholder:"Votre nom",phonePlaceholder:"Ex: 0555 12 34 56",addressPlaceholder:"Rue, N°, Commune...",submitBtn:"Commander ✨",errorSelect:"Sélectionnez au moins 1 produit.",errorFields:"Remplissez tous les champs.",errorDelivery:"Choisissez le type de livraison.",successMsg:"✅ Commande envoyée ! 🌿",errorTelegram:"❌ Erreur. Réessayez.",currency:"DA"},
-            ar:{tagline:"أكثر من جمال • إشراقة تلهب الثقة",pricingText:'1 = 1500 دج | 2 = 3000 دج | 3+ = <strong>3500 دج</strong>',lblSubtotal:"المجموع الفرعي :",lblShipping:"التوصيل :",lblTotal:"المجموع :",lblFirstName:"الاسم",lblLastName:"اللقب",lblPhone:"رقم الهاتف",lblWilaya:"الولاية",lblDaira:"الدائرة",lblDelivery:"نوع التوصيل",optHome:"🏠 المنزل",optOffice:"🏢 المكتب",lblAddress:"العنوان بالضبط",firstNamePlaceholder:"أدخل اسمك",lastNamePlaceholder:"أدخل لقبك",phonePlaceholder:"Ex: 0555 12 34 56",addressPlaceholder:"الشارع، الرقم، البلدية...",submitBtn:"✨ أرسل الطلب",errorSelect:"اختر منتجاً واحداً على الأقل.",errorFields:"املأ جميع الحقول.",errorDelivery:"اختر نوع التوصيل.",successMsg:"✅ تم الإرسال! 🌿",errorTelegram:"❌ خطأ. حاول مجدداً.",currency:"دج"}
+            fr:{tagline:"Plus que la beauté • Un éclat qui inspire confiance",pricingText:'1 = 1500 DA | 2 = 3000 DA | 3 = 3500 DA | +1300/h 🎁',lblSubtotal:"Sous-total :",lblShipping:"Livraison :",lblTotal:"Total :",lblFirstName:"Prénom",lblLastName:"Nom",lblPhone:"Téléphone",lblWilaya:"Wilaya",lblDaira:"Daïra",lblDelivery:"Type de livraison",optHome:"🏠 Domicile",optOffice:"🏢 Bureau",lblAddress:"Adresse exacte",firstNamePlaceholder:"Votre prénom",lastNamePlaceholder:"Votre nom",phonePlaceholder:"Ex: 0555 12 34 56",addressPlaceholder:"Rue, N°, Commune...",submitBtn:"Commander ✨",errorSelect:"Sélectionnez au moins 1 produit.",errorFields:"Remplissez tous les champs.",errorDelivery:"Choisissez le type de livraison.",successMsg:"✅ Commande envoyée ! 🌿",errorTelegram:"❌ Erreur.",currency:"DA"},
+            ar:{tagline:"أكثر من جمال • إشراقة تلهب الثقة",pricingText:'1 = 1500 دج | 2 = 3000 دج | 3 = 3500 دج | +1300/حبة 🎁',lblSubtotal:"المجموع الفرعي :",lblShipping:"التوصيل :",lblTotal:"المجموع :",lblFirstName:"الاسم",lblLastName:"اللقب",lblPhone:"رقم الهاتف",lblWilaya:"الولاية",lblDaira:"الدائرة",lblDelivery:"نوع التوصيل",optHome:"🏠 المنزل",optOffice:"🏢 المكتب",lblAddress:"العنوان بالضبط",firstNamePlaceholder:"أدخل اسمك",lastNamePlaceholder:"أدخل لقبك",phonePlaceholder:"Ex: 0555 12 34 56",addressPlaceholder:"الشارع، الرقم، البلدية...",submitBtn:"✨ أرسل الطلب",errorSelect:"اختر منتجاً واحداً على الأقل.",errorFields:"املأ جميع الحقول.",errorDelivery:"اختر نوع التوصيل.",successMsg:"✅ تم الإرسال! 🌿",errorTelegram:"❌ خطأ.",currency:"دج"}
         };
 
         function populateWilayas(lang){
@@ -194,9 +264,7 @@
         document.getElementById('wilayaSelect').addEventListener('change',function(){
             const sw=this.value;const s=document.getElementById('dairaSelect');s.innerHTML='';
             if(sw&&wilayasData[sw]){
-                const d=document.createElement('option');d.value='';d.disabled=true;d.selected=true;
-                d.textContent=currentLang==='fr'?'-- Sélectionnez daïra --':'-- اختر الدائرة --';
-                s.appendChild(d);
+                s.innerHTML=`<option value="" disabled selected>${currentLang==='fr'?'-- Sélectionnez daïra --':'-- اختر الدائرة --'}</option>`;
                 wilayasData[sw].forEach(dr=>{const o=document.createElement('option');o.value=dr;o.textContent=dr;s.appendChild(o);});
                 s.disabled=false;
             }else{resetDairaSelect(currentLang);}
@@ -209,44 +277,17 @@
             document.documentElement.dir=lang==='ar'?'rtl':'ltr';
             document.getElementById('btnFr').classList.toggle('active',lang==='fr');
             document.getElementById('btnAr').classList.toggle('active',lang==='ar');
-            ['tagline','lblSubtotal','lblShipping','lblTotal','lblFirstName','lblLastName','lblPhone','lblWilaya','lblDaira','lblDelivery','lblAddress','optHome','optOffice'].forEach(id=>{
-                const el=document.getElementById(id);
-                if(el) el.textContent=t[id];
-            });
+            ['tagline','lblSubtotal','lblShipping','lblTotal','lblFirstName','lblLastName','lblPhone','lblWilaya','lblDaira','lblDelivery','lblAddress','optHome','optOffice'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=t[id];});
             document.getElementById('pricingText').innerHTML=t.pricingText;
             document.getElementById('firstName').placeholder=t.firstNamePlaceholder;
             document.getElementById('lastName').placeholder=t.lastNamePlaceholder;
             document.getElementById('phone').placeholder=t.phonePlaceholder;
             document.getElementById('addressInput').placeholder=t.addressPlaceholder;
             document.getElementById('submitOrderBtn').textContent=t.submitBtn;
-            document.getElementById('shippingDisplay').textContent = currentShipping ? currentShipping.toLocaleString('fr-FR') + ' ' + t.currency : '-- ' + t.currency;
-            document.getElementById('subtotalDisplay').textContent = calcSubtotal().toLocaleString('fr-FR') + ' ' + t.currency;
-            document.getElementById('totalDisplay').textContent = (calcSubtotal() + currentShipping).toLocaleString('fr-FR') + ' ' + t.currency;
-            populateWilayas(lang);
-            document.getElementById('formError').style.display='none';
-            document.getElementById('successMessage').style.display='none';
-            if(currentShipping) updateShipping();
+            populateWilayas(lang);updateAllTotals();
         };
 
-        function calcSubtotal() { return calcPrice(selectedProducts.size); }
-        function calcPrice(c){if(c===0)return 0;if(c===1)return 1500;if(c===2)return 3000;return 3500;}
-
-        function updateAllTotals(){
-            const sub = calcSubtotal();
-            const cur = tt[currentLang].currency;
-            document.getElementById('subtotalDisplay').textContent = sub.toLocaleString('fr-FR') + ' ' + cur;
-            document.getElementById('shippingDisplay').textContent = currentShipping ? currentShipping.toLocaleString('fr-FR') + ' ' + cur : '-- ' + cur;
-            document.getElementById('totalDisplay').textContent = (sub + currentShipping).toLocaleString('fr-FR') + ' ' + cur;
-        }
-
-        window.toggleProduct=function(card){
-            const id=card.dataset.id;
-            if(selectedProducts.has(id)){selectedProducts.delete(id);card.classList.remove('selected');}
-            else{selectedProducts.set(id,{name:card.dataset.name,price:parseInt(card.dataset.price)});card.classList.add('selected');}
-            updateAllTotals();
-            document.getElementById('submitOrderBtn').disabled = selectedProducts.size === 0;
-        };
-
+        // إرسال الطلب
         document.getElementById('submitOrderBtn').addEventListener('click',async function(e){
             e.preventDefault();const t=tt[currentLang];
             const fn=document.getElementById('firstName').value.trim();
@@ -258,45 +299,32 @@
             const addr=document.getElementById('addressInput').value.trim();
             const er=document.getElementById('formError');
             const sm=document.getElementById('successMessage');
-            const btn=document.getElementById('submitOrderBtn');
-
-            if(!fn||!ln||!ph||!wl||!dr||!dt||!addr||selectedProducts.size===0){
-                if(selectedProducts.size===0) er.textContent=t.errorSelect;
-                else if(!dt) er.textContent=t.errorDelivery;
-                else er.textContent=t.errorFields;
+            if(!fn||!ln||!ph||!wl||!dr||!dt||!addr||getTotalQty()===0){
+                er.textContent=getTotalQty()===0?t.errorSelect:!dt?t.errorDelivery:t.errorFields;
                 er.style.display='block';return;
             }
             if(!/^[0-9+\s()-]{8,}$/.test(ph)){er.textContent='Numéro invalide';er.style.display='block';return;}
 
+            const btn=document.getElementById('submitOrderBtn');
             btn.disabled=true;btn.textContent='⏳ ...';er.style.display='none';sm.style.display='none';
 
-            const count=selectedProducts.size;const sub=calcSubtotal();const total=sub+currentShipping;
-            let pl='';selectedProducts.forEach(p=>{pl+='  • '+p.name+'\n';});
-            let sv='';if(count>=3) sv='\n💸 Économisé: '+(count*1500-sub).toLocaleString('fr-FR')+' DA';
+            const totalQty=getTotalQty();const sub=calcTotalPrice(totalQty);const total=sub+currentShipping;
+            let pl='';Object.entries(cart).forEach(([id,q])=>{if(q>0){const p=products.find(x=>x.id===parseInt(id));pl+=`  • ${p.name} x${q}\n`;}});
+            let sv='';if(totalQty>=3){const normal=totalQty*1500;if(normal>sub)sv='\n💸 Économisé: '+(normal-sub).toLocaleString('fr-FR')+' DA';}
 
             try{
-                const res=await fetch(WORKER_URL,{
-                    method:'POST',headers:{'Content-Type':'application/json'},
-                    body:JSON.stringify({
-                        products:Array.from(selectedProducts.values()),
-                        count,subtotal:sub,shipping:currentShipping,total,savings:sv,
-                        deliveryType:dt.value,
-                        customer:{firstName:fn,lastName:ln,phone:ph,wilaya:wl,daira:dr,address:addr}
-                    })
-                });
+                const res=await fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},
+                    body:JSON.stringify({products:Object.entries(cart).filter(([_,q])=>q>0).map(([id,q])=>({...products.find(p=>p.id===parseInt(id)),qty:q})),count:totalQty,subtotal:sub,shipping:currentShipping,total,savings:sv,deliveryType:dt.value,customer:{firstName:fn,lastName:ln,phone:ph,wilaya:wl,daira:dr,address:addr}})});
                 const data=await res.json();
                 if(data.success){
                     sm.textContent=t.successMsg;sm.style.display='block';
+                    Object.keys(cart).forEach(k=>{cart[k]=0;document.getElementById('qty-'+k).textContent='0';});
                     document.querySelectorAll('.product-card.selected').forEach(c=>c.classList.remove('selected'));
-                    selectedProducts.clear();
-                    document.getElementById('firstName').value='';document.getElementById('lastName').value='';
-                    document.getElementById('phone').value='';document.getElementById('addressInput').value='';
+                    ['firstName','lastName','phone','addressInput'].forEach(id=>document.getElementById(id).value='');
                     document.getElementById('wilayaSelect').value='';resetDairaSelect(currentLang);
                     document.querySelectorAll('input[name="deliveryType"]').forEach(r=>r.checked=false);
-                    document.getElementById('addressInput').disabled=true;
-                    currentShipping=0;updateAllTotals();
-                    document.getElementById('submitOrderBtn').disabled=true;
-                    setTimeout(()=>{sm.style.display='none';},5000);
+                    document.getElementById('addressInput').disabled=true;currentShipping=0;updateAllTotals();
+                    setTimeout(()=>sm.style.display='none',5000);
                 }else{er.textContent=t.errorTelegram;er.style.display='block';}
             }catch(err){er.textContent=t.errorTelegram;er.style.display='block';}
             btn.disabled=false;btn.textContent=t.submitBtn;

@@ -62,9 +62,9 @@
             direction: rtl;
         }
 
-        body.rtl #phone {
-            direction: rtl !important;
-            text-align: right !important;
+        #phone {
+            direction: ltr !important;
+            text-align: left !important;
         }
 
         body.rtl .input-group label {
@@ -318,6 +318,12 @@
             flex-wrap: wrap;
         }
 
+        .pricing-note .price-ltr {
+            direction: ltr;
+            display: inline-block;
+            unicode-bidi: isolate;
+        }
+
         .total-section {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 240, 245, 0.7));
             backdrop-filter: blur(15px);
@@ -403,12 +409,6 @@
             background: rgba(255, 255, 255, 0.9);
         }
 
-        #phone {
-            direction: ltr;
-            text-align: left;
-        }
-
-        /* حقل الدائرة - معطل حتى تختار الولاية */
         #dairaSelect:disabled {
             opacity: 0.5;
             cursor: not-allowed;
@@ -592,7 +592,7 @@
         </div>
 
         <div class="pricing-note" id="pricingNote">
-            <span>💖</span> <span id="pricingText">1 produit = 1 500 DA &nbsp;|&nbsp; 2 produits = 3 000 DA &nbsp;|&nbsp; 3 produits ou plus = <strong>3 500 DA</strong></span>
+            <span>💖</span> <span id="pricingText">1 produit = <span class="price-ltr">1 500 DA</span> &nbsp;|&nbsp; 2 produits = <span class="price-ltr">3 000 DA</span> &nbsp;|&nbsp; 3 produits ou plus = <strong><span class="price-ltr">3 500 DA</span></strong></span>
         </div>
 
         <div class="total-section">
@@ -615,7 +615,6 @@
                 <label id="lblPhone">Numéro de téléphone</label>
                 <input type="tel" id="phone" placeholder="Ex: 0555 12 34 56" autocomplete="tel-national" dir="ltr">
             </div>
-            <!-- الولاية والدائرة في صف واحد -->
             <div class="location-row">
                 <div class="input-group">
                     <label id="lblWilaya">Wilaya</label>
@@ -638,7 +637,6 @@
 
     <script>
         (function() {
-            // قاعدة بيانات الولايات والدوائر (58 ولاية مع دوائرها)
             const wilayasData = {
                 "01 - Adrar": ["Adrar", "Aoulef", "Aougrout", "Bordj Badji Mokhtar", "Charouine", "Fenoughil", "Reggane", "T'Sabit", "Timimoun", "Tinerkouk", "Zaouiet Kounta"],
                 "02 - Chlef": ["Chlef", "Abou El Hassan", "Aïn Merane", "Bénairia", "Boukadir", "El Karimia", "El Marsa", "Oued Fodda", "Ouled Ben Abdelkader", "Ouled Farès", "Taougrit", "Ténès", "Zeboudja"],
@@ -703,7 +701,6 @@
             const wilayaSelect = document.getElementById('wilayaSelect');
             const dairaSelect = document.getElementById('dairaSelect');
 
-            // تعبئة الولايات
             function populateWilayas(lang) {
                 wilayaSelect.innerHTML = '';
                 const defaultOption = document.createElement('option');
@@ -720,7 +717,6 @@
                     wilayaSelect.appendChild(option);
                 });
 
-                // تعطيل الدائرة
                 resetDairaSelect(lang);
             }
 
@@ -735,7 +731,6 @@
                 dairaSelect.disabled = true;
             }
 
-            // عند تغيير الولاية
             wilayaSelect.addEventListener('change', function() {
                 const selectedWilaya = this.value;
                 const lang = currentLang;
@@ -768,7 +763,7 @@
             const translations = {
                 fr: {
                     tagline: "Plus que la beauté • Un éclat qui inspire confiance",
-                    pricingText: '1 produit = 1 500 DA &nbsp;|&nbsp; 2 produits = 3 000 DA &nbsp;|&nbsp; 3 produits ou plus = <strong>3 500 DA</strong>',
+                    pricingText: '1 produit = <span class="price-ltr">1 500 DA</span> &nbsp;|&nbsp; 2 produits = <span class="price-ltr">3 000 DA</span> &nbsp;|&nbsp; 3 produits ou plus = <strong><span class="price-ltr">3 500 DA</span></strong>',
                     totalLabel: "Total :",
                     lblFirstName: "Prénom",
                     lblLastName: "Nom",
@@ -790,7 +785,7 @@
                 },
                 ar: {
                     tagline: "أكثر من جمال • إشراقة تلهب الثقة",
-                    pricingText: '<strong>3 500 دج</strong> = 3 منتجات أو أكثر &nbsp;|&nbsp; 3 000 دج = منتجين &nbsp;|&nbsp; 1 500 دج = منتج واحد',
+                    pricingText: 'منتج واحد = <span class="price-ltr">1 500 دج</span> &nbsp;|&nbsp; منتجين = <span class="price-ltr">3 000 دج</span> &nbsp;|&nbsp; 3 منتجات أو أكثر = <strong><span class="price-ltr">3 500 دج</span></strong>',
                     totalLabel: "المجموع :",
                     lblFirstName: "الاسم",
                     lblLastName: "اللقب",
@@ -866,6 +861,7 @@
             const wilayaInput = document.getElementById('wilayaSelect');
             const dairaInput = document.getElementById('dairaSelect');
 
+            // الأسعار الصحيحة
             function calculatePrice(count) {
                 if (count === 0) return 0;
                 if (count === 1) return 1500;

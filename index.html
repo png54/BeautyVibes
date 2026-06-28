@@ -12,50 +12,89 @@
         body.rtl input,body.rtl select{text-align:right;direction:rtl}
         body.rtl .input-group label{text-align:right}
         #phone{direction:ltr!important;text-align:left!important}
-        .page-wrapper{max-width:900px;width:100%;background:rgba(255,255,255,.85);backdrop-filter:blur(20px);border-radius:3rem;padding:2rem 2rem;box-shadow:0 30px 60px -15px rgba(255,105,135,.25);position:relative;z-index:1}
-        .lang-switch-wrapper{display:flex;justify-content:center;margin-bottom:1.5rem}
-        .lang-switch{display:flex;gap:.5rem;background:rgba(255,228,235,.7);border-radius:3rem;padding:.4rem;direction:ltr}
+        .page-wrapper{max-width:950px;width:100%;background:rgba(255,255,255,.85);backdrop-filter:blur(20px);border-radius:3rem;padding:2rem 2rem;box-shadow:0 30px 60px -15px rgba(255,105,135,.25);position:relative;z-index:1;transition:all .3s ease}
+        .lang-switch-wrapper{display:flex;justify-content:center;margin-bottom:1.5rem;position:sticky;top:1rem;z-index:10}
+        .lang-switch{display:flex;gap:.5rem;background:rgba(255,228,235,.9);backdrop-filter:blur(10px);border-radius:3rem;padding:.4rem;direction:ltr;box-shadow:0 4px 15px rgba(233,30,99,.15)}
         .lang-btn{padding:.6rem 1.6rem;border-radius:2rem;border:none;cursor:pointer;font-weight:600;font-size:.9rem;background:transparent;color:#b3446c;transition:.3s}
-        .lang-btn.active{background:linear-gradient(135deg,#e91e63,#f06292);color:#fff;transform:scale(1.03)}
-        .brand{text-align:center;margin-bottom:2rem}
-        .brand h1{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:700;background:linear-gradient(135deg,#e91e63,#f48fb1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase}
+        .lang-btn.active{background:linear-gradient(135deg,#e91e63,#f06292);color:#fff;transform:scale(1.03);box-shadow:0 4px 12px rgba(233,30,99,.3)}
+        .lang-btn:hover:not(.active){background:rgba(255,182,193,.5);transform:scale(1.02)}
+        .brand{text-align:center;margin-bottom:1.5rem}
+        .brand h1{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:700;background:linear-gradient(135deg,#e91e63,#f48fb1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase;animation:fadeInDown .8s ease}
         .brand .tagline{font-size:1rem;color:#c2185b;border-top:1px dashed rgba(233,30,99,.35);display:inline-block;padding-top:.5rem;margin-top:.2rem}
-        .products-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem;margin:2rem 0}
-        .product-card{flex:1 1 155px;min-width:145px;max-width:165px;background:rgba(255,255,255,.7);border-radius:2rem;padding:1.2rem .7rem;border:1px solid rgba(255,192,203,.5);cursor:pointer;text-align:center;transition:.3s;position:relative}
-        .product-card:hover{transform:translateY(-5px);border-color:#f48fb1}
-        .product-card.selected{border:2.5px solid #e91e63;background:rgba(255,240,245,.85);box-shadow:0 0 0 6px rgba(233,30,99,.1)}
-        .product-img{width:130px;height:130px;border-radius:1.5rem;object-fit:cover;margin-bottom:.6rem;background:#fce4ec}
+        @keyframes fadeInDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes bounceIn{0%{transform:scale(0)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
+        @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+        .cart-bar{display:flex;align-items:center;justify-content:space-between;background:rgba(255,240,245,.8);border-radius:2rem;padding:.8rem 1.5rem;margin-bottom:1.5rem;border:1px solid rgba(233,30,99,.2);animation:fadeInUp .6s ease}
+        .cart-info{display:flex;align-items:center;gap:.5rem;font-weight:600;color:#5c1d36}
+        .cart-icon{font-size:1.5rem;position:relative}
+        .cart-count{position:absolute;top:-8px;right:-8px;background:#e91e63;color:#fff;border-radius:50%;width:20px;height:20px;font-size:.7rem;display:flex;align-items:center;justify-content:center;font-weight:700;animation:bounceIn .3s ease}
+        .clear-btn{background:transparent;border:1px solid #e91e63;color:#e91e63;padding:.5rem 1.2rem;border-radius:2rem;cursor:pointer;font-size:.8rem;font-weight:600;transition:.3s}
+        .clear-btn:hover{background:#e91e63;color:#fff;animation:shake .3s ease}
+        .products-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem;margin:1.5rem 0;animation:fadeInUp .8s ease}
+        .product-card{flex:1 1 165px;min-width:150px;max-width:175px;background:rgba(255,255,255,.7);border-radius:2rem;padding:1.2rem .8rem;border:1px solid rgba(255,192,203,.5);cursor:pointer;text-align:center;transition:all .35s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+        .product-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#e91e63,#f48fb1);transform:scaleX(0);transition:transform .3s ease}
+        .product-card:hover{transform:translateY(-6px);border-color:#f48fb1;box-shadow:0 20px 35px -12px rgba(233,30,99,.25)}
+        .product-card:hover::before{transform:scaleX(1)}
+        .product-card.selected{border:2.5px solid #e91e63;background:rgba(255,240,245,.9);box-shadow:0 0 0 6px rgba(233,30,99,.12),0 15px 30px -10px rgba(233,30,99,.25);transform:translateY(-3px)}
+        .product-card.selected::before{transform:scaleX(1);background:#e91e63}
+        .product-img{width:130px;height:130px;border-radius:1.5rem;object-fit:cover;margin-bottom:.6rem;background:linear-gradient(135deg,#fce4ec,#f8bbd0);transition:all .3s ease;position:relative}
+        .product-card:hover .product-img{transform:scale(1.05);box-shadow:0 10px 25px rgba(233,30,99,.2)}
+        .product-img-fallback{width:130px;height:130px;border-radius:1.5rem;margin-bottom:.6rem;background:linear-gradient(135deg,#fce4ec,#f8bbd0);display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:#e91e63}
         .product-name{font-weight:600;font-size:.9rem;color:#5c1d36;margin:.3rem 0}
+        .product-desc{font-size:.7rem;color:#b08898;margin-bottom:.2rem;line-height:1.2}
         .product-price{font-weight:700;font-size:.9rem;color:#e91e63;background:rgba(255,228,235,.8);padding:.2rem .8rem;border-radius:2rem;direction:ltr;display:inline-block}
-        .qty-selector{display:flex;align-items:center;justify-content:center;gap:.4rem;margin-top:.5rem}
-        .qty-btn{width:28px;height:28px;border-radius:50%;border:1px solid #e91e63;background:#fff;color:#e91e63;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:bold;transition:.2s;line-height:1;padding:0}
-        .qty-btn:hover{background:#e91e63;color:#fff}
-        .qty-num{font-weight:700;font-size:1rem;color:#3d1e2c;min-width:20px;text-align:center}
-        .check-mark{position:absolute;top:10px;right:10px;background:#e91e63;color:#fff;border-radius:50%;width:24px;height:24px;display:none;align-items:center;justify-content:center;font-size:12px}
+        .qty-selector{display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:.5rem}
+        .qty-btn{width:30px;height:30px;border-radius:50%;border:2px solid #e91e63;background:#fff;color:#e91e63;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:bold;transition:all .2s ease;line-height:1;padding:0;user-select:none}
+        .qty-btn:hover{background:#e91e63;color:#fff;transform:scale(1.1)}
+        .qty-btn:active{transform:scale(.9)}
+        .qty-num{font-weight:700;font-size:1.1rem;color:#3d1e2c;min-width:24px;text-align:center;transition:all .2s ease}
+        .check-mark{position:absolute;top:10px;right:10px;background:linear-gradient(135deg,#e91e63,#f06292);color:#fff;border-radius:50%;width:26px;height:26px;display:none;align-items:center;justify-content:center;font-size:13px;box-shadow:0 4px 10px rgba(233,30,99,.3);animation:bounceIn .3s ease}
         body.rtl .check-mark{right:auto;left:10px}
         .product-card.selected .check-mark{display:flex}
-        .total-section{background:rgba(255,240,245,.7);border-radius:2rem;padding:1.3rem 1.8rem;margin:1.5rem 0;border:1px solid rgba(255,182,193,.5)}
+        .pricing-bar{background:rgba(255,255,255,.6);border-radius:1.5rem;padding:.8rem 1.2rem;margin:.8rem 0;border:1px dashed rgba(233,30,99,.3);text-align:center}
+        .pricing-toggle{background:transparent;border:none;color:#e91e63;cursor:pointer;font-size:.8rem;font-weight:600;text-decoration:underline}
+        .pricing-table{display:none;margin-top:.8rem;text-align:center;font-size:.75rem;color:#5c1d36;line-height:1.6}
+        .pricing-table.show{display:block;animation:fadeInUp .4s ease}
+        .pricing-table span{display:inline-block;background:rgba(255,228,235,.6);padding:.2rem .6rem;border-radius:1rem;margin:.1rem}
+        .pricing-table .discount{background:rgba(233,30,99,.15);color:#e91e63;font-weight:700}
+        .total-section{background:rgba(255,240,245,.7);border-radius:2rem;padding:1.3rem 1.8rem;margin:1.5rem 0;border:1px solid rgba(255,182,193,.5);transition:all .3s ease}
         .total-row{display:flex;justify-content:space-between;padding:.25rem 0;font-size:.95rem;color:#5c1d36}
-        .total-row.final{font-size:1.4rem;font-weight:700;color:#e91e63;border-top:1px dashed rgba(233,30,99,.3);margin-top:.4rem;padding-top:.7rem}
+        .total-row.final{font-size:1.5rem;font-weight:700;color:#e91e63;border-top:1px dashed rgba(233,30,99,.3);margin-top:.4rem;padding-top:.7rem}
         .form-grid{display:flex;flex-direction:column;gap:.8rem}
         .input-group{display:flex;flex-direction:column;gap:.25rem}
         .input-group label{font-size:.8rem;font-weight:600;color:#881c42;text-align:left}
-        input,select{background:rgba(255,255,255,.7);border:1px solid rgba(255,160,180,.5);border-radius:1.2rem;padding:.85rem 1.2rem;font-size:.9rem;outline:none;direction:ltr;text-align:left;transition:.3s}
-        input:focus,select:focus{border-color:#e91e63;box-shadow:0 0 0 3px rgba(233,30,99,.08)}
-        #dairaSelect:disabled,#addressInput:disabled{opacity:.5}
-        .radio-group{display:flex;gap:1.2rem;flex-wrap:wrap}
-        .radio-group label{display:flex;align-items:center;gap:.3rem;cursor:pointer;font-size:.85rem;color:#5c1d36}
-        .radio-group input[type="radio"]{accent-color:#e91e63;width:17px;height:17px}
+        input,select{background:rgba(255,255,255,.7);border:1px solid rgba(255,160,180,.5);border-radius:1.2rem;padding:.85rem 1.2rem;font-size:.9rem;outline:none;direction:ltr;text-align:left;transition:all .3s ease}
+        input:focus,select:focus{border-color:#e91e63;box-shadow:0 0 0 4px rgba(233,30,99,.1);background:rgba(255,255,255,.95);transform:translateY(-1px)}
+        #dairaSelect:disabled,#addressInput:disabled{opacity:.5;cursor:not-allowed}
+        .radio-group{display:flex;gap:1.5rem;flex-wrap:wrap}
+        .radio-group label{display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:#5c1d36;transition:.2s}
+        .radio-group label:hover{color:#e91e63}
+        .radio-group input[type="radio"]{accent-color:#e91e63;width:18px;height:18px;cursor:pointer}
         .double-input,.location-row{display:flex;gap:.7rem;flex-wrap:wrap}
         .double-input .input-group,.location-row .input-group{flex:1 1 45%}
-        .submit-btn{background:linear-gradient(135deg,#e91e63,#f48fb1);color:#fff;border:none;font-size:1.1rem;font-weight:600;padding:1.1rem;border-radius:2.5rem;cursor:pointer;text-transform:uppercase;letter-spacing:1px;transition:.3s;box-shadow:0 12px 30px rgba(233,30,99,.35)}
-        .submit-btn:hover{transform:translateY(-2px)}
-        .submit-btn:disabled{opacity:.5;pointer-events:none;background:#e0b0c0;box-shadow:none}
-        .error-message{color:#d32f2f;font-size:.8rem;display:none;background:rgba(255,205,210,.4);padding:.5rem 1rem;border-radius:1rem}
-        .success-message{background:rgba(232,245,233,.8);color:#2e7d32;padding:1rem;border-radius:1.2rem;text-align:center;display:none}
-        .shipping-info{font-size:.75rem;color:#881c42;margin-top:.15rem;display:none}
-        .pricing-note{background:rgba(255,228,235,.6);border-radius:1.5rem;padding:.7rem 1.2rem;text-align:center;color:#c2185b;margin:.8rem 0;font-weight:500;font-size:.85rem}
-        @media(max-width:600px){.page-wrapper{padding:1.5rem 1rem}.product-img{width:105px;height:105px}.brand h1{font-size:2.4rem}}
+        .submit-btn{background:linear-gradient(135deg,#e91e63,#f06292,#f48fb1);color:#fff;border:none;font-size:1.1rem;font-weight:600;padding:1.2rem;border-radius:2.5rem;cursor:pointer;text-transform:uppercase;letter-spacing:1.5px;transition:all .35s ease;box-shadow:0 12px 30px rgba(233,30,99,.35);position:relative;overflow:hidden}
+        .submit-btn::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;border-radius:50%;background:rgba(255,255,255,.3);transform:translate(-50%,-50%);transition:width .6s,height .6s}
+        .submit-btn:hover:before{width:300px;height:300px}
+        .submit-btn:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(233,30,99,.45)}
+        .submit-btn:disabled{opacity:.5;pointer-events:none;background:#e0b0c0;box-shadow:none;transform:none}
+        .error-message{color:#d32f2f;font-size:.8rem;display:none;background:rgba(255,205,210,.5);padding:.5rem 1rem;border-radius:1rem;border:1px solid rgba(239,154,154,.4);animation:shake .3s ease}
+        .success-message{background:rgba(232,245,233,.9);color:#2e7d32;padding:1rem;border-radius:1.2rem;text-align:center;display:none;font-weight:500;border:1px solid rgba(165,214,167,.5);animation:fadeInUp .4s ease}
+        .shipping-info{font-size:.75rem;color:#881c42;margin-top:.15rem;display:none;animation:fadeInUp .3s ease}
+        .modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);backdrop-filter:blur(5px);z-index:100;display:none;align-items:center;justify-content:center;padding:1.5rem}
+        .modal-overlay.show{display:flex;animation:fadeIn .3s ease}
+        @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+        .modal-box{background:#fff;border-radius:2rem;padding:2rem;max-width:500px;width:100%;box-shadow:0 30px 60px rgba(0,0,0,.2);animation:bounceIn .4s ease;max-height:80vh;overflow-y:auto}
+        .modal-box h3{text-align:center;color:#3d1e2c;margin-bottom:1rem;font-size:1.3rem}
+        .modal-item{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid #f0e0e8;font-size:.9rem}
+        .modal-total{font-size:1.2rem;font-weight:700;color:#e91e63;text-align:right;margin-top:1rem;padding-top:.5rem;border-top:2px solid #e91e63}
+        .modal-btns{display:flex;gap:.8rem;margin-top:1.5rem}
+        .modal-btns button{flex:1;padding:.8rem;border-radius:2rem;border:none;font-weight:600;cursor:pointer;transition:.3s;font-size:.9rem}
+        .btn-cancel{background:#f5f5f5;color:#666}
+        .btn-cancel:hover{background:#e0e0e0}
+        .btn-confirm{background:linear-gradient(135deg,#e91e63,#f06292);color:#fff}
+        .btn-confirm:hover{transform:scale(1.02);box-shadow:0 8px 20px rgba(233,30,99,.3)}
+        @media(max-width:600px){.page-wrapper{padding:1.5rem 1rem}.product-img,.product-img-fallback{width:105px;height:105px}.brand h1{font-size:2.4rem}.modal-box{padding:1.5rem}}
     </style>
 </head>
 <body>
@@ -71,9 +110,40 @@
             <div class="tagline" id="tagline">Plus que la beauté • Un éclat qui inspire confiance</div>
         </div>
 
+        <!-- شريط السلة -->
+        <div class="cart-bar" id="cartBar">
+            <div class="cart-info">
+                <span class="cart-icon">🛒<span class="cart-count" id="cartCount" style="display:none">0</span></span>
+                <span id="cartLabel">Panier :</span>
+                <strong><span id="cartQty">0</span> <span id="cartUnit">articles</span></strong>
+            </div>
+            <button class="clear-btn" id="clearBtn" onclick="clearCart()" style="display:none">
+                <span id="clearText">🗑️ Vider</span>
+            </button>
+        </div>
+
         <div class="products-grid" id="productsContainer"></div>
 
-        <div class="pricing-note"><span>💖</span> <span id="pricingText">1=1500 | 2=3000 | 3=3500🎁 | +1300/h | Promos</span></div>
+        <!-- شريط الأسعار -->
+        <div class="pricing-bar">
+            <span>💖</span> <span id="pricingShort">1=1500 | 2=3000 | 3=3500🎁 | +1300/h | Promos</span>
+            <br>
+            <button class="pricing-toggle" onclick="togglePricing()" id="pricingToggle">📊 Voir le tableau des prix</button>
+            <div class="pricing-table" id="pricingTable">
+                <span>1=1500</span> <span>2=3000</span> <span class="discount">3=3500🎁</span>
+                <span>4=4800</span> <span>5=6100</span> <span class="discount">6=7000🎁</span>
+                <span class="discount">7=8300🎁</span> <span>8=9600</span> <span class="discount">9=10500🎁</span>
+                <span>10=11800</span> <span>11=13100</span> <span class="discount">12=14000🎁</span>
+                <span>13=15300</span> <span>14=16600</span> <span class="discount">15=17500🎁</span><br>
+                <span>16=18800</span> <span>17=20100</span> <span class="discount">18=21000🎁</span>
+                <span>19=22300</span> <span>20=23600</span> <span class="discount">21=24500🎁</span>
+                <span>22=25800</span> <span>23=27100</span> <span class="discount">24=28000🎁</span>
+                <span>25=29300</span> <span>26=30600</span> <span class="discount">27=31500🎁</span>
+                <span>28=32800</span> <span>29=34100</span> <span class="discount">30=35000🎁</span><br>
+                <small>+1300 DA par article supplémentaire</small>
+            </div>
+        </div>
+
         <div class="total-section">
             <div class="total-row"><span id="lblSubtotal">Sous-total :</span><span id="subtotalDisplay">0 DA</span></div>
             <div class="total-row"><span id="lblShipping">Livraison :</span><span id="shippingDisplay">-- DA</span></div>
@@ -102,8 +172,23 @@
                 <input id="addressInput" placeholder="Rue, N°, Commune..." disabled>
             </div>
             <div class="error-message" id="formError"></div>
-            <button class="submit-btn" id="submitOrderBtn" disabled>Commander ✨</button>
+            <button class="submit-btn" id="submitOrderBtn" disabled>
+                <span id="submitText">Commander ✨</span>
+            </button>
             <div class="success-message" id="successMessage"></div>
+        </div>
+    </div>
+
+    <!-- نافذة تأكيد الطلب -->
+    <div class="modal-overlay" id="confirmModal">
+        <div class="modal-box">
+            <h3 id="modalTitle">📋 Confirmer la commande</h3>
+            <div id="modalContent"></div>
+            <div class="modal-total" id="modalTotal"></div>
+            <div class="modal-btns">
+                <button class="btn-cancel" onclick="closeModal()" id="btnCancel">❌ Annuler</button>
+                <button class="btn-confirm" onclick="confirmOrder()" id="btnConfirm">✅ Confirmer</button>
+            </div>
         </div>
     </div>
 
@@ -113,20 +198,22 @@
         const shippingCosts={ "Alger":[590,450],"Oran":[700,550],"Sidi Bel Abbès":[700,550],"Mostaganem":[700,550],"Mascara":[700,550],"Aïn Témouchent":[700,550],"Chlef":[700,550],"Oum El Bouaghi":[900,650],"Batna":[900,650],"Béjaïa":[900,650],"Blida":[900,650],"Bouira":[900,650],"Tlemcen":[900,650],"Tiaret":[900,650],"Tizi Ouzou":[900,650],"Jijel":[900,650],"Sétif":[900,650],"Saïda":[900,650],"Skikda":[900,650],"Annaba":[900,650],"Guelma":[900,650],"Constantine":[900,650],"Médéa":[900,650],"M'Sila":[900,650],"Bordj Bou Arreridj":[900,650],"Boumerdès":[900,650],"El Tarf":[900,650],"Tissemsilt":[900,650],"Khenchela":[900,650],"Souk Ahras":[900,650],"Tipaza":[900,650],"Mila":[900,650],"Aïn Defla":[900,650],"Relizane":[900,650],"Laghouat":[950,750],"Biskra":[950,750],"Béchar":[950,750],"Tébessa":[950,750],"Djelfa":[950,750],"Ouargla":[950,750],"El Oued":[950,750],"Ghardaïa":[950,750],"Ouled Djellal":[950,750],"Béni Abbès":[950,750],"Touggourt":[950,750],"El M'Ghair":[950,750],"El Menia":[950,750],"Adrar":[1050,850],"El Bayadh":[1050,850],"Naâma":[1050,850],"Timimoun":[1050,850],"Bordj Badji Mokhtar":[1050,850],"Tamanrasset":[1600,1400],"Illizi":[1600,1400],"Tindouf":[1600,1400],"In Salah":[1600,1400],"In Guezzam":[1600,1400],"Djanet":[1600,1400] };
 
         const products = [
-            {id:1,name:"Sérum Éclat",price:1500,img:"1.jfif"},
-            {id:2,name:"Crème Hydratante",price:1500,img:"2.jfif"},
-            {id:3,name:"Masque à l'Argile",price:1500,img:"3.jfif"},
-            {id:4,name:"Tonique Rafraîchissant",price:1500,img:"4.jfif"},
-            {id:5,name:"Baume à Lèvres",price:1500,img:"5.jfif"}
+            {id:1,name:"Sérum Éclat",desc:"Éclat intense • Anti-âge",price:1500,img:"1.jfif"},
+            {id:2,name:"Crème Hydratante",desc:"Hydratation 24h • Peau douce",price:1500,img:"2.jfif"},
+            {id:3,name:"Masque à l'Argile",desc:"Purifiant • Peau nette",price:1500,img:"3.jfif"},
+            {id:4,name:"Tonique Rafraîchissant",desc:"Tonifie • Resserre les pores",price:1500,img:"4.jfif"},
+            {id:5,name:"Baume à Lèvres",desc:"Nourrissant • Lèvres douces",price:1500,img:"5.jfif"}
         ];
 
         const container = document.getElementById('productsContainer');
         products.forEach(p => {
             container.innerHTML += `
-                <div class="product-card" data-id="${p.id}" data-name="${p.name}" data-price="${p.price}" onclick="toggleProduct(this)">
+                <div class="product-card" data-id="${p.id}" data-name="${p.name}" data-price="${p.price}">
                     <span class="check-mark">✓</span>
-                    <img src="${p.img}" class="product-img" onerror="this.style.background='#fce4ec'">
+                    <img src="${p.img}" class="product-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="${p.name}">
+                    <div class="product-img-fallback" style="display:none">✨</div>
                     <span class="product-name">${p.name}</span>
+                    <span class="product-desc">${p.desc}</span>
                     <span class="product-price">1 500 DA</span>
                     <div class="qty-selector" onclick="event.stopPropagation()">
                         <button class="qty-btn" onclick="changeQty(${p.id}, -1)">−</button>
@@ -136,22 +223,40 @@
                 </div>`;
         });
 
-        let currentLang='fr',currentShipping=0;
+        // إضافة حدث الضغط على البطاقة
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const id = parseInt(this.dataset.id);
+                toggleProduct(this);
+            });
+        });
+
+        let currentLang='fr',currentShipping=0,orderData=null;
         const cart = {};
 
         function calcTotalPrice(totalQty) {
             if (totalQty === 0) return 0;
-            const priceTable = {
-                1:1500,2:3000,3:3500,4:4800,5:6100,6:7000,7:8300,8:9600,9:10500,10:11800,
-                11:13100,12:14000,13:15300,14:16600,15:17500,16:18800,17:20100,18:21000,
-                19:22300,20:23600,21:24500,22:25800,23:27100,24:28000,25:29300,
-                26:30600,27:31500,28:32800,29:34100,30:35000
-            };
+            const priceTable = {1:1500,2:3000,3:3500,4:4800,5:6100,6:7000,7:8300,8:9600,9:10500,10:11800,11:13100,12:14000,13:15300,14:16600,15:17500,16:18800,17:20100,18:21000,19:22300,20:23600,21:24500,22:25800,23:27100,24:28000,25:29300,26:30600,27:31500,28:32800,29:34100,30:35000};
             if (totalQty <= 30) return priceTable[totalQty];
             return 35000 + (totalQty - 30) * 1300;
         }
 
         function getTotalQty() { return Object.values(cart).reduce((sum,q)=>sum+q,0); }
+
+        function updateCartUI() {
+            const totalQty = getTotalQty();
+            const countEl = document.getElementById('cartCount');
+            const clearBtn = document.getElementById('clearBtn');
+            document.getElementById('cartQty').textContent = totalQty;
+            if (totalQty > 0) {
+                countEl.style.display = 'flex';
+                countEl.textContent = totalQty;
+                clearBtn.style.display = 'inline-block';
+            } else {
+                countEl.style.display = 'none';
+                clearBtn.style.display = 'none';
+            }
+        }
 
         function updateAllTotals() {
             const totalQty = getTotalQty();
@@ -161,6 +266,7 @@
             document.getElementById('shippingDisplay').textContent = currentShipping ? currentShipping.toLocaleString('fr-FR') + ' ' + cur : '-- ' + cur;
             document.getElementById('totalDisplay').textContent = (sub + currentShipping).toLocaleString('fr-FR') + ' ' + cur;
             document.getElementById('submitOrderBtn').disabled = totalQty === 0;
+            updateCartUI();
         }
 
         window.changeQty = function(id, delta) {
@@ -179,6 +285,20 @@
             else { cart[id] = 1; card.classList.add('selected'); }
             document.getElementById('qty-'+id).textContent = cart[id] || 0;
             updateAllTotals();
+        };
+
+        window.clearCart = function() {
+            Object.keys(cart).forEach(k => { cart[k] = 0; document.getElementById('qty-'+k).textContent = '0'; });
+            document.querySelectorAll('.product-card.selected').forEach(c => c.classList.remove('selected'));
+            updateAllTotals();
+        };
+
+        window.togglePricing = function() {
+            document.getElementById('pricingTable').classList.toggle('show');
+            const btn = document.getElementById('pricingToggle');
+            btn.textContent = document.getElementById('pricingTable').classList.contains('show') ? 
+                (currentLang==='fr'?'📊 Masquer':'📊 إخفاء') : 
+                (currentLang==='fr'?'📊 Voir le tableau des prix':'📊 عرض جدول الأسعار');
         };
 
         function extractWilayaName(full) { return full.replace(/^\d+\s*-\s*/, '').trim(); }
@@ -206,8 +326,8 @@
         };
 
         const tt={
-            fr:{tagline:"Plus que la beauté • Un éclat qui inspire confiance",pricingText:'1=1500 | 2=3000 | 3=3500🎁 | +1300/h | Promos',lblSubtotal:"Sous-total :",lblShipping:"Livraison :",lblTotal:"Total :",lblFirstName:"Prénom",lblLastName:"Nom",lblPhone:"Téléphone",lblWilaya:"Wilaya",lblDaira:"Daïra",lblDelivery:"Type de livraison",optHome:"🏠 Domicile",optOffice:"🏢 Bureau",lblAddress:"Adresse exacte",firstNamePlaceholder:"Votre prénom",lastNamePlaceholder:"Votre nom",phonePlaceholder:"Ex: 0555 12 34 56",addressPlaceholder:"Rue, N°, Commune...",submitBtn:"Commander ✨",errorSelect:"Sélectionnez au moins 1 produit.",errorFields:"Remplissez tous les champs.",errorDelivery:"Choisissez le type de livraison.",successMsg:"✅ Commande envoyée ! 🌿",errorTelegram:"❌ Erreur.",currency:"DA"},
-            ar:{tagline:"أكثر من جمال • إشراقة تلهب الثقة",pricingText:'1=1500 | 2=3000 | 3=3500🎁 | +1300/ح | خصومات',lblSubtotal:"المجموع الفرعي :",lblShipping:"التوصيل :",lblTotal:"المجموع :",lblFirstName:"الاسم",lblLastName:"اللقب",lblPhone:"رقم الهاتف",lblWilaya:"الولاية",lblDaira:"الدائرة",lblDelivery:"نوع التوصيل",optHome:"🏠 المنزل",optOffice:"🏢 المكتب",lblAddress:"العنوان بالضبط",firstNamePlaceholder:"أدخل اسمك",lastNamePlaceholder:"أدخل لقبك",phonePlaceholder:"Ex: 0555 12 34 56",addressPlaceholder:"الشارع، الرقم، البلدية...",submitBtn:"✨ أرسل الطلب",errorSelect:"اختر منتجاً واحداً على الأقل.",errorFields:"املأ جميع الحقول.",errorDelivery:"اختر نوع التوصيل.",successMsg:"✅ تم الإرسال! 🌿",errorTelegram:"❌ خطأ.",currency:"دج"}
+            fr:{tagline:"Plus que la beauté • Un éclat qui inspire confiance",pricingShort:'1=1500 | 2=3000 | 3=3500🎁 | +1300/h | Promos',lblSubtotal:"Sous-total :",lblShipping:"Livraison :",lblTotal:"Total :",lblFirstName:"Prénom",lblLastName:"Nom",lblPhone:"Téléphone",lblWilaya:"Wilaya",lblDaira:"Daïra",lblDelivery:"Type de livraison",optHome:"🏠 Domicile",optOffice:"🏢 Bureau",lblAddress:"Adresse exacte",firstNamePlaceholder:"Votre prénom",lastNamePlaceholder:"Votre nom",phonePlaceholder:"Ex: 0555 12 34 56",addressPlaceholder:"Rue, N°, Commune...",submitBtn:"Commander ✨",errorSelect:"Sélectionnez au moins 1 produit.",errorFields:"Remplissez tous les champs.",errorDelivery:"Choisissez le type de livraison.",successMsg:"✅ Commande envoyée ! 🌿",errorTelegram:"❌ Erreur.",currency:"DA",cartLabel:"Panier :",cartUnit:"articles",clearText:"🗑️ Vider",pricingToggle:"📊 Voir le tableau des prix",modalTitle:"📋 Confirmer la commande",btnCancel:"❌ Annuler",btnConfirm:"✅ Confirmer"},
+            ar:{tagline:"أكثر من جمال • إشراقة تلهب الثقة",pricingShort:'1=1500 | 2=3000 | 3=3500🎁 | +1300/ح | خصومات',lblSubtotal:"المجموع الفرعي :",lblShipping:"التوصيل :",lblTotal:"المجموع :",lblFirstName:"الاسم",lblLastName:"اللقب",lblPhone:"رقم الهاتف",lblWilaya:"الولاية",lblDaira:"الدائرة",lblDelivery:"نوع التوصيل",optHome:"🏠 المنزل",optOffice:"🏢 المكتب",lblAddress:"العنوان بالضبط",firstNamePlaceholder:"أدخل اسمك",lastNamePlaceholder:"أدخل لقبك",phonePlaceholder:"Ex: 0555 12 34 56",addressPlaceholder:"الشارع، الرقم، البلدية...",submitBtn:"✨ أرسل الطلب",errorSelect:"اختر منتجاً واحداً على الأقل.",errorFields:"املأ جميع الحقول.",errorDelivery:"اختر نوع التوصيل.",successMsg:"✅ تم الإرسال! 🌿",errorTelegram:"❌ خطأ.",currency:"دج",cartLabel:"السلة :",cartUnit:"منتج",clearText:"🗑️ تفريغ",pricingToggle:"📊 عرض جدول الأسعار",modalTitle:"📋 تأكيد الطلب",btnCancel:"❌ إلغاء",btnConfirm:"✅ تأكيد"}
         };
 
         function populateWilayas(lang){
@@ -230,42 +350,80 @@
             }else{resetDairaSelect(currentLang);}
             updateShipping();
         });
+
         window.switchLanguage=function(lang){
             currentLang=lang;const t=tt[lang];
             document.body.classList.toggle('rtl',lang==='ar');
             document.documentElement.dir=lang==='ar'?'rtl':'ltr';
             document.getElementById('btnFr').classList.toggle('active',lang==='fr');
             document.getElementById('btnAr').classList.toggle('active',lang==='ar');
-            ['tagline','lblSubtotal','lblShipping','lblTotal','lblFirstName','lblLastName','lblPhone','lblWilaya','lblDaira','lblDelivery','lblAddress','optHome','optOffice'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=t[id];});
-            document.getElementById('pricingText').innerHTML=t.pricingText;
+            ['tagline','lblSubtotal','lblShipping','lblTotal','lblFirstName','lblLastName','lblPhone','lblWilaya','lblDaira','lblDelivery','lblAddress','optHome','optOffice','cartLabel','cartUnit','clearText','pricingToggle','modalTitle','btnCancel','btnConfirm'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=t[id];});
+            document.getElementById('pricingShort').innerHTML=t.pricingShort;
             document.getElementById('firstName').placeholder=t.firstNamePlaceholder;
             document.getElementById('lastName').placeholder=t.lastNamePlaceholder;
             document.getElementById('phone').placeholder=t.phonePlaceholder;
             document.getElementById('addressInput').placeholder=t.addressPlaceholder;
-            document.getElementById('submitOrderBtn').textContent=t.submitBtn;
+            document.getElementById('submitText').textContent=t.submitBtn;
             populateWilayas(lang);updateAllTotals();
+            document.getElementById('pricingToggle').textContent = document.getElementById('pricingTable').classList.contains('show') ? (lang==='fr'?'📊 Masquer':'📊 إخفاء') : t.pricingToggle;
         };
 
-        document.getElementById('submitOrderBtn').addEventListener('click',async function(e){
-            e.preventDefault();const t=tt[currentLang];
+        // نافذة التأكيد
+        function showConfirmModal() {
+            const t = tt[currentLang];
+            const totalQty = getTotalQty();
+            const sub = calcTotalPrice(totalQty);
+            const total = sub + currentShipping;
+            const dt = document.querySelector('input[name="deliveryType"]:checked');
+            const deliveryLabel = dt ? (dt.value==='home' ? t.optHome : t.optOffice) : '--';
+            
+            let items = '';
+            Object.entries(cart).forEach(([id,q]) => {
+                if(q>0) {
+                    const p = products.find(x=>x.id===parseInt(id));
+                    items += `<div class="modal-item"><span>${p.name} x${q}</span><span>${(p.price*q).toLocaleString('fr-FR')} DA</span></div>`;
+                }
+            });
+            
+            document.getElementById('modalContent').innerHTML = `
+                <p><strong>👤 ${document.getElementById('firstName').value} ${document.getElementById('lastName').value}</strong></p>
+                <p>📞 ${document.getElementById('phone').value}</p>
+                <p>📍 ${document.getElementById('wilayaSelect').value} > ${document.getElementById('dairaSelect').value}</p>
+                <p>🚚 ${deliveryLabel} - ${document.getElementById('addressInput').value}</p>
+                <hr style="margin:.8rem 0;border-color:#f0e0e8">
+                ${items}
+            `;
+            document.getElementById('modalTotal').textContent = `Total: ${total.toLocaleString('fr-FR')} ${t.currency}`;
+            document.getElementById('confirmModal').classList.add('show');
+        }
+
+        window.closeModal = function() {
+            document.getElementById('confirmModal').classList.remove('show');
+        };
+
+        window.confirmOrder = function() {
+            closeModal();
+            sendOrder();
+        };
+
+        // الإرسال الفعلي
+        async function sendOrder() {
+            const t=tt[currentLang];
             const fn=document.getElementById('firstName').value.trim(),ln=document.getElementById('lastName').value.trim();
             const ph=document.getElementById('phone').value.trim(),wl=document.getElementById('wilayaSelect').value;
             const dr=document.getElementById('dairaSelect').value,dt=document.querySelector('input[name="deliveryType"]:checked');
             const addr=document.getElementById('addressInput').value.trim();
             const er=document.getElementById('formError'),sm=document.getElementById('successMessage');
-            if(!fn||!ln||!ph||!wl||!dr||!dt||!addr||getTotalQty()===0){
-                er.textContent=getTotalQty()===0?t.errorSelect:!dt?t.errorDelivery:t.errorFields;
-                er.style.display='block';return;
-            }
-            if(!/^[0-9+\s()-]{8,}$/.test(ph)){er.textContent='Numéro invalide';er.style.display='block';return;}
-            const btn=document.getElementById('submitOrderBtn');btn.disabled=true;btn.textContent='⏳ ...';er.style.display='none';sm.style.display='none';
+            
+            const btn=document.getElementById('submitOrderBtn');btn.disabled=true;
+            document.getElementById('submitText').textContent='⏳ ...';er.style.display='none';sm.style.display='none';
+            
             const totalQty=getTotalQty(),sub=calcTotalPrice(totalQty),total=sub+currentShipping;
             const cartProducts = [];
-            Object.entries(cart).forEach(([id,q])=>{
-                if(q>0){const p=products.find(x=>x.id===parseInt(id));cartProducts.push({...p, qty: q});}
-            });
+            Object.entries(cart).forEach(([id,q])=>{if(q>0){const p=products.find(x=>x.id===parseInt(id));cartProducts.push({...p, qty: q});}});
             let sv='';
             if(totalQty>=3){const normal=totalQty*1500;if(normal>sub)sv='\n💸 Économisé: '+(normal-sub).toLocaleString('fr-FR')+' DA';}
+            
             try{
                 const res=await fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},
                     body:JSON.stringify({products:cartProducts,count:totalQty,subtotal:sub,shipping:currentShipping,total,savings:sv,deliveryType:dt.value,customer:{firstName:fn,lastName:ln,phone:ph,wilaya:wl,daira:dr,address:addr}})});
@@ -281,7 +439,23 @@
                     setTimeout(()=>sm.style.display='none',5000);
                 }else{er.textContent=t.errorTelegram;er.style.display='block';}
             }catch(err){er.textContent=t.errorTelegram;er.style.display='block';}
-            btn.disabled=false;btn.textContent=t.submitBtn;
+            btn.disabled=false;document.getElementById('submitText').textContent=t.submitBtn;
+        }
+
+        document.getElementById('submitOrderBtn').addEventListener('click',function(e){
+            e.preventDefault();const t=tt[currentLang];
+            const fn=document.getElementById('firstName').value.trim(),ln=document.getElementById('lastName').value.trim();
+            const ph=document.getElementById('phone').value.trim(),wl=document.getElementById('wilayaSelect').value;
+            const dr=document.getElementById('dairaSelect').value,dt=document.querySelector('input[name="deliveryType"]:checked');
+            const addr=document.getElementById('addressInput').value.trim();
+            const er=document.getElementById('formError');
+            if(!fn||!ln||!ph||!wl||!dr||!dt||!addr||getTotalQty()===0){
+                er.textContent=getTotalQty()===0?t.errorSelect:!dt?t.errorDelivery:t.errorFields;
+                er.style.display='block';return;
+            }
+            if(!/^[0-9+\s()-]{8,}$/.test(ph)){er.textContent='Numéro invalide';er.style.display='block';return;}
+            er.style.display='none';
+            showConfirmModal();
         });
 
         populateWilayas('fr');updateAllTotals();
